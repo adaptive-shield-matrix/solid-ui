@@ -16,6 +16,41 @@ const DemoTablePagination = lazy(async () => {
   return { default: c.DemoTablePagination }
 })
 
+const DemoRadioSwitch = lazy(async () => {
+  const c = await import("@/demos/input/DemoRadioSwitch.tsx")
+  return { default: c.DemoRadioSwitch }
+})
+
+const DemoMultiSelect = lazy(async () => {
+  const c = await import("@/demos/input/DemoMultiSelect.tsx")
+  return { default: c.DemoMultiSelect }
+})
+
+const DemoNumberInput = lazy(async () => {
+  const c = await import("@/demos/input/DemoNumberInput.tsx")
+  return { default: c.DemoNumberInput }
+})
+
+const DemoNativeSingleSelect = lazy(async () => {
+  const c = await import("@/demos/input/DemoNativeSingleSelect.tsx")
+  return { default: c.DemoNativeSingleSelect }
+})
+
+const DemoForm1 = lazy(async () => {
+  const c = await import("@/demos/input/DemoForm1.tsx")
+  return { default: c.DemoForm1 }
+})
+
+const DemoLoaders = lazy(async () => {
+  const c = await import("@/demos/static/DemoLoaders.tsx")
+  return { default: c.DemoLoaders }
+})
+
+const DemoTimeline = lazy(async () => {
+  const c = await import("@/demos/static/DemoTimeline.tsx")
+  return { default: c.DemoTimeline }
+})
+
 const DemoSolidComparingForVsIndex = lazy(async () => {
   const c = await import("@/demos/learning_solid/iteration/DemoSolidComparingForVsIndex.tsx")
   return { default: c.DemoSolidComparingForVsIndex }
@@ -56,7 +91,58 @@ const DemoUseSubmission1 = lazy(async () => {
   return { default: c.DemoUseSubmission1 }
 })
 
+const DemoToaster = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoToaster.tsx")
+  return { default: c.DemoToaster }
+})
+
+const DemoNativeDialog = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoNativeDialog.tsx")
+  return { default: c.DemoNativeDialog }
+})
+
+const DemoDetails = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoDetails.tsx")
+  return { default: c.DemoDetails }
+})
+
+const DemoNativePopover = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoNativePopover.tsx")
+  return { default: c.DemoNativePopover }
+})
+
+const DemoNativePopoverFloating = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoNativePopoverFloating.tsx")
+  return { default: c.DemoNativePopoverFloating }
+})
+
+const DemoButtons = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoButtons.tsx")
+  return { default: c.DemoButtons }
+})
+
+const DemoPopover = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoPopover.tsx")
+  return { default: c.DemoPopover }
+})
+
 export const demoList = {
+  input: {
+    DemoRadioSwitch: DemoRadioSwitch,
+    DemoMultiSelect: DemoMultiSelect,
+    DemoNumberInput: DemoNumberInput,
+    DemoNativeSingleSelect: DemoNativeSingleSelect,
+    DemoForm1: DemoForm1,
+  },
+  interactive: {
+    DemoToaster: DemoToaster,
+    DemoNativeDialog: DemoNativeDialog,
+    DemoDetails: DemoDetails,
+    DemoNativePopover: DemoNativePopover,
+    DemoNativePopoverFloating: DemoNativePopoverFloating,
+    DemoButtons: DemoButtons,
+    DemoPopover: DemoPopover,
+  },
   learning_solid: {
     DemoSolidComparingForVsIndex: DemoSolidComparingForVsIndex,
     DemoSolidDerivedSignals: DemoSolidDerivedSignals,
@@ -66,6 +152,10 @@ export const demoList = {
     DemoSolidGlobalResourceApp: DemoSolidGlobalResourceApp,
     DemoUseSubmission2: DemoUseSubmission2,
     DemoUseSubmission1: DemoUseSubmission1,
+  },
+  static: {
+    DemoLoaders: DemoLoaders,
+    DemoTimeline: DemoTimeline,
   },
   table: {
     DemoTable2R: DemoTable2R,
