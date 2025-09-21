@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "bun run rsbuild:dev",
+    "build": "bun run rsbuild:build",
     "vite:dev": "nice -5 vite dev --debug hmr",
     "vite:build": "nice -15 vite build",
     "vite:deploy": "bun run vite:build && bun run solid:upload && bun run solid:tag",
