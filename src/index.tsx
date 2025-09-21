@@ -8,14 +8,11 @@ import "./global.css"
 
 const root = document.getElementById("root")
 
-const demoRoutes = generateDemoRoutes(demoList, "")
-console.log(demoRoutes)
-
 const demoRoutesDef = [
   {
     // path: "/*",
     // component: LayoutWrapperDemo,
-    children: demoRoutes,
+    children: generateDemoRoutes(demoList, ""),
   },
 ]
 
