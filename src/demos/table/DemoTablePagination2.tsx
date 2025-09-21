@@ -4,10 +4,10 @@ import { ct0 } from "~/i18n/ct0.ts"
 import { buttonVariant } from "~/interactive/button/buttonCva.ts"
 import { ButtonIcon } from "~/interactive/button/ButtonIcon.tsx"
 import { t4tablePagination } from "~/table/table3/pagination/t4tablePagination.ts"
-import { classMerge } from "~/utils/classMerge.ts"
-import type { SignalObject } from "~/utils/createSignalObject.ts"
-import type { HasChildren } from "~/utils/HasChildren.ts"
-import type { HasClass } from "~/utils/HasClass"
+import { classMerge } from "~/utils/ui/classMerge"
+import type { SignalObject } from "~/utils/ui/createSignalObject"
+import type { HasChildren } from "~/utils/ui/HasChildren"
+import type { HasClass } from "~/utils/ui/HasClass"
 
 export type AtomizedTablePaginationProps = {
   entriesPerPage: number

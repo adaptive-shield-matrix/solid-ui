@@ -1,6 +1,6 @@
 import { toastVariant, type ToastVariant } from "~/interactive/toast/toastVariant.ts"
-import { classArr } from "~/utils/classArr.ts"
-import { classMerge } from "~/utils/classMerge.ts"
+import { classArr } from "~/utils/ui/classArr"
+import { classMerge } from "~/utils/ui/classMerge"
 
 const baseClasses = classArr(
   "rounded-lg shadow-lg", // card shadows/padding

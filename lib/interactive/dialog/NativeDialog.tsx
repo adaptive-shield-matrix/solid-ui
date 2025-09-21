@@ -8,10 +8,10 @@ import {
   type IsOpenSignalObject,
 } from "~/interactive/dialog/createNativeDialogOpenStateSignal.ts"
 import { tbCloseDialog } from "~/interactive/dialog/tbCloseDialog.ts"
-import { classMerge } from "~/utils/classMerge.ts"
-import { createSignalObject, type SignalObject } from "~/utils/createSignalObject.ts"
-import type { HasChildren } from "~/utils/HasChildren.ts"
-import type { HasClass } from "~/utils/HasClass"
+import { classMerge } from "~/utils/ui/classMerge"
+import { createSignalObject, type SignalObject } from "~/utils/ui/createSignalObject"
+import type { HasChildren } from "~/utils/ui/HasChildren"
+import type { HasClass } from "~/utils/ui/HasClass"
 import "./NativeDialog.module.css"
 
 export type DialogButtonProps = Omit<ButtonIconProps, "id" | "type">

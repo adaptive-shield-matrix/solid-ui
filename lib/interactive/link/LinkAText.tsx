@@ -1,6 +1,6 @@
 import { splitProps } from "solid-js"
 import type { LinkTextProps } from "~/interactive/link/LinkTextProps.tsx"
-import { classMerge } from "~/utils/classMerge.ts"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export function LinkAText(p: LinkTextProps) {
   const [, rest] = splitProps(p, ["class", "href"])

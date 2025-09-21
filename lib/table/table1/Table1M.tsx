@@ -2,8 +2,8 @@ import { Separator } from "~/static/separator/Separator"
 import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames.ts"
 import type { Table1Data } from "~/table/table1/Table1Data.ts"
 import { Table1MEntry } from "~/table/table1/Table1MEntry.tsx"
-import { classMerge } from "~/utils/classMerge.ts"
-import type { HasClass } from "~/utils/HasClass"
+import type { HasClass } from "~/utils/ui/HasClass"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export type Table1aMProps<T> = Table1Data<T> & {
   mobileClasses?: MobileTableClassNames

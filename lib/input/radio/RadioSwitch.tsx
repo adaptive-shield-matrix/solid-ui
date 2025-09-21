@@ -1,14 +1,14 @@
 import { Key } from "@solid-primitives/keyed"
 import { ct0 } from "~/i18n/ct0.ts"
 import { t4multiselect } from "~/input/select/t4multiselect.ts"
-import { classArr } from "~/utils/classArr.ts"
-import type { SignalObject } from "~/utils/createSignalObject.ts"
-import type { HasChildren } from "~/utils/HasChildren.ts"
-import type { HasClass } from "~/utils/HasClass"
-import { type HasDisabled, isDisabled } from "~/utils/HasDisabled.ts"
-import type { HasGetOptions } from "~/utils/HasGetOptions.tsx"
-import type { SelectionItem } from "~/utils/SelectionItem.tsx"
-import type { ValueOrAccessor } from "~/utils/ValueOrAccessor.tsx"
+import { classArr } from "~/utils/ui/classArr"
+import type { SignalObject } from "~/utils/ui/createSignalObject"
+import type { HasChildren } from "~/utils/ui/HasChildren"
+import type { HasClass } from "~/utils/ui/HasClass"
+import { type HasDisabled, isDisabled } from "~/utils/ui/HasDisabled"
+import type { HasGetOptions } from "~/utils/ui/HasGetOptions"
+import type { SelectionItem } from "~/utils/ui/SelectionItem"
+import type { ValueOrAccessor } from "~/utils/ui/ValueOrAccessor"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/radio-group/src/Radio.tsx

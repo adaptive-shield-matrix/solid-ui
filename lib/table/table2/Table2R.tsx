@@ -5,7 +5,7 @@ import { tableVisibilityClasses } from "~/table/shared/tableVisibilityClasses.ts
 import type { Table2Signals } from "~/table/table2/createSortableTableSignals.ts"
 import { Table2D } from "~/table/table2/Table2D.tsx"
 import { Table2M } from "~/table/table2/Table2M.tsx"
-import { type TailwindBreakpoint, tailwindBreakpoint } from "~/utils/TailwindBreakpoint.ts"
+import { type TailwindBreakpoint, tailwindBreakpoint } from "~/utils/ui/tailwindBreakpoint"
 
 export type Table2RProps<T> = Table2Signals<T> & {
   breakpoint?: TailwindBreakpoint

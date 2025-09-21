@@ -1,4 +1,4 @@
-import type { ValueOrAccessor } from "~/utils/ValueOrAccessor.tsx"
+import type { ValueOrAccessor } from "~/utils/ui/ValueOrAccessor"
 
 export type HasDisabled = {
   disabled?: ValueOrAccessor<boolean>

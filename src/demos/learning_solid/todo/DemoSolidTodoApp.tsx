@@ -1,5 +1,5 @@
 import { createSignal, For } from "solid-js";
-import { createLocalStore } from "~/utils/createLocalStore.ts";
+import { createLocalStore } from "~/utils/ui/createLocalStore";
 
 //
 // https://codesandbox.io/s/lrm786ojqz?file=/index.tsx:0-1806

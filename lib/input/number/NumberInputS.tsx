@@ -5,9 +5,9 @@ import { Input } from "~/input/input/Input.tsx"
 import { t4atomizedNumberInput } from "~/input/number/t4atomizedNumberInput.ts"
 import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva.ts"
 import { ButtonIconOnly } from "~/interactive/button/ButtonIconOnly.tsx"
-import { classMerge } from "~/utils/classMerge.ts"
-import type { SignalObject } from "~/utils/createSignalObject.ts"
 import { safeParseInt } from "~/utils/int/safeParseInt.ts"
+import { classMerge } from "~/utils/ui/classMerge"
+import type { SignalObject } from "~/utils/ui/createSignalObject"
 
 export type NumberInputSProps = {
   valueSignal: SignalObject<number>

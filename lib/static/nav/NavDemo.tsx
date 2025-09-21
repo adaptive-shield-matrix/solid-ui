@@ -7,9 +7,9 @@ import { LinkButton } from "~/interactive/link/LinkButton.tsx"
 import { SimplePopover3 } from "~/interactive/popover/SimplePopover3.tsx"
 import { ThemeButton } from "~/interactive/theme/ThemeButton"
 import { LogoImageOnly } from "~/static/logo/LogoImageOnly"
-import { classMerge } from "~/utils/classMerge.ts"
 import { objectEntries } from "~/utils/obj/objectEntries.ts"
 import { objectKeys } from "~/utils/obj/objectKeys.ts"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export interface DemoNavProps extends ComponentProps<"nav"> {
   category?: string

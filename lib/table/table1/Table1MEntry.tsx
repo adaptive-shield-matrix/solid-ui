@@ -1,7 +1,7 @@
 import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames.ts"
 import type { TableColumnDef } from "~/table/shared/TableColumnDef.ts"
-import { classMerge } from "~/utils/classMerge.ts"
-import type { HasChildren } from "~/utils/HasChildren.ts"
+import type { HasChildren } from "~/utils/ui/HasChildren"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export type Table1aMEntryProps<T> = {
   row: T
