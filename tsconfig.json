@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es2024",
+      "dom",
+      "dom.iterable"
+    ],
+    "module": "esnext",
+    "target": "es2024",
+    "skipLibCheck": true,
+    // https://github.com/withastro/astro/blob/main/tsconfig.base.json
+    // Bundler mode configuration
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    //
+    // my configs
+    //
+    "allowJs": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "moduleDetection": "force",
+    "noUncheckedSideEffectImports": true,
+    //
+    // absolute import paths
+    //
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "~/*": [
+        "lib/*"
+      ],
+    },
+    //
+    // type imports - https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax
+    //
+    "verbatimModuleSyntax": true,
+    //
+    // https://devblogs.microsoft.com/typescript/announcing-typescript-5-8/#the---erasablesyntaxonly-option
+    //
+    "erasableSyntaxOnly": true,
+    //
+    // code quality settings
+    //
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "lib",
+    "src",
+    "test",
+  ],
+  "exclude": [
+    ".idea",
+    ".vscode",
+    "build",
+    "dist",
+    "out",
+    "data",
+    "docs",
+    "node_modules",
+    "public"
+  ]
+}
