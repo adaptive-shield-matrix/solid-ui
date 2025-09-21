@@ -1,0 +1,22 @@
+import type { Label2Props } from "~/input/label/Label2.tsx"
+import { LabelAsterix } from "~/input/label/LabelAsterix.tsx"
+import { classMerge } from "~/utils/classMerge.ts"
+
+export function PseudoLabel2(p: Label2Props) {
+  return (
+    <div
+      class={classMerge("font-medium whitespace-nowrap", p.disabled && "cursor-not-allowed opacity-70", p.labelClass)}
+      id={p.id}
+    >
+      {p.title}
+      {p.required && <LabelAsterix />}
+      {p.subtitle && (
+        <>
+          <br />
+          <span class={"font-normal whitespace-normal"}>{p.subtitle}</span>
+        </>
+      )}
+      {p.children}
+    </div>
+  )
+}
