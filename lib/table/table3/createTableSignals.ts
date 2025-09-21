@@ -1,12 +1,12 @@
+import { defaultEntriesPerPage } from "@/demos/table/defaultEntriesPerPage"
 import type { Accessor } from "solid-js"
 import { languageSignal } from "~/i18n/languageSignal"
 import { searchInputSignal } from "~/input/search/searchInputSignal.ts"
 import { createTableColumnDef, type TableColumnDef, tableFilterColumns } from "~/table/shared/TableColumnDef.ts"
 import { sortData } from "~/table/table2/sortData.ts"
 import { defaultSortDir, sortDir, type SortDir } from "~/table/table2/sortDir.ts"
-import { defaultEntriesPerPage } from "@/demos/table/defaultEntriesPerPage"
 import { tableRowSearchSimple } from "~/table/table3/tableRowSearchSimple.ts"
-import { createSignalObject, type SignalObject } from "~/utils/createSignalObject.ts"
+import { createSignalObject, type SignalObject } from "~/utils/ui/createSignalObject"
 
 export type CreateTableAtoms<T> = {
   columns: TableColumnDef<T>[] | SignalObject<TableColumnDef<T>[]>

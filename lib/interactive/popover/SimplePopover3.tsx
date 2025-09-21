@@ -1,8 +1,8 @@
 import { computePosition, type ComputePositionConfig, flip, offset, shift } from "@floating-ui/dom"
 import { createUniqueId, splitProps } from "solid-js"
 import { ButtonIcon1, type ButtonIcon1Props } from "~/interactive/button/ButtonIcon1.tsx"
-import { classArr } from "~/utils/classArr.ts"
-import type { HasClassAndChildren } from "~/utils/HasClassAndChildren.ts"
+import type { HasClassAndChildren } from "~/utils/ui/HasClassAndChildren"
+import { classArr } from "~/utils/ui/classArr"
 
 export function SimplePopover3(p: { buttonProps: ButtonIcon1Props } & HasClassAndChildren) {
   const s = createNativePopoverState()

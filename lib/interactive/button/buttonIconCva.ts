@@ -1,6 +1,6 @@
 import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva.ts"
-import { classArr } from "~/utils/classArr.ts"
-import { classMerge } from "~/utils/classMerge.ts"
+import { classArr } from "~/utils/ui/classArr"
+import { classMerge } from "~/utils/ui/classMerge"
 
 const classesTextFillBlack = "text-black fill-black"
 const classesTextFillWhite = "text-white fill-white"

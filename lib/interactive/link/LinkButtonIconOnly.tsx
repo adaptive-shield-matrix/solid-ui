@@ -5,7 +5,7 @@ import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
 import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
 import type { LinkButtonProps } from "~/interactive/link/LinkButtonProps.tsx"
 import { Icon1 } from "~/static/img/Icon1.tsx"
-import { isLoading } from "~/utils/HasIsLoading"
+import { isLoading } from "~/utils/ui/HasIsLoading"
 
 export function LinkButtonIconOnly(p: LinkButtonProps) {
   const [, rest] = splitProps(p, [

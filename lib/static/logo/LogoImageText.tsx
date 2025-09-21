@@ -1,7 +1,7 @@
 import { LinkButton } from "~/interactive/link/LinkButton.tsx"
 import { Img } from "~/static/img/Img"
-import { classMerge } from "~/utils/classMerge.ts"
-import type { MayHaveClass } from "~/utils/MayHaveClass"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export interface LogoImageTextProps extends MayHaveClass {
   imageClass?: string

@@ -1,5 +1,5 @@
-import { classMerge } from "~/utils/classMerge.ts"
-import type { HasClass } from "~/utils/HasClass"
+import type { HasClass } from "~/utils/ui/HasClass"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export function ChevronVerticalSvg(p:HasClass) {
   return (

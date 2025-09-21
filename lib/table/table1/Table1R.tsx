@@ -4,8 +4,8 @@ import { tableVisibilityClasses } from "~/table/shared/tableVisibilityClasses.ts
 import { Table1D } from "~/table/table1/Table1D.tsx"
 import type { Table1Data } from "~/table/table1/Table1Data.ts"
 import { Table1M } from "~/table/table1/Table1M.tsx"
-import type { TailwindBreakpoint } from "~/utils/TailwindBreakpoint.ts"
-import { tailwindBreakpoint } from "~/utils/TailwindBreakpoint.ts"
+import type { TailwindBreakpoint } from "~/utils/ui/tailwindBreakpoint"
+import { tailwindBreakpoint } from "~/utils/ui/tailwindBreakpoint"
 
 export type SortableTable1RProps<T> = Table1Data<T> & {
   breakpoint?: TailwindBreakpoint

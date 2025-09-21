@@ -1,5 +1,5 @@
-import type { HasClassAndChildren } from "~/utils/HasClassAndChildren.ts"
-import { classMerge } from "~/utils/classMerge.ts"
+import type { HasClassAndChildren } from "~/utils/ui/HasClassAndChildren"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export interface PageWrapper2Props extends HasClassAndChildren {
   innerClass?: string

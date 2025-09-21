@@ -1,8 +1,8 @@
 import { mdiAlertBoxOutline } from "@mdi/js"
 import { Icon1 } from "~/static/img/Icon1.tsx"
-import type { MayHaveChildren } from "~/utils/MayHaveChildren"
-import type { MayHaveClass } from "~/utils/MayHaveClass"
-import { classMerge } from "~/utils/classMerge"
+import type { MayHaveChildren } from "~/utils/ui/MayHaveChildren"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export interface ErrorPageProps extends MayHaveClass, MayHaveChildren {
   title: string

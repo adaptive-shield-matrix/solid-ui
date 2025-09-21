@@ -1,6 +1,6 @@
 import type { Component, ComponentProps } from "solid-js"
 import { splitProps } from "solid-js"
-import { classMerge } from "~/utils/classMerge.ts"
+import { classMerge } from "~/utils/ui/classMerge"
 
 const Table: Component<ComponentProps<"table">> = (p) => {
   const [, rest] = splitProps(p, ["class"])

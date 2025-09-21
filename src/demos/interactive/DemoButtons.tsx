@@ -9,7 +9,7 @@ import { ButtonIconOnly } from "~/interactive/button/ButtonIconOnly.tsx"
 import { LinkButton } from "~/interactive/link/LinkButton.tsx"
 import { toastAdd } from "~/interactive/toast/toastAdd.ts"
 import { type ToastVariant, toastVariant } from "~/interactive/toast/toastVariant.ts"
-import { classArr } from "~/utils/classArr.ts"
+import { classArr } from "~/utils/ui/classArr"
 
 export function DemoButtons() {
   return (

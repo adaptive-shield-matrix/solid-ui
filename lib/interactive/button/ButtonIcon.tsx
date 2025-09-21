@@ -6,7 +6,7 @@ import { type ButtonCvaProps } from "~/interactive/button/buttonCva.ts"
 import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
 import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
 import { Icon1 } from "~/static/img/Icon1.tsx"
-import { classMerge } from "~/utils/classMerge.ts"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export interface ButtonIconProps extends ComponentProps<"button">, ButtonCvaProps {
   // icon

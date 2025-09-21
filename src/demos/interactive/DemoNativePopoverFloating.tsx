@@ -1,7 +1,7 @@
 import { autoUpdate, computePosition, type ComputePositionConfig, flip, offset, shift } from "@floating-ui/dom"
 import { createUniqueId } from "solid-js"
 import { PageWrapper2 } from "~/static/container/PageWrapper2.tsx"
-import { classArr } from "~/utils/classArr.ts"
+import { classArr } from "~/utils/ui/classArr"
 
 /**
  * https://floating-ui.com/docs/tutorial

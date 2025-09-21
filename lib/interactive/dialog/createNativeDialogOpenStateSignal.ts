@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js"
-import type { SignalObject } from "~/utils/createSignalObject.ts"
+import type { SignalObject } from "~/utils/ui/createSignalObject"
 
 export type IsOpenSignalObject = {
   get(): boolean

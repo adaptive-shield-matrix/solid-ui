@@ -7,8 +7,8 @@ import { ButtonIconOnly } from "~/interactive/button/ButtonIconOnly.tsx"
 import { t4theme } from "~/interactive/theme/t4theme"
 import { themeInit, themeRotate, themeSignal } from "~/interactive/theme/themeSignal"
 import { themeIcon } from "~/interactive/theme/themeVariant"
-import { classMerge } from "~/utils/classMerge.ts"
-import type { HasClass } from "~/utils/HasClass"
+import { classMerge } from "~/utils/ui/classMerge"
+import type { HasClass } from "~/utils/ui/HasClass"
 
 
 function createGlobalKeyHandler(navigate: Navigator) {

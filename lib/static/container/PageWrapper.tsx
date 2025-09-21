@@ -1,6 +1,6 @@
 import { splitProps } from "solid-js"
-import type { HasClassAndChildren } from "~/utils/HasClassAndChildren.ts"
-import { classMerge } from "~/utils/classMerge.ts"
+import type { HasClassAndChildren } from "~/utils/ui/HasClassAndChildren"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export interface PageWrapperProps extends HasClassAndChildren {
 }

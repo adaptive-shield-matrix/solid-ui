@@ -2,7 +2,7 @@ import { createMemo, type Accessor } from "solid-js"
 import { NativeSingleSelect } from "~/input/select/NativeSingleSelect"
 import { PageWrapper2 } from "~/static/container/PageWrapper2.tsx"
 import { arrCreate } from "~/utils/arr/arrCreate.ts"
-import { createSignalObject } from "~/utils/createSignalObject.ts"
+import { createSignalObject } from "~/utils/ui/createSignalObject"
 
 const options100 = arrCreate<string>(100, (i) => "" + i)
 const singleValueSignal = createSignalObject<string>("")

@@ -6,10 +6,10 @@ import { LinkButton } from "~/interactive/link/LinkButton.tsx"
 import { classesGridCols3xl } from "~/static/container/classesGridCols"
 import { LayoutWrapperDemo } from "~/static/container/LayoutWrapperDemo"
 import { NavDemo } from "~/static/nav/NavDemo"
-import { classArr } from "~/utils/classArr"
 import { objectEntries } from "~/utils/obj/objectEntries.ts"
 import { objectKeys } from "~/utils/obj/objectKeys.ts"
-import type { RouteObject } from "~/utils/solid_router/RouteConfig"
+import type { RouteObject } from "~/demo_pages/RouteConfig"
+import { classArr } from "~/utils/ui/classArr"
 
 const log = false
 

@@ -1,7 +1,7 @@
 import { Label } from "~/input/label/Label.tsx"
 import { LabelAsterix } from "~/input/label/LabelAsterix.tsx"
-import { classMerge } from "~/utils/classMerge.ts"
-import type { HasChildren } from "~/utils/HasChildren.ts"
+import type { HasChildren } from "~/utils/ui/HasChildren"
+import { classMerge } from "~/utils/ui/classMerge"
 
 export type Label2Props = {
   title: string

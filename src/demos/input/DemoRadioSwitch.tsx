@@ -1,8 +1,8 @@
 import { RadioSwitch } from "~/input/radio/RadioSwitch.tsx"
 import { PageWrapper2 } from "~/static/container/PageWrapper2.tsx"
 import { arrCreate } from "~/utils/arr/arrCreate.ts"
-import { createSignalObject } from "~/utils/createSignalObject.ts"
-import type { SelectionItem } from "~/utils/SelectionItem.tsx"
+import type { SelectionItem } from "~/utils/ui/SelectionItem"
+import { createSignalObject } from "~/utils/ui/createSignalObject"
 
 const options100 = arrCreate<SelectionItem>(100, (i) => ({ value: "" + i, label: "Option " + i }))
 const singleValueSignal = createSignalObject<SelectionItem | null>(null)
