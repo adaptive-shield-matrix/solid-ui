@@ -12,7 +12,7 @@ export function serializeDemoComponentImport(path: string, baseDir: string) {
   for (const [search, replace] of replacements) {
     importPath = importPath.replaceAll(search, replace)
   }
-  console.log("import:", path, "->", importPath)
+  // console.log("import:", path, "->", importPath)
 
   return `
   const ${name} = lazy(async () => {
