@@ -1,6 +1,5 @@
 import type { HasClass } from "~/utils/HasClass"
 import { classMerge } from "~/utils/classMerge.ts"
-
 import styles from "./LoaderShuffle9Squares.module.css"
 
 /**
