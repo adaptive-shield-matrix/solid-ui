@@ -17,11 +17,14 @@ export async function generateDemoList(demoSearchDirRelative: string, outputFile
   const demoSearchDirAbsolute = join(baseDir, demoSearchDirRelative)
   const categories = await readdir(demoSearchDirAbsolute, { withFileTypes: true })
   for (const category of categories) {
+    // console.log("category", category.name)
     if (!category.isDirectory()) {
+      // console.log("not a dir -> skipping")
       continue
     }
     const searchDir = join(baseDir, demoSearchDirRelative, category.name)
     const found = await findDemoFilesRecursive(searchDir)
+    // console.log("found", found)
     if (found.length <= 0) continue
     demoPageList[category.name] = found
   }

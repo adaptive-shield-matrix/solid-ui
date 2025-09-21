@@ -1,4 +1,4 @@
-import { BulletLinks } from "~/interactive/list/BulletLinks.tsx";
+import { BulletLinks } from "~/interactive/list/BulletLinks"
 
 export function LinkBlock(p: { header: string; removeUrlPrefix: string; links: string[] }) {
   return (
