@@ -1,7 +1,6 @@
 import { buttonVariant } from "~/interactive/button/buttonCva.ts"
 import { NativeDialog } from "~/interactive/dialog/NativeDialog.tsx"
 import { arrCreate } from "~/utils/arr/arrCreate.ts"
-import "./NativeDialog.module.css"
 
 export function DemoNativeDialog() {
   return (
