@@ -10,7 +10,7 @@ import type { RouteObject } from "~/utils/solid_router/RouteConfig"
 
 const log = false
 
-export function getDemoRoutes(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
+export function generateDemoRoutes(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
   const all = [
     ...getDemosL2(demoList, prefix),
     ...getDemosL1(demoList, prefix),
