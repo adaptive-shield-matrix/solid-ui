@@ -1,9 +1,12 @@
+import { For } from "solid-js"
 import { LinkBlock } from "~/demo_pages/LinkBlock"
 import { pathDemos } from "~/demo_pages/pathDemos"
 import type { DemoListType } from "~/generate_demo_list/DemoListType"
 import { LinkButton } from "~/interactive/link/LinkButton.tsx"
+import { classesGridCols3xl } from "~/static/container/classesGridCols"
 import { LayoutWrapperDemo } from "~/static/container/LayoutWrapperDemo"
 import { NavDemo } from "~/static/nav/NavDemo"
+import { classArr } from "~/utils/classArr"
 import { objectEntries } from "~/utils/obj/objectEntries.ts"
 import { objectKeys } from "~/utils/obj/objectKeys.ts"
 import type { RouteObject } from "~/utils/solid_router/RouteConfig"
@@ -71,25 +74,33 @@ function getDemosL0(demoList: DemoListType, prefix: string = pathDemos, override
   const op = "getDemosL0"
   const path = prefix
 
-  const links = objectEntries(demoList).flatMap(([category, tree]) =>
-    objectKeys(tree).map((compName) => `${prefix}/${category}/${compName}`),
-  )
-  // const links = objectEntries(explorerTree).flatMap(
-  //   ([category, compName]) => `${prefix}/${category as string}/${compName}`,
-  // )
-
   if (log) console.log(op, path)
-  if (log) console.log(op, "links:", links)
 
   return [
     {
       path: overridePath ?? prefix,
-      component: () => (
-        <LayoutWrapperDemo title={"demos"}>
-          <NavDemo demoList={demoList} />
-          <LinkBlock header={"demos"} removeUrlPrefix={`${path}/`} links={links} />
-        </LayoutWrapperDemo>
-      ),
+      component: () => {
+        const categories = objectEntries(demoList)
+
+        return (
+          <LayoutWrapperDemo title={"demos"}>
+            <NavDemo demoList={demoList} />
+            <div class={classArr(classesGridCols3xl, "gap-4")}>
+              <For each={categories}>
+                {([category, tree]) => {
+                  const categoryLinks = objectKeys(tree).map((compName) => `${prefix}/${category}/${compName}`)
+                  const removePrefix = `${prefix}/${category}/Demo`
+                  return (
+                    <div>
+                      <LinkBlock header={category} removeUrlPrefix={removePrefix} links={categoryLinks} />
+                    </div>
+                  )
+                }}
+              </For>
+            </div>
+          </LayoutWrapperDemo>
+        )
+      },
     },
   ]
 }
