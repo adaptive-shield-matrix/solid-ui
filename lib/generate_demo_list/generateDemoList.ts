@@ -32,10 +32,10 @@ import { type DemoListType } from "~/generate_demo_list/DemoListType.ts"\n\n`
 
   for (const category of objectKeys(demoPageList)) {
     const importPathComponents = demoPageList[category]
-    console.log(category, importPathComponents)
+    // console.log(category, importPathComponents)
     if (!importPathComponents) continue
     for (const importPathComponent of importPathComponents) {
-      console.log(importPathComponent)
+      // console.log(importPathComponent)
       output += serializeDemoComponentImport(importPathComponent, baseDir)
     }
   }
