@@ -39,7 +39,7 @@ function getDemosL2(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
         path,
         component: () => (
           <LayoutWrapperDemo title={compName}>
-            <NavDemo demoList={demoList} category={category} compName={compName} />
+            <NavDemo demoList={demoList} category={category} compName={compName} demoPrefix={prefix} />
             <Comp />
           </LayoutWrapperDemo>
         ),
@@ -62,8 +62,18 @@ function getDemosL1(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
       path,
       component: () => (
         <LayoutWrapperDemo title={category}>
-          <NavDemo demoList={demoList} category={category} />
-          <LinkBlock header={category} removeUrlPrefix={removePrefix} links={links} />
+          <NavDemo demoList={demoList} category={category} demoPrefix={prefix} />
+          <div
+            class={classArr(
+              "flex flex-col items-center justify-center", // layout
+              "bg-gray-50 dark:bg-gray-900", // background
+              "p-4", // spacing
+            )}
+          >
+            <div>
+              <LinkBlock header={category} removeUrlPrefix={removePrefix} links={links} />
+            </div>
+          </div>
         </LayoutWrapperDemo>
       ),
     } satisfies RouteObject
@@ -84,19 +94,27 @@ function getDemosL0(demoList: DemoListType, prefix: string = pathDemos, override
 
         return (
           <LayoutWrapperDemo title={"demos"}>
-            <NavDemo demoList={demoList} />
-            <div class={classArr(classesGridCols3xl, "gap-4")}>
-              <For each={categories}>
-                {([category, tree]) => {
-                  const categoryLinks = objectKeys(tree).map((compName) => `${prefix}/${category}/${compName}`)
-                  const removePrefix = `${prefix}/${category}/Demo`
-                  return (
-                    <div>
-                      <LinkBlock header={category} removeUrlPrefix={removePrefix} links={categoryLinks} />
-                    </div>
-                  )
-                }}
-              </For>
+            <NavDemo demoList={demoList} demoPrefix={prefix} />
+            <div
+              class={classArr(
+                "flex flex-col items-center justify-center", // layout
+                "bg-gray-50 dark:bg-gray-900", // background
+                "p-4", // spacing
+              )}
+            >
+              <div class={classArr(classesGridCols3xl, "gap-4")}>
+                <For each={categories}>
+                  {([category, tree]) => {
+                    const categoryLinks = objectKeys(tree).map((compName) => `${prefix}/${category}/${compName}`)
+                    const removePrefix = `${prefix}/${category}/Demo`
+                    return (
+                      <div>
+                        <LinkBlock header={category} removeUrlPrefix={removePrefix} links={categoryLinks} />
+                      </div>
+                    )
+                  }}
+                </For>
+              </div>
             </div>
           </LayoutWrapperDemo>
         )
@@ -113,7 +131,7 @@ function getDemos404(demoList: DemoListType, prefix = pathDemos): RouteObject[] 
         <LayoutWrapperDemo>
           {/*<SetPageTitle title={"demos"} />*/}
           {/*<DemoPageList />*/}
-          <NavDemo demoList={demoList} />
+          <NavDemo demoList={demoList} demoPrefix={prefix} />
           <h1 class={"text-xl font-semibold"}>not found</h1>
           <LinkButton href={prefix}>back to demos</LinkButton>
         </LayoutWrapperDemo>

@@ -1,6 +1,5 @@
 import { classMerge } from "~/utils/classMerge.ts"
 import type { HasClass } from "~/utils/HasClass"
-
 import styles from "./LoaderSpin4Square.module.css"
 
 /**

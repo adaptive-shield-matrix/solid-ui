@@ -1,10 +1,11 @@
 import { mdiCheckCircleOutline } from "@mdi/js"
 import { Show } from "solid-js"
 import { Icon1 } from "~/static/img/Icon1.tsx"
-import { classesPageWrapperInner, classesPageWrapperOuter } from "~/static/pages/classesPageWrapper"
+import { classesPageWrapper } from "~/static/pages/classesPageWrapper"
 import type { MayHaveChildren } from "~/utils/MayHaveChildren"
 import type { MayHaveClass } from "~/utils/MayHaveClass"
 import type { MayHaveInnerClassName } from "~/utils/MayHaveInnerClassName.ts"
+import { classArr } from "~/utils/classArr"
 import { classMerge } from "~/utils/classMerge.ts"
 
 export interface SuccessPageProps extends MayHaveClass, MayHaveInnerClassName, MayHaveChildren {
@@ -16,9 +17,16 @@ export interface SuccessPageProps extends MayHaveClass, MayHaveInnerClassName, M
   subtitleClass?: string
 }
 
+const classesPageWrapperInner = classArr(
+  "max-w-md w-full", // sizing
+  "bg-white dark:bg-gray-800", // background
+  "rounded-lg shadow-md", // styling
+  "p-8", // spacing
+)
+
 export function SuccessPage(p: SuccessPageProps) {
   return (
-    <div class={classMerge(classesPageWrapperOuter, p.class)}>
+    <div class={classMerge(classesPageWrapper, p.class)}>
       <div class={classMerge(classesPageWrapperInner, p.innerClass)}>
         <Show when={p.icon}>
           <Icon1
