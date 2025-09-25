@@ -35,7 +35,12 @@ export default defineConfig({
   ],
   output: {
     distPath: {
-      root: "./dist",
+      root: "dist",
+      html: "",
+      js: "assets",
+      css: "assets",
+      assets: "assets",
+      media: "assets",
     },
     target: "web",
     overrideBrowserslist: ["last 2 versions", "not dead"],
