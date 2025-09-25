@@ -1,44 +1,8 @@
 
 (shared_config_solid_ui) {
-	encode zstd gzip
-	# tls internal
-	tls /home/david/.config/mkcert/local.pem /home/david/.config/mkcert/local-key.pem {
-		on_demand
-	}
-	log {
-		output stdout
-	}
-	# log {
-	# 	output file /var/log/caddy.log
-	# 	format json
-	# }
-
-	#
-	# analytics
-	#
-	handle_path /ph-api* {
-		rewrite * {path}
-		header {
-			Routed "posthog-api"
-		}
-		reverse_proxy https://eu.posthog.com:443 {
-			header_up Host eu.posthog.com
-			header_down -Access-Control-Allow-Origin
-		}
-	}
-	handle_path /ph-ui* {
-		rewrite * {path}
-		header {
-			Routed "posthog-ui"
-		}
-		reverse_proxy https://eu.posthog.com:443 {
-			header_up Host eu.posthog.com
-			header_down -Access-Control-Allow-Origin
-		}
-	}
 	handle_path /media-b2* {
 		rewrite * {path}
-		root * /home/david/Coding/postmaschine-astro-media
+		root * /home/david/Coding/adaptive-solid-ui-media
 		file_server
 		header {
 			Routed "astro-media-b2"
@@ -48,6 +12,16 @@
 }
 
 solid-ui.com, solid-ui.localhost {
+	import shared_config_web
+	import shared_config_solid_ui
+	header {
+		Routed "solid-ui"
+	}
+	reverse_proxy localhost:3031
+}
+
+dist.solid-ui.com, dist.solid-ui.localhost {
+	import shared_config_web
 	import shared_config_solid_ui
 	header {
 		Routed "solid-ui"
