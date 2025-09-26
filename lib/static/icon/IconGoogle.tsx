@@ -1,7 +1,7 @@
 import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 import { classMerge } from "~/utils/ui/classMerge"
 
-export function IconGoogle(p: MayHaveClass) {
+export function SvgIconGoogle(p: MayHaveClass) {
   return (
     <svg viewBox="0 0 24 24" class={classMerge("w-5 h-5 mr-2", p.class)}>
       <path

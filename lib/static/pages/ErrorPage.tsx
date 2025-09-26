@@ -1,5 +1,5 @@
 import { mdiAlertBoxOutline } from "@mdi/js"
-import { Icon1 } from "~/static/img/Icon1.tsx"
+import { Icon1 } from "~/static/icon/Icon1"
 import type { MayHaveChildren } from "~/utils/ui/MayHaveChildren"
 import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 import { classMerge } from "~/utils/ui/classMerge"

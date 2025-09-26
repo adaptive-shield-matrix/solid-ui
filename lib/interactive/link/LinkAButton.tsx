@@ -2,7 +2,7 @@ import { splitProps } from "solid-js"
 import { buttonCva2 } from "~/interactive/button/buttonCva.ts"
 import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
 import type { LinkButtonProps } from "~/interactive/link/LinkButtonProps.tsx"
-import { Icon1 } from "~/static/img/Icon1.tsx"
+import { Icon1 } from "~/static/icon/Icon1"
 
 export function LinkAButton(p: LinkButtonProps) {
   const [, rest] = splitProps(p, [
