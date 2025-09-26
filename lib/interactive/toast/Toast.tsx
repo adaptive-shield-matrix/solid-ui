@@ -8,7 +8,7 @@ import { toastCva } from "~/interactive/toast/toastCva.ts"
 import { toastDismiss } from "~/interactive/toast/toastDismiss.ts"
 import { toastIconCva } from "~/interactive/toast/toastIconCva.ts"
 import type { ToastPropsInternal } from "~/interactive/toast/ToastProps.ts"
-import { Icon1 } from "~/static/img/Icon1.tsx"
+import { Icon1 } from "~/static/icon/Icon1"
 import { classMerge } from "~/utils/ui/classMerge"
 
 export function Toast(p: ToastPropsInternal) {

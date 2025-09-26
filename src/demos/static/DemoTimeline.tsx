@@ -1,6 +1,6 @@
 import { mdiBrain, mdiCodeTags, mdiPencilRuler, mdiRocketLaunch, mdiTestTube } from "@mdi/js"
 import type { JSXElement } from "solid-js"
-import { Icon1 } from "~/static/img/Icon1"
+import { Icon1 } from "~/static/icon/Icon1"
 import { Timeline } from "~/static/timeline/Timeline"
 
 export function DemoTimeline() {

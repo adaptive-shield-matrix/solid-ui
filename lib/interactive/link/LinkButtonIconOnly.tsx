@@ -4,7 +4,7 @@ import { buttonCvaIconOnly } from "~/interactive/button/buttonCva.ts"
 import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
 import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
 import type { LinkButtonProps } from "~/interactive/link/LinkButtonProps.tsx"
-import { Icon1 } from "~/static/img/Icon1.tsx"
+import { Icon1 } from "~/static/icon/Icon1"
 import { isLoading } from "~/utils/ui/HasIsLoading"
 
 export function LinkButtonIconOnly(p: LinkButtonProps) {

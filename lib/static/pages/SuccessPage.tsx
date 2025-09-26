@@ -1,6 +1,6 @@
 import { mdiCheckCircleOutline } from "@mdi/js"
 import { Show } from "solid-js"
-import { Icon1 } from "~/static/img/Icon1.tsx"
+import { Icon1 } from "~/static/icon/Icon1"
 import { classesPageWrapper } from "~/static/pages/classesPageWrapper"
 import type { MayHaveChildren } from "~/utils/ui/MayHaveChildren"
 import type { MayHaveClass } from "~/utils/ui/MayHaveClass"

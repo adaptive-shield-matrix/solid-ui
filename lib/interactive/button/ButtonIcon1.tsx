@@ -3,7 +3,7 @@ import { buttonCva2, type ButtonCvaProps } from "~/interactive/button/buttonCva.
 import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
 import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
 import { classesButtonDisabled } from "~/interactive/button/classesButtonDisabled"
-import { Icon1 } from "~/static/img/Icon1.tsx"
+import { Icon1 } from "~/static/icon/Icon1"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import type { HasClass } from "~/utils/ui/HasClass"
 

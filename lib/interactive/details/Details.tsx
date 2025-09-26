@@ -1,6 +1,6 @@
 import { mdiChevronDown } from "@mdi/js"
 import { Show, type JSXElement } from "solid-js"
-import { Icon1 } from "~/static/img/Icon1"
+import { Icon1 } from "~/static/icon/Icon1"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 import type { MayHaveIcon } from "~/utils/ui/MayHaveIcon"
