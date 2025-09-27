@@ -1,4 +1,3 @@
-import { A } from "@solidjs/router"
 import { splitProps } from "solid-js"
 import { buttonCvaIconOnly } from "~/interactive/button/buttonCva.ts"
 import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
@@ -21,7 +20,7 @@ export function LinkButtonIconOnly(p: LinkButtonProps) {
     "children",
   ])
   return (
-    <A
+    <a
       href={p.href}
       class={buttonCvaIconOnly(
         p.variant,
@@ -38,6 +37,6 @@ export function LinkButtonIconOnly(p: LinkButtonProps) {
       {p.icon && <Icon1 path={p.icon} class={buttonIconCva(p.variant, p.children && "mr-2", p.iconClass)} />}
       {p.children}
       {p.iconRight && <Icon1 path={p.iconRight} class={buttonIconCva(p.variant, p.children && "ml-2", p.iconClass)} />}
-    </A>
+    </a>
   )
 }

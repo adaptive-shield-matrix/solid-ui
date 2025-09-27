@@ -1,4 +1,3 @@
-import { A } from "@solidjs/router"
 
 export function Header() {
   return (
@@ -6,19 +5,20 @@ export function Header() {
       <p>
         Edit <code>src/App.tsx</code> and save to reload.
       </p>
-      <A
+      <a
         // class={styles.link}
         href="/about"
-        activeClass="underlined" // 👈 Add the active class
+        // activeClass="underlined" // 👈 Add the active class
       >
         About
-      </A>
-      <A
+      </a>
+      <a
         // class={styles.link}
         href="/contact"
-        activeClass="underlined" // 👈 Add the active class
+        // activeClass="underlined" // 👈 Add the active class
       >
         Contact
-      </A>
-    </header>)
+      </a>
+    </header>
+  )
 }
