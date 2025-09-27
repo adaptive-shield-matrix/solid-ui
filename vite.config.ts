@@ -28,6 +28,7 @@ export default defineConfig({
       "~": new URL("./lib", import.meta.url).pathname,
     },
   },
+  // @ts-ignore
   plugins: [solid(), tailwindcss(), visualizer({ filename: "dist/bundle-size.html", gzipSize: true })],
   build: {
     chunkSizeWarningLimit: 1050,
