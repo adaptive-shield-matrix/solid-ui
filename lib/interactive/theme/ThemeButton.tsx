@@ -1,5 +1,3 @@
-import type { Navigator } from "@solidjs/router"
-import { useNavigate } from "@solidjs/router"
 import { createEffect, onCleanup } from "solid-js"
 import { ct0, ct1 } from "~/i18n/ct0.ts"
 import { buttonVariant } from "~/interactive/button/buttonCva.ts"
@@ -10,27 +8,26 @@ import { themeIcon } from "~/interactive/theme/themeVariant"
 import { classMerge } from "~/utils/ui/classMerge"
 import type { HasClass } from "~/utils/ui/HasClass"
 
-
-function createGlobalKeyHandler(navigate: Navigator) {
+function createGlobalKeyHandler(navigate: (to: string) => void) {
   return (e: KeyboardEvent) => {
-    if (e.key === 's' && e.altKey) {
+    if (e.key === "s" && e.altKey) {
       e.preventDefault()
       themeRotate()
-    } else if (e.key === 'd' && e.altKey) {
+    } else if (e.key === "d" && e.altKey) {
       e.preventDefault()
-      navigate('/demos')
+      navigate("/demos")
     }
   }
 }
 
 export function ThemeButton(p: HasClass) {
   createEffect(themeInit)
-  const navigate = useNavigate()
+  const navigate = (to: string) => {}
   const handleGlobalKeyDown = createGlobalKeyHandler(navigate)
 
   createEffect(() => {
-    window.addEventListener('keydown', handleGlobalKeyDown)
-    onCleanup(() => window.removeEventListener('keydown', handleGlobalKeyDown))
+    window.addEventListener("keydown", handleGlobalKeyDown)
+    onCleanup(() => window.removeEventListener("keydown", handleGlobalKeyDown))
   })
   return (
     <ButtonIconOnly

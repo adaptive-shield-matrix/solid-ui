@@ -1,4 +1,4 @@
-import { LinkAText } from "~/interactive/link/LinkAText.tsx"
+import { LinkText } from "~/interactive/link/LinkText"
 import { PageWrapper2 } from "~/static/container/PageWrapper2.tsx"
 
 /**
@@ -11,7 +11,7 @@ export function DemoNativePopover() {
       <div popover id="my-popover">
         Greetings, one and all!
       </div>
-      <LinkAText href={"https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"}>Popover API</LinkAText>
+      <LinkText href={"https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"}>Popover API</LinkText>
     </PageWrapper2>
   )
 }
