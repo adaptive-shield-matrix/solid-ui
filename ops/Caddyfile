@@ -2,29 +2,31 @@
 (shared_config_solid_ui) {
 	handle_path /media-b2* {
 		rewrite * {path}
-		root * /home/david/Coding/adaptive-solid-ui-media
-		file_server
 		header {
 			Routed "astro-media-b2"
 			Cache-Control "public, max-age=60, immutable"
 		}
+		root * /home/david/Coding/adaptive-solid-ui-media
+		file_server
 	}
 }
 
-solid-ui.com, solid-ui.localhost {
+solid-ui.com {
 	import shared_config_web
 	import shared_config_solid_ui
 	header {
-		Routed "solid-ui"
+		Routed "astro"
 	}
 	reverse_proxy localhost:3031
 }
 
-dist.solid-ui.com, dist.solid-ui.localhost {
+dist.solid-ui.com {
 	import shared_config_web
 	import shared_config_solid_ui
+	import shared_config_caching
 	header {
-		Routed "solid-ui"
+		Routed "astro-dist"
 	}
-	reverse_proxy localhost:3031
+	root * /home/david/Coding/adaptive-solid-ui/dist
+	file_server
 }
