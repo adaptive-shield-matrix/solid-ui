@@ -1,7 +1,5 @@
 {
   "name": "@adaptive-sm/solid-ui",
-  "type": "module",
-  "private": true,
   "scripts": {
     "dev": "bun run rsbuild:dev",
     "build": "bun run rsbuild:build",
@@ -58,5 +56,21 @@
     "semi": false,
     "printWidth": 120,
     "trailingComma": "all"
-  }
+  },
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "homepage": "https://github.com/adaptive-shield-matrix/solid-ui",
+  "description": "A library of reusable UI components for Solid.js projects. Built with TypeScript, Tailwind CSS, and Solid.js. Components are designed to be accessible, customizable, and easy to integrate.",
+  "keywords": [
+    "solid",
+    "solidjs",
+    "tailwind",
+    "tailwindcss",
+    "components",
+    "ui-components",
+    "web-development",
+    "frontend",
+    "typescript"
+  ]
 }
