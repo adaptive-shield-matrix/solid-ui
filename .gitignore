@@ -90,7 +90,9 @@ astro
 .roo/rules-code
 AGENTS.md
 
+# npm publishing
+.npmrc
+
 # project
 /discarded
 /docs
-
