@@ -6,7 +6,9 @@ import { buttonVariant } from "~/interactive/button/buttonCva.ts"
 import { LinkButton } from "~/interactive/link/LinkButton.tsx"
 import { SimplePopover3 } from "~/interactive/popover/SimplePopover3.tsx"
 import { ThemeButton } from "~/interactive/theme/ThemeButton"
-import { LogoImageOnly } from "~/static/logo/LogoImageOnly"
+import { LogoImageText } from "~/static/logo/LogoImageText"
+import { iconGithub } from "~/static/nav/iconGithub"
+import { iconNpm } from "~/static/nav/iconNpm"
 import { objectEntries } from "~/utils/obj/objectEntries.ts"
 import { objectKeys } from "~/utils/obj/objectKeys.ts"
 import { classMerge } from "~/utils/ui/classMerge"
@@ -20,10 +22,16 @@ export interface DemoNavProps extends ComponentProps<"nav"> {
 
 export function NavDemo(p: DemoNavProps) {
   const [, rest] = splitProps(p, ["class", "children", "category", "compName"])
+  const githubUrl = "https://github.com/adaptive-shield-matrix/solid-ui"
+  const npmUrl = "https://www.npmjs.com/package/@adaptive-sm/solid-ui"
   return (
-    <nav class={classMerge("flex flex-wrap items-center justify-between p-1 gap-1", p.class)} {...rest}>
+    <nav class={classMerge("flex flex-wrap items-center justify-between p-1 gap-1 max-w-4xl mx-auto", p.class)} {...rest}>
+      <div class="flex flex-wrap items-center justify-center">
+
+      </div>
       <div class={"flex flex-wrap items-center gap-1"}>
-        <LogoImageOnly />
+        <LogoImageText logoText="solid-ui" logoTextClass="text-lg font-semibold" />
+        {/* <LogoImageOnly /> */}
         {p.category && (
           <>
             <NavSeparatingSlash />
@@ -44,7 +52,14 @@ export function NavDemo(p: DemoNavProps) {
           </>
         )}
       </div>
-      <ThemeButton />
+
+      <LinkButton variant={buttonVariant.ghost} icon={iconGithub} href={githubUrl} title="Github">
+        Code
+      </LinkButton>
+      <LinkButton variant={buttonVariant.ghost} icon={iconNpm} iconClass="size-8" href={npmUrl} title="NPM">
+        Package
+      </LinkButton>
+      <ThemeButton showText={true} class="rounded-md" />
     </nav>
   )
 }
