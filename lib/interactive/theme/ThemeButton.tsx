@@ -4,7 +4,7 @@ import { buttonVariant } from "~/interactive/button/buttonCva.ts"
 import { ButtonIconOnly } from "~/interactive/button/ButtonIconOnly.tsx"
 import { t4theme } from "~/interactive/theme/t4theme"
 import { themeInit, themeRotate, themeSignal } from "~/interactive/theme/themeSignal"
-import { themeIcon } from "~/interactive/theme/themeVariant"
+import { themeIcon, type ThemeVariant } from "~/interactive/theme/themeVariant"
 import { classMerge } from "~/utils/ui/classMerge"
 import type { HasClass } from "~/utils/ui/HasClass"
 
@@ -20,7 +20,11 @@ function createGlobalKeyHandler(navigate: (to: string) => void) {
   }
 }
 
-export function ThemeButton(p: HasClass) {
+export interface ThemeButtonProps extends HasClass {
+  showText?: boolean
+}
+
+export function ThemeButton(p: ThemeButtonProps) {
   createEffect(themeInit)
   const navigate = (to: string) => {}
   const handleGlobalKeyDown = createGlobalKeyHandler(navigate)
@@ -36,6 +40,13 @@ export function ThemeButton(p: HasClass) {
       variant={buttonVariant.ghost}
       class={classMerge(p.class)}
       onClick={themeRotate}
-    />
+    >
+      {p.showText && themeText()}
+    </ButtonIconOnly>
   )
+}
+
+function themeText(): string {
+  const theme: ThemeVariant = themeSignal.get()
+  return ct0(t4theme[theme])
 }
