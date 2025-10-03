@@ -12,6 +12,7 @@
     "deploy": "bun run build && bun run upload && bun run tag",
     "upload": "bun run wrangler pages deploy ./dist --project-name=adaptive-solid-ui --commit-dirty",
     "tag": "git branch -f deployed",
+    "publish": "bunx npm publish --access public",
     "generateDemoList": "bun run ./src/demos/generateDemoList.cli.ts",
     "update": "nice -15 bun x npm-check-updates -u && bun i",
     "update:commit": "bun x npm-check-updates -u && bun i && git add package.json && bun run tsc && git commit -m \"update dependencies\" && git push",
