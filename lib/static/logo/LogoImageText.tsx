@@ -1,4 +1,4 @@
-import type { ButtonVariant } from "~/interactive/button/buttonCva"
+import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva"
 import { LinkButton } from "~/interactive/link/LinkButton.tsx"
 import { Img } from "~/static/img/Img"
 import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
@@ -13,8 +13,8 @@ export interface LogoImageTextProps extends MayHaveClass {
 
 export function LogoImageText(p: LogoImageTextProps) {
   return (
-    <LinkButton href={"/"} variant={p.variant} class={classMerge("flex gap-1.5", p.class)}>
-      <Img src={"/logo.svg"} alt={"Logo"} zoomIn={false} class={classMerge("mr-1", p.imageClass)} />
+    <LinkButton href={"/"} variant={p.variant ?? buttonVariant.ghost} class={classMerge("flex gap-1.5", p.class)}>
+      <Img src={"/logo.svg"} alt={"Logo"} zoomIn={false} class={classMerge("size-7 mr-1", p.imageClass)} />
       <span class={classMerge("text-2xl font-bold", p.logoTextClass)}>{p.logoText}</span>
     </LinkButton>
   )
