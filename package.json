@@ -73,5 +73,9 @@
     "web-development",
     "frontend",
     "typescript"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adaptive-shield-matrix/solid-ui.git"
+  }
 }
