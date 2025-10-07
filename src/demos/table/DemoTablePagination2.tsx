@@ -5,11 +5,12 @@ import { buttonVariant } from "~/interactive/button/buttonCva.ts"
 import { ButtonIcon } from "~/interactive/button/ButtonIcon.tsx"
 import { t4tablePagination } from "~/table/table3/pagination/t4tablePagination.ts"
 import { classMerge } from "~/utils/ui/classMerge"
-import type { SignalObject } from "~/utils/ui/createSignalObject"
+import { createSignalObject, type SignalObject } from "~/utils/ui/createSignalObject"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import type { HasClass } from "~/utils/ui/HasClass"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-export type AtomizedTablePaginationProps = {
+export interface AtomizedTablePaginationProps extends MayHaveClass {
   entriesPerPage: number
   entriesSignal: SignalObject<number>
   currentPageSignal: SignalObject<number>
@@ -17,7 +18,23 @@ export type AtomizedTablePaginationProps = {
   decrementPage: () => void
 }
 
-export function DemoTablePagination2(p: AtomizedTablePaginationProps & HasClass) {
+export function DemoTablePagination2() {
+  const entriesPerPage = 10
+  const entriesSignal = createSignalObject(0)
+  const currentPageSignal = createSignalObject(0)
+  function incrementPage() {
+    currentPageSignal.set(currentPageSignal.get() + 1)
+  }
+  function decrementPage() {
+    currentPageSignal.set(currentPageSignal.get() + 1)
+  }
+  const p: AtomizedTablePaginationProps = {
+    entriesPerPage,
+    entriesSignal,
+    currentPageSignal,
+    incrementPage,
+    decrementPage,
+  }
   return (
     <div class={classMerge("flex flex-wrap justify-center md:justify-between py-1 pl-3 gap-2", p.class)}>
       <TablePaginationInfo {...p} />
