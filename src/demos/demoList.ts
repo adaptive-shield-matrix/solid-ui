@@ -156,6 +156,11 @@ const DemoNativePopover = lazy(async () => {
   return { default: c.DemoNativePopover }
 })
 
+const DemoCheckbox = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoCheckbox.tsx")
+  return { default: c.DemoCheckbox }
+})
+
 const DemoDialog = lazy(async () => {
   const c = await import("@/demos/interactive/DemoDialog.tsx")
   return { default: c.DemoDialog }
@@ -198,6 +203,7 @@ export const demoList = {
     DemoTheme: DemoTheme,
     DemoDetails: DemoDetails,
     DemoNativePopover: DemoNativePopover,
+    DemoCheckbox: DemoCheckbox,
     DemoDialog: DemoDialog,
     DemoNativePopoverFloating: DemoNativePopoverFloating,
     DemoButtons: DemoButtons,
