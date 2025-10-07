@@ -17,7 +17,7 @@ export type AtomizedTablePaginationProps = {
   decrementPage: () => void
 }
 
-export function AtomizedTablePagination(p: AtomizedTablePaginationProps & HasClass) {
+export function DemoTablePagination2(p: AtomizedTablePaginationProps & HasClass) {
   return (
     <div class={classMerge("flex flex-wrap justify-center md:justify-between py-1 pl-3 gap-2", p.class)}>
       <TablePaginationInfo {...p} />
