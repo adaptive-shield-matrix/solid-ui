@@ -1,6 +1,11 @@
 import { lazy } from "solid-js"
 import { type DemoListType } from "~/generate_demo_list/DemoListType.ts"
 
+const DemoTablePagination2 = lazy(async () => {
+  const c = await import("@/demos/table/DemoTablePagination2.tsx")
+  return { default: c.DemoTablePagination2 }
+})
+
 const DemoTable2R = lazy(async () => {
   const c = await import("@/demos/table/DemoTable2R.tsx")
   return { default: c.DemoTable2R }
@@ -41,6 +46,21 @@ const DemoForm1 = lazy(async () => {
   return { default: c.DemoForm1 }
 })
 
+const DemoIcons = lazy(async () => {
+  const c = await import("@/demos/static/DemoIcons.tsx")
+  return { default: c.DemoIcons }
+})
+
+const DemoBadge = lazy(async () => {
+  const c = await import("@/demos/static/DemoBadge.tsx")
+  return { default: c.DemoBadge }
+})
+
+const DemoSeparators = lazy(async () => {
+  const c = await import("@/demos/static/DemoSeparators.tsx")
+  return { default: c.DemoSeparators }
+})
+
 const DemoLoaders = lazy(async () => {
   const c = await import("@/demos/static/DemoLoaders.tsx")
   return { default: c.DemoLoaders }
@@ -49,6 +69,11 @@ const DemoLoaders = lazy(async () => {
 const DemoTimeline = lazy(async () => {
   const c = await import("@/demos/static/DemoTimeline.tsx")
   return { default: c.DemoTimeline }
+})
+
+const DemoBadges = lazy(async () => {
+  const c = await import("@/demos/static/DemoBadges.tsx")
+  return { default: c.DemoBadges }
 })
 
 const DemoSolidComparingForVsIndex = lazy(async () => {
@@ -96,9 +121,29 @@ const DemoToaster = lazy(async () => {
   return { default: c.DemoToaster }
 })
 
+const DemoTabs = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoTabs.tsx")
+  return { default: c.DemoTabs }
+})
+
 const DemoNativeDialog = lazy(async () => {
   const c = await import("@/demos/interactive/DemoNativeDialog.tsx")
   return { default: c.DemoNativeDialog }
+})
+
+const DemoLinks = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoLinks.tsx")
+  return { default: c.DemoLinks }
+})
+
+const DemoToggle = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoToggle.tsx")
+  return { default: c.DemoToggle }
+})
+
+const DemoTheme = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoTheme.tsx")
+  return { default: c.DemoTheme }
 })
 
 const DemoDetails = lazy(async () => {
@@ -109,6 +154,11 @@ const DemoDetails = lazy(async () => {
 const DemoNativePopover = lazy(async () => {
   const c = await import("@/demos/interactive/DemoNativePopover.tsx")
   return { default: c.DemoNativePopover }
+})
+
+const DemoDialog = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoDialog.tsx")
+  return { default: c.DemoDialog }
 })
 
 const DemoNativePopoverFloating = lazy(async () => {
@@ -126,6 +176,11 @@ const DemoPopover = lazy(async () => {
   return { default: c.DemoPopover }
 })
 
+const DemoLists = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoLists.tsx")
+  return { default: c.DemoLists }
+})
+
 export const demoList = {
   input: {
     DemoRadioSwitch: DemoRadioSwitch,
@@ -136,12 +191,18 @@ export const demoList = {
   },
   interactive: {
     DemoToaster: DemoToaster,
+    DemoTabs: DemoTabs,
     DemoNativeDialog: DemoNativeDialog,
+    DemoLinks: DemoLinks,
+    DemoToggle: DemoToggle,
+    DemoTheme: DemoTheme,
     DemoDetails: DemoDetails,
     DemoNativePopover: DemoNativePopover,
+    DemoDialog: DemoDialog,
     DemoNativePopoverFloating: DemoNativePopoverFloating,
     DemoButtons: DemoButtons,
     DemoPopover: DemoPopover,
+    DemoLists: DemoLists,
   },
   learning_solid: {
     DemoSolidComparingForVsIndex: DemoSolidComparingForVsIndex,
@@ -154,10 +215,15 @@ export const demoList = {
     DemoUseSubmission1: DemoUseSubmission1,
   },
   static: {
+    DemoIcons: DemoIcons,
+    DemoBadge: DemoBadge,
+    DemoSeparators: DemoSeparators,
     DemoLoaders: DemoLoaders,
     DemoTimeline: DemoTimeline,
+    DemoBadges: DemoBadges,
   },
   table: {
+    DemoTablePagination2: DemoTablePagination2,
     DemoTable2R: DemoTable2R,
     DemoTable1R: DemoTable1R,
     DemoTablePagination: DemoTablePagination,
