@@ -1,5 +1,5 @@
 import * as v from "valibot"
-import { ct0, ct1 } from "~/i18n/ct0.ts"
+import { ct0, ct1 } from "~/i18n/ct0"
 import { t4theme } from "~/interactive/theme/t4theme"
 import {
   getThemeFromStorageOrBrowserPref,
@@ -11,8 +11,8 @@ import {
   type ThemeVariant,
   themeVariant,
 } from "~/interactive/theme/themeVariant"
-import { toastAdd } from "~/interactive/toast/toastAdd.ts"
-import { toastVariant } from "~/interactive/toast/toastVariant.ts"
+import { toastAdd } from "~/interactive/toast/toastAdd"
+import { toastVariant } from "~/interactive/toast/toastVariant"
 import { createSignalObject } from "~/utils/ui/createSignalObject"
 
 export const themeSignal = createSignalObject<ThemeVariant>(themeVariant.os)

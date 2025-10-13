@@ -1,4 +1,4 @@
-import { envMode, type EnvMode } from "./envMode.ts"
+import { envMode, type EnvMode } from "./envMode"
 
 export function getEnvMode(): EnvMode {
   // Overwrite Convex env mode

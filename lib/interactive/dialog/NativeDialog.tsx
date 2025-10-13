@@ -1,13 +1,13 @@
 import { mdiClose } from "@mdi/js"
 import { createUniqueId, mergeProps, Show, splitProps } from "solid-js"
-import { ct0 } from "~/i18n/ct0.ts"
-import { buttonVariant } from "~/interactive/button/buttonCva.ts"
-import { ButtonIcon, type ButtonIconProps } from "~/interactive/button/ButtonIcon.tsx"
+import { ct0 } from "~/i18n/ct0"
+import { buttonVariant } from "~/interactive/button/buttonCva"
+import { ButtonIcon, type ButtonIconProps } from "~/interactive/button/ButtonIcon"
 import {
   createNativeDialogOpenStateSignal,
   type IsOpenSignalObject,
-} from "~/interactive/dialog/createNativeDialogOpenStateSignal.ts"
-import { tbCloseDialog } from "~/interactive/dialog/tbCloseDialog.ts"
+} from "~/interactive/dialog/createNativeDialogOpenStateSignal"
+import { tbCloseDialog } from "~/interactive/dialog/tbCloseDialog"
 import { classMerge } from "~/utils/ui/classMerge"
 import { createSignalObject, type SignalObject } from "~/utils/ui/createSignalObject"
 import type { HasChildren } from "~/utils/ui/HasChildren"

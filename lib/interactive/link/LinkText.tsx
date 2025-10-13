@@ -1,5 +1,5 @@
 import { splitProps } from "solid-js"
-import type { LinkTextProps } from "~/interactive/link/LinkTextProps.tsx"
+import type { LinkTextProps } from "~/interactive/link/LinkTextProps"
 import { classMerge } from "~/utils/ui/classMerge"
 
 export function LinkText(p: LinkTextProps) {

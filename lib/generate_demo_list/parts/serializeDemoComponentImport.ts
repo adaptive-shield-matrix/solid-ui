@@ -1,7 +1,7 @@
 import { join } from "node:path"
 
 export function serializeDemoComponentImport(path: string, baseDir: string) {
-  const name = path.split("/").at(-1)?.replace(".tsx", "")
+  const name = path.split("/").at(-1)?.replace("", "")
 
   const replacements = [
     [join(baseDir, "src"), "@"],

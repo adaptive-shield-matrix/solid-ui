@@ -1,5 +1,5 @@
-import type { Label2Props } from "~/input/label/Label2.tsx"
-import { LabelAsterix } from "~/input/label/LabelAsterix.tsx"
+import type { Label2Props } from "~/input/label/Label2"
+import { LabelAsterix } from "~/input/label/LabelAsterix"
 import { classMerge } from "~/utils/ui/classMerge"
 
 export function PseudoLabel2(p: Label2Props) {

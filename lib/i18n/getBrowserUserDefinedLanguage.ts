@@ -1,4 +1,4 @@
-import { type Language, language } from "~/i18n/language.ts"
+import { type Language, language } from "~/i18n/language"
 
 export function getBrowserUserDefinedLanguage(): Language {
   if (!navigator || !navigator.languages) return language.en

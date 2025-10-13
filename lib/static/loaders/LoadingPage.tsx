@@ -1,6 +1,6 @@
-import { tx } from "~/i18n/t1.ts"
-import { RandomLoader } from "~/static/loaders/RandomLoader.tsx"
-import { t4loading } from "./t4loading.ts"
+import { tx } from "~/i18n/t1"
+import { RandomLoader } from "~/static/loaders/RandomLoader"
+import { t4loading } from "./t4loading"
 
 export interface LoadingPageProps {
   loadingX?: string

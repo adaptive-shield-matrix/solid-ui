@@ -1,4 +1,4 @@
-import { isProdEnv } from "~/env/isProdEnv.ts"
+import { isProdEnv } from "~/env/isProdEnv"
 import { classMerge } from "~/utils/ui/classMerge"
 
 export function TailwindIndicator() {

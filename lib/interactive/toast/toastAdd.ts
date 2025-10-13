@@ -1,9 +1,9 @@
-import { generateToastId } from "~/interactive/toast/generateToastId.ts"
-import { toastDismiss } from "~/interactive/toast/toastDismiss.ts"
-import { toasterSettings } from "~/interactive/toast/toasterSettings.ts"
-import { toasterState } from "~/interactive/toast/toasterState.ts"
-import type { AddToastProps } from "~/interactive/toast/ToastProps.ts"
-import { toastVariant, toastVariantIcon } from "~/interactive/toast/toastVariant.ts"
+import { generateToastId } from "~/interactive/toast/generateToastId"
+import { toastDismiss } from "~/interactive/toast/toastDismiss"
+import { toasterSettings } from "~/interactive/toast/toasterSettings"
+import { toasterState } from "~/interactive/toast/toasterState"
+import type { AddToastProps } from "~/interactive/toast/ToastProps"
+import { toastVariant, toastVariantIcon } from "~/interactive/toast/toastVariant"
 
 const log = true
 // const log = false

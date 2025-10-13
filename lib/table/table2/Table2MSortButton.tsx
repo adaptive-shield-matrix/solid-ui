@@ -1,5 +1,5 @@
-import type { SortableTableData } from "~/table/table2/SortableTableData.tsx"
-import { type SortDir } from "~/table/table2/sortDir.ts"
+import type { SortableTableData } from "~/table/table2/SortableTableData"
+import { type SortDir } from "~/table/table2/sortDir"
 import type { HasClass } from "~/utils/ui/HasClass"
 
 export function Table2MSortButton<T>(p: SortableTableData<T> & HasClass) {

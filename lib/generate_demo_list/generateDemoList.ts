@@ -31,7 +31,7 @@ export async function generateDemoList(demoSearchDirRelative: string, outputFile
 
   let output = `
 import { lazy } from "solid-js"
-import { type DemoListType } from "~/generate_demo_list/DemoListType.ts"\n\n`
+import { type DemoListType } from "~/generate_demo_list/DemoListType"\n\n`
 
   for (const category of objectKeys(demoPageList)) {
     const importPathComponents = demoPageList[category]

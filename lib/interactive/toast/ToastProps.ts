@@ -1,5 +1,5 @@
 import type { JSXElement } from "solid-js"
-import type { ToastVariant } from "~/interactive/toast/toastVariant.ts"
+import type { ToastVariant } from "~/interactive/toast/toastVariant"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import type { HasClass } from "~/utils/ui/HasClass"
 

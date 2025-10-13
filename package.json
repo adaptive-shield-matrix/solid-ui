@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "scripts": {
     "dev": "bun run rsbuild:dev",
-    "build": "tsc -p ./tsconfig.lib.json",
+    "build": "rm -rf ./export && tsc -p ./tsconfig.lib.json",
     "compile": "bun run tsc",
     "vite:dev": "nice -5 vite dev --debug hmr",
     "vite:build": "nice -15 vite build",

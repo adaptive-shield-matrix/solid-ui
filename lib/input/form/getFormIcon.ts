@@ -1,5 +1,5 @@
 import { mdiAlert, mdiPlus, mdiSquareEditOutline, mdiTrashCan } from "@mdi/js"
-import { type FormModeE, formModeE } from "~/input/form/formMode.ts"
+import { type FormModeE, formModeE } from "~/input/form/formMode"
 
 export function getFormIcon(mode: FormModeE) {
   return formIcon[mode]

@@ -1,8 +1,8 @@
 import { splitProps } from "solid-js"
-import { buttonCvaIconOnly } from "~/interactive/button/buttonCva.ts"
-import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
+import { buttonCvaIconOnly } from "~/interactive/button/buttonCva"
+import { buttonIconCva } from "~/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
-import type { LinkButtonProps } from "~/interactive/link/LinkButtonProps.tsx"
+import type { LinkButtonProps } from "~/interactive/link/LinkButtonProps"
 import { Icon1 } from "~/static/icon/Icon1"
 import { isLoading } from "~/utils/ui/HasIsLoading"
 

@@ -1,4 +1,4 @@
-import type { TableColumnDef } from "~/table/shared/TableColumnDef.ts"
+import type { TableColumnDef } from "~/table/shared/TableColumnDef"
 
 export function tableRowSearchSimple<T>(allRows: T[], searchInput: string, columns: TableColumnDef<T>[]): T[] {
   const lowerSearchInput = searchInput.toLowerCase()

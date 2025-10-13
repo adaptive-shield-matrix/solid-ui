@@ -1,6 +1,6 @@
 import { Key } from "@solid-primitives/keyed"
-import { Toast } from "~/interactive/toast/Toast.tsx"
-import { toasterState } from "~/interactive/toast/toasterState.ts"
+import { Toast } from "~/interactive/toast/Toast"
+import { toasterState } from "~/interactive/toast/toasterState"
 import type { HasClass } from "~/utils/ui/HasClass"
 import { classArr } from "~/utils/ui/classArr"
 

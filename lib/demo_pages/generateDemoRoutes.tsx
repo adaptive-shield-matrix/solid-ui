@@ -1,14 +1,14 @@
 import { For } from "solid-js"
 import { LinkBlock } from "~/demo_pages/LinkBlock"
 import { pathDemos } from "~/demo_pages/pathDemos"
+import type { RouteObject } from "~/demo_pages/RouteConfig"
 import type { DemoListType } from "~/generate_demo_list/DemoListType"
-import { LinkButton } from "~/interactive/link/LinkButton.tsx"
+import { LinkButton } from "~/interactive/link/LinkButton"
 import { classesGridCols3xl } from "~/static/container/classesGridCols"
 import { LayoutWrapperDemo } from "~/static/container/LayoutWrapperDemo"
 import { NavDemo } from "~/static/nav/NavDemo"
-import { objectEntries } from "~/utils/obj/objectEntries.ts"
-import { objectKeys } from "~/utils/obj/objectKeys.ts"
-import type { RouteObject } from "~/demo_pages/RouteConfig"
+import { objectEntries } from "~/utils/obj/objectEntries"
+import { objectKeys } from "~/utils/obj/objectKeys"
 import { classArr } from "~/utils/ui/classArr"
 
 const log = false

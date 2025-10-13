@@ -1,5 +1,5 @@
-import { createPseudoRandom } from "./createPseudoRandom.ts"
 import { expect, test } from "bun:test"
+import { createPseudoRandom } from "./createPseudoRandom"
 
 test("createPseudoRandom.float distribution", () => {
   const r = createPseudoRandom(0)

@@ -1,6 +1,6 @@
 import type { Component, ComponentProps } from "solid-js"
 import { splitProps } from "solid-js"
-import { buttonCva2, type ButtonCvaProps } from "~/interactive/button/buttonCva.ts"
+import { buttonCva2, type ButtonCvaProps } from "~/interactive/button/buttonCva"
 import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
 
 export interface ButtonProps extends ComponentProps<"button">, ButtonCvaProps {}

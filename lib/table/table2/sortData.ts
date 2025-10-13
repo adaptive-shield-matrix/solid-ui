@@ -1,6 +1,6 @@
-import type { Language } from "~/i18n/language.ts"
-import type { TableColumnDef } from "~/table/shared/TableColumnDef.ts"
-import { sortDir, type SortDir } from "~/table/table2/sortDir.ts"
+import type { Language } from "~/i18n/language"
+import type { TableColumnDef } from "~/table/shared/TableColumnDef"
+import { sortDir, type SortDir } from "~/table/table2/sortDir"
 
 export function sortData<T>(l: Language, data: T[], sortHeader: TableColumnDef<T>, dir: SortDir) {
   const sorted: T[] = [...data]

@@ -1,5 +1,5 @@
-import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames.ts"
-import type { TableColumnDef } from "~/table/shared/TableColumnDef.ts"
+import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames"
+import type { TableColumnDef } from "~/table/shared/TableColumnDef"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import { classMerge } from "~/utils/ui/classMerge"
 

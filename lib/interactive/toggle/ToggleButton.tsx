@@ -1,6 +1,6 @@
 
 import { type ComponentProps, splitProps } from "solid-js"
-import { ButtonIcon } from "~/interactive/button/ButtonIcon.tsx"
+import { ButtonIcon } from "~/interactive/button/ButtonIcon"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import type { HasClass } from "~/utils/ui/HasClass"
 import { type HasDisabled, isDisabled } from "~/utils/ui/HasDisabled"

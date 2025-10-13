@@ -1,6 +1,6 @@
 import { type Component, type ComponentProps, splitProps } from "solid-js"
-import { buttonCvaIconOnly, type ButtonCvaProps } from "~/interactive/button/buttonCva.ts"
-import { buttonIconCva } from "~/interactive/button/buttonIconCva.ts"
+import { buttonCvaIconOnly, type ButtonCvaProps } from "~/interactive/button/buttonCva"
+import { buttonIconCva } from "~/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
 import { classesButtonDisabled } from "~/interactive/button/classesButtonDisabled"
 import { Icon0 } from "~/static/icon/Icon0"

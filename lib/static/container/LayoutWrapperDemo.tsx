@@ -1,5 +1,5 @@
 import { createEffect } from "solid-js"
-import { Toaster } from "~/interactive/toast/Toaster.tsx"
+import { Toaster } from "~/interactive/toast/Toaster"
 import { TailwindIndicator } from "~/static/dev/TailwindIndicator"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import type { MayHaveTitle } from "~/utils/ui/MayHaveTitle"

@@ -1,4 +1,4 @@
-import type { TableColumnDef } from "~/table/shared/TableColumnDef.ts"
+import type { TableColumnDef } from "~/table/shared/TableColumnDef"
 
 export type SortDir = keyof typeof sortDir
 export const sortDir = {

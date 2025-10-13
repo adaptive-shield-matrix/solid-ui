@@ -1,5 +1,5 @@
 import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva"
-import { LinkButton } from "~/interactive/link/LinkButton.tsx"
+import { LinkButton } from "~/interactive/link/LinkButton"
 import { Img } from "~/static/img/Img"
 import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 import { classMerge } from "~/utils/ui/classMerge"

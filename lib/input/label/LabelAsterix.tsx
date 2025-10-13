@@ -1,5 +1,5 @@
-import { ct0 } from "~/i18n/ct0.ts"
-import { t4atomizedInput } from "~/input/input/t4atomizedInput.ts"
+import { ct0 } from "~/i18n/ct0"
+import { t4atomizedInput } from "~/input/input/t4atomizedInput"
 import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 import { classMerge } from "~/utils/ui/classMerge"
 

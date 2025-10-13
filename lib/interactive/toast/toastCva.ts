@@ -1,4 +1,4 @@
-import { toastVariant, type ToastVariant } from "~/interactive/toast/toastVariant.ts"
+import { toastVariant, type ToastVariant } from "~/interactive/toast/toastVariant"
 import { classArr } from "~/utils/ui/classArr"
 import { classMerge } from "~/utils/ui/classMerge"
 

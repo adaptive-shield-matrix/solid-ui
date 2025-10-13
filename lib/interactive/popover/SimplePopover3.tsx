@@ -1,6 +1,6 @@
 import { computePosition, type ComputePositionConfig, flip, offset, shift } from "@floating-ui/dom"
 import { createUniqueId, splitProps } from "solid-js"
-import { ButtonIcon1, type ButtonIcon1Props } from "~/interactive/button/ButtonIcon1.tsx"
+import { ButtonIcon1, type ButtonIcon1Props } from "~/interactive/button/ButtonIcon1"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import type { HasClass } from "~/utils/ui/HasClass"
 import { classArr } from "~/utils/ui/classArr"

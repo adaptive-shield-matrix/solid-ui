@@ -1,7 +1,7 @@
 import { Separator } from "~/static/separator/Separator"
-import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames.ts"
-import type { Table1Data } from "~/table/table1/Table1Data.ts"
-import { Table1MEntry } from "~/table/table1/Table1MEntry.tsx"
+import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames"
+import type { Table1Data } from "~/table/table1/Table1Data"
+import { Table1MEntry } from "~/table/table1/Table1MEntry"
 import type { HasClass } from "~/utils/ui/HasClass"
 import { classMerge } from "~/utils/ui/classMerge"
 

@@ -1,5 +1,5 @@
 import { type ComponentProps, splitProps } from "solid-js"
-import { Textarea } from "~/input/textarea/Textarea.tsx"
+import { Textarea } from "~/input/textarea/Textarea"
 import type { SignalObject } from "~/utils/ui/createSignalObject"
 
 export type TextAreaSProps = {

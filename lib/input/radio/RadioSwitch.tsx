@@ -1,6 +1,6 @@
 import { Key } from "@solid-primitives/keyed"
-import { ct0 } from "~/i18n/ct0.ts"
-import { t4multiselect } from "~/input/select/t4multiselect.ts"
+import { ct0 } from "~/i18n/ct0"
+import { t4multiselect } from "~/input/select/t4multiselect"
 import { classArr } from "~/utils/ui/classArr"
 import type { SignalObject } from "~/utils/ui/createSignalObject"
 import type { HasChildren } from "~/utils/ui/HasChildren"

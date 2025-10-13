@@ -1,5 +1,5 @@
 import { type ComponentProps, splitProps } from "solid-js"
-import { Input } from "~/input/input/Input.tsx"
+import { Input } from "~/input/input/Input"
 import type { SignalObject } from "~/utils/ui/createSignalObject"
 
 export interface InputSProps extends ComponentProps<"input"> {

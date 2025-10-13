@@ -1,5 +1,5 @@
-import { Label } from "~/input/label/Label.tsx"
-import { LabelAsterix } from "~/input/label/LabelAsterix.tsx"
+import { Label } from "~/input/label/Label"
+import { LabelAsterix } from "~/input/label/LabelAsterix"
 import type { HasChildren } from "~/utils/ui/HasChildren"
 import { classMerge } from "~/utils/ui/classMerge"
 

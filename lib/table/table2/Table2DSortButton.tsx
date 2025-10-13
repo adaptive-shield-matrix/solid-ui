@@ -1,8 +1,8 @@
 import { mdiArrowDown, mdiArrowUp } from "@mdi/js"
-import { buttonVariant } from "~/interactive/button/buttonCva.ts"
-import { ButtonIcon } from "~/interactive/button/ButtonIcon.tsx"
-import type { TableColumnDef } from "~/table/shared/TableColumnDef.ts"
-import { sortDir, type SortDir } from "~/table/table2/sortDir.ts"
+import { buttonVariant } from "~/interactive/button/buttonCva"
+import { ButtonIcon } from "~/interactive/button/ButtonIcon"
+import type { TableColumnDef } from "~/table/shared/TableColumnDef"
+import { sortDir, type SortDir } from "~/table/table2/sortDir"
 import { classMerge } from "~/utils/ui/classMerge"
 
 export function Table2DSortButton<T>(p: {

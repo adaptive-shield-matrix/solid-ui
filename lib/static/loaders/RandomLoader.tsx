@@ -1,4 +1,4 @@
-import { LoaderShuffle4Dots } from "~/static/loaders/LoaderShuffle4Dots.tsx"
+import { LoaderShuffle4Dots } from "~/static/loaders/LoaderShuffle4Dots"
 import type { HasClass } from "~/utils/ui/HasClass"
 
 export function RandomLoader(p: HasClass) {

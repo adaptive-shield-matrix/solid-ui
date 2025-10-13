@@ -1,5 +1,5 @@
-import { LinkText } from "~/interactive/link/LinkText.tsx"
-import { BlueBulletPoint } from "~/static/lists/BlueBulletPoint.tsx"
+import { LinkText } from "~/interactive/link/LinkText"
+import { BlueBulletPoint } from "~/static/lists/BlueBulletPoint"
 import { classMerge } from "~/utils/ui/classMerge"
 
 export interface BulletLinksProps {

@@ -1,4 +1,4 @@
-import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva.ts"
+import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva"
 import { classArr } from "~/utils/ui/classArr"
 import { classMerge } from "~/utils/ui/classMerge"
 
