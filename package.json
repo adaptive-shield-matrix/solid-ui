@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "scripts": {
     "dev": "bun run rsbuild:dev",
-    "build": "bun run rsbuild:build",
+    "build": "tsc -p ./tsconfig.lib.json",
     "compile": "bun run tsc",
     "vite:dev": "nice -5 vite dev --debug hmr",
     "vite:build": "nice -15 vite build",
@@ -51,10 +51,10 @@
     "wrangler": "^4.37.0"
   },
   "exports": {
-    "./*": "./lib/*"
+    "./*": "./export/*"
   },
   "files": [
-    "lib"
+    "export"
   ],
   "prettier": {
     "semi": false,

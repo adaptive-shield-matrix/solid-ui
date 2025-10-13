@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./lib",
+    "outDir": "./export",
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": false
+  },
+  "include": [
+    "lib/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "export",
+    "src",
+    "test",
+    "docs",
+    "public",
+    "build",
+    "dist",
+    "out",
+    "data",
+    ".idea",
+    ".vscode"
+  ]
+}
