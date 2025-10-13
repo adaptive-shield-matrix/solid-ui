@@ -40,6 +40,9 @@
       "~/*": [
         "lib/*"
       ],
+      "~utils/*": [
+        "./node_modules/@adaptive-sm/utils/dist/*"
+      ],
     },
     //
     // type imports - https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax

@@ -26,6 +26,7 @@ export default defineConfig({
     alias: {
       "@": new URL("./src", import.meta.url).pathname,
       "~": new URL("./lib", import.meta.url).pathname,
+      "~utils": new URL("././node_modules/@adaptive-sm/utils/dist", import.meta.url).pathname,
     },
   },
   // @ts-ignore
