@@ -1,13 +1,13 @@
 import { mdiMinus, mdiMinusBox, mdiPlus, mdiPlusBox } from "@mdi/js"
 import { type JSX } from "solid-js"
-import { ct1 } from "~/i18n/ct0"
-import { Input } from "~/input/input/Input"
-import { t4atomizedNumberInput } from "~/input/number/t4atomizedNumberInput"
-import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva"
-import { ButtonIconOnly } from "~/interactive/button/ButtonIconOnly"
-import { safeParseInt } from "~/utils/int/safeParseInt"
-import { classMerge } from "~/utils/ui/classMerge"
-import type { SignalObject } from "~/utils/ui/createSignalObject"
+import { ct1 } from "~ui/i18n/ct0"
+import { Input } from "~ui/input/input/Input"
+import { t4atomizedNumberInput } from "~ui/input/number/t4atomizedNumberInput"
+import { buttonVariant, type ButtonVariant } from "~ui/interactive/button/buttonCva"
+import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
+import { safeParseInt } from "~ui/utils/int/safeParseInt"
+import { classMerge } from "~ui/utils/ui/classMerge"
+import type { SignalObject } from "~ui/utils/ui/createSignalObject"
 
 export type NumberInputSProps = {
   valueSignal: SignalObject<number>

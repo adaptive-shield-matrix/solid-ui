@@ -1,9 +1,9 @@
 import { mdiAccount, mdiCog, mdiDotsVertical, mdiHeart } from "@mdi/js"
-import { SimplePopover3 } from "~/interactive/popover/SimplePopover3.tsx"
-import { Button } from "~/interactive/button/Button.tsx"
-import { buttonVariant } from "~/interactive/button/buttonCva.ts"
-import { toastAdd } from "~/interactive/toast/toastAdd.ts"
-import { toastVariant } from "~/interactive/toast/toastVariant.ts"
+import { Button } from "~ui/interactive/button/Button.tsx"
+import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
+import { SimplePopover3 } from "~ui/interactive/popover/SimplePopover3.tsx"
+import { toastAdd } from "~ui/interactive/toast/toastAdd.ts"
+import { toastVariant } from "~ui/interactive/toast/toastVariant.ts"
 
 export function DemoPopover() {
   return (

@@ -1,8 +1,8 @@
 import { mdiAccount, mdiInformation, mdiPencil } from "@mdi/js"
 import { createSignal } from "solid-js"
-import { NativeDialog } from "~/interactive/dialog/NativeDialog.tsx"
-import { Button } from "~/interactive/button/Button.tsx"
-import { buttonVariant } from "~/interactive/button/buttonCva.ts"
+import { Button } from "~ui/interactive/button/Button.tsx"
+import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
+import { NativeDialog } from "~ui/interactive/dialog/NativeDialog.tsx"
 
 export function DemoDialog() {
   return (

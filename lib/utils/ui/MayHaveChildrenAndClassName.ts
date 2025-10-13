@@ -1,4 +1,4 @@
-import type { MayHaveChildren } from "~/utils/ui/MayHaveChildren"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
+import type { MayHaveChildren } from "~ui/utils/ui/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
 
 export interface MayHaveChildrenAndClassName extends MayHaveChildren, MayHaveClass {}

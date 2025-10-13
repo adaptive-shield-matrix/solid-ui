@@ -1,5 +1,5 @@
-import { createToasterState } from "~/interactive/toast/GlobalToasterState"
-import { toasterState } from "~/interactive/toast/toasterState"
+import { createToasterState } from "~ui/interactive/toast/GlobalToasterState"
+import { toasterState } from "~ui/interactive/toast/toasterState"
 
 const log = true
 // const log = false

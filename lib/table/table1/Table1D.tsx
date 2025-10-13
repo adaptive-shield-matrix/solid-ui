@@ -1,11 +1,11 @@
-import { languageSignal } from "~/i18n/languageSignal"
-import { tt0 } from "~/i18n/t1"
-import type { DesktopTableClassNames } from "~/table/shared/DesktopTableClassNames"
-import { sharedTableRowClassName } from "~/table/shared/sharedTableRowClassName"
-import { t4table } from "~/table/shared/t4table"
-import type { Table1Data } from "~/table/table1/Table1Data"
-import type { HasClass } from "~/utils/ui/HasClass"
-import { classMerge } from "~/utils/ui/classMerge"
+import { languageSignal } from "~ui/i18n/languageSignal"
+import { tt0 } from "~ui/i18n/t1"
+import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassNames"
+import { sharedTableRowClassName } from "~ui/table/shared/sharedTableRowClassName"
+import { t4table } from "~ui/table/shared/t4table"
+import type { Table1Data } from "~ui/table/table1/Table1Data"
+import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export type Table1aDProps<T> = Table1Data<T> & {
   desktopClasses?: DesktopTableClassNames

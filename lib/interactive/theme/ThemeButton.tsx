@@ -1,12 +1,12 @@
 import { createEffect, onCleanup } from "solid-js"
-import { ct0, ct1 } from "~/i18n/ct0"
-import { buttonVariant } from "~/interactive/button/buttonCva"
-import { ButtonIconOnly } from "~/interactive/button/ButtonIconOnly"
-import { t4theme } from "~/interactive/theme/t4theme"
-import { themeInit, themeRotate, themeSignal } from "~/interactive/theme/themeSignal"
-import { themeIcon, type ThemeVariant } from "~/interactive/theme/themeVariant"
-import { classMerge } from "~/utils/ui/classMerge"
-import type { HasClass } from "~/utils/ui/HasClass"
+import { ct0, ct1 } from "~ui/i18n/ct0"
+import { buttonVariant } from "~ui/interactive/button/buttonCva"
+import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
+import { t4theme } from "~ui/interactive/theme/t4theme"
+import { themeInit, themeRotate, themeSignal } from "~ui/interactive/theme/themeSignal"
+import { themeIcon, type ThemeVariant } from "~ui/interactive/theme/themeVariant"
+import { classMerge } from "~ui/utils/ui/classMerge"
+import type { HasClass } from "~ui/utils/ui/HasClass"
 
 function createGlobalKeyHandler(navigate: (to: string) => void) {
   return (e: KeyboardEvent) => {

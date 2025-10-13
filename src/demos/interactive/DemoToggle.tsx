@@ -1,10 +1,8 @@
-import { mdiFormatBold, mdiFormatItalic, mdiFormatUnderline, mdiFormatAlignLeft, mdiFormatAlignCenter, mdiFormatAlignRight } from "@mdi/js"
-import { createSignalObject } from "~/utils/ui/createSignalObject"
-import { ToggleButton } from "~/interactive/toggle/ToggleButton.tsx"
-import { buttonVariant } from "~/interactive/button/buttonCva.ts"
-import { toastAdd } from "~/interactive/toast/toastAdd.ts"
-import { toastVariant } from "~/interactive/toast/toastVariant.ts"
-import { classArr } from "~/utils/ui/classArr"
+import { mdiFormatAlignCenter, mdiFormatAlignLeft, mdiFormatAlignRight } from "@mdi/js"
+import { toastAdd } from "~ui/interactive/toast/toastAdd.ts"
+import { toastVariant } from "~ui/interactive/toast/toastVariant.ts"
+import { ToggleButton } from "~ui/interactive/toggle/ToggleButton.tsx"
+import { createSignalObject } from "~ui/utils/ui/createSignalObject"
 
 export function DemoToggle() {
   return (
@@ -58,8 +56,8 @@ function TextFormattingDemo() {
       <div class="flex items-center gap-2 p-4 border rounded-lg">
         <ToggleButton
           pressedSignal={boldPressed}
-          
-          
+
+
           title="Bold"
         />
         <ToggleButton
@@ -127,7 +125,7 @@ function ToggleWithStateDemo() {
         <div class="flex items-center gap-4">
           <ToggleButton
             pressedSignal={pressedSignal}
-            
+
             title="Feature Toggle"
           >
             Enable Feature

@@ -1,7 +1,7 @@
-import { BulletLinks } from "~/interactive/list/BulletLinks.tsx"
-import { BulletLinksO } from "~/interactive/list/BulletLinksO.tsx"
-import { toastAdd } from "~/interactive/toast/toastAdd.ts"
-import { toastVariant } from "~/interactive/toast/toastVariant.ts"
+import { BulletLinks } from "~ui/interactive/list/BulletLinks.tsx"
+import { BulletLinksO } from "~ui/interactive/list/BulletLinksO.tsx"
+import { toastAdd } from "~ui/interactive/toast/toastAdd.ts"
+import { toastVariant } from "~ui/interactive/toast/toastVariant.ts"
 
 export function DemoLists() {
   return (

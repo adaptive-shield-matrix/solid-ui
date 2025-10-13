@@ -1,12 +1,12 @@
 import { mdiLoading } from "@mdi/js"
 import { type Component, type ComponentProps, splitProps } from "solid-js"
-import { Button } from "~/interactive/button/Button"
-import type { ButtonVariant } from "~/interactive/button/buttonCva"
-import { type ButtonCvaProps } from "~/interactive/button/buttonCva"
-import { buttonIconCva } from "~/interactive/button/buttonIconCva"
-import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
-import { Icon1 } from "~/static/icon/Icon1"
-import { classMerge } from "~/utils/ui/classMerge"
+import { Button } from "~ui/interactive/button/Button"
+import type { ButtonVariant } from "~ui/interactive/button/buttonCva"
+import { type ButtonCvaProps } from "~ui/interactive/button/buttonCva"
+import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
+import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
+import { Icon1 } from "~ui/static/icon/Icon1"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export interface ButtonIconProps extends ComponentProps<"button">, ButtonCvaProps {
   // icon

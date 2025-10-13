@@ -1,12 +1,12 @@
 import { type Component, type ComponentProps, splitProps } from "solid-js"
-import { buttonCvaIconOnly, type ButtonCvaProps } from "~/interactive/button/buttonCva"
-import { buttonIconCva } from "~/interactive/button/buttonIconCva"
-import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
-import { classesButtonDisabled } from "~/interactive/button/classesButtonDisabled"
-import { Icon0 } from "~/static/icon/Icon0"
-import type { HasChildren } from "~/utils/ui/HasChildren"
-import { isDisabled } from "~/utils/ui/HasDisabled"
-import { type HasIsLoading, isLoading } from "~/utils/ui/HasIsLoading"
+import { buttonCvaIconOnly, type ButtonCvaProps } from "~ui/interactive/button/buttonCva"
+import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
+import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
+import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
+import { Icon0 } from "~ui/static/icon/Icon0"
+import type { HasChildren } from "~ui/utils/ui/HasChildren"
+import { isDisabled } from "~ui/utils/ui/HasDisabled"
+import { type HasIsLoading, isLoading } from "~ui/utils/ui/HasIsLoading"
 
 export interface ButtonIconOnlyProps extends ComponentProps<"button">, ButtonCvaProps, HasIsLoading, HasChildren {
   title: string

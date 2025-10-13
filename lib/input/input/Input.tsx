@@ -1,6 +1,6 @@
 import type { Component, ComponentProps } from "solid-js"
 import { splitProps } from "solid-js"
-import { classMerge } from "~/utils/ui/classMerge"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export const Input: Component<ComponentProps<"input">> = (p) => {
   const [, rest] = splitProps(p, ["type", "class"])

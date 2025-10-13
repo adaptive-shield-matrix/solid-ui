@@ -1,8 +1,8 @@
-import { buttonVariant, type ButtonVariant } from "~/interactive/button/buttonCva"
-import { LinkButton } from "~/interactive/link/LinkButton"
-import { Img } from "~/static/img/Img"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
-import { classMerge } from "~/utils/ui/classMerge"
+import { buttonVariant, type ButtonVariant } from "~ui/interactive/button/buttonCva"
+import { LinkButton } from "~ui/interactive/link/LinkButton"
+import { Img } from "~ui/static/img/Img"
+import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export interface LogoImageTextProps extends MayHaveClass {
   imageClass?: string

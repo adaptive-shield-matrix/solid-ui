@@ -1,4 +1,4 @@
-import { classArr } from "~/utils/ui/classArr"
+import { classArr } from "~ui/utils/ui/classArr"
 
 export const classesPageWrapper = classArr(
   "flex flex-col items-center justify-center", // layout

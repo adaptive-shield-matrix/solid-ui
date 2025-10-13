@@ -1,13 +1,13 @@
 import { mdiChevronDown } from "@mdi/js"
 import { Show, type JSXElement } from "solid-js"
-import { Icon1 } from "~/static/icon/Icon1"
-import type { HasChildren } from "~/utils/ui/HasChildren"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
-import type { MayHaveIcon } from "~/utils/ui/MayHaveIcon"
-import type { MayHaveSubtitle } from "~/utils/ui/MayHaveSubtitle"
-import type { MayHaveTitle } from "~/utils/ui/MayHaveTitle"
-import { classArr } from "~/utils/ui/classArr"
-import { classMerge } from "~/utils/ui/classMerge"
+import { Icon1 } from "~ui/static/icon/Icon1"
+import type { HasChildren } from "~ui/utils/ui/HasChildren"
+import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
+import type { MayHaveIcon } from "~ui/utils/ui/MayHaveIcon"
+import type { MayHaveSubtitle } from "~ui/utils/ui/MayHaveSubtitle"
+import type { MayHaveTitle } from "~ui/utils/ui/MayHaveTitle"
+import { classArr } from "~ui/utils/ui/classArr"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export interface DetailsProps extends MayHaveClass, MayHaveIcon, MayHaveTitle, MayHaveSubtitle, HasChildren {
   summaryClass?: string

@@ -1,8 +1,8 @@
 import { Key } from "@solid-primitives/keyed"
-import { Toast } from "~/interactive/toast/Toast"
-import { toasterState } from "~/interactive/toast/toasterState"
-import type { HasClass } from "~/utils/ui/HasClass"
-import { classArr } from "~/utils/ui/classArr"
+import { Toast } from "~ui/interactive/toast/Toast"
+import { toasterState } from "~ui/interactive/toast/toasterState"
+import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classArr } from "~ui/utils/ui/classArr"
 
 // const log = true
 const log = false

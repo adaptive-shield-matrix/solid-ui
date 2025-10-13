@@ -1,7 +1,7 @@
 import { createSignal } from "solid-js"
-import { TabsTop2 } from "~/interactive/tabs/TabsTop2.tsx"
-import type { TabItem } from "~/interactive/tabs/TabItem.tsx"
-import { createSignalObject } from "~/utils/ui/createSignalObject"
+import type { TabItem } from "~ui/interactive/tabs/TabItem.tsx"
+import { TabsTop2 } from "~ui/interactive/tabs/TabsTop2.tsx"
+import { createSignalObject } from "~ui/utils/ui/createSignalObject"
 
 export function DemoTabs() {
   return (

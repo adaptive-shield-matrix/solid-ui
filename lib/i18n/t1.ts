@@ -1,6 +1,6 @@
-import { defaultLanguage, type Language } from "~/i18n/language"
-import type { TranslationBlock } from "~/i18n/TranslationBlock"
-import { objectEntries } from "~/utils/obj/objectEntries"
+import { defaultLanguage, type Language } from "~ui/i18n/language"
+import type { TranslationBlock } from "~ui/i18n/TranslationBlock"
+import { objectEntries } from "~ui/utils/obj/objectEntries"
 
 export function t1(b: TranslationBlock): string {
   return b[defaultLanguage]

@@ -1,7 +1,7 @@
-import { ct0 } from "~/i18n/ct0"
-import { t4atomizedInput } from "~/input/input/t4atomizedInput"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
-import { classMerge } from "~/utils/ui/classMerge"
+import { ct0 } from "~ui/i18n/ct0"
+import { t4atomizedInput } from "~ui/input/input/t4atomizedInput"
+import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export interface LabelAsterixProps extends MayHaveClass {}
 

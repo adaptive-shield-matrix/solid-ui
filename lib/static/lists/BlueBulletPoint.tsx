@@ -1,5 +1,5 @@
 import { type ComponentProps, splitProps } from "solid-js"
-import { classMerge } from "~/utils/ui/classMerge"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export interface BlueBulletPointProps extends ComponentProps<"span"> {
 }

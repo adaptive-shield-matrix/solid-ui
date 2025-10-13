@@ -1,4 +1,4 @@
-import type { TranslationBlock } from "~/i18n/TranslationBlock"
+import type { TranslationBlock } from "~ui/i18n/TranslationBlock"
 
 export const tbClose = {
   en: "Close",

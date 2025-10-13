@@ -1,11 +1,11 @@
-import type { DesktopTableClassNames } from "~/table/shared/DesktopTableClassNames"
-import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames"
-import { tableVisibilityClasses } from "~/table/shared/tableVisibilityClasses"
-import { Table1D } from "~/table/table1/Table1D"
-import type { Table1Data } from "~/table/table1/Table1Data"
-import { Table1M } from "~/table/table1/Table1M"
-import type { TailwindBreakpoint } from "~/utils/ui/tailwindBreakpoint"
-import { tailwindBreakpoint } from "~/utils/ui/tailwindBreakpoint"
+import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassNames"
+import type { MobileTableClassNames } from "~ui/table/shared/MobileTableClassNames"
+import { tableVisibilityClasses } from "~ui/table/shared/tableVisibilityClasses"
+import { Table1D } from "~ui/table/table1/Table1D"
+import type { Table1Data } from "~ui/table/table1/Table1Data"
+import { Table1M } from "~ui/table/table1/Table1M"
+import type { TailwindBreakpoint } from "~ui/utils/ui/tailwindBreakpoint"
+import { tailwindBreakpoint } from "~ui/utils/ui/tailwindBreakpoint"
 
 export type SortableTable1RProps<T> = Table1Data<T> & {
   breakpoint?: TailwindBreakpoint

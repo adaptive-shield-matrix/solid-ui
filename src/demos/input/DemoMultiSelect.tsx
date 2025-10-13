@@ -1,8 +1,8 @@
-import { Multiselect } from "~/input/select/Multiselect.tsx"
-import { PageWrapper2 } from "~/static/container/PageWrapper2.tsx"
-import { arrCreate } from "~/utils/arr/arrCreate.ts"
-import type { SelectionItem } from "~/utils/ui/SelectionItem"
-import { createSignalObject } from "~/utils/ui/createSignalObject"
+import { Multiselect } from "~ui/input/select/Multiselect.tsx"
+import { PageWrapper2 } from "~ui/static/container/PageWrapper2.tsx"
+import { arrCreate } from "~ui/utils/arr/arrCreate.ts"
+import type { SelectionItem } from "~ui/utils/ui/SelectionItem"
+import { createSignalObject } from "~ui/utils/ui/createSignalObject"
 
 const options5 = arrCreate<SelectionItem>(5, (i) => ({ value: "" + i, label: "Option " + i }))
 const options100 = arrCreate<SelectionItem>(100, (i) => ({ value: "" + i, label: "Option " + i }))

@@ -1,7 +1,7 @@
 import { mdiAccount, mdiCog, mdiHeart, mdiHome, mdiStar } from "@mdi/js"
-import { Icon0 } from "~/static/icon/Icon0.tsx"
-import { Icon1 } from "~/static/icon/Icon1.tsx"
-import { SvgIconGoogle as IconGoogle } from "~/static/icon/IconGoogle.tsx"
+import { Icon0 } from "~ui/static/icon/Icon0.tsx"
+import { Icon1 } from "~ui/static/icon/Icon1.tsx"
+import { SvgIconGoogle as IconGoogle } from "~ui/static/icon/IconGoogle.tsx"
 
 export function DemoIcons() {
   return (

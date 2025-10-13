@@ -1,12 +1,12 @@
 import type { Accessor } from "solid-js"
-import { languageSignal } from "~/i18n/languageSignal"
-import { searchInputSignal } from "~/input/search/searchInputSignal"
-import { createTableColumnDef, type TableColumnDef, tableFilterColumns } from "~/table/shared/TableColumnDef"
-import { sortData } from "~/table/table2/sortData"
-import { defaultSortDir, sortDir, type SortDir } from "~/table/table2/sortDir"
-import { defaultEntriesPerPage } from "~/table/table3/pagination/defaultEntriesPerPage"
-import { tableRowSearchSimple } from "~/table/table3/tableRowSearchSimple"
-import { createSignalObject, type SignalObject } from "~/utils/ui/createSignalObject"
+import { languageSignal } from "~ui/i18n/languageSignal"
+import { searchInputSignal } from "~ui/input/search/searchInputSignal"
+import { createTableColumnDef, type TableColumnDef, tableFilterColumns } from "~ui/table/shared/TableColumnDef"
+import { sortData } from "~ui/table/table2/sortData"
+import { defaultSortDir, sortDir, type SortDir } from "~ui/table/table2/sortDir"
+import { defaultEntriesPerPage } from "~ui/table/table3/pagination/defaultEntriesPerPage"
+import { tableRowSearchSimple } from "~ui/table/table3/tableRowSearchSimple"
+import { createSignalObject, type SignalObject } from "~ui/utils/ui/createSignalObject"
 
 export type CreateTableAtoms<T> = {
   columns: TableColumnDef<T>[] | SignalObject<TableColumnDef<T>[]>

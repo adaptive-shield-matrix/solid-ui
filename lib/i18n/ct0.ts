@@ -1,5 +1,5 @@
-import { languageSignal } from "~/i18n/languageSignal"
-import type { TranslationBlock } from "~/i18n/TranslationBlock"
+import { languageSignal } from "~ui/i18n/languageSignal"
+import type { TranslationBlock } from "~ui/i18n/TranslationBlock"
 
 export function ct0(b: TranslationBlock): string {
   return b[languageSignal.get()]

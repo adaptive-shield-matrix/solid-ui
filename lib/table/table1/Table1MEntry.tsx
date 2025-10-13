@@ -1,7 +1,7 @@
-import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames"
-import type { TableColumnDef } from "~/table/shared/TableColumnDef"
-import type { HasChildren } from "~/utils/ui/HasChildren"
-import { classMerge } from "~/utils/ui/classMerge"
+import type { MobileTableClassNames } from "~ui/table/shared/MobileTableClassNames"
+import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
+import type { HasChildren } from "~ui/utils/ui/HasChildren"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export type Table1aMEntryProps<T> = {
   row: T

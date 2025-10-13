@@ -1,5 +1,5 @@
-import { LinkText } from "~/interactive/link/LinkText"
-import { PageWrapper2 } from "~/static/container/PageWrapper2.tsx"
+import { LinkText } from "~ui/interactive/link/LinkText"
+import { PageWrapper2 } from "~ui/static/container/PageWrapper2.tsx"
 
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/Popover_API

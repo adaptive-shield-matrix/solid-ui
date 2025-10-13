@@ -1,4 +1,4 @@
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
+import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
 
 export interface ImgProps extends MayHaveClass {
   src: string

@@ -1,7 +1,7 @@
 import { readdir, writeFile } from "node:fs/promises"
 import { join } from "node:path"
-import { formatGeneratedCodeFile } from "~/generate_demo_list/parts/formatGeneratedCodeFile"
-import { objectKeys } from "~/utils/obj/objectKeys"
+import { formatGeneratedCodeFile } from "~ui/generate_demo_list/parts/formatGeneratedCodeFile"
+import { objectKeys } from "~ui/utils/obj/objectKeys"
 import { findDemoFilesRecursive } from "./parts/findDemoFilesRecursive"
 import { removeDemoObjectValueQuotes } from "./parts/removeDemoObjectValueQuotes"
 import { serializeDemoComponentImport } from "./parts/serializeDemoComponentImport"
@@ -31,7 +31,7 @@ export async function generateDemoList(demoSearchDirRelative: string, outputFile
 
   let output = `
 import { lazy } from "solid-js"
-import { type DemoListType } from "~/generate_demo_list/DemoListType"\n\n`
+import { type DemoListType } from "~ui/generate_demo_list/DemoListType"\n\n`
 
   for (const category of objectKeys(demoPageList)) {
     const importPathComponents = demoPageList[category]

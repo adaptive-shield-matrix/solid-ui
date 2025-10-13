@@ -1,12 +1,12 @@
 import { mdiCheckCircleOutline } from "@mdi/js"
 import { Show } from "solid-js"
-import { Icon1 } from "~/static/icon/Icon1"
-import { classesPageWrapper } from "~/static/page/classesPageWrapper"
-import type { MayHaveChildren } from "~/utils/ui/MayHaveChildren"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
-import type { MayHaveInnerClassName } from "~/utils/ui/MayHaveInnerClassName"
-import { classArr } from "~/utils/ui/classArr"
-import { classMerge } from "~/utils/ui/classMerge"
+import { Icon1 } from "~ui/static/icon/Icon1"
+import { classesPageWrapper } from "~ui/static/page/classesPageWrapper"
+import type { MayHaveChildren } from "~ui/utils/ui/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
+import type { MayHaveInnerClassName } from "~ui/utils/ui/MayHaveInnerClassName"
+import { classArr } from "~ui/utils/ui/classArr"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export interface SuccessPageProps extends MayHaveClass, MayHaveInnerClassName, MayHaveChildren {
   title: string

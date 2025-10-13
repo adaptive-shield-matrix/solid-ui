@@ -1,6 +1,6 @@
-import { NumberInputS } from "~/input/number/NumberInputS.tsx"
-import { PageWrapper } from "~/static/container/PageWrapper.tsx"
-import { createSignalObject } from "~/utils/ui/createSignalObject"
+import { NumberInputS } from "~ui/input/number/NumberInputS.tsx"
+import { PageWrapper } from "~ui/static/container/PageWrapper.tsx"
+import { createSignalObject } from "~ui/utils/ui/createSignalObject"
 
 export function DemoNumberInput() {
   const valueSignal = createSignalObject(0)

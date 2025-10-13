@@ -1,4 +1,4 @@
-import type { Language } from "~/i18n/language"
+import type { Language } from "~ui/i18n/language"
 
 export function sortArrString(l: Language, array: string[]) {
   array.sort((a, b) => sortFn(l, a, b))

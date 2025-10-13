@@ -1,9 +1,9 @@
 import { computePosition, type ComputePositionConfig, flip, offset, shift } from "@floating-ui/dom"
 import { createUniqueId, splitProps } from "solid-js"
-import { ButtonIcon1, type ButtonIcon1Props } from "~/interactive/button/ButtonIcon1"
-import type { HasChildren } from "~/utils/ui/HasChildren"
-import type { HasClass } from "~/utils/ui/HasClass"
-import { classArr } from "~/utils/ui/classArr"
+import { ButtonIcon1, type ButtonIcon1Props } from "~ui/interactive/button/ButtonIcon1"
+import type { HasChildren } from "~ui/utils/ui/HasChildren"
+import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classArr } from "~ui/utils/ui/classArr"
 
 export interface SimplePopover3Props extends HasClass, HasChildren {
   buttonProps: ButtonIcon1Props

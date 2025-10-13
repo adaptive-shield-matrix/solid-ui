@@ -1,6 +1,5 @@
-import { Badge } from "~/static/badge/Badge.tsx"
-import { type BadgeVariant, badgeVariant } from "~/static/badge/badgeCva.tsx"
-import { classArr } from "~/utils/ui/classArr"
+import { Badge } from "~ui/static/badge/Badge.tsx"
+import { type BadgeVariant, badgeVariant } from "~ui/static/badge/badgeCva.tsx"
 
 export function DemoBadges() {
   return (

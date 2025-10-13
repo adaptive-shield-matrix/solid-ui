@@ -1,4 +1,4 @@
-import { createToasterState } from "~/interactive/toast/GlobalToasterState"
-import { createSignalObject } from "~/utils/ui/createSignalObject"
+import { createToasterState } from "~ui/interactive/toast/GlobalToasterState"
+import { createSignalObject } from "~ui/utils/ui/createSignalObject"
 
 export const toasterState = createSignalObject(createToasterState())

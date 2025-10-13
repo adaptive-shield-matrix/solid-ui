@@ -1,6 +1,6 @@
-import type { SortableTableData } from "~/table/table2/SortableTableData"
-import { type SortDir } from "~/table/table2/sortDir"
-import type { HasClass } from "~/utils/ui/HasClass"
+import type { SortableTableData } from "~ui/table/table2/SortableTableData"
+import { type SortDir } from "~ui/table/table2/sortDir"
+import type { HasClass } from "~ui/utils/ui/HasClass"
 
 export function Table2MSortButton<T>(p: SortableTableData<T> & HasClass) {
   // console.log("MobileSortButton", current)

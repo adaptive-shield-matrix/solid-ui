@@ -47,7 +47,7 @@ bun add solid-js clsx tailwind-merge valibot dayjs @solid-primitives/keyed @soli
 To ensure Tailwind scans the library's source files for classes (since components are published as source without a build step), add the following `@source` directive to your project's `src/layouts/global.css` (or equivalent global stylesheet):
 
 ```css
-@source '/node_modules/@adaptive-sm/solid-ui/lib/**/*.{astro,html,md,mdx,ts,tsx}';
+@source '/node_modules/@adaptive-sm/solid-ui/export/**/*.{astro,html,md,mdx,ts,tsx}';
 ```
 
 This tells Tailwind to include classes from the library's `.tsx`, `.ts`, and other relevant files in the purge process, preventing unused classes from being purged during the build. Without it, Tailwind might not detect classes used in imported components, leading to missing styles.
@@ -64,7 +64,7 @@ In your `tsconfig.json`, set up the `~` alias to point to the library:
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "~/*": ["./node_modules/@adaptive-sm/solid-ui/lib/*"]
+      "~ui/*": ["./node_modules/@adaptive-sm/solid-ui/lib/*"]
     }
   }
 }
@@ -83,7 +83,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": new URL("./src", import.meta.url).pathname,
-      "~": new URL("./node_modules/@adaptive-sm/solid-ui/lib", import.meta.url).pathname,
+      "~ui": new URL("./node_modules/@adaptive-sm/solid-ui/lib", import.meta.url).pathname,
     },
   },
   plugins: [solid(), tailwindcss()],

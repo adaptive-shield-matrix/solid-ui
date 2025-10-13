@@ -1,11 +1,11 @@
 import { createUniqueId } from "solid-js"
-import { ButtonIcon } from "~/interactive/button/ButtonIcon"
-import type { ButtonIcon1Props } from "~/interactive/button/ButtonIcon1"
-import { type PopoverProps, SimplePopover } from "~/interactive/popover/SimplePopover"
-import type { HasChildren } from "~/utils/ui/HasChildren"
-import type { HasClass } from "~/utils/ui/HasClass"
-import { classArr } from "~/utils/ui/classArr"
-import { classMerge } from "~/utils/ui/classMerge"
+import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
+import type { ButtonIcon1Props } from "~ui/interactive/button/ButtonIcon1"
+import { type PopoverProps, SimplePopover } from "~ui/interactive/popover/SimplePopover"
+import type { HasChildren } from "~ui/utils/ui/HasChildren"
+import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classArr } from "~ui/utils/ui/classArr"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export function SimplePopover2(p: PopoverProps & { buttonProps: ButtonIcon1Props } & HasChildren & HasClass) {
   const buttonId = p.buttonProps.id ?? createUniqueId()

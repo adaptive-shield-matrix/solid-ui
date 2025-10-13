@@ -1,10 +1,10 @@
 import { splitProps } from "solid-js"
-import { buttonCvaIconOnly } from "~/interactive/button/buttonCva"
-import { buttonIconCva } from "~/interactive/button/buttonIconCva"
-import { classesButtonClickAnimation } from "~/interactive/button/classesButtonClickAnimation"
-import type { LinkButtonProps } from "~/interactive/link/LinkButtonProps"
-import { Icon1 } from "~/static/icon/Icon1"
-import { isLoading } from "~/utils/ui/HasIsLoading"
+import { buttonCvaIconOnly } from "~ui/interactive/button/buttonCva"
+import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
+import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
+import type { LinkButtonProps } from "~ui/interactive/link/LinkButtonProps"
+import { Icon1 } from "~ui/static/icon/Icon1"
+import { isLoading } from "~ui/utils/ui/HasIsLoading"
 
 export function LinkButtonIconOnly(p: LinkButtonProps) {
   const [, rest] = splitProps(p, [

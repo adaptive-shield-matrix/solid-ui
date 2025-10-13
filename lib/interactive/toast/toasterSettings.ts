@@ -1,4 +1,4 @@
-import { isDevEnv } from "~/env/isDevEnv"
+import { isDevEnv } from "~ui/env/isDevEnv"
 
 export const toasterSettings = {
   toastLimit: 3,

@@ -1,17 +1,17 @@
 import { mdiClose } from "@mdi/js"
 import { createUniqueId, mergeProps, Show, splitProps } from "solid-js"
-import { ct0 } from "~/i18n/ct0"
-import { buttonVariant } from "~/interactive/button/buttonCva"
-import { ButtonIcon, type ButtonIconProps } from "~/interactive/button/ButtonIcon"
+import { ct0 } from "~ui/i18n/ct0"
+import { buttonVariant } from "~ui/interactive/button/buttonCva"
+import { ButtonIcon, type ButtonIconProps } from "~ui/interactive/button/ButtonIcon"
 import {
   createNativeDialogOpenStateSignal,
   type IsOpenSignalObject,
-} from "~/interactive/dialog/createNativeDialogOpenStateSignal"
-import { tbCloseDialog } from "~/interactive/dialog/tbCloseDialog"
-import { classMerge } from "~/utils/ui/classMerge"
-import { createSignalObject, type SignalObject } from "~/utils/ui/createSignalObject"
-import type { HasChildren } from "~/utils/ui/HasChildren"
-import type { HasClass } from "~/utils/ui/HasClass"
+} from "~ui/interactive/dialog/createNativeDialogOpenStateSignal"
+import { tbCloseDialog } from "~ui/interactive/dialog/tbCloseDialog"
+import { classMerge } from "~ui/utils/ui/classMerge"
+import { createSignalObject, type SignalObject } from "~ui/utils/ui/createSignalObject"
+import type { HasChildren } from "~ui/utils/ui/HasChildren"
+import type { HasClass } from "~ui/utils/ui/HasClass"
 import "./NativeDialog.module.css"
 
 export type DialogButtonProps = Omit<ButtonIconProps, "id" | "type">

@@ -1,7 +1,7 @@
-import { Label } from "~/input/label/Label"
-import { LabelAsterix } from "~/input/label/LabelAsterix"
-import type { HasChildren } from "~/utils/ui/HasChildren"
-import { classMerge } from "~/utils/ui/classMerge"
+import { Label } from "~ui/input/label/Label"
+import { LabelAsterix } from "~ui/input/label/LabelAsterix"
+import type { HasChildren } from "~ui/utils/ui/HasChildren"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export type Label2Props = {
   title: string

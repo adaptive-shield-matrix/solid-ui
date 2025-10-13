@@ -1,4 +1,4 @@
-import type { ButtonVariant } from "~/interactive/button/buttonCva"
+import type { ButtonVariant } from "~ui/interactive/button/buttonCva"
 
 export interface MayHaveButtonVariant {
   variant?: ButtonVariant

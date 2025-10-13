@@ -1,10 +1,10 @@
 import { For } from "solid-js"
-import { Separator } from "~/static/separator/Separator"
-import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames"
-import { Table1MEntry } from "~/table/table1/Table1MEntry"
-import type { Table2Signals } from "~/table/table2/createSortableTableSignals"
-import type { HasClass } from "~/utils/ui/HasClass"
-import { classMerge } from "~/utils/ui/classMerge"
+import { Separator } from "~ui/static/separator/Separator"
+import type { MobileTableClassNames } from "~ui/table/shared/MobileTableClassNames"
+import { Table1MEntry } from "~ui/table/table1/Table1MEntry"
+import type { Table2Signals } from "~ui/table/table2/createSortableTableSignals"
+import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classMerge } from "~ui/utils/ui/classMerge"
 
 export type SortableTableMProps<T> = Table2Signals<T> & {
   mobileClasses?: MobileTableClassNames

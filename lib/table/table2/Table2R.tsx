@@ -1,11 +1,11 @@
 import { splitProps } from "solid-js"
-import type { DesktopTableClassNames } from "~/table/shared/DesktopTableClassNames"
-import type { MobileTableClassNames } from "~/table/shared/MobileTableClassNames"
-import { tableVisibilityClasses } from "~/table/shared/tableVisibilityClasses"
-import type { Table2Signals } from "~/table/table2/createSortableTableSignals"
-import { Table2D } from "~/table/table2/Table2D"
-import { Table2M } from "~/table/table2/Table2M"
-import { type TailwindBreakpoint, tailwindBreakpoint } from "~/utils/ui/tailwindBreakpoint"
+import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassNames"
+import type { MobileTableClassNames } from "~ui/table/shared/MobileTableClassNames"
+import { tableVisibilityClasses } from "~ui/table/shared/tableVisibilityClasses"
+import type { Table2Signals } from "~ui/table/table2/createSortableTableSignals"
+import { Table2D } from "~ui/table/table2/Table2D"
+import { Table2M } from "~ui/table/table2/Table2M"
+import { type TailwindBreakpoint, tailwindBreakpoint } from "~ui/utils/ui/tailwindBreakpoint"
 
 export type Table2RProps<T> = Table2Signals<T> & {
   breakpoint?: TailwindBreakpoint

@@ -1,5 +1,5 @@
-import type { HasClass } from "~/utils/ui/HasClass"
-import { classMerge } from "~/utils/ui/classMerge"
+import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classMerge } from "~ui/utils/ui/classMerge"
 import styles from "./LoaderShuffle4Dots.module.css"
 
 /**

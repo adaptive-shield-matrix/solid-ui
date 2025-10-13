@@ -1,5 +1,5 @@
-import { tx } from "~/i18n/t1"
-import { RandomLoader } from "~/static/loaders/RandomLoader"
+import { tx } from "~ui/i18n/t1"
+import { RandomLoader } from "~ui/static/loaders/RandomLoader"
 import { t4loading } from "./t4loading"
 
 export interface LoadingPageProps {

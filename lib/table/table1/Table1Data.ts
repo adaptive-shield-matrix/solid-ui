@@ -1,4 +1,4 @@
-import type { TableColumnDef } from "~/table/shared/TableColumnDef"
+import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
 
 export type Table1Data<T> = {
   rows: T[]
