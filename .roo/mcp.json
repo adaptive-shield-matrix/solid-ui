@@ -13,6 +13,13 @@
         "resolve-library-id",
         "get-library-docs"
       ]
+    },
+    "chrome-devtools": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
     }
   }
 }
