@@ -1,5 +1,5 @@
 import { RadioSwitch } from "~ui/input/radio/RadioSwitch.tsx"
-import { PageWrapper2 } from "~ui/static/container/PageWrapper2.tsx"
+import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
 import { arrCreate } from "~ui/utils/arr/arrCreate.ts"
 import type { SelectionItem } from "~ui/utils/ui/SelectionItem"
 import { createSignalObject } from "~ui/utils/ui/createSignalObject"

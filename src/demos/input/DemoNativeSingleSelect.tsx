@@ -1,6 +1,6 @@
 import { createMemo, type Accessor } from "solid-js"
 import { NativeSingleSelect } from "~ui/input/select/NativeSingleSelect"
-import { PageWrapper2 } from "~ui/static/container/PageWrapper2.tsx"
+import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
 import { arrCreate } from "~ui/utils/arr/arrCreate.ts"
 import { createSignalObject } from "~ui/utils/ui/createSignalObject"
 

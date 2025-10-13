@@ -2,7 +2,7 @@ import { createSignal } from "solid-js"
 import { Checkbox } from "~ui/interactive/check/Checkbox"
 import { toastAdd } from "~ui/interactive/toast/toastAdd"
 import { toastVariant } from "~ui/interactive/toast/toastVariant"
-import { PageWrapper2 } from "~ui/static/container/PageWrapper2"
+import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
 
 export function DemoCheckbox() {
   return (
