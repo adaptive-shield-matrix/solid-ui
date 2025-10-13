@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "lib": [
-      "es2024",
+      "esnext",
       "dom",
       "dom.iterable"
     ],
     "module": "esnext",
-    "target": "es2024",
+    "target": "esnext",
     "skipLibCheck": true,
     // https://github.com/withastro/astro/blob/main/tsconfig.base.json
     // Bundler mode configuration
@@ -29,7 +29,7 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "moduleDetection": "force",
-    "noUncheckedSideEffectImports": true,
+    
     //
     // absolute import paths
     //
@@ -51,7 +51,7 @@
     //
     // https://devblogs.microsoft.com/typescript/announcing-typescript-5-8/#the---erasablesyntaxonly-option
     //
-    "erasableSyntaxOnly": true,
+    
     //
     // code quality settings
     //
