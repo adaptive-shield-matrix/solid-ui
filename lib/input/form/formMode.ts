@@ -1,4 +1,3 @@
-import { mdiAlert, mdiPlus, mdiSquareEditOutline, mdiTrashCanOutline } from "@mdi/js"
 
 export type FormMode = keyof typeof formMode
 
@@ -20,17 +19,6 @@ export const formModeMutate = {
   edit: "edit",
   remove: "remove",
 } as const
-
-export function getFormIcon(mode: FormModeE) {
-  return formIcon[mode]
-}
-
-export const formIcon = {
-  [formModeE.add]: mdiPlus,
-  [formModeE.edit]: mdiSquareEditOutline,
-  [formModeE.remove]: mdiTrashCanOutline,
-  [formModeE.error]: mdiAlert,
-} as const satisfies Record<FormModeE, string>
 
 export function getFormTitle(mode: FormMode, subject: string) {
   switch (mode) {

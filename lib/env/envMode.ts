@@ -5,9 +5,3 @@ export const envMode = {
   production: "production",
   test: "test",
 } as const
-
-export const envModeConstName: Record<EnvMode, string> = {
-  development: "publicEnvDev",
-  production: "publicEnvProd",
-  test: "test",
-} as const
