@@ -1,6 +1,6 @@
 {
   "name": "@adaptive-sm/solid-ui",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "scripts": {
     "dev": "bun run rsbuild:dev",
     "build": "bun run build:lib",
@@ -85,5 +85,7 @@
       "types": "./dist/*.d.ts"
     }
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }
