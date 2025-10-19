@@ -21,4 +21,3 @@ export function transformDemoListToRecord(given: Record<string, string[]>): Reco
 
   return result
 }
-*/
