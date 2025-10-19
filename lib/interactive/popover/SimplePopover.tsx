@@ -1,10 +1,10 @@
 import {
-  autoPlacement,
   autoUpdate,
   type AutoUpdateOptions,
   computePosition,
   type ComputePositionConfig,
-  type ComputePositionReturn, flip,
+  type ComputePositionReturn,
+  flip,
 } from "@floating-ui/dom"
 import type { AlignedPlacement } from "@floating-ui/utils"
 import {
