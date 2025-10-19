@@ -22,7 +22,7 @@
     "reset": "rm -rf ./node_modules"
   },
   "peerDependencies": {
-    "@adaptive-sm/utils": "link:@adaptive-sm/utils",
+    "@adaptive-sm/utils": "^0.2.5",
     "@floating-ui/dom": "^1.7.4",
     "@mdi/js": "^7.4.47",
     "@solid-primitives/keyed": "^1.5.2",
