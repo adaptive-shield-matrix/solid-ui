@@ -3,17 +3,20 @@
   "version": "0.3.1",
   "scripts": {
     "dev": "bun run rsbuild:dev",
-    "build": "rm -rf ./export ; tsc -p ./tsconfig.lib.json",
+    "build": "bun run build:lib",
+    "build:site": "bun run vite:build",
+    "build:lib": "clear ; rm -rf ./dist ; vite build --config vite.config.lib.ts",
+    "ts:build": "rm -rf ./export ; tsc -p ./tsconfig.lib.json",
     "compile": "bun run tsc",
     "vite:dev": "nice -5 vite dev --debug hmr",
     "vite:build": "nice -15 vite build",
-    "vite:deploy": "bun run vite:build && bun run solid:upload && bun run solid:tag",
+    "vite:deploy": "bun run vite:build && bun run solid:upload && bun run tag:deployed",
     "rsbuild:dev": "nice -5 rsbuild dev",
     "rsbuild:build": "nice -15 rsbuild build",
-    "rsbuild:deploy": "bun run rsbuild:build && bun run solid:upload && bun run solid:tag",
-    "deploy": "bun run build && bun run upload && bun run tag",
-    "upload": "bun run wrangler pages deploy ./dist --project-name=adaptive-solid-ui --commit-dirty",
-    "tag": "git branch -f deployed",
+    "rsbuild:deploy": "bun run rsbuild:build && bun run solid:upload && bun run tag:deployed",
+    "deploy": "bun run build && bun run upload && bun run tag:deployed",
+    "upload": "bun run wrangler pages deploy ./out --project-name=adaptive-solid-ui --commit-dirty",
+    "tag:deployed": "git branch -f deployed",
     "release": "bash ./ops/release.sh",
     "generateDemoList": "bun run ./src/demos/generateDemoList.cli.ts",
     "update": "nice -15 bun x npm-check-updates -u && bun i",
@@ -31,6 +34,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.18",
     "solid-js": "^1.9.9",
+    "tailwind-merge": "^3.3.1",
     "valibot": "^1.1.0"
   },
   "devDependencies": {
@@ -40,22 +44,17 @@
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/vite": "^4.1.13",
     "@types/bun": "latest",
+    "glob": "^11.0.3",
     "image-size": "^2.0.2",
     "prettier": "^3.6.2",
     "rollup-plugin-visualizer": "^6.0.3",
-    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.3",
     "vite": "^7.1.5",
+    "vite-plugin-dts": "^4.5.4",
     "vite-plugin-solid": "^2.11.8",
     "wrangler": "^4.37.0"
   },
-  "exports": {
-    "./*": "./export/*"
-  },
-  "files": [
-    "export"
-  ],
   "prettier": {
     "semi": false,
     "printWidth": 120,
@@ -79,5 +78,12 @@
   ],
   "repository": {
     "url": "git+https://github.com/adaptive-shield-matrix/solid-ui.git"
-  }
+  },
+  "exports": {
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "files": ["dist"]
 }

@@ -33,7 +33,7 @@ export default defineConfig({
   plugins: [solid(), tailwindcss(), visualizer({ filename: "dist/bundle-size.html", gzipSize: true })],
   build: {
     chunkSizeWarningLimit: 1050,
-    outDir: "dist",
+    outDir: "out",
     assetsDir: "assets",
   },
 })
