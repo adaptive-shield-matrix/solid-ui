@@ -1,6 +1,6 @@
 {
   "name": "@adaptive-sm/solid-ui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "dev": "bun run rsbuild:dev",
     "build": "rm -rf ./export ; tsc -p ./tsconfig.lib.json",
