@@ -10,7 +10,7 @@ export function transformDemoListToRecord(given: Record<string, string[]>): Reco
       if (!filename) continue
 
       // Remove the .tsx extension
-      const componentName = filename.replace("", "")
+      const componentName = filename.replace(/\.tsx?$/, "")
 
       // Map the component name to itself
       componentMap[componentName] = componentName
@@ -20,18 +20,5 @@ export function transformDemoListToRecord(given: Record<string, string[]>): Reco
   }
 
   return result
-}
-
-/*
-implement transformDemoListToRecord
-so that a given = { ui_input [ "./src/ui/input/DemosUiInput", "src/ui/input/select/DemoMultiSelect"]}
-
-will be returned as
-
-{
-  ui_input: {
-    DemosUiInput: "DemosUiInput",
-    DemoMultiSelect: "DemoMultiSelect",
-  }
 }
 */

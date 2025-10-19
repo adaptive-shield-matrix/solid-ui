@@ -1,5 +1,5 @@
 import { lazy } from "solid-js"
-import { type DemoListType } from "~ui/generate_demo_list/DemoListType.ts"
+import { type DemoListType } from "~ui/generate_demo_list/DemoListType"
 
 const DemoTablePagination2 = lazy(async () => {
   const c = await import("@/demos/table/DemoTablePagination2.tsx")

@@ -1,11 +1,11 @@
 import { join } from "node:path"
 
 export function serializeDemoComponentImport(path: string, baseDir: string) {
-  const name = path.split("/").at(-1)?.replace("", "")
+  const name = path.split("/").at(-1)?.replace(/\.tsx?$/, "") || ""
 
   const replacements = [
     [join(baseDir, "src"), "@"],
-    [join(baseDir, "lib"), "~"],
+    [join(baseDir, "lib"), "~ui"],
   ] as const
 
   let importPath = path
