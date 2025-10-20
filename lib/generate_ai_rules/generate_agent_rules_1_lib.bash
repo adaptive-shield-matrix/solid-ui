@@ -6,7 +6,7 @@ scriptDir="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 # libDir="lib"
 libDir="$scriptDir/../"
 localRulesDir=".roo/rules-code"
-localMdFile=$(readlink -f $localRulesDir/solid_lib.md)
+localMdFile=$(readlink -f $localRulesDir/solid_ui_library.md)
 
 mkdir -p "$localRulesDir"
 
