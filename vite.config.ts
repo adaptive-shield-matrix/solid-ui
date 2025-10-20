@@ -8,19 +8,9 @@ export default defineConfig({
     port: 3031,
     strictPort: true,
     watch: {
-      ignored: [
-        "**/.astro/**",
-        "**/.cache/**",
-        "**/.idea/**",
-        "**/.unlighthouse/**",
-        "**/.vscode/**",
-        "**/build/**",
-        "**/data/**",
-        "**/dist/**",
-        "**/docs/**",
-      ],
+      ignored: ["**/.github/**", "**/data/**", "**/dist/**", "**/ops/**", "**/out/**", "**/docs/**", "**/test/**"],
     },
-    allowedHosts: ["solid-ui.com", "solid-ui.localhost"],
+    allowedHosts: ["solid-ui.com"],
   },
   resolve: {
     alias: {
@@ -31,6 +21,7 @@ export default defineConfig({
   },
   // @ts-ignore
   plugins: [solid(), tailwindcss(), visualizer({ filename: "dist/bundle-size.html", gzipSize: true })],
+  envPrefix: "PUBLIC_",
   build: {
     chunkSizeWarningLimit: 1050,
     outDir: "out",
