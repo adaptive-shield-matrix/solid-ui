@@ -5,7 +5,7 @@
       "dom",
       "dom.iterable"
     ],
-    "module": "esnext",
+    "module": "Preserve",
     "target": "esnext",
     "skipLibCheck": true,
     // https://github.com/withastro/astro/blob/main/tsconfig.base.json
