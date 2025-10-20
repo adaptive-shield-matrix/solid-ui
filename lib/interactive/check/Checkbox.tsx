@@ -24,14 +24,16 @@ export function Checkbox(p: CheckboxProps) {
         type="checkbox"
         checked={p.checked}
         onChange={(e) => p.onChange(e.currentTarget.checked)}
-        class="sr-only"
+        class="sr-only invisible"
         disabled={p.disabled}
         aria-describedby={p.id ? `${p.id}-error` : undefined}
       />
       <div
         onClick={handleToggle}
         class={classMerge(
-          "mt-0.5 size-6 cursor-pointer flex items-center justify-center rounded", // layout + sizing + interaction
+          "mt-0.5 size-6", // sizing + interaction
+          "cursor-pointer", // cursor
+          "flex items-center justify-center", // layout children
           p.disabled && "cursor-not-allowed opacity-50", // disabled state
         )}
         role="checkbox"
