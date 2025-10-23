@@ -1,10 +1,8 @@
 # Centralized definition of string literals
 
-- Define all magic strings as const objects
-- No magic strings scattered throughout the codebase
+- Define all magic strings as const objects instead of typescript enums
 - Create derived types using `keyof typeof`
-- Generate validation schemas using the const object values and `valibot` library
-- Export arrays of valid values
+- Generate validation schemas using `v.enum` from `valibot` library
 
 ```typescript
 import { getObjectValues } from "@/utils/obj/getObjectValues"

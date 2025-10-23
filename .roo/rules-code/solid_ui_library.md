@@ -1,6 +1,6 @@
 # Available Solid.js UI Components and utility functions
 
-These components from @adaptive-sm/solid-ui can be imported using the `~/` alias.
+These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
 Generated at: 2025-10-20 20:03
 
 - ~/i18n/t1.ts
