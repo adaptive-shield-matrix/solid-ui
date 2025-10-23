@@ -4,7 +4,7 @@ import { LinkBlock } from "~ui/demo_pages/LinkBlock"
 import type { DemoListType } from "~ui/generate_demo_list/DemoListType"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { LinkButton } from "~ui/interactive/link/LinkButton"
-import { SimplePopover3 } from "~ui/interactive/popover/SimplePopover3"
+import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { ThemeButton } from "~ui/interactive/theme/ThemeButton"
 import { LogoImageText } from "~ui/static/logo/LogoImageText"
 import { iconGithub } from "~ui/static/nav/iconGithub"
@@ -25,10 +25,11 @@ export function NavDemo(p: DemoNavProps) {
   const githubUrl = "https://github.com/adaptive-shield-matrix/solid-ui"
   const npmUrl = "https://www.npmjs.com/package/@adaptive-sm/solid-ui"
   return (
-    <nav class={classMerge("flex flex-wrap items-center justify-between p-1 gap-1 max-w-4xl mx-auto", p.class)} {...rest}>
-      <div class="flex flex-wrap items-center justify-center">
-
-      </div>
+    <nav
+      class={classMerge("flex flex-wrap items-center justify-between p-1 gap-1 max-w-4xl mx-auto", p.class)}
+      {...rest}
+    >
+      <div class="flex flex-wrap items-center justify-center"></div>
       <div class={"flex flex-wrap items-center gap-1"}>
         <LogoImageText logoText="solid-ui" logoTextClass="text-lg font-semibold" />
         {/* <LogoImageOnly /> */}
@@ -71,9 +72,9 @@ function ComponentPopover(p: DemoNavProps) {
     .flatMap(([category, tree]) => objectKeys(tree).map((compName) => `${p.demoPrefix}/${category}/${compName}`))
   if (!links || links.length <= 0) return null
   return (
-    <SimplePopover3 buttonProps={{ variant: buttonVariant.ghost, children: p.compName }}>
+    <CorvuPopover variant={buttonVariant.ghost} buttonChildren={p.compName}>
       <LinkBlock header={p.category} removeUrlPrefix={`${p.demoPrefix}/${p.category}/`} links={links} />
-    </SimplePopover3>
+    </CorvuPopover>
   )
 }
 

@@ -5,8 +5,7 @@ import { ct0, ct1 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
-import type { ButtonIcon1Props } from "~ui/interactive/button/ButtonIcon1"
-import { SimplePopover3 } from "~ui/interactive/popover/SimplePopover3"
+import { CorvuPopover, type CorvuPopoverProps } from "~ui/interactive/popover/CorvuPopover"
 import { classArr } from "~ui/utils/ui/classArr"
 import { classMerge } from "~ui/utils/ui/classMerge"
 import type { SignalObject } from "~ui/utils/ui/createSignalObject"
@@ -18,15 +17,15 @@ import type { SelectionItem } from "~ui/utils/ui/SelectionItem"
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
  */
-export type MultiselectProps<T extends string = string> = {
-  buttonProps: ButtonIcon1Props
+export interface MultiselectProps<T extends string = string> extends MultiselectState<T>, HasClass, HasChildren {
+  buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
-} & MultiselectState<T> &
-  HasClass &
-  HasChildren
+}
 
-export type MultiselectState<T extends string = string> = MultiselectStateValue<T> & MultiselectStateOptions<T>
+export interface MultiselectState<T extends string = string>
+  extends MultiselectStateValue<T>,
+    MultiselectStateOptions<T> {}
 
 export type MultiselectStateValue<T extends string = string> = {
   valueSignal: SignalObject<SelectionItem<T>[]>
@@ -51,14 +50,15 @@ export function Multiselect<T extends string = string>(p: MultiselectProps<T>) {
         "rounded-md",
         "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
         "flex flex-col items-center justify-center gap-1", // layout
+        p.class,
       )}
     >
       <SelectedValues valueSignal={p.valueSignal} />
-      <SimplePopover3 buttonProps={buttonProps}>
+      <CorvuPopover {...buttonProps}>
         <div class={classArr("bg-white dark:bg-black", "max-h-dvh", "grid grid-cols-3 gap-x-2 gap-y-1")}>
           <OptionList valueSignal={p.valueSignal} getOptions={p.getOptions} />
         </div>
-      </SimplePopover3>
+      </CorvuPopover>
     </div>
   )
 }

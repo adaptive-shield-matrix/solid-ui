@@ -178,9 +178,7 @@ Generated at: 2025-10-20 20:03
 - ~/interactive/toast/toastAdd.ts
 - ~/interactive/toast/Toaster.tsx
 - ~/interactive/toast/GlobalToasterState.ts
-- ~/interactive/popover/SimplePopover3.tsx
-- ~/interactive/popover/SimplePopover2.tsx
-- ~/interactive/popover/SimplePopover.tsx
+- ~/interactive/popover/CorvuPopover.tsx
 - ~/interactive/details/Details.tsx
 - ~/interactive/toggle/ToggleButton.tsx
 - ~/interactive/theme/t4theme.ts

@@ -88,5 +88,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@corvu/popover": "^0.2.0"
+  }
 }
