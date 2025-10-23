@@ -1,5 +1,5 @@
 import { LoaderShuffle4Dots } from "~ui/static/loaders/LoaderShuffle4Dots"
-import type { HasClass } from "~ui/utils/ui/HasClass"
+import type { HasClass } from "~ui/utils/HasClass"
 
 export function RandomLoader(p: HasClass) {
   // const i = randomInteger(3)

@@ -2,11 +2,11 @@ import { Key } from "@solid-primitives/keyed"
 import type { Accessor } from "solid-js"
 import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { HasClass } from "~ui/utils/ui/HasClass"
-import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
-import { classArr } from "~ui/utils/ui/classArr"
-import type { SignalObject } from "~ui/utils/ui/createSignalObject"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import { classArr } from "~ui/utils/classArr"
+import type { SignalObject } from "~ui/utils/createSignalObject"
 
 export type ValueDisplayFn = (value: string) => string
 

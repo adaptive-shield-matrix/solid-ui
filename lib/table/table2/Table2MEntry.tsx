@@ -2,8 +2,8 @@ import { For, Match, Switch } from "solid-js"
 import { Separator } from "~ui/static/separator/Separator"
 import type { MobileTableClassNames } from "~ui/table/shared/MobileTableClassNames"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import { classMerge } from "~ui/utils/classMerge"
 
 export type Table2MEntryProps<T> = {
   row: T

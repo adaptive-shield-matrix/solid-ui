@@ -7,9 +7,9 @@ import { LinkButton } from "~ui/interactive/link/LinkButton"
 import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { LayoutWrapperDemo } from "~ui/static/container/LayoutWrapperDemo"
 import { NavDemo } from "~ui/static/nav/NavDemo"
-import { objectEntries } from "~ui/utils/obj/objectEntries"
-import { objectKeys } from "~ui/utils/obj/objectKeys"
-import { classArr } from "~ui/utils/ui/classArr"
+import { classArr } from "~ui/utils/classArr"
+import { objectEntries } from "~utils/obj/objectEntries"
+import { objectKeys } from "~utils/obj/objectKeys"
 
 const log = false
 

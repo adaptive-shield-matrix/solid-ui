@@ -1,8 +1,8 @@
 import { mdiCheckboxMarked, mdiSquareOutline } from "@mdi/js"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import { classMerge } from "~ui/utils/classMerge"
 
 interface CheckboxProps extends MayHaveClass, HasChildren {
   id?: string

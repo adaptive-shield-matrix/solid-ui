@@ -4,11 +4,11 @@ import { ct0 } from "~ui/i18n/ct0.ts"
 import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon.tsx"
 import { t4tablePagination } from "~ui/table/table3/pagination/t4tablePagination.ts"
-import { classMerge } from "~ui/utils/ui/classMerge"
-import { createSignalObject, type SignalObject } from "~ui/utils/ui/createSignalObject"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { HasClass } from "~ui/utils/ui/HasClass"
-import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
+import { classMerge } from "~ui/utils/classMerge"
+import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
 export interface AtomizedTablePaginationProps extends MayHaveClass {
   entriesPerPage: number

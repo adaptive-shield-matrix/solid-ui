@@ -1,7 +1,7 @@
 import { classesBgGray } from "~ui/classes/classesBg"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
-import { classArr } from "~ui/utils/ui/classArr"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import { classArr } from "~ui/utils/classArr"
 
 export interface PageWrapperProps extends HasChildren, MayHaveClass {
   innerClass?: string

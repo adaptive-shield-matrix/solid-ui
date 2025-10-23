@@ -3,8 +3,8 @@ import { Separator } from "~ui/static/separator/Separator"
 import type { MobileTableClassNames } from "~ui/table/shared/MobileTableClassNames"
 import { Table1MEntry } from "~ui/table/table1/Table1MEntry"
 import type { Table2Signals } from "~ui/table/table2/createSortableTableSignals"
-import type { HasClass } from "~ui/utils/ui/HasClass"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import type { HasClass } from "~ui/utils/HasClass"
+import { classMerge } from "~ui/utils/classMerge"
 
 export type SortableTableMProps<T> = Table2Signals<T> & {
   mobileClasses?: MobileTableClassNames

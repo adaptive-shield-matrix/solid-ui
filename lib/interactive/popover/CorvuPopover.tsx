@@ -6,9 +6,9 @@ import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import { classArr } from "~ui/utils/ui/classArr"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classArr } from "~ui/utils/classArr"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { HasClass } from "~ui/utils/HasClass"
 
 export interface CorvuPopoverProps extends HasClass, HasChildren, ButtonIcon1Props {
   // buttonProps: ButtonIcon1Props

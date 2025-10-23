@@ -9,7 +9,7 @@ import { toastDismiss } from "~ui/interactive/toast/toastDismiss"
 import { toastIconCva } from "~ui/interactive/toast/toastIconCva"
 import type { ToastPropsInternal } from "~ui/interactive/toast/ToastProps"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import { classMerge } from "~ui/utils/classMerge"
 
 export function Toast(p: ToastPropsInternal) {
   return (

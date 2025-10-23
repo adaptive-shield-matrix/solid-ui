@@ -1,5 +1,5 @@
 import { ttt } from "~ui/i18n/ttt"
-import type { MayHaveClass } from "~ui/utils/ui/MayHaveClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { SeparatorWithText } from "./SeparatorWithText"
 
 export function SeparatorOr(p: MayHaveClass) {

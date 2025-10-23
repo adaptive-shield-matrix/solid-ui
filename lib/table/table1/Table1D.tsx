@@ -4,8 +4,8 @@ import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassN
 import { sharedTableRowClassName } from "~ui/table/shared/sharedTableRowClassName"
 import { t4table } from "~ui/table/shared/t4table"
 import type { Table1Data } from "~ui/table/table1/Table1Data"
-import type { HasClass } from "~ui/utils/ui/HasClass"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import type { HasClass } from "~ui/utils/HasClass"
+import { classMerge } from "~ui/utils/classMerge"
 
 export type Table1aDProps<T> = Table1Data<T> & {
   desktopClasses?: DesktopTableClassNames

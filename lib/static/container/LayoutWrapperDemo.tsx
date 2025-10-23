@@ -1,8 +1,8 @@
 import { createEffect } from "solid-js"
 import { Toaster } from "~ui/interactive/toast/Toaster"
 import { TailwindIndicator } from "~ui/static/dev/TailwindIndicator"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { MayHaveTitle } from "~ui/utils/ui/MayHaveTitle"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { MayHaveTitle } from "~ui/utils/MayHaveTitle"
 
 export interface LayoutWrapperDemoProps extends HasChildren, MayHaveTitle {}
 

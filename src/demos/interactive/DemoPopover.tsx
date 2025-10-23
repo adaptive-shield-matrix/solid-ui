@@ -2,8 +2,8 @@ import { mdiDotsVertical } from "@mdi/js"
 import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
-import { classArr } from "~ui/utils/ui/classArr"
-import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classArr } from "~ui/utils/classArr"
+import type { HasClass } from "~ui/utils/HasClass"
 
 export function DemoPopover() {
   return (

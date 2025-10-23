@@ -1,7 +1,7 @@
 import type { JSXElement } from "solid-js"
 import type { ToastVariant } from "~ui/interactive/toast/toastVariant"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { HasClass } from "~ui/utils/ui/HasClass"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { HasClass } from "~ui/utils/HasClass"
 
 export type AddToastProps = {
   id?: string

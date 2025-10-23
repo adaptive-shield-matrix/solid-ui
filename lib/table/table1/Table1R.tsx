@@ -4,8 +4,8 @@ import { tableVisibilityClasses } from "~ui/table/shared/tableVisibilityClasses"
 import { Table1D } from "~ui/table/table1/Table1D"
 import type { Table1Data } from "~ui/table/table1/Table1Data"
 import { Table1M } from "~ui/table/table1/Table1M"
-import type { TailwindBreakpoint } from "~ui/utils/ui/tailwindBreakpoint"
-import { tailwindBreakpoint } from "~ui/utils/ui/tailwindBreakpoint"
+import type { TailwindBreakpoint } from "~ui/utils/tailwindBreakpoint"
+import { tailwindBreakpoint } from "~ui/utils/tailwindBreakpoint"
 
 export type SortableTable1RProps<T> = Table1Data<T> & {
   breakpoint?: TailwindBreakpoint

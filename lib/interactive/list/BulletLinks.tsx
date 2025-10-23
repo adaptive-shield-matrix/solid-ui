@@ -1,6 +1,6 @@
 import { LinkText } from "~ui/interactive/link/LinkText"
 import { BlueBulletPoint } from "~ui/static/lists/BlueBulletPoint"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import { classMerge } from "~ui/utils/classMerge"
 
 export interface BulletLinksProps {
   urls: string[] | readonly string[]

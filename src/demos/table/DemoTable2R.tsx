@@ -9,9 +9,9 @@ import { NativeDialog } from "~ui/interactive/dialog/NativeDialog.tsx"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef.ts"
 import { createTable2Signals } from "~ui/table/table2/createSortableTableSignals.ts"
 import { Table2R } from "~ui/table/table2/Table2R.tsx"
-import type { PseudoRandom } from "~ui/utils/ran/createPseudoRandom.ts"
-import { pseudoRandomSignal } from "~ui/utils/ran/pseudoRandomSignal"
-import { createSignalObject } from "~ui/utils/ui/createSignalObject"
+import { createSignalObject } from "~ui/utils/createSignalObject"
+import type { PseudoRandom } from "~utils/ran/createPseudoRandom.ts"
+import { pseudoRandomSignal } from "~utils/ran/pseudoRandomSignal"
 
 export function DemoTable2R() {
   return (

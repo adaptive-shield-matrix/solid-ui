@@ -13,7 +13,7 @@ import {
 } from "~ui/interactive/theme/themeVariant"
 import { toastAdd } from "~ui/interactive/toast/toastAdd"
 import { toastVariant } from "~ui/interactive/toast/toastVariant"
-import { createSignalObject } from "~ui/utils/ui/createSignalObject"
+import { createSignalObject } from "~ui/utils/createSignalObject"
 
 export const themeSignal = createSignalObject<ThemeVariant>(themeVariant.os)
 

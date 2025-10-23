@@ -1,5 +1,5 @@
-import type { HasClass } from "~ui/utils/ui/HasClass"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import type { HasClass } from "~ui/utils/HasClass"
+import { classMerge } from "~ui/utils/classMerge"
 
 export type Icon1Props = {
   path: string

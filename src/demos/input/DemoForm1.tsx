@@ -1,5 +1,5 @@
 import { Button } from "~ui/interactive/button/Button.tsx"
-import { createSignalObject } from "~ui/utils/ui/createSignalObject"
+import { createSignalObject } from "~ui/utils/createSignalObject"
 
 export function DemoForm1() {
   const onSubmit = (e: SubmitEvent) => {

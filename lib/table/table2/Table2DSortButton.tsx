@@ -3,7 +3,7 @@ import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
 import { sortDir, type SortDir } from "~ui/table/table2/sortDir"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import { classMerge } from "~ui/utils/classMerge"
 
 export function Table2DSortButton<T>(p: {
   sortHeader: TableColumnDef<T>

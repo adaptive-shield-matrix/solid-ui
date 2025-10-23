@@ -2,7 +2,7 @@ import { mdiFormatAlignCenter, mdiFormatAlignLeft, mdiFormatAlignRight } from "@
 import { toastAdd } from "~ui/interactive/toast/toastAdd.ts"
 import { toastVariant } from "~ui/interactive/toast/toastVariant.ts"
 import { ToggleButton } from "~ui/interactive/toggle/ToggleButton.tsx"
-import { createSignalObject } from "~ui/utils/ui/createSignalObject"
+import { createSignalObject } from "~ui/utils/createSignalObject"
 
 export function DemoToggle() {
   return (

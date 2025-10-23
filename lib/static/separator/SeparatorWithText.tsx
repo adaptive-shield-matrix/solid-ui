@@ -1,5 +1,5 @@
-import { classMerge } from "~ui/utils/ui/classMerge"
-import type { MayHaveChildrenAndClassName } from "~ui/utils/ui/MayHaveChildrenAndClassName"
+import { classMerge } from "~ui/utils/classMerge"
+import type { MayHaveChildrenAndClassName } from "~ui/utils/MayHaveChildrenAndClassName"
 
 export function SeparatorWithText(p: MayHaveChildrenAndClassName) {
   return (

@@ -9,9 +9,9 @@ import { ThemeButton } from "~ui/interactive/theme/ThemeButton"
 import { LogoImageText } from "~ui/static/logo/LogoImageText"
 import { iconGithub } from "~ui/static/nav/iconGithub"
 import { iconNpm } from "~ui/static/nav/iconNpm"
-import { objectEntries } from "~ui/utils/obj/objectEntries"
-import { objectKeys } from "~ui/utils/obj/objectKeys"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import { classMerge } from "~ui/utils/classMerge"
+import { objectEntries } from "~utils/obj/objectEntries"
+import { objectKeys } from "~utils/obj/objectKeys"
 
 export interface DemoNavProps extends ComponentProps<"nav"> {
   category?: string

@@ -1,4 +1,4 @@
-import { classArr } from "~ui/utils/ui/classArr"
+import { classArr } from "~ui/utils/classArr"
 
 export const classesPageHeightFull = "min-h-[80svh] sm:min-h-[90svh]"
 

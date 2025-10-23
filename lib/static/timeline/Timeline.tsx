@@ -1,6 +1,6 @@
 import type { ComponentProps, ParentComponent } from "solid-js"
 import { type Component, type JSXElement, mergeProps, Show, splitProps } from "solid-js"
-import { classMerge } from "~ui/utils/ui/classMerge"
+import { classMerge } from "~ui/utils/classMerge"
 
 export type TimelinePropsItem = Omit<TimelineItemProps, "isActive" | "isActiveBullet" | "bulletSize" | "lineSize"> & {
   bulletSize?: number

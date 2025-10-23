@@ -1,10 +1,10 @@
 
 import { type ComponentProps, splitProps } from "solid-js"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
-import type { HasChildren } from "~ui/utils/ui/HasChildren"
-import type { HasClass } from "~ui/utils/ui/HasClass"
-import { type HasDisabled, isDisabled } from "~ui/utils/ui/HasDisabled"
-import type { SignalObject } from "~ui/utils/ui/createSignalObject"
+import type { HasChildren } from "~ui/utils/HasChildren"
+import type { HasClass } from "~ui/utils/HasClass"
+import { type HasDisabled, isDisabled } from "~ui/utils/HasDisabled"
+import type { SignalObject } from "~ui/utils/createSignalObject"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/toggle/src/Toggle.tsx

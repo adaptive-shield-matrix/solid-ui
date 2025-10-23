@@ -7,8 +7,8 @@ import type { Table2Signals } from "~ui/table/table2/createSortableTableSignals"
 import { sortData } from "~ui/table/table2/sortData"
 import { nextSortDir } from "~ui/table/table2/sortDir"
 import { Table2DSortButton } from "~ui/table/table2/Table2DSortButton"
-import { classMerge } from "~ui/utils/ui/classMerge"
-import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classMerge } from "~ui/utils/classMerge"
+import type { HasClass } from "~ui/utils/HasClass"
 
 export type SortableTableDProps<T> = Table2Signals<T> & {
   desktopClasses?: DesktopTableClassNames

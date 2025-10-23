@@ -5,8 +5,8 @@ import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
 import { t4theme } from "~ui/interactive/theme/t4theme"
 import { themeInit, themeRotate, themeSignal } from "~ui/interactive/theme/themeSignal"
 import { themeIcon, type ThemeVariant } from "~ui/interactive/theme/themeVariant"
-import { classMerge } from "~ui/utils/ui/classMerge"
-import type { HasClass } from "~ui/utils/ui/HasClass"
+import { classMerge } from "~ui/utils/classMerge"
+import type { HasClass } from "~ui/utils/HasClass"
 
 function createGlobalKeyHandler(navigate: (to: string) => void) {
   return (e: KeyboardEvent) => {

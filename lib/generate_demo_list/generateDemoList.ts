@@ -1,7 +1,7 @@
 import { readdir, writeFile } from "node:fs/promises"
 import { join } from "node:path"
 import { formatGeneratedCodeFile } from "~ui/generate_demo_list/parts/formatGeneratedCodeFile"
-import { objectKeys } from "~ui/utils/obj/objectKeys"
+import { objectKeys } from "~utils/obj/objectKeys"
 import { findDemoFilesRecursive } from "./parts/findDemoFilesRecursive"
 import { removeDemoObjectValueQuotes } from "./parts/removeDemoObjectValueQuotes"
 import { serializeDemoComponentImport } from "./parts/serializeDemoComponentImport"
