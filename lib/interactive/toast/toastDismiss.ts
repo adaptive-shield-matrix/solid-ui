@@ -1,10 +1,7 @@
 import { createToasterState } from "~ui/interactive/toast/GlobalToasterState"
 import { toasterState } from "~ui/interactive/toast/toasterState"
 
-const log = true
-// const log = false
-
-export function toastDismiss(toastId: string) {
+export function toastDismiss(toastId: string, log = false) {
   let op = "toastDismiss"
   const { toasts, timeouts } = toasterState.get()
   if (log) console.debug({ op, toastId })

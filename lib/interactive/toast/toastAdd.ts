@@ -5,10 +5,7 @@ import { toasterState } from "~ui/interactive/toast/toasterState"
 import type { AddToastProps } from "~ui/interactive/toast/ToastProps"
 import { toastVariant, toastVariantIcon } from "~ui/interactive/toast/toastVariant"
 
-const log = true
-// const log = false
-
-export function toastAdd(addToast: AddToastProps): string {
+export function toastAdd(addToast: AddToastProps, log: boolean = false): string {
   const op = "toastAdd"
   const { toasts, timeouts } = toasterState.get()
   if (log) {
