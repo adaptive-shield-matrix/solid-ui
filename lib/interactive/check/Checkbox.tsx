@@ -1,10 +1,11 @@
 import { mdiCheckboxMarked, mdiSquareOutline } from "@mdi/js"
+import { splitProps, type ComponentProps } from "solid-js"
 import { Icon1 } from "~ui/static/icon/Icon1"
 import type { HasChildren } from "~ui/utils/HasChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/classMerge"
 
-interface CheckboxProps extends MayHaveClass, HasChildren {
+interface CheckboxProps extends MayHaveClass, HasChildren, ComponentProps<"checkbox"> {
   id?: string
   checked: boolean
   onChange: (checked: boolean) => void
@@ -12,6 +13,7 @@ interface CheckboxProps extends MayHaveClass, HasChildren {
 }
 
 export function Checkbox(p: CheckboxProps) {
+  const [, rest] = splitProps(p, ["id", "checked", "onChange", "disabled"])
   const handleToggle = () => {
     if (p.disabled) return
     p.onChange(!p.checked)
@@ -27,6 +29,7 @@ export function Checkbox(p: CheckboxProps) {
         class="sr-only invisible"
         disabled={p.disabled}
         aria-describedby={p.id ? `${p.id}-error` : undefined}
+        {...rest}
       />
       <div
         onClick={handleToggle}
