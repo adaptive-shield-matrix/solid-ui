@@ -28,4 +28,13 @@ done
 
 # Count and print the total number of lines in the resulting file
 total_lines=$(wc -l < "$outfile")
-echo "$outfile: $total_lines lines"
+
+# Count and print the total number of words in the resulting file
+total_words=$(wc -w < "$outfile")
+
+# Calculate and print estimated tokens (english words to token ratio = 1.4, rounded to nearest 100)
+tokens_estimated=$(awk "BEGIN {print $total_words * 1.4}")
+tokens_rounded=$(awk "BEGIN {print int(($tokens_estimated / 100) + 0.5) * 100}")
+tokens_displayed=$(awk "BEGIN {print $tokens_rounded / 1000}")
+
+echo "$outfile: $total_lines lines, $total_words words, $tokens_displayed K tokens"
