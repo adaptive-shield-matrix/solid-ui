@@ -1,4 +1,4 @@
-import { NumberInputS } from "~ui/input/number/NumberInputS.tsx"
+import { NumberInputS } from "~ui/input/number/NumberInputS"
 import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
 import { createSignalObject } from "~ui/utils/createSignalObject"
 

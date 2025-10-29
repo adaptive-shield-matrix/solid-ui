@@ -1,5 +1,5 @@
 import { cache } from "@solidjs/router"
-import type { StoryDefinition, StoryTypes, UserDefinition } from "./HacknewsTypes.ts"
+import type { StoryDefinition, StoryTypes, UserDefinition } from "./HacknewsTypes"
 
 const story = (path: string) => `https://node-hnapi.herokuapp.com/${path}`
 const user = (path: string) => `https://hacker-news.firebaseio.com/v0/${path}.json`

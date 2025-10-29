@@ -1,5 +1,5 @@
 import { InputS } from "~ui/input/input/InputS"
-import { Button } from "~ui/interactive/button/Button.tsx"
+import { Button } from "~ui/interactive/button/Button"
 import { createSignalObject } from "~ui/utils/createSignalObject"
 
 export function DemoForm1() {

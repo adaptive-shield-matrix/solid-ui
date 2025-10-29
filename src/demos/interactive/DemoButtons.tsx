@@ -1,12 +1,12 @@
 import { mdiHeart, mdiLoading } from "@mdi/js"
 import { createSignal } from "solid-js"
-import { Button } from "~ui/interactive/button/Button.tsx"
-import { ButtonIcon } from "~ui/interactive/button/ButtonIcon.tsx"
-import { ButtonIcon1 } from "~ui/interactive/button/ButtonIcon1.tsx"
-import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly.tsx"
-import { buttonSize, buttonVariant } from "~ui/interactive/button/buttonCva.ts"
-import { toastAdd } from "~ui/interactive/toast/toastAdd.ts"
-import { toastVariant } from "~ui/interactive/toast/toastVariant.ts"
+import { Button } from "~ui/interactive/button/Button"
+import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
+import { ButtonIcon1 } from "~ui/interactive/button/ButtonIcon1"
+import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
+import { buttonSize, buttonVariant } from "~ui/interactive/button/buttonCva"
+import { toastAdd } from "~ui/interactive/toast/toastAdd"
+import { toastVariant } from "~ui/interactive/toast/toastVariant"
 
 export function DemoButtons() {
   return (

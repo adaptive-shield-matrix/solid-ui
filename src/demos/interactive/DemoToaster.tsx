@@ -1,8 +1,8 @@
 import { mdiHeart } from "@mdi/js"
-import { Button } from "~ui/interactive/button/Button.tsx"
-import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
-import { toastAdd } from "~ui/interactive/toast/toastAdd.ts"
-import { toastVariant } from "~ui/interactive/toast/toastVariant.ts"
+import { Button } from "~ui/interactive/button/Button"
+import { buttonVariant } from "~ui/interactive/button/buttonCva"
+import { toastAdd } from "~ui/interactive/toast/toastAdd"
+import { toastVariant } from "~ui/interactive/toast/toastVariant"
 
 export function DemoToaster() {
   return (

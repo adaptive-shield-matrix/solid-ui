@@ -1,4 +1,4 @@
-import { LoaderShuffle4Dots } from "~ui/static/loaders/LoaderShuffle4Dots.tsx"
+import { LoaderShuffle4Dots } from "~ui/static/loaders/LoaderShuffle4Dots"
 import { LoaderShuffle9Squares } from "~ui/static/loaders/LoaderShuffle9Squares"
 import { LoaderSpin4Square } from "~ui/static/loaders/LoaderSpin4Square"
 import type { HasClass } from "~ui/utils/HasClass"

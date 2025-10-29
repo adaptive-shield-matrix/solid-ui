@@ -1,10 +1,10 @@
-import { Button } from "~ui/interactive/button/Button.tsx"
-import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
-import { ThemeButton } from "~ui/interactive/theme/ThemeButton.tsx"
+import { Button } from "~ui/interactive/button/Button"
+import { buttonVariant } from "~ui/interactive/button/buttonCva"
+import { ThemeButton } from "~ui/interactive/theme/ThemeButton"
 import { themeSignal } from "~ui/interactive/theme/themeSignal"
 import { type ThemeVariant } from "~ui/interactive/theme/themeVariant"
-import { toastAdd } from "~ui/interactive/toast/toastAdd.ts"
-import { toastVariant } from "~ui/interactive/toast/toastVariant.ts"
+import { toastAdd } from "~ui/interactive/toast/toastAdd"
+import { toastVariant } from "~ui/interactive/toast/toastVariant"
 
 export function DemoTheme() {
   return (

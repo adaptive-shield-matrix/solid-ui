@@ -1,9 +1,9 @@
-import type { Language } from "~ui/i18n/language.ts"
+import type { Language } from "~ui/i18n/language"
 import { languageSignal } from "~ui/i18n/languageSignal"
-import { ttt } from "~ui/i18n/ttt.ts"
-import type { TableColumnDef } from "~ui/table/shared/TableColumnDef.ts"
-import { Table1R } from "~ui/table/table1/Table1R.tsx"
-import { createPseudoRandomSec, type PseudoRandom } from "~utils/ran/createPseudoRandom.ts"
+import { ttt } from "~ui/i18n/ttt"
+import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
+import { Table1R } from "~ui/table/table1/Table1R"
+import { createPseudoRandomSec, type PseudoRandom } from "~utils/ran/createPseudoRandom"
 
 export function DemoTable1R() {
   return (

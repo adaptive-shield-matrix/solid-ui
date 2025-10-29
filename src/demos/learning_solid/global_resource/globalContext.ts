@@ -1,6 +1,6 @@
 import { createContext, useContext } from "solid-js"
 import type { SetStoreFunction, Store } from "solid-js/store"
-import { type GlobalState } from "./GlobalState.ts"
+import { type GlobalState } from "./GlobalState"
 
 export const globalContext = createContext<[get: Store<GlobalState>, set: SetStoreFunction<GlobalState>]>([
   { songs: [] },

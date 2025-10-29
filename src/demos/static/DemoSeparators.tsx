@@ -1,8 +1,8 @@
-import { Button } from "~ui/interactive/button/Button.tsx"
-import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
-import { Separator } from "~ui/static/separator/Separator.tsx"
-import { SeparatorOr } from "~ui/static/separator/SeparatorOr.tsx"
-import { SeparatorWithText } from "~ui/static/separator/SeparatorWithText.tsx"
+import { Button } from "~ui/interactive/button/Button"
+import { buttonVariant } from "~ui/interactive/button/buttonCva"
+import { Separator } from "~ui/static/separator/Separator"
+import { SeparatorOr } from "~ui/static/separator/SeparatorOr"
+import { SeparatorWithText } from "~ui/static/separator/SeparatorWithText"
 
 export function DemoSeparators() {
   return (

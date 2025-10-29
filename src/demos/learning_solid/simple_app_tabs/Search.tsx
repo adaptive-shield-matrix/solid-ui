@@ -1,4 +1,4 @@
-import { Input } from "~ui/input/input/Input.tsx"
+import { Input } from "~ui/input/input/Input"
 
 export function Search() {
   return (

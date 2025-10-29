@@ -1,7 +1,7 @@
 import { createResource, Suspense } from "solid-js"
-import { createResourceStorage } from "./createResourceStorage.ts"
-import { fetchSongs } from "./fetchSongs.ts"
-import { useGlobal } from "./globalContext.ts"
+import { createResourceStorage } from "./createResourceStorage"
+import { fetchSongs } from "./fetchSongs"
+import { useGlobal } from "./globalContext"
 import { Songs } from "./Songs"
 
 export const storeBackedSongs = () => {

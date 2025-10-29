@@ -1,8 +1,8 @@
 import { For } from "solid-js"
 import { createStore } from "solid-js/store"
-import { globalContext } from "./globalContext.ts"
-import type { GlobalState } from "./GlobalState.ts"
-import { SongsResource } from "./SongsResource.tsx"
+import { globalContext } from "./globalContext"
+import type { GlobalState } from "./GlobalState"
+import { SongsResource } from "./SongsResource"
 
 /**
  * https://andi.dev/blog/solid-resource-storage/
