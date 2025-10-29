@@ -1,3 +1,4 @@
+import { InputS } from "~ui/input/input/InputS"
 import { Button } from "~ui/interactive/button/Button.tsx"
 import { createSignalObject } from "~ui/utils/createSignalObject"
 
@@ -10,17 +11,11 @@ export function DemoForm1() {
     <form onSubmit={onSubmit} class={"flex flex-col gap-2 max-w-sm"}>
       <label for={"form-id"} class={"grid w-full max-w-sm items-center gap-1.5"}>
         <span>Id</span>
-        <input type={"text"} id={"form-id"} placeholder={"Id"} value={formState.id.get()} onChange={formState.id.set} />
+        <InputS type={"text"} id={"form-id"} placeholder={"Id"} value={formState.id.get()} valueSignal={formState.id} />
       </label>
       <label for={"name"} class={"grid w-full max-w-sm items-center gap-1.5"}>
         <span>Name</span>
-        <input
-          type={"text"}
-          id={"name"}
-          placeholder={"Name"}
-          value={formState.name.get()}
-          onChange={formState.name.set}
-        />
+        <InputS type={"text"} id={"name"} placeholder={"Name"} valueSignal={formState.name} />
       </label>
       <Button type={"submit"}>Save changes</Button>
       <Button onClick={generateRandom}>Generate random</Button>

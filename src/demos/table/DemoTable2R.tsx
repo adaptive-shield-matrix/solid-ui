@@ -1,6 +1,7 @@
 import { mdiMagicStaff, mdiTrashCan } from "@mdi/js"
 import { languageSignal } from "~ui/i18n/languageSignal"
 import { formIcon } from "~ui/input/form/getFormIcon.ts"
+import { InputS } from "~ui/input/input/InputS"
 import { Button } from "~ui/interactive/button/Button.tsx"
 import { buttonVariant } from "~ui/interactive/button/buttonCva.ts"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon.tsx"
@@ -10,8 +11,7 @@ import type { TableColumnDef } from "~ui/table/shared/TableColumnDef.ts"
 import { createTable2Signals } from "~ui/table/table2/createSortableTableSignals.ts"
 import { Table2R } from "~ui/table/table2/Table2R.tsx"
 import { createSignalObject } from "~ui/utils/createSignalObject"
-import type { PseudoRandom } from "~utils/ran/createPseudoRandom.ts"
-import { pseudoRandomSignal } from "~utils/ran/pseudoRandomSignal"
+import { createPseudoRandomSec, type PseudoRandom } from "~utils/ran/createPseudoRandom.ts"
 
 export function DemoTable2R() {
   return (
@@ -47,7 +47,8 @@ type Person = {
   name: string
 }
 
-const rows = createSignalObject(generateRows(pseudoRandomSignal.get()))
+const pseudoRandom = createPseudoRandomSec()
+const rows = createSignalObject(generateRows(pseudoRandom))
 const columns = createSignalObject(createTableColumns())
 const state = createTable2Signals({ rows, columns })
 
@@ -103,16 +104,16 @@ function Actions(p: { d: Person }) {
 }
 
 function addData() {
-  const newPerson = generatePerson(count++, pseudoRandomSignal.get())
+  const newPerson = generatePerson(count++, pseudoRandom)
   let newRows: Person[] = [...rows.get(), newPerson]
   rows.set(newRows)
 }
 function regenerateData() {
-  let newRows: Person[] = generateRows(pseudoRandomSignal.get())
+  let newRows: Person[] = generateRows(pseudoRandom)
   rows.set(newRows)
 }
 
-function generateRows(p: PseudoRandom = pseudoRandomSignal.get(), n = 10): Person[] {
+function generateRows(p: PseudoRandom = pseudoRandom, n = 10): Person[] {
   return Array.from({ length: n }, () => generatePerson(count++, p))
 }
 function generatePerson(i: number, p: PseudoRandom): Person {
@@ -170,17 +171,11 @@ function EditDialog(p: { d: Person }) {
       <form onSubmit={onSubmit}>
         <label for={"id"} class={"grid w-full max-w-sm items-center gap-1.5"}>
           <span>Email</span>
-          <input type={"number"} id={"id"} placeholder={"Id"} value={formState.id.get()} onChange={formState.id.set} />
+          <InputS type={"number"} id={"id"} placeholder={"Id"} valueSignal={formState.id} />
         </label>
         <label for={"name"} class={"grid w-full max-w-sm items-center gap-1.5"}>
           <span>Email</span>
-          <input
-            type={"text"}
-            id={"name"}
-            placeholder={"Name"}
-            value={formState.name.get()}
-            onChange={formState.name.set}
-          />
+          <InputS type={"text"} id={"name"} placeholder={"Name"} valueSignal={formState.name} />
         </label>
         <Button type="submit">Save changes</Button>
       </form>
