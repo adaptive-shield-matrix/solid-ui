@@ -11,7 +11,6 @@
     // https://github.com/withastro/astro/blob/main/tsconfig.base.json
     // Bundler mode configuration
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
