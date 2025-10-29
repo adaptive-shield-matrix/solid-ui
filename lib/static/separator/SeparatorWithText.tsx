@@ -1,7 +1,7 @@
 import { classMerge } from "~ui/utils/classMerge"
-import type { MayHaveChildrenAndClassName } from "~ui/utils/MayHaveChildrenAndClassName"
+import type { MayHaveChildrenAndClass } from "~ui/utils/MayHaveChildrenAndClass"
 
-export function SeparatorWithText(p: MayHaveChildrenAndClassName) {
+export function SeparatorWithText(p: MayHaveChildrenAndClass) {
   return (
     <div
       class={classMerge(
