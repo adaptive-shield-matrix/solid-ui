@@ -1,4 +1,5 @@
 import { splitProps } from "solid-js"
+import { classesTextLink } from "~ui/classes/classesTextLink"
 import type { LinkTextProps } from "~ui/interactive/link/LinkTextProps"
 import { classMerge } from "~ui/utils/classMerge"
 
@@ -8,7 +9,8 @@ export function LinkText(p: LinkTextProps) {
     <a
       href={p.href}
       class={classMerge(
-        "text-blue-500 no-underline hover:underline", // colors
+        classesTextLink,
+        "no-underline hover:underline", // underline
         "break-all", // line breaks
         p.class,
       )}
