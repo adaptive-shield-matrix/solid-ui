@@ -4,7 +4,7 @@ import { pathDemos } from "~ui/demo_pages/pathDemos"
 import type { RouteObject } from "~ui/demo_pages/RouteConfig"
 import type { DemoListType } from "~ui/generate_demo_list/DemoListType"
 import { LinkButton } from "~ui/interactive/link/LinkButton"
-import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
+import { classesGridCols5xl } from "~ui/static/container/classesGridCols"
 import { LayoutWrapperDemo } from "~ui/static/container/LayoutWrapperDemo"
 import { NavDemo } from "~ui/static/nav/NavDemo"
 import { classArr } from "~ui/utils/classArr"
@@ -102,7 +102,7 @@ function getDemosL0(demoList: DemoListType, prefix: string = pathDemos, override
                 "p-4", // spacing
               )}
             >
-              <div class={classArr(classesGridCols3xl, "gap-4")}>
+              <div class={classArr(classesGridCols5xl, "gap-4")}>
                 <For each={categories}>
                   {([category, tree]) => {
                     const categoryLinks = objectKeys(tree).map((compName) => `${prefix}/${category}/${compName}`)
