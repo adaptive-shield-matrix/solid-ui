@@ -62,7 +62,7 @@ const variantClasses = {
     "dark:text-slate-100 dark:hover:text-slate-100", // text
     "bg-transparent dark:bg-transparent", // bg
     "data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent", // bg data
-    "hover:bg-slate-100 dark:hover:bg-slate-800", // bg hover
+    "hover:bg-slate-100 dark:hover:bg-neutral-600", // bg hover
   ),
   link: classArr(
     "text-slate-900 dark:text-slate-100", // text
