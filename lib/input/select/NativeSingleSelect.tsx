@@ -2,21 +2,19 @@ import { Key } from "@solid-primitives/keyed"
 import type { Accessor } from "solid-js"
 import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
 
 export type ValueDisplayFn = (value: string) => string
 
-export type NativeSingleSelectProps = {
+export interface NativeSingleSelectProps extends MayHaveClass, MayHaveChildren {
   valueSignal: SignalObject<string>
   getOptions: Accessor<string[]>
   valueDisplay?: ValueDisplayFn
   id?: string
-} & HasClass &
-  HasChildren
+}
 
 export function NativeSingleSelect(p: NativeSingleSelectProps) {
   return (
@@ -51,7 +49,7 @@ function onChange(
   p.valueSignal.set(e.currentTarget.value)
 }
 
-function NoItems(p: HasClass) {
+function NoItems(p: MayHaveClass) {
   return <div class={p.class}>{ct0(t4multiselect.No_entries)}</div>
 }
 

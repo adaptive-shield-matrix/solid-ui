@@ -1,3 +1,3 @@
 import { type JSXElement } from "solid-js"
 
-export type HasChildren = { children?: JSXElement }
+export type HasChildren = { children: JSXElement }

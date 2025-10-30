@@ -1,14 +1,15 @@
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js"
+import type { JSXElement } from "solid-js"
 import { ct0 } from "~ui/i18n/ct0"
 import { NumberInputS } from "~ui/input/number/NumberInputS"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
 import { commonHeaderClass } from "~ui/static/text/commonHeaderClass"
 import { t4tablePagination } from "~ui/table/table3/pagination/t4tablePagination"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
 import { classMerge } from "~ui/utils/classMerge"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClassAndChildren } from "~ui/utils/MayHaveClassAndChildren"
 
 export function DemoTablePagination() {
   const entriesId = "entries"
@@ -112,15 +113,15 @@ function TablePaginationInfo(p: TablePaginationProps) {
   )
 }
 
-function L({ children }: HasChildren) {
-  return <span class={"text-gray-700 dark:text-gray-300"}>{children}</span>
+function L(p: MayHaveChildren): JSXElement {
+  return <span class={"text-gray-700 dark:text-gray-300"}>{p.children}</span>
 }
 
-function B({ children }: HasChildren) {
+function B(p: MayHaveChildren): JSXElement {
   // text-blue-500 dark:text-blue-800
-  return <span class={"font-semibold "}>{children}</span>
+  return <span class={"font-semibold "}>{p.children}</span>
 }
 
-function H(p: HasChildren & HasClass) {
+function H(p: MayHaveClassAndChildren): JSXElement {
   return <div class={classMerge(commonHeaderClass, p.class)}>{p.children}</div>
 }

@@ -4,11 +4,11 @@ import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { Icon0 } from "~ui/static/icon/Icon0"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import { isDisabled } from "~ui/utils/HasDisabled"
-import { type HasIsLoading, isLoading } from "~ui/utils/HasIsLoading"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import { isDisabled } from "~ui/utils/MayHaveDisabledAccessor"
+import { isLoading, type MayHaveIsLoading } from "~ui/utils/MayHaveIsLoading"
 
-export interface ButtonIconOnlyProps extends ComponentProps<"button">, ButtonCvaProps, HasIsLoading, HasChildren {
+export interface ButtonIconOnlyProps extends ComponentProps<"button">, ButtonCvaProps, MayHaveIsLoading, MayHaveChildren {
   title: string
   icon: string
   iconRight?: boolean

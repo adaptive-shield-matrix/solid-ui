@@ -1,6 +1,6 @@
 import type { MobileTableClassNames } from "~ui/table/shared/MobileTableClassNames"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
-import type { HasChildren } from "~ui/utils/HasChildren"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import { classMerge } from "~ui/utils/classMerge"
 
 export type Table1aMEntryProps<T> = {
@@ -24,7 +24,7 @@ export function Table1MEntry<T>(p: Table1aMEntryProps<T>) {
   )
 }
 
-function MobileEntryFirst({ mobileClasses: c, children }: { mobileClasses?: MobileTableClassNames } & HasChildren) {
+function MobileEntryFirst({ mobileClasses: c, children }: { mobileClasses?: MobileTableClassNames } & MayHaveChildren) {
   return <span class={classMerge("font-semibold", c?.first)}>{children}</span>
 }
 
@@ -32,7 +32,7 @@ function MobileEntryOther({
   mobileClasses: c,
   headerName,
   children,
-}: { headerName: string; mobileClasses?: MobileTableClassNames } & HasChildren) {
+}: { headerName: string; mobileClasses?: MobileTableClassNames } & MayHaveChildren) {
   return (
     <span class={classMerge("flex flex-wrap justify-between", c?.entry)}>
       <span class={classMerge("text-gray-600 dark:text-gray-400", c?.header)}>{`${headerName}:`}</span>

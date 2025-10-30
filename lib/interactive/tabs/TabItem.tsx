@@ -1,6 +1,6 @@
 import { type JSXElement } from "solid-js"
 import type { SelectionItem } from "~ui/utils/SelectionItem"
 
-export type TabItem<T extends string = string> = SelectionItem<T> & {
+export interface TabItem<T extends string = string> extends SelectionItem<T> {
   children?: JSXElement
 }

@@ -4,7 +4,7 @@ import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import type { LinkButtonProps } from "~ui/interactive/link/LinkButtonProps"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import { isLoading } from "~ui/utils/HasIsLoading"
+import { isLoading } from "~ui/utils/MayHaveIsLoading"
 
 export function LinkButtonIconOnly(p: LinkButtonProps) {
   const [, rest] = splitProps(p, [

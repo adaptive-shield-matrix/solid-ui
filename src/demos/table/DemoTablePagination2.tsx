@@ -1,4 +1,5 @@
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js"
+import type { JSXElement } from "solid-js"
 import { createEffect, Show } from "solid-js"
 import { ct0 } from "~ui/i18n/ct0"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
@@ -6,8 +7,7 @@ import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import { t4tablePagination } from "~ui/table/table3/pagination/t4tablePagination"
 import { classMerge } from "~ui/utils/classMerge"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
 export interface AtomizedTablePaginationProps extends MayHaveClass {
@@ -44,7 +44,7 @@ export function DemoTablePagination2() {
   )
 }
 
-function TablePaginationInfo(p: AtomizedTablePaginationProps & HasClass) {
+function TablePaginationInfo(p: AtomizedTablePaginationProps) {
   return (
     <Show when={p.entriesSignal.get() > 0 && p.entriesSignal.get() > p.entriesPerPage}>
       <p class={classMerge("flex flex-wrap gap-1 my-auto mx-1", p.class)}>
@@ -57,7 +57,7 @@ function TablePaginationInfo(p: AtomizedTablePaginationProps & HasClass) {
   )
 }
 
-function TablePaginationInfo2(p: AtomizedTablePaginationProps & HasClass) {
+function TablePaginationInfo2(p: AtomizedTablePaginationProps) {
   const entries = p.entriesSignal.get()
   const currentPage = p.currentPageSignal.get()
 
@@ -94,21 +94,21 @@ function TablePaginationInfo2(p: AtomizedTablePaginationProps & HasClass) {
   )
 }
 
-function T({ children }: HasChildren) {
+function T({ children }: MayHaveChildren): JSXElement {
   return <span class={"text-gray-700 dark:text-gray-300"}>{children}</span>
 }
 
-function A({ children }: HasChildren) {
+function A({ children }: MayHaveChildren): JSXElement {
   // text-blue-500 dark:text-blue-800
   return <span class={"font-semibold "}>{children}</span>
 }
 
-function B({ children }: HasChildren) {
+function B({ children }: MayHaveChildren): JSXElement {
   // text-blue-500 dark:text-blue-800
   return <span class={"font-semibold text-blue-500 dark:text-blue-800"}>{children}</span>
 }
 
-function TablePaginationButtons(p: AtomizedTablePaginationProps & HasClass) {
+function TablePaginationButtons(p: AtomizedTablePaginationProps) {
   // const l = useAtomValue(languageAtom)
   // const entries = useAtomValue(entriesAtom)
   // const [currentPage, setCurrentPage] = useAtom(currentPageAtom)

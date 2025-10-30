@@ -1,24 +1,20 @@
 
 import { type ComponentProps, splitProps } from "solid-js"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
-import { type HasDisabled, isDisabled } from "~ui/utils/HasDisabled"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import { type MayHaveDisabledAccessor, isDisabled } from "~ui/utils/MayHaveDisabledAccessor"
 import type { SignalObject } from "~ui/utils/createSignalObject"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/toggle/src/Toggle.tsx
  * https://github.com/mui/base-ui/blob/master/packages/react/src/toggle/useToggle.ts
  */
-export type ToggleButtonProps = {
+export interface ToggleButtonProps extends ToggleButtonStateProps, MayHaveClass, MayHaveChildren, Omit<MayHaveDisabledAccessor, "disabled">, ComponentProps<"button"> {
   title: string
   onClick?: (e: MouseEvent & { currentTarget: HTMLButtonElement; target: Element }) => void
   onPressedChange?: (pressed: boolean) => void
-} & ToggleButtonStateProps &
-  HasClass &
-  HasChildren &
-  HasDisabled &
-  ComponentProps<"button">
+}
 
 type ToggleButtonStateProps = {
   pressedSignal: SignalObject<boolean>

@@ -37,7 +37,7 @@ export type TableAtomState<T> = {
   getCsvFilename: Accessor<string>
 }
 
-export type FilterableTableAtoms<T> = TableAtomState<T> & {
+export interface FilterableTableAtoms<T> extends TableAtomState<T> {
   columnsFiltered: Accessor<TableColumnDef<T>[]>
   columnsFilteredAmount: Accessor<number>
   rowsFiltered: Accessor<T[]>

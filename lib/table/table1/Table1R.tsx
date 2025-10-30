@@ -7,7 +7,7 @@ import { Table1M } from "~ui/table/table1/Table1M"
 import type { TailwindBreakpoint } from "~ui/utils/tailwindBreakpoint"
 import { tailwindBreakpoint } from "~ui/utils/tailwindBreakpoint"
 
-export type SortableTable1RProps<T> = Table1Data<T> & {
+export interface SortableTable1RProps<T> extends Table1Data<T> {
   breakpoint?: TailwindBreakpoint
   desktopClasses?: DesktopTableClassNames
   mobileClasses?: MobileTableClassNames

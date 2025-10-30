@@ -9,15 +9,15 @@ import { CorvuPopover, type CorvuPopoverProps } from "~ui/interactive/popover/Co
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { SelectionItem } from "~ui/utils/SelectionItem"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
  */
-export interface MultiselectProps<T extends string = string> extends MultiselectState<T>, HasClass, HasChildren {
+export interface MultiselectProps<T extends string = string> extends MultiselectState<T>, MayHaveClass, MayHaveChildren {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
@@ -148,7 +148,7 @@ function optionIsSelected<T extends string = string>(p: MultiselectOptionState<T
   return p.valueSignal.get().some((v) => v.value === p.option.value)
 }
 
-function NoItems(p: HasClass) {
+function NoItems(p: MayHaveClass) {
   return (
     <div
       class={classMerge(

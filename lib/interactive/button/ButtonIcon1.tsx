@@ -4,10 +4,10 @@ import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export interface ButtonIcon1Props extends ComponentProps<"button">, ButtonCvaProps, HasClass, HasChildren {
+export interface ButtonIcon1Props extends ComponentProps<"button">, ButtonCvaProps, MayHaveClass, MayHaveChildren {
   // icon
   icon?: string
   iconRight?: string

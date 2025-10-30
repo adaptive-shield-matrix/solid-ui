@@ -4,12 +4,12 @@ import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassN
 import { sharedTableRowClassName } from "~ui/table/shared/sharedTableRowClassName"
 import { t4table } from "~ui/table/shared/t4table"
 import type { Table1Data } from "~ui/table/table1/Table1Data"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/classMerge"
 
-export type Table1aDProps<T> = Table1Data<T> & {
+export interface Table1aDProps<T> extends Table1Data<T>, MayHaveClass {
   desktopClasses?: DesktopTableClassNames
-} & HasClass
+}
 
 export function Table1D<T>(p: Table1aDProps<T>) {
   if (p.rows.length <= 0)

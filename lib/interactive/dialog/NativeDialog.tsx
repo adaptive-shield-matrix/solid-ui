@@ -10,21 +10,19 @@ import {
 import { tbCloseDialog } from "~ui/interactive/dialog/tbCloseDialog"
 import { classMerge } from "~ui/utils/classMerge"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import "./NativeDialog.module.css"
 
 export type DialogButtonProps = Omit<ButtonIconProps, "id" | "type">
 
-type DialogProps = {
+interface DialogProps extends MayHaveClass, MayHaveChildren, Partial<DialogInternalProps> {
   // trigger
   buttonProps: DialogButtonProps
   title: string
-} & HasClass &
-  HasChildren &
-  Partial<DialogInternalProps>
+}
 
-type DialogInternalProps = {
+interface DialogInternalProps extends MayHaveClass, MayHaveChildren {
   // trigger
   buttonProps: DialogButtonProps
 
@@ -42,8 +40,7 @@ type DialogInternalProps = {
   dialogId: string
   dialogRef: SignalObject<HTMLDialogElement | null>
   openState: IsOpenSignalObject
-} & HasClass &
-  HasChildren
+}
 
 function initProps(p: DialogProps): DialogInternalProps {
   let dialogRef = p.dialogRef ?? createSignalObject<HTMLDialogElement | null>(null)

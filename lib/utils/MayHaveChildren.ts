@@ -1,5 +1,3 @@
-import { type JSX } from "solid-js"
+import { type JSXElement } from "solid-js"
 
-export interface MayHaveChildren {
-  children?: JSX.Element
-}
+export type MayHaveChildren = { children?: JSXElement }

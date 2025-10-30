@@ -1,11 +1,11 @@
 import { mdiCheckboxMarked, mdiSquareOutline } from "@mdi/js"
 import { splitProps, type ComponentProps } from "solid-js"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import type { HasChildren } from "~ui/utils/HasChildren"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/classMerge"
 
-interface CheckboxProps extends MayHaveClass, HasChildren, ComponentProps<"checkbox"> {
+interface CheckboxProps extends MayHaveClass, MayHaveChildren, ComponentProps<"checkbox"> {
   id?: string
   checked: boolean
   onChange: (checked: boolean) => void

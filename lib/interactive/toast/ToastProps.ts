@@ -1,9 +1,9 @@
 import type { JSXElement } from "solid-js"
 import type { ToastVariant } from "~ui/interactive/toast/toastVariant"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export type AddToastProps = {
+export interface AddToastProps extends MayHaveClass, MayHaveChildren {
   id?: string
 
   variant?: ToastVariant
@@ -17,13 +17,12 @@ export type AddToastProps = {
 
   description?: string
   descriptionClass?: string
-} & HasClass &
-  HasChildren
+}
 
-export type ToastPropsInternal = {
+export interface ToastPropsInternal extends AddToastProps {
   id: string
   // variant: ToastVariant
-} & AddToastProps
+}
 
 export type ToastProps = {
   id: string

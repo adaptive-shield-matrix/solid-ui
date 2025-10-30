@@ -3,24 +3,20 @@ import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
-import { type HasDisabled, isDisabled } from "~ui/utils/HasDisabled"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import { type MayHaveDisabledAccessor, isDisabled } from "~ui/utils/MayHaveDisabledAccessor"
 import type { SelectionItem } from "~ui/utils/SelectionItem"
 import type { ValueOrAccessor } from "~ui/utils/ValueOrAccessor"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/radio-group/src/Radio.tsx
  */
-export type RadioSwitchProps = {
+export interface RadioSwitchProps extends MayHaveClass, MayHaveChildren, RadioSwitchStateProps, HasGetOptions, MayHaveDisabledAccessor {
   id?: string
   disabled?: ValueOrAccessor<boolean>
-} & HasClass &
-  HasChildren &
-  RadioSwitchStateProps &
-  HasGetOptions &
-  HasDisabled
+}
 
 type RadioSwitchStateProps = {
   valueSignal: SignalObject<SelectionItem | null>
@@ -48,11 +44,16 @@ export function RadioSwitch(p: RadioSwitchProps) {
   )
 }
 
-function NoItems(p: HasClass) {
+function NoItems(p: MayHaveClass) {
   return <div class={p.class}>{ct0(t4multiselect.No_entries)}</div>
 }
 
-function Option(p: { item: SelectionItem; filled: boolean } & RadioSwitchStateProps & HasDisabled & HasClass) {
+interface Option2Props extends RadioSwitchStateProps, MayHaveDisabledAccessor, MayHaveClass {
+  item: SelectionItem
+  filled: boolean
+}
+
+function Option(p: Option2Props) {
   // console.log("Option", p.item.value, "value:", p.valueSignal.get())
   return (
     <button
@@ -88,9 +89,9 @@ function optionToggle(p: OptionProps) {
   p.valueSignal.set(p.item)
 }
 
-type OptionProps = {
+export interface OptionProps extends RadioSwitchStateProps {
   item: SelectionItem
-} & RadioSwitchStateProps
+}
 
 function isChecked(p: OptionProps) {
   return p.item.value === p.valueSignal.get()?.value

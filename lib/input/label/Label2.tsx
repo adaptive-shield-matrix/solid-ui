@@ -1,18 +1,18 @@
 import { Label } from "~ui/input/label/Label"
 import { LabelAsterix } from "~ui/input/label/LabelAsterix"
-import type { HasChildren } from "~ui/utils/HasChildren"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import { classMerge } from "~ui/utils/classMerge"
 
-export type Label2Props = {
+export interface Label2Props extends MayHaveChildren {
   title: string
   subtitle?: string
   required?: boolean
   labelClass?: string
   disabled?: boolean
   id?: string
-} & HasChildren
+}
 
-export type Label2PropsFor = Label2Props & {
+export interface Label2PropsFor extends Label2Props {
   forId: string
 }
 

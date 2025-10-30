@@ -7,7 +7,7 @@ import { Table2D } from "~ui/table/table2/Table2D"
 import { Table2M } from "~ui/table/table2/Table2M"
 import { type TailwindBreakpoint, tailwindBreakpoint } from "~ui/utils/tailwindBreakpoint"
 
-export type Table2RProps<T> = Table2Signals<T> & {
+export interface Table2RProps<T> extends Table2Signals<T> {
   breakpoint?: TailwindBreakpoint
   desktopClasses?: DesktopTableClassNames
   mobileClasses?: MobileTableClassNames

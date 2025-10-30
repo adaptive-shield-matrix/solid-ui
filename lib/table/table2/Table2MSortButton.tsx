@@ -1,8 +1,10 @@
 import type { SortableTableData } from "~ui/table/table2/SortableTableData"
 import { type SortDir } from "~ui/table/table2/sortDir"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export function Table2MSortButton<T>(p: SortableTableData<T> & HasClass) {
+export interface Table2MSortButtonProps<T> extends SortableTableData<T>, MayHaveClass {}
+
+export function Table2MSortButton<T>(p: Table2MSortButtonProps<T>) {
   // console.log("MobileSortButton", current)
   function update(v: string) {
     const [h, dir] = v.split(";")

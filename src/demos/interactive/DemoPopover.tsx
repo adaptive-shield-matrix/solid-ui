@@ -3,7 +3,7 @@ import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
 export function DemoPopover() {
   return (
@@ -18,7 +18,7 @@ export function DemoPopover() {
   )
 }
 
-interface BasicPopoverDemo extends HasClass {
+interface BasicPopoverDemo extends MayHaveClass {
   title: string
 }
 

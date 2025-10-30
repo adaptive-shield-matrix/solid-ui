@@ -1,7 +1,7 @@
-import type { HasClassAndChildren } from "~ui/utils/HasClassAndChildren"
+import type { MayHaveClassAndChildren } from "~ui/utils/MayHaveClassAndChildren"
 import { classMerge } from "~ui/utils/classMerge"
 
-export interface PageWrapper2Props extends HasClassAndChildren {
+export interface PageWrapper2Props extends MayHaveClassAndChildren {
   innerClass?: string
 }
 

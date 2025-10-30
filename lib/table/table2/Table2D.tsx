@@ -8,11 +8,11 @@ import { sortData } from "~ui/table/table2/sortData"
 import { nextSortDir } from "~ui/table/table2/sortDir"
 import { Table2DSortButton } from "~ui/table/table2/Table2DSortButton"
 import { classMerge } from "~ui/utils/classMerge"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export type SortableTableDProps<T> = Table2Signals<T> & {
+export interface SortableTableDProps<T> extends Table2Signals<T>, MayHaveClass {
   desktopClasses?: DesktopTableClassNames
-} & HasClass
+}
 
 //
 // table

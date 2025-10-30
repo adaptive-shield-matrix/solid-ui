@@ -6,7 +6,7 @@ import { t4theme } from "~ui/interactive/theme/t4theme"
 import { themeInit, themeRotate, themeSignal } from "~ui/interactive/theme/themeSignal"
 import { themeIcon, type ThemeVariant } from "~ui/interactive/theme/themeVariant"
 import { classMerge } from "~ui/utils/classMerge"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
 function createGlobalKeyHandler(navigate: (to: string) => void) {
   return (e: KeyboardEvent) => {
@@ -20,7 +20,7 @@ function createGlobalKeyHandler(navigate: (to: string) => void) {
   }
 }
 
-export interface ThemeButtonProps extends HasClass {
+export interface ThemeButtonProps extends MayHaveClass {
   showText?: boolean
 }
 

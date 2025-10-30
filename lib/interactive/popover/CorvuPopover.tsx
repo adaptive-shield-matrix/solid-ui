@@ -7,10 +7,10 @@ import { classesButtonClickAnimation } from "~ui/interactive/button/classesButto
 import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { Icon1 } from "~ui/static/icon/Icon1"
 import { classArr } from "~ui/utils/classArr"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export interface CorvuPopoverProps extends HasClass, HasChildren, ButtonIcon1Props {
+export interface CorvuPopoverProps extends MayHaveClass, MayHaveChildren, ButtonIcon1Props {
   // buttonProps: ButtonIcon1Props
   buttonChildren?: JSX.Element
 }

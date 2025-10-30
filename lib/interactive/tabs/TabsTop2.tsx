@@ -1,28 +1,30 @@
 import { Key } from "@solid-primitives/keyed"
+import type { JSXElement } from "solid-js"
 import { createUniqueId } from "solid-js"
 import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import type { TabItem } from "~ui/interactive/tabs/TabItem"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
-import type { HasChildren } from "~ui/utils/HasChildren"
-import type { HasClass } from "~ui/utils/HasClass"
-import { type HasDisabled, isDisabled } from "~ui/utils/HasDisabled"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import { type MayHaveDisabledAccessor, isDisabled } from "~ui/utils/MayHaveDisabledAccessor"
 import type { ValueOrAccessor } from "~ui/utils/ValueOrAccessor"
 
 /**
  * https://www.radix-ui.com/primitives/docs/components/tabs
  * https://github.com/radix-ui/primitives/blob/main/packages/react/tabs/src/Tabs.tsx
  **/
-export type TabsTop2Props<T extends string = string> = {
+export interface TabsTop2Props<T extends string = string>
+  extends MayHaveClass,
+    MayHaveChildren,
+    HasValueSignalProp<T>,
+    HasGetOptions<T>,
+    MayHaveDisabledAccessor {
   id?: string
   disabled?: ValueOrAccessor<boolean>
-} & HasClass &
-  HasChildren &
-  HasValueSignalProp<T> &
-  HasGetOptions<T> &
-  HasDisabled
+}
 
 type HasValueSignalProp<T extends string = string> = {
   valueSignal: SignalObject<TabItem<T>>
@@ -57,13 +59,19 @@ export function TabsTop2<T extends string = string>(p: TabsTop2Props<T>) {
   )
 }
 
-function NoTabOptions(p: HasClass) {
+function NoTabOptions(p: MayHaveClass) {
   return <div class={p.class}>{ct0(t4multiselect.No_entries)}</div>
 }
 
-function TabOption<T extends string = string>(
-  p: { baseId: string; item: TabItem<T> } & HasValueSignalProp<T> & HasDisabled & HasClass,
-) {
+interface TabOptionProps<T extends string = string>
+  extends HasValueSignalProp<T>,
+    MayHaveDisabledAccessor,
+    MayHaveClass {
+  baseId: string
+  item: TabItem<T>
+}
+
+function TabOption<T extends string = string>(p: TabOptionProps<T>): JSXElement {
   // console.log("TabOption", p.item.value, "value:", p.valueSignal.get())
   return (
     <button
@@ -91,9 +99,7 @@ function TabOption<T extends string = string>(
   )
 }
 
-function TabContent<T extends string = string>(
-  p: { baseId: string; item: TabItem<T> } & HasValueSignalProp<T> & HasDisabled & HasClass,
-) {
+function TabContent<T extends string = string>(p: TabOptionProps<T>): JSXElement {
   return (
     <div
       id={makeContentId(p.baseId, p.item)}
@@ -124,9 +130,9 @@ function setActiveTab<T extends string = string>(p: OptionProps<T>) {
   p.valueSignal.set(p.item)
 }
 
-type OptionProps<T extends string = string> = {
+interface OptionProps<T extends string = string> extends HasValueSignalProp<T> {
   item: TabItem<T>
-} & HasValueSignalProp<T>
+}
 
 function isSelected<T extends string = string>(p: OptionProps<T>) {
   return p.item.value === p.valueSignal.get()?.value

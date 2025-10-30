@@ -1,7 +1,7 @@
 import { mdiChevronDown } from "@mdi/js"
 import { Show, type JSXElement } from "solid-js"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import type { HasChildren } from "~ui/utils/HasChildren"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveIcon } from "~ui/utils/MayHaveIcon"
 import type { MayHaveSubtitle } from "~ui/utils/MayHaveSubtitle"
@@ -9,7 +9,7 @@ import type { MayHaveTitle } from "~ui/utils/MayHaveTitle"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 
-export interface DetailsProps extends MayHaveClass, MayHaveIcon, MayHaveTitle, MayHaveSubtitle, HasChildren {
+export interface DetailsProps extends MayHaveClass, MayHaveIcon, MayHaveTitle, MayHaveSubtitle, MayHaveChildren {
   summaryClass?: string
   summaryEl?: JSXElement
 }

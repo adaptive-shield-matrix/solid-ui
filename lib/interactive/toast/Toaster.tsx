@@ -1,7 +1,8 @@
 import { Key } from "@solid-primitives/keyed"
+import type { JSXElement } from "solid-js"
 import { Toast } from "~ui/interactive/toast/Toast"
 import { toasterState } from "~ui/interactive/toast/toasterState"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classArr } from "~ui/utils/classArr"
 
 // const log = true
@@ -17,7 +18,7 @@ const log = false
  * - demo - https://kobalte.netlify.app/docs/core/components/toast
  * - src - https://github.com/kobaltedev/kobalte/blob/main/packages/core/src/toast/toast-list.tsx
  */
-export function Toaster(p: HasClass) {
+export function Toaster(p: MayHaveClass): JSXElement {
   return (
     <ul
       class={classArr(

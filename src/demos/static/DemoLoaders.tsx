@@ -1,9 +1,9 @@
 import { LoaderShuffle4Dots } from "~ui/static/loaders/LoaderShuffle4Dots"
 import { LoaderShuffle9Squares } from "~ui/static/loaders/LoaderShuffle9Squares"
 import { LoaderSpin4Square } from "~ui/static/loaders/LoaderSpin4Square"
-import type { HasClass } from "~ui/utils/HasClass"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export function DemoLoaders(p: HasClass) {
+export function DemoLoaders(p: MayHaveClass) {
   // const i = randomInteger(3)
   // switch (i) {
   //   default:

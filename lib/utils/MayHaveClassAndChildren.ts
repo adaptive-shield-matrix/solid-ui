@@ -1,6 +1,6 @@
 import { type JSXElement } from "solid-js"
 
-export type HasClassAndChildren = {
+export interface MayHaveClassAndChildren {
   class?: string
   children?: JSXElement
 }
