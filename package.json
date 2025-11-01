@@ -26,15 +26,16 @@
     "reset": "rm -rf ./node_modules"
   },
   "peerDependencies": {
-    "@adaptive-sm/utils": "^0.2.5",
+    "@adaptive-sm/utils": "^0.4.2",
     "@floating-ui/dom": "^1.7.4",
     "@mdi/js": "^7.4.47",
     "@solid-primitives/keyed": "^1.5.2",
     "@solid-primitives/scheduled": "^1.5.2",
     "@solidjs/router": "^0.15.3",
+    "@corvu/popover": "^0.2.0",
     "clsx": "^2.1.1",
-    "dayjs": "^1.11.18",
-    "solid-js": "^1.9.9",
+    "dayjs": "^1.11.19",
+    "solid-js": "^1.9.10",
     "tailwind-merge": "^3.3.1",
     "valibot": "^1.1.0"
   },
@@ -89,8 +90,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "@corvu/popover": "^0.2.0"
-  }
+  ]
 }

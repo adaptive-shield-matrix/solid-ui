@@ -5,7 +5,7 @@ import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { NativeDialog } from "~ui/interactive/dialog/NativeDialog"
 import { classesGridCols4xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
-import { arrCreate } from "~utils/index"
+import { arrCreate } from "~utils/arr/arrCreate"
 
 export function DemoDialog() {
   return (
