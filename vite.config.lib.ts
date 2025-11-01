@@ -3,6 +3,7 @@ import { resolve } from "path"
 import { defineConfig } from "vite"
 import dts from "vite-plugin-dts"
 import solid from "vite-plugin-solid"
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
   resolve: {
@@ -14,6 +15,7 @@ export default defineConfig({
   },
   plugins: [
     solid(),
+    tailwindcss(),
     dts({
       include: ["lib/**/*"],
       outDir: "dist",
