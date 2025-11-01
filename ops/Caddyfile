@@ -1,4 +1,3 @@
-
 (shared_config_solid_ui) {
 	handle_path /media-b2* {
 		rewrite * {path}
@@ -27,6 +26,6 @@ dist.solid-ui.com {
 	header {
 		Routed "astro-dist"
 	}
-	root * /home/david/Coding/adaptive-solid-ui/dist
+	root * /home/david/Coding/adaptive-solid-ui/out
 	file_server
 }
