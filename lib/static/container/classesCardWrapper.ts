@@ -1,9 +1,12 @@
 import { classArr } from "~ui/utils/classArr"
 
+export const classesCardWrapperBoderDark = "dark:border dark:border-gray-500"
+export const classesCardWrapperBg = "bg-white dark:bg-zinc-800"
+
 export const classesCardWrapper = classArr(
   "rounded-lg shadow-lg", // card shadows/padding
-  "bg-white dark:bg-zinc-800", // bg
-  "dark:border dark:border-gray-500", // border
+  classesCardWrapperBg, // bg
+  classesCardWrapperBoderDark, // border
 )
 
 export const classesCardWrapperP4 = classArr(classesCardWrapper, "p-4 lg:p-8")
