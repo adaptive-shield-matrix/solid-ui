@@ -39,7 +39,7 @@ npm install @adaptive-sm/solid-ui
 Ensure you have the peer dependencies installed:
 
 ```bash
-bun add solid-js clsx tailwind-merge valibot dayjs @solid-primitives/keyed @solid-primitives/scheduled @floating-ui/dom @mdi/js
+bun add solid-js clsx tailwind-merge valibot dayjs @solid-primitives/keyed @solid-primitives/scheduled @mdi/js
 ```
 
 ## Setup: Tailwind CSS Configuration

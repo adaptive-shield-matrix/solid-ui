@@ -43,7 +43,6 @@ export default defineConfig({
         "solid-js/web",
         "solid-js/store",
         "@adaptive-sm/utils",
-        "@floating-ui/dom",
         "@mdi/js",
         "@solid-primitives/keyed",
         "@solid-primitives/scheduled",
