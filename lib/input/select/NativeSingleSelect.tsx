@@ -22,10 +22,10 @@ export function NativeSingleSelect(p: NativeSingleSelectProps) {
       id={p.id}
       class={classArr(
         "block w-full p-2.5",
-        "text-gray-900 dark:text-white text-sm", // text
-        "dark:placeholder-gray-400", // text placeholder
+        "text-gray-900 dark:text-white", // text
+        "placeholder:text-muted-foreground", // text placeholder
         "bg-gray-50 dark:bg-gray-700", // bg
-        "rounded-lg border border-gray-300 dark:border-gray-600", // border
+        "rounded-lg border border-gray-300 dark:border-gray-500", // border
         "focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500",
         p.class,
       )}
