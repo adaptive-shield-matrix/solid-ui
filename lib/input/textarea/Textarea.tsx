@@ -14,7 +14,7 @@ export const Textarea: Component<ComponentProps<"textarea">> = (p) => {
         "rounded-md border border-input", // borders
         "placeholder:text-muted-foreground", // typography
         "px-3 py-2", // spacing
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background", // focus states
+        "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background", // focus states
         "disabled:cursor-not-allowed disabled:opacity-50", // disabled states
         s.class,
       )}
