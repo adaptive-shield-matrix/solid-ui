@@ -7,9 +7,10 @@ export interface InputSProps extends ComponentProps<"input"> {
 }
 
 export function InputS(p: InputSProps) {
-  const [, rest] = splitProps(p, ["valueSignal", "onInput"])
+  const [, rest] = splitProps(p, ["valueSignal", "value", "onInput"])
   const onInputLocal: JSX.InputEventHandlerUnion<HTMLInputElement, InputEvent> = (e) => {
-    p.valueSignal.set(e.currentTarget.value)
+    const value = e.currentTarget.value
+    p.valueSignal.set(value)
     if (p.onInput && typeof p.onInput === "function") {
       p.onInput(e)
     }

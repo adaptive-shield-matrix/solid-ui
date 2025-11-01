@@ -1,7 +1,7 @@
 # Available Solid.js UI Components and utility functions
 
 These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
-Generated at: 2025-10-29 06:52
+Generated at: 2025-10-31 19:14
 
 - ~/i18n/t1.ts
 - ~/i18n/t4pageName.ts
@@ -114,31 +114,32 @@ Generated at: 2025-10-29 06:52
 - ~/demo_pages/generateDemoRoutes.tsx
 - ~/utils/RouteConfig.ts
 - ~/utils/createStoreObject.ts
-- ~/utils/Navigator.ts
 - ~/utils/MayHaveDisabled.ts
-- ~/utils/MayHaveButtonVariantAndClassName.ts
 - ~/utils/HasChildren.ts
-- ~/utils/MayHaveChildrenAndClassName.ts
 - ~/utils/tailwindBreakpoint.ts
 - ~/utils/ValueOrAccessor.ts
-- ~/utils/HasClassAndChildren.ts
+- ~/utils/MayHaveChildrenAndClass.ts
 - ~/utils/MayHaveClass.ts
 - ~/utils/createSignalObject.ts
 - ~/utils/MayHaveId.ts
-- ~/utils/MayHaveInnerClassName.ts
+- ~/utils/MayHaveInnerClass.ts
 - ~/utils/MayHaveIcon.ts
 - ~/utils/MayHaveChildren.ts
+- ~/utils/NavigateTo.ts
+- ~/utils/MayHaveDisabledAccessor.ts
+- ~/utils/HasTitle.ts
+- ~/utils/MayHaveClassAndChildren.ts
 - ~/utils/classMerge.ts
-- ~/utils/HasDisabled.ts
 - ~/utils/SelectionItem.ts
 - ~/utils/createLocalStore.ts
 - ~/utils/classArr.ts
 - ~/utils/MayHaveSubtitle.ts
-- ~/utils/HasIsLoading.ts
+- ~/utils/MayHaveButtonVariantAndClass.ts
 - ~/utils/HasGetOptions.ts
 - ~/utils/MayHaveTitle.ts
 - ~/utils/MayHaveButtonVariant.ts
-- ~/utils/HasClass.ts
+- ~/utils/HasSubtitle.ts
+- ~/utils/MayHaveIsLoading.ts
 - ~/env/isProdEnv.ts
 - ~/env/getEnvMode.ts
 - ~/env/isDevEnv.ts
