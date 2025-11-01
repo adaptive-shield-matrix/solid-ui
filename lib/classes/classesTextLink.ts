@@ -1,13 +1,13 @@
 import { classArr } from "~ui/utils/classArr"
 
 export const classesTextLink = classArr(
-  "text-blue-600 hover:text-black", // light
-  "dark:text-orange-600 dark:hover:text-orange-400", // dark
+  "text-blue-600 hover:text-indigo-800", // light
+  "dark:text-blue-200 dark:hover:text-orange-200", // dark
   "transition-colors", // animation
 )
 
 export const classesTextLinkGroupHover = classArr(
-  "group-hover:text-blue-600", // light
-  "dark:group-hover:text-orange-400", // dark
+  "group-hover:text-indigo-800", // light
+  "dark:group-hover:text-orange-200", // dark
   "transition-colors", // animation
 )

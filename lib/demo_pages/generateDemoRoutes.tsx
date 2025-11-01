@@ -98,7 +98,7 @@ function getDemosL0(demoList: DemoListType, prefix: string = pathDemos, override
             <div
               class={classArr(
                 "flex flex-col items-center justify-center", // layout
-                "bg-gray-50 dark:bg-gray-900", // background
+                "bg-gray-50 dark:bg-gray-700", // background
                 "p-4", // spacing
               )}
             >
