@@ -46,11 +46,6 @@ const DemoNativeSingleSelect = lazy(async () => {
   return { default: c.DemoNativeSingleSelect }
 })
 
-const DemoForm1 = lazy(async () => {
-  const c = await import("@/demos/input/DemoForm1")
-  return { default: c.DemoForm1 }
-})
-
 const DemoIcons = lazy(async () => {
   const c = await import("@/demos/static/DemoIcons")
   return { default: c.DemoIcons }
@@ -131,11 +126,6 @@ const DemoTabs = lazy(async () => {
   return { default: c.DemoTabs }
 })
 
-const DemoNativeDialog = lazy(async () => {
-  const c = await import("@/demos/interactive/DemoNativeDialog")
-  return { default: c.DemoNativeDialog }
-})
-
 const DemoLinks = lazy(async () => {
   const c = await import("@/demos/interactive/DemoLinks")
   return { default: c.DemoLinks }
@@ -156,11 +146,6 @@ const DemoDetails = lazy(async () => {
   return { default: c.DemoDetails }
 })
 
-const DemoNativePopover = lazy(async () => {
-  const c = await import("@/demos/interactive/DemoNativePopover")
-  return { default: c.DemoNativePopover }
-})
-
 const DemoCheckbox = lazy(async () => {
   const c = await import("@/demos/interactive/DemoCheckbox")
   return { default: c.DemoCheckbox }
@@ -169,11 +154,6 @@ const DemoCheckbox = lazy(async () => {
 const DemoDialog = lazy(async () => {
   const c = await import("@/demos/interactive/DemoDialog")
   return { default: c.DemoDialog }
-})
-
-const DemoNativePopoverFloating = lazy(async () => {
-  const c = await import("@/demos/interactive/DemoNativePopoverFloating")
-  return { default: c.DemoNativePopoverFloating }
 })
 
 const DemoButtons = lazy(async () => {
@@ -198,20 +178,16 @@ export const demoList = {
     DemoInputS: DemoInputS,
     DemoNumberInput: DemoNumberInput,
     DemoNativeSingleSelect: DemoNativeSingleSelect,
-    DemoForm1: DemoForm1,
   },
   interactive: {
     DemoToaster: DemoToaster,
     DemoTabs: DemoTabs,
-    DemoNativeDialog: DemoNativeDialog,
     DemoLinks: DemoLinks,
     DemoToggle: DemoToggle,
     DemoTheme: DemoTheme,
     DemoDetails: DemoDetails,
-    DemoNativePopover: DemoNativePopover,
     DemoCheckbox: DemoCheckbox,
     DemoDialog: DemoDialog,
-    DemoNativePopoverFloating: DemoNativePopoverFloating,
     DemoButtons: DemoButtons,
     DemoPopover: DemoPopover,
     DemoLists: DemoLists,

@@ -7,12 +7,12 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
 
-export type ValueDisplayFn = (value: string) => string
+export type StringStringFn = (value: string) => string
 
 export interface NativeSingleSelectProps extends MayHaveClass, MayHaveChildren {
   valueSignal: SignalObject<string>
   getOptions: Accessor<string[]>
-  valueDisplay?: ValueDisplayFn
+  valueDisplay?: StringStringFn
   id?: string
 }
 
@@ -55,7 +55,7 @@ function NoItems(p: MayHaveClass) {
 
 interface SelectItemProps extends MayHaveClass {
   itemValue: string
-  valueDisplay?: ValueDisplayFn
+  valueDisplay?: StringStringFn
 }
 
 function SelectItem(p: SelectItemProps) {
@@ -66,7 +66,7 @@ function SelectItem(p: SelectItemProps) {
   )
 }
 
-function getDisplayValue(itemValue: string, valueDisplay?: ValueDisplayFn) {
+function getDisplayValue(itemValue: string, valueDisplay?: StringStringFn) {
   if (!valueDisplay) return itemValue
   const hasValue = valueDisplay(itemValue)
   if (!hasValue) return itemValue

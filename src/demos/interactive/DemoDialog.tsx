@@ -3,16 +3,21 @@ import { createSignal } from "solid-js"
 import { Button } from "~ui/interactive/button/Button"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { NativeDialog } from "~ui/interactive/dialog/NativeDialog"
+import { classesGridCols4xl } from "~ui/static/container/classesGridCols"
+import { classArr } from "~ui/utils/classArr"
+import { arrCreate } from "~utils/index"
 
 export function DemoDialog() {
   return (
     <div class="p-4">
       <h1 class="text-3xl font-bold mb-6">Dialog Demo</h1>
-      <div class="space-y-8">
+      <div class={classArr(classesGridCols4xl, "gap-4")}>
         <BasicDialogDemo />
         <DialogWithDescriptionDemo />
         <DialogWithFormDemo />
         <DialogVariantsDemo />
+        <DialogNestedDemo />
+        <DialogLongContentDemo />
       </div>
     </div>
   )
@@ -150,6 +155,55 @@ function DialogVariantsDemo() {
         >
           <div class="mt-4">
             <p>This dialog uses the destructive button variant.</p>
+          </div>
+        </NativeDialog>
+      </div>
+    </div>
+  )
+}
+function DialogNestedDemo() {
+  return (
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Dialog Nested</h2>
+      <div class="flex flex-wrap gap-4">
+        <NativeDialog
+          buttonProps={{
+            variant: buttonVariant.outline,
+            children: "Show Nested Dialog",
+          }}
+          title={"Nested Dialog"}
+        >
+          <NativeDialog
+            buttonProps={{
+              variant: buttonVariant.outline,
+              children: "Inside a nested Dialog",
+            }}
+            title={"Inside a nested Dialog"}
+          >
+            tada!
+          </NativeDialog>
+        </NativeDialog>
+      </div>
+    </div>
+  )
+}
+
+function DialogLongContentDemo() {
+  return (
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Dialog Long Content</h2>
+      <div class="flex flex-wrap gap-4">
+        <NativeDialog
+          buttonProps={{
+            variant: buttonVariant.outline,
+            children: "Show dialog",
+          }}
+          title={"My first dialog"}
+        >
+          <div class={"flex flex-col gap-20"}>
+            {arrCreate(10, (i) => (
+              <p>Dialog content {i}</p>
+            ))}
           </div>
         </NativeDialog>
       </div>
