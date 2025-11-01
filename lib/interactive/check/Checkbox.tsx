@@ -1,4 +1,4 @@
-import { mdiCheckboxMarked, mdiSquareOutline } from "@mdi/js"
+import { mdiCheckboxBlankOutline, mdiCheckboxMarked } from "@mdi/js"
 import { splitProps, type ComponentProps } from "solid-js"
 import { Icon1 } from "~ui/static/icon/Icon1"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -20,7 +20,7 @@ export function Checkbox(p: CheckboxProps) {
   }
 
   return (
-    <div class={classMerge("flex items-start space-x-2", s.class)}>
+    <div class={classMerge("flex items-start gap-1", s.class)}>
       <input
         id={s.id}
         type="checkbox"
@@ -34,7 +34,7 @@ export function Checkbox(p: CheckboxProps) {
       <div
         onClick={handleToggle}
         class={classMerge(
-          "mt-0.5 size-6", // sizing + interaction
+          "size-6", // sizing + interaction
           "cursor-pointer", // cursor
           "flex items-center justify-center", // layout children
           s.disabled && "cursor-not-allowed opacity-50", // disabled state
@@ -50,7 +50,7 @@ export function Checkbox(p: CheckboxProps) {
           }
         }}
       >
-        <Icon1 path={s.checked ? mdiCheckboxMarked : mdiSquareOutline} class="w-6 h-6 text-current" />
+        <Icon1 path={s.checked ? mdiCheckboxMarked : mdiCheckboxBlankOutline} class="size-6 text-current" />
       </div>
       <label
         id={s.id ? `${s.id}-label` : undefined}
