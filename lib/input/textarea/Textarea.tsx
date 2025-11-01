@@ -3,7 +3,7 @@ import { splitProps } from "solid-js"
 import { classMerge } from "~ui/utils/classMerge"
 
 export const Textarea: Component<ComponentProps<"textarea">> = (p) => {
-  const [, rest] = splitProps(p, ["class"])
+  const [s, rest] = splitProps(p, ["class"])
   return (
     <textarea
       class={classMerge(
@@ -16,7 +16,7 @@ export const Textarea: Component<ComponentProps<"textarea">> = (p) => {
         "px-3 py-2", // spacing
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background", // focus states
         "disabled:cursor-not-allowed disabled:opacity-50", // disabled states
-        p.class,
+        s.class,
       )}
       {...rest}
     />

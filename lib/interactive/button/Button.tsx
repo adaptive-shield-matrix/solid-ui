@@ -7,11 +7,11 @@ import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisab
 export interface ButtonProps extends ComponentProps<"button">, ButtonCvaProps {}
 
 export const Button: Component<ButtonProps> = (p) => {
-  const [, rest] = splitProps(p, ["variant", "size", "class", "type"])
+  const [s, rest] = splitProps(p, ["variant", "size", "class", "type"])
   return (
     <button
-      class={buttonCva2(p.variant, p.size, classesButtonClickAnimation, p.disabled && classesButtonDisabled, p.class)}
-      type={p.type ?? "button"}
+      class={buttonCva2(s.variant, s.size, classesButtonClickAnimation, p.disabled && classesButtonDisabled, s.class)}
+      type={s.type ?? "button"}
       {...rest}
     />
   )

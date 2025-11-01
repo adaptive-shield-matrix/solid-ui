@@ -3,7 +3,7 @@ import { splitProps } from "solid-js"
 import { classMerge } from "~ui/utils/classMerge"
 
 export const Input: Component<ComponentProps<"input">> = (p) => {
-  const [, rest] = splitProps(p, ["type", "class"])
+  const [s, rest] = splitProps(p, ["type", "class"])
   return (
     <input
       type={p.type}
@@ -21,7 +21,7 @@ export const Input: Component<ComponentProps<"input">> = (p) => {
           "focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2", // focus states
           "disabled:cursor-not-allowed disabled:opacity-50", // disabled states
         ],
-        p.class,
+        s.class,
       )}
       dir="auto"
       {...rest}

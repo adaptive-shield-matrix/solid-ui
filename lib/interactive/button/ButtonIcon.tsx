@@ -22,7 +22,7 @@ export interface ButtonIconProps extends ComponentProps<"button">, ButtonCvaProp
 }
 
 export const ButtonIcon: Component<ButtonIconProps> = (p) => {
-  const [, rest] = splitProps(p, [
+  const [s, rest] = splitProps(p, [
     // icon
     "icon",
     "iconRight",
@@ -37,50 +37,52 @@ export const ButtonIcon: Component<ButtonIconProps> = (p) => {
     "variant",
     "size",
     "class",
+    "disabled",
+    "onClick",
+    "children",
   ])
   const onClick2 = (e: any) => {
-    if (p.disabled) return
-    if (p.isLoading) return
-    if (p.validationMessage) return
-    if (p.onClick) {
-      // @ts-ignore
-      p.onClick(e)
+    if (s.disabled) return
+    if (s.isLoading) return
+    if (s.validationMessage) return
+    if (s.onClick && typeof s.onClick === "function") {
+      s.onClick(e)
     }
   }
   return (
     <Button
       class={classMerge(
         classesButtonClickAnimation,
-        (p.isLoading || !!p.validationMessage) && "cursor-not-allowed",
-        p.class,
+        (s.isLoading || !!s.validationMessage) && "cursor-not-allowed",
+        s.class,
       )}
-      variant={p.validationMessage ? p.validationVariant : p.variant}
-      size={p.size}
+      variant={s.validationMessage ? s.validationVariant : s.variant}
+      size={s.size}
       onClick={onClick2}
-      disabled={p.disabled}
-      aria-disabled={p.isLoading || !!p.validationMessage}
+      disabled={s.disabled}
+      aria-disabled={s.isLoading || !!s.validationMessage}
       {...rest}
     >
-      {(p.isLoading || p.validationMessage || p.icon) && (
+      {(s.isLoading || s.validationMessage || s.icon) && (
         <Icon1
-          path={(p.isLoading ? mdiLoading : p.validationMessage ? p.validationIcon : (p.icon ?? mdiLoading))!}
+          path={(s.isLoading ? mdiLoading : s.validationMessage ? s.validationIcon : (s.icon ?? mdiLoading))!}
           class={buttonIconCva(
-            p.validationMessage ? p.validationVariant : p.variant,
-            p.children && "mr-2",
-            p.isLoading && "animate-spin-faster",
-            p.iconClass,
+            s.validationMessage ? s.validationVariant : s.variant,
+            s.children && "mr-2",
+            s.isLoading && "animate-spin-faster",
+            s.iconClass,
           )}
         />
       )}
-      {p.validationMessage ? p.validationMessage : p.children}
-      {!p.isLoading && !p.validationMessage && p.iconRight && (
+      {s.validationMessage ? s.validationMessage : s.children}
+      {!s.isLoading && !s.validationMessage && s.iconRight && (
         <Icon1
-          path={p.iconRight}
+          path={s.iconRight}
           class={buttonIconCva(
-            p.validationMessage ? p.validationVariant : p.variant,
-            p.children && "ml-2",
-            p.isLoading && "animate-spin-faster",
-            p.iconClass,
+            s.validationMessage ? s.validationVariant : s.variant,
+            s.children && "ml-2",
+            s.isLoading && "animate-spin-faster",
+            s.iconClass,
           )}
         />
       )}

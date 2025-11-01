@@ -10,14 +10,8 @@ export interface BulletLinksOProps {
 }
 
 export function BulletLinksO(p: BulletLinksOProps) {
-  const [, rest] = splitProps(p, ["urlObject"])
-  const names = Object.keys(p.urlObject)
-  const urls = Object.values(p.urlObject)
-  return (
-    <BulletLinks
-      urls={urls}
-      display={names}
-      {...rest}
-    />
-  )
+  const [s, rest] = splitProps(p, ["urlObject"])
+  const names = Object.keys(s.urlObject)
+  const urls = Object.values(s.urlObject)
+  return <BulletLinks urls={urls} display={names} {...rest} />
 }

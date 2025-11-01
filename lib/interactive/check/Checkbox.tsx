@@ -13,22 +13,22 @@ interface CheckboxProps extends MayHaveClass, MayHaveChildren, ComponentProps<"c
 }
 
 export function Checkbox(p: CheckboxProps) {
-  const [, rest] = splitProps(p, ["id", "checked", "onChange", "disabled"])
+  const [s, rest] = splitProps(p, ["id", "checked", "onChange", "disabled", "class", "children"])
   const handleToggle = () => {
-    if (p.disabled) return
-    p.onChange(!p.checked)
+    if (s.disabled) return
+    s.onChange(!s.checked)
   }
 
   return (
-    <div class={classMerge("flex items-start space-x-2", p.class)}>
+    <div class={classMerge("flex items-start space-x-2", s.class)}>
       <input
-        id={p.id}
+        id={s.id}
         type="checkbox"
-        checked={p.checked}
-        onChange={(e) => p.onChange(e.currentTarget.checked)}
+        checked={s.checked}
+        onChange={(e) => s.onChange(e.currentTarget.checked)}
         class="sr-only invisible"
-        disabled={p.disabled}
-        aria-describedby={p.id ? `${p.id}-error` : undefined}
+        disabled={s.disabled}
+        aria-describedby={s.id ? `${s.id}-error` : undefined}
         {...rest}
       />
       <div
@@ -37,11 +37,11 @@ export function Checkbox(p: CheckboxProps) {
           "mt-0.5 size-6", // sizing + interaction
           "cursor-pointer", // cursor
           "flex items-center justify-center", // layout children
-          p.disabled && "cursor-not-allowed opacity-50", // disabled state
+          s.disabled && "cursor-not-allowed opacity-50", // disabled state
         )}
         role="checkbox"
-        aria-checked={p.checked}
-        aria-labelledby={p.id ? `${p.id}-label` : undefined}
+        aria-checked={s.checked}
+        aria-labelledby={s.id ? `${s.id}-label` : undefined}
         tabindex={0}
         onKeyDown={(e) => {
           if (e.key === " " || e.key === "Enter") {
@@ -50,21 +50,21 @@ export function Checkbox(p: CheckboxProps) {
           }
         }}
       >
-        <Icon1 path={p.checked ? mdiCheckboxMarked : mdiSquareOutline} class="w-6 h-6 text-current" />
+        <Icon1 path={s.checked ? mdiCheckboxMarked : mdiSquareOutline} class="w-6 h-6 text-current" />
       </div>
       <label
-        id={p.id ? `${p.id}-label` : undefined}
-        for={p.id}
+        id={s.id ? `${s.id}-label` : undefined}
+        for={s.id}
         class={classMerge(
           "cursor-pointer", // interaction
-          p.disabled && "cursor-not-allowed opacity-70", // disabled state
+          s.disabled && "cursor-not-allowed opacity-70", // disabled state
         )}
         onClick={(e) => {
           e.preventDefault()
           handleToggle()
         }}
       >
-        {p.children}
+        {s.children}
       </label>
     </div>
   )

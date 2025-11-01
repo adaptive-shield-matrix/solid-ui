@@ -7,6 +7,6 @@ export interface BadgeProps extends ComponentProps<"div"> {
 }
 
 export const Badge: Component<BadgeProps> = (p) => {
-  const [, rest] = splitProps(p, ["variant", "class"])
-  return <div class={badgeCva1(p.variant, p.class)} {...rest} />
+  const [s, rest] = splitProps(p, ["variant", "class"])
+  return <div class={badgeCva1(s.variant, s.class)} {...rest} />
 }

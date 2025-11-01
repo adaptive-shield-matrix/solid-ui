@@ -5,7 +5,7 @@ import type { LinkButtonProps } from "~ui/interactive/link/LinkButtonProps"
 import { Icon1 } from "~ui/static/icon/Icon1"
 
 export function LinkButton(p: LinkButtonProps) {
-  const [, rest] = splitProps(p, [
+  const [s, rest] = splitProps(p, [
     "class",
     "href",
     "variant",
@@ -19,20 +19,20 @@ export function LinkButton(p: LinkButtonProps) {
   ])
   return (
     <a
-      href={p.href}
+      href={s.href}
       class={buttonCva2(
-        p.variant,
-        p.size,
+        s.variant,
+        s.size,
         "break-all", // line breaks for long links
-        p.class,
+        s.class,
       )}
-      target={p.newTab ? "_blank" : undefined}
+      target={s.newTab ? "_blank" : undefined}
       // disabled={disabled}
       {...rest}
     >
-      {p.icon && <Icon1 path={p.icon} class={buttonIconCva(p.variant, p.children && "mr-2", p.iconClass)} />}
-      {p.children}
-      {p.iconRight && <Icon1 path={p.iconRight} class={buttonIconCva(p.variant, p.children && "ml-2", p.iconClass)} />}
+      {s.icon && <Icon1 path={s.icon} class={buttonIconCva(s.variant, s.children && "mr-2", s.iconClass)} />}
+      {s.children}
+      {s.iconRight && <Icon1 path={s.iconRight} class={buttonIconCva(s.variant, s.children && "ml-2", s.iconClass)} />}
     </a>
   )
 }

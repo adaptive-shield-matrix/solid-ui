@@ -8,7 +8,11 @@ import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import { isDisabled } from "~ui/utils/MayHaveDisabledAccessor"
 import { isLoading, type MayHaveIsLoading } from "~ui/utils/MayHaveIsLoading"
 
-export interface ButtonIconOnlyProps extends ComponentProps<"button">, ButtonCvaProps, MayHaveIsLoading, MayHaveChildren {
+export interface ButtonIconOnlyProps
+  extends ComponentProps<"button">,
+    ButtonCvaProps,
+    MayHaveIsLoading,
+    MayHaveChildren {
   title: string
   icon: string
   iconRight?: boolean
@@ -16,7 +20,7 @@ export interface ButtonIconOnlyProps extends ComponentProps<"button">, ButtonCva
 }
 
 export const ButtonIconOnly: Component<ButtonIconOnlyProps> = (p) => {
-  const [, rest] = splitProps(p, [
+  const [s, rest] = splitProps(p, [
     // button
     "variant",
     "size",
@@ -29,29 +33,31 @@ export const ButtonIconOnly: Component<ButtonIconOnlyProps> = (p) => {
     "iconRight",
     "iconClass",
     // default
+    "type",
+    "disabled",
     "children",
   ])
   return (
     <button
-      class={buttonCvaIconOnly(p.variant, isLoading(p), isDisabled(p), classesButtonClickAnimation, p.class)}
-      title={p.title}
-      type={p.type ?? "button"}
+      class={buttonCvaIconOnly(s.variant, isLoading(p), isDisabled(p), classesButtonClickAnimation, s.class)}
+      title={s.title}
+      type={s.type ?? "button"}
       {...rest}
     >
-      {!p.iconRight && (
+      {!s.iconRight && (
         <Icon0
-          path={p.icon}
+          path={s.icon}
           class={buttonIconCva(
-            p.variant,
-            p.children && "mr-2",
-            p.isLoading && "animate-spin-faster",
-            p.disabled && classesButtonDisabled,
-            p.iconClass,
+            s.variant,
+            s.children && "mr-2",
+            s.isLoading && "animate-spin-faster",
+            s.disabled && classesButtonDisabled,
+            s.iconClass,
           )}
         />
       )}
-      {p.children}
-      {p.iconRight && <Icon0 path={p.icon} class={buttonIconCva(p.variant, p.iconClass)} />}
+      {s.children}
+      {s.iconRight && <Icon0 path={s.icon} class={buttonIconCva(s.variant, s.iconClass)} />}
     </button>
   )
 }

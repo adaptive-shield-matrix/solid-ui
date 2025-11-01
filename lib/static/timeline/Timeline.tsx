@@ -2,7 +2,8 @@ import type { ComponentProps, ParentComponent } from "solid-js"
 import { type Component, type JSXElement, mergeProps, Show, splitProps } from "solid-js"
 import { classMerge } from "~ui/utils/classMerge"
 
-export interface TimelinePropsItem extends Omit<TimelineItemProps, "isActive" | "isActiveBullet" | "bulletSize" | "lineSize"> {
+export interface TimelinePropsItem
+  extends Omit<TimelineItemProps, "isActive" | "isActiveBullet" | "bulletSize" | "lineSize"> {
   bulletSize?: number
 }
 
@@ -59,7 +60,7 @@ export type TimelineItemProps = {
 }
 
 const TimelineItem: Component<TimelineItemProps> = (p) => {
-  const [, rest] = splitProps(p, [
+  const [s, rest] = splitProps(p, [
     "class",
     "bullet",
     "description",
@@ -74,21 +75,21 @@ const TimelineItem: Component<TimelineItemProps> = (p) => {
     <li
       class={classMerge(
         "relative border-l pb-8 pl-8",
-        p.isLast && "border-l-transparent pb-0",
-        p.isActive && !p.isLast && "border-l-primary",
-        p.class,
+        s.isLast && "border-l-transparent pb-0",
+        s.isActive && !s.isLast && "border-l-primary",
+        s.class,
       )}
       style={{
-        "border-left-width": `${p.lineSize}px`,
+        "border-left-width": `${s.lineSize}px`,
       }}
       {...rest}
     >
-      <TimelineItemBullet lineSize={p.lineSize} bulletSize={p.bulletSize} isActive={p.isActiveBullet}>
-        {p.bullet}
+      <TimelineItemBullet lineSize={s.lineSize} bulletSize={s.bulletSize} isActive={s.isActiveBullet}>
+        {s.bullet}
       </TimelineItemBullet>
-      <TimelineItemTitle>{p.title}</TimelineItemTitle>
-      <Show when={p.description}>
-        <TimelineItemDescription>{p.description}</TimelineItemDescription>
+      <TimelineItemTitle>{s.title}</TimelineItemTitle>
+      <Show when={s.description}>
+        <TimelineItemDescription>{s.description}</TimelineItemDescription>
       </Show>
     </li>
   )
@@ -126,10 +127,10 @@ const TimelineItemTitle: ParentComponent = (p) => {
 }
 
 const TimelineItemDescription: Component<ComponentProps<"p">> = (p) => {
-  const [, rest] = splitProps(p, ["class", "children"])
+  const [s, rest] = splitProps(p, ["class", "children"])
   return (
-    <p class={classMerge("text-muted-foreground text-sm", p.class)} {...rest}>
-      {p.children}
+    <p class={classMerge("text-muted-foreground text-sm", s.class)} {...rest}>
+      {s.children}
     </p>
   )
 }

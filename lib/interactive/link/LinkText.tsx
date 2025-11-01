@@ -4,15 +4,15 @@ import type { LinkTextProps } from "~ui/interactive/link/LinkTextProps"
 import { classMerge } from "~ui/utils/classMerge"
 
 export function LinkText(p: LinkTextProps) {
-  const [, rest] = splitProps(p, ["class", "href"])
+  const [s, rest] = splitProps(p, ["class", "href"])
   return (
     <a
-      href={p.href}
+      href={s.href}
       class={classMerge(
         classesTextLink,
         "no-underline hover:underline", // underline
         "break-all", // line breaks
-        p.class,
+        s.class,
       )}
       {...rest}
     />

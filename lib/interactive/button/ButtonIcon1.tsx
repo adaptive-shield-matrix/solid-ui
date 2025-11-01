@@ -17,7 +17,7 @@ export interface ButtonIcon1Props extends ComponentProps<"button">, ButtonCvaPro
 }
 
 export const ButtonIcon1: Component<ButtonIcon1Props> = (p) => {
-  const [, rest] = splitProps(p, [
+  const [s, rest] = splitProps(p, [
     // generic
     "class",
     "children",
@@ -32,32 +32,35 @@ export const ButtonIcon1: Component<ButtonIcon1Props> = (p) => {
     // disabled
     "disabled",
     "isDisabled",
+    "type",
+    "children",
+    "onClick",
   ])
   const onClick2 = (e: any) => {
-    if (p.isDisabled?.()) return
-    if (p.disabled) return
-    if (p.onClick) {
+    if (s.isDisabled?.()) return
+    if (s.disabled) return
+    if (s.onClick) {
       // @ts-ignore
-      p.onClick(e)
+      s.onClick(e)
     }
   }
   return (
     <button
       class={buttonCva2(
-        p.variant,
-        p.size,
+        s.variant,
+        s.size,
         classesButtonClickAnimation,
-        (p.disabled || p.isDisabled?.()) && classesButtonDisabled,
-        p.class,
+        (s.disabled || s.isDisabled?.()) && classesButtonDisabled,
+        s.class,
       )}
       onClick={onClick2}
-      aria-disabled={p.isDisabled?.()}
-      type={p.type ?? "button"}
+      aria-disabled={s.isDisabled?.()}
+      type={s.type ?? "button"}
       {...rest}
     >
-      {p.icon && <Icon1 path={p.icon} class={buttonIconCva(p.variant, p.children && "mr-2", p.iconClass)} />}
-      {p.children}
-      {p.iconRight && <Icon1 path={p.iconRight} class={buttonIconCva(p.variant, p.children && "ml-2", p.iconClass)} />}
+      {s.icon && <Icon1 path={s.icon} class={buttonIconCva(s.variant, s.children && "mr-2", s.iconClass)} />}
+      {s.children}
+      {s.iconRight && <Icon1 path={s.iconRight} class={buttonIconCva(s.variant, s.children && "ml-2", s.iconClass)} />}
     </button>
   )
 }
