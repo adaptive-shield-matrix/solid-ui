@@ -1,14 +1,19 @@
 import { join } from "node:path"
 
 export function serializeDemoComponentImport(path: string, baseDir: string) {
-  const name = path.split("/").at(-1)?.replace(/\.tsx?$/, "") || ""
+  const name =
+    path
+      .split("/")
+      .at(-1)
+      ?.replace(/\.tsx?$/, "") || ""
 
   const replacements = [
     [join(baseDir, "src"), "@"],
     [join(baseDir, "lib"), "~ui"],
   ] as const
 
-  let importPath = path
+  // Remove .tsx or .ts extension
+  let importPath = path.replace(/\.tsx?$/, "")
   for (const [search, replace] of replacements) {
     importPath = importPath.replaceAll(search, replace)
   }
