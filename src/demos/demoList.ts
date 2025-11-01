@@ -31,6 +31,11 @@ const DemoMultiSelect = lazy(async () => {
   return { default: c.DemoMultiSelect }
 })
 
+const DemoInputS = lazy(async () => {
+  const c = await import("@/demos/input/DemoInputS")
+  return { default: c.DemoInputS }
+})
+
 const DemoNumberInput = lazy(async () => {
   const c = await import("@/demos/input/DemoNumberInput")
   return { default: c.DemoNumberInput }
@@ -190,6 +195,7 @@ export const demoList = {
   input: {
     DemoRadioSwitch: DemoRadioSwitch,
     DemoMultiSelect: DemoMultiSelect,
+    DemoInputS: DemoInputS,
     DemoNumberInput: DemoNumberInput,
     DemoNativeSingleSelect: DemoNativeSingleSelect,
     DemoForm1: DemoForm1,
