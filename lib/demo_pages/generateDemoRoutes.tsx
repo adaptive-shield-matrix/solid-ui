@@ -1,4 +1,4 @@
-import { For } from "solid-js"
+import { For, type JSX } from "solid-js"
 import { LinkBlock } from "~ui/demo_pages/LinkBlock"
 import { pathDemos } from "~ui/demo_pages/pathDemos"
 import type { RouteObject } from "~ui/demo_pages/RouteConfig"
@@ -6,19 +6,24 @@ import type { DemoListType } from "~ui/generate_demo_list/DemoListType"
 import { LinkButton } from "~ui/interactive/link/LinkButton"
 import { classesGridCols5xl } from "~ui/static/container/classesGridCols"
 import { LayoutWrapperDemo } from "~ui/static/container/LayoutWrapperDemo"
-import { NavDemo } from "~ui/static/nav/NavDemo"
+import { NavDemo, type DemoNavProps } from "~ui/static/nav/NavDemo"
+import type { NavDemoDataProps } from "~ui/static/nav/NavDemoDataProps"
 import { classArr } from "~ui/utils/classArr"
 import { objectEntries } from "~utils/obj/objectEntries"
 import { objectKeys } from "~utils/obj/objectKeys"
 
 const log = false
 
-export function generateDemoRoutes(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
+export function generateDemoRoutes(
+  demoList: DemoListType,
+  prefix = pathDemos,
+  Nav: (p: NavDemoDataProps) => JSX.Element,
+): RouteObject[] {
   const all = [
-    ...getDemosL2(demoList, prefix),
-    ...getDemosL1(demoList, prefix),
-    ...getDemosL0(demoList, prefix),
-    ...getDemos404(demoList, prefix),
+    ...getDemosL2(demoList, prefix, Nav),
+    ...getDemosL1(demoList, prefix, Nav),
+    ...getDemosL0(demoList, prefix, Nav),
+    ...getDemos404(demoList, prefix, Nav),
   ]
   if (log)
     console.log(
@@ -28,7 +33,11 @@ export function generateDemoRoutes(demoList: DemoListType, prefix = pathDemos): 
   return all
 }
 
-function getDemosL2(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
+function getDemosL2(
+  demoList: DemoListType,
+  prefix = pathDemos,
+  Nav: (p: DemoNavProps) => JSX.Element = NavDemo,
+): RouteObject[] {
   const op = "getDemosL2"
   return objectEntries(demoList).flatMap(([category, tree]) => {
     return Object.entries(tree).map(([compName, Comp]) => {
@@ -39,7 +48,7 @@ function getDemosL2(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
         path,
         component: () => (
           <LayoutWrapperDemo title={compName}>
-            <NavDemo demoList={demoList} category={category} compName={compName} demoPrefix={prefix} />
+            <Nav demoList={demoList} category={category} compName={compName} demoPrefix={prefix} />
             <Comp />
           </LayoutWrapperDemo>
         ),
@@ -48,7 +57,11 @@ function getDemosL2(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
   })
 }
 
-function getDemosL1(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
+function getDemosL1(
+  demoList: DemoListType,
+  prefix = pathDemos,
+  Nav: (p: DemoNavProps) => JSX.Element = NavDemo,
+): RouteObject[] {
   const op = "getDemosL1"
   return objectEntries(demoList).map(([category, nameComp]) => {
     const path = `${prefix}/${category}`
@@ -62,7 +75,7 @@ function getDemosL1(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
       path,
       component: () => (
         <LayoutWrapperDemo title={category}>
-          <NavDemo demoList={demoList} category={category} demoPrefix={prefix} />
+          <Nav demoList={demoList} category={category} demoPrefix={prefix} />
           <div
             class={classArr(
               "flex flex-col items-center justify-center", // layout
@@ -80,7 +93,12 @@ function getDemosL1(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
   })
 }
 
-function getDemosL0(demoList: DemoListType, prefix: string = pathDemos, overridePath?: string): RouteObject[] {
+function getDemosL0(
+  demoList: DemoListType,
+  prefix: string = pathDemos,
+  Nav: (p: DemoNavProps) => JSX.Element = NavDemo,
+  overridePath?: string,
+): RouteObject[] {
   const op = "getDemosL0"
   const path = prefix
 
@@ -94,7 +112,7 @@ function getDemosL0(demoList: DemoListType, prefix: string = pathDemos, override
 
         return (
           <LayoutWrapperDemo title={"demos"}>
-            <NavDemo demoList={demoList} demoPrefix={prefix} />
+            <Nav demoList={demoList} demoPrefix={prefix} />
             <div
               class={classArr(
                 "flex flex-col items-center justify-center", // layout
@@ -123,7 +141,11 @@ function getDemosL0(demoList: DemoListType, prefix: string = pathDemos, override
   ]
 }
 
-function getDemos404(demoList: DemoListType, prefix = pathDemos): RouteObject[] {
+function getDemos404(
+  demoList: DemoListType,
+  prefix = pathDemos,
+  Nav: (p: DemoNavProps) => JSX.Element = NavDemo,
+): RouteObject[] {
   return [
     {
       path: `${prefix}/*`,
@@ -131,7 +153,7 @@ function getDemos404(demoList: DemoListType, prefix = pathDemos): RouteObject[] 
         <LayoutWrapperDemo>
           {/*<SetPageTitle title={"demos"} />*/}
           {/*<DemoPageList />*/}
-          <NavDemo demoList={demoList} demoPrefix={prefix} />
+          <Nav demoList={demoList} demoPrefix={prefix} />
           <h1 class={"text-xl font-semibold"}>not found</h1>
           <LinkButton href={prefix}>back to demos</LinkButton>
         </LayoutWrapperDemo>
