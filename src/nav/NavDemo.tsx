@@ -1,19 +1,19 @@
+import { iconGithub } from "@/nav/iconGithub"
+import { iconNpm } from "@/nav/iconNpm"
 import type { ComponentProps } from "solid-js"
 import { splitProps } from "solid-js"
+import type { DemoNavDataProps } from "~ui/demo_pages/DemoNavDataProps"
 import { LinkBlock } from "~ui/demo_pages/LinkBlock"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { LinkButton } from "~ui/interactive/link/LinkButton"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { ThemeButton } from "~ui/interactive/theme/ThemeButton"
 import { LogoImageText } from "~ui/static/logo/LogoImageText"
-import { iconGithub } from "~ui/static/nav/iconGithub"
-import { iconNpm } from "~ui/static/nav/iconNpm"
-import type { NavDemoDataProps } from "~ui/static/nav/NavDemoDataProps"
 import { classMerge } from "~ui/utils/classMerge"
 import { objectEntries } from "~utils/obj/objectEntries"
 import { objectKeys } from "~utils/obj/objectKeys"
 
-export interface DemoNavProps extends NavDemoDataProps, ComponentProps<"nav"> {}
+export interface DemoNavProps extends DemoNavDataProps, ComponentProps<"nav"> {}
 
 export function NavDemo(p: DemoNavProps) {
   const [s, rest] = splitProps(p, ["class", "children", "category", "compName", "demoList", "demoPrefix"])

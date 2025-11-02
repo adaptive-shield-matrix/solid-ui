@@ -1,10 +1,10 @@
 /* @refresh reload */
 
 import { demoList } from "@/demos/demoList"
+import { NavDemo } from "@/nav/NavDemo"
 import { Router } from "@solidjs/router"
 import { render } from "solid-js/web"
 import { generateDemoRoutes } from "~ui/demo_pages/generateDemoRoutes"
-import { NavDemo } from "~ui/static/nav/NavDemo"
 import "./global.css"
 
 const root = document.getElementById("root")
