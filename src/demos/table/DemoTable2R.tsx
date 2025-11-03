@@ -1,6 +1,6 @@
 import { mdiMagicStaff, mdiTrashCan } from "@mdi/js"
 import { languageSignal } from "~ui/i18n/languageSignal"
-import { formIcon } from "~ui/input/form/getFormIcon"
+import { formModeIcon } from "~ui/input/form/formModeIcon"
 import { InputS } from "~ui/input/input/InputS"
 import { Button } from "~ui/interactive/button/Button"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
@@ -16,7 +16,7 @@ import { createPseudoRandomSec, type PseudoRandom } from "~utils/ran/createPseud
 export function DemoTable2R() {
   return (
     <>
-      <ButtonIcon variant={buttonVariant.ghost} icon={formIcon.add} onClick={addData}>
+      <ButtonIcon variant={buttonVariant.ghost} icon={formModeIcon.add} onClick={addData}>
         Add entry
       </ButtonIcon>
       <ButtonIcon variant={buttonVariant.ghost} icon={mdiMagicStaff} onClick={regenerateData}>
@@ -160,7 +160,7 @@ function EditDialog(p: { d: Person }) {
   return (
     <NativeDialog
       buttonProps={{
-        icon: formIcon.edit,
+        icon: formModeIcon.edit,
         variant: buttonVariant.ghost,
         title: "Edit",
         onClick: () => updateFormState(p.d),

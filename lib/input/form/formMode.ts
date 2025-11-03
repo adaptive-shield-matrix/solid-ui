@@ -9,7 +9,7 @@ export const formMode = {
   remove: "remove",
 } as const
 
-export function getFormTitle(mode: FormMode, subject: string): string {
+export function getFormModeTitle(mode: FormMode, subject: string): string {
   switch (mode) {
     case formMode.view:
       return ttt("View") + " " + subject
