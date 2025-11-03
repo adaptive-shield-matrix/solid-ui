@@ -1,4 +1,3 @@
-
 export type FormMode = keyof typeof formMode
 
 export const formMode = {
@@ -12,6 +11,13 @@ export type FormModeE = keyof typeof formModeE
 export const formModeE = {
   ...formMode,
   error: "error",
+} as const
+
+export type FormModeView = keyof typeof formModeView
+
+export const formModeView = {
+  ...formMode,
+  view: "view",
 } as const
 
 export type FormModeMutate = keyof typeof formModeMutate
@@ -33,4 +39,8 @@ export function getFormTitle(mode: FormMode, subject: string) {
 
 export interface HasFormModeMutate {
   mode: FormModeMutate
+}
+
+export function formModeViewIsReadOnly(mode: FormModeView): boolean {
+  return mode === formModeView.view || mode === formModeView.remove
 }
