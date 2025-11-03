@@ -1,46 +1,31 @@
+import { ttt } from "~ui/i18n/ttt"
+
 export type FormMode = keyof typeof formMode
 
 export const formMode = {
+  view: "view",
   add: "add",
   edit: "edit",
   remove: "remove",
 } as const
 
-export type FormModeE = keyof typeof formModeE
-
-export const formModeE = {
-  ...formMode,
-  error: "error",
-} as const
-
-export type FormModeView = keyof typeof formModeView
-
-export const formModeView = {
-  ...formMode,
-  view: "view",
-} as const
-
-export type FormModeMutate = keyof typeof formModeMutate
-export const formModeMutate = {
-  edit: "edit",
-  remove: "remove",
-} as const
-
-export function getFormTitle(mode: FormMode, subject: string) {
+export function getFormTitle(mode: FormMode, subject: string): string {
   switch (mode) {
+    case formMode.view:
+      return ttt("View") + " " + subject
     case formMode.add:
-      return "Add " + subject
+      return ttt("Add") + " " + subject
     case formMode.edit:
-      return "Edit " + subject
+      return ttt("Edit") + " " + subject
     case formMode.remove:
-      return "Remove " + subject
+      return ttt("Remove") + " " + subject
   }
 }
 
-export interface HasFormModeMutate {
-  mode: FormModeMutate
+export interface HasFormMode {
+  mode: FormMode
 }
 
-export function formModeViewIsReadOnly(mode: FormModeView): boolean {
-  return mode === formModeView.view || mode === formModeView.remove
+export function formModeIsReadOnly(mode: FormMode): boolean {
+  return mode === formMode.view || mode === formMode.remove
 }
