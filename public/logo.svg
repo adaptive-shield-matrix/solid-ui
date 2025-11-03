@@ -1,9 +1,9 @@
 <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <circle transform="translate(.0902 .29)" cx="12" cy="11.9" r="12" fill="#5f5fd3" style="paint-order:stroke fill markers"/>
-  <g transform="matrix(.859 0 0 .859 1.81 1.89)" fill="none" stroke="#f9f9f9">
-    <path d="m22 12a5 5 0 01-10 0 5 5 0 00-10 0" stroke-width="1.51"/>
-    <path transform="translate(.0487)" d="m7 20.7a5.02 5.02 0 115-8.7 4.97 4.97 0 105-8.6" stroke-width="1.51"/>
-    <path transform="translate(-.233 .255)" d="m6.97 3.24c5.73-3.33 10.8 5.33 5.03 8.66-5.73 3.33-.742 12 4.99 8.64" stroke-width="1.51"/>
-    <circle cx="12" cy="12" r="10" stroke-width="1.51"/>
+  <circle transform="translate(-.0299 .0898)" cx="12" cy="11.9" r="12" fill="#5f5fd3" style="paint-order:stroke fill markers"/>
+  <g transform="matrix(.859 0 0 .859 1.69 1.69)" fill="none" stroke="#f9f9f9" stroke-width="1.51">
+    <path d="m22 12a5 5 0 01-10 0 5 5 0 00-10 0"/>
+    <path transform="translate(.0487)" d="m7 20.7a5.02 5.02 0 115-8.7 4.97 4.97 0 105-8.6"/>
+    <path transform="translate(-.233 .255)" d="m6.97 3.24c5.73-3.33 10.8 5.33 5.03 8.66-5.73 3.33-.742 12 4.99 8.64"/>
+    <circle cx="12" cy="12" r="10"/>
   </g>
 </svg>
