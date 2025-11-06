@@ -16,13 +16,9 @@ export interface Label2PropsFor extends Label2Props {
   forId: string
 }
 
-export function Label2(p: Label2PropsFor) {
+export function LabelWithSubtitle(p: Label2PropsFor) {
   return (
-    <Label
-      class={classMerge("font-medium whitespace-nowrap", p.disabled && "cursor-not-allowed opacity-70", p.labelClass)}
-      for={p.forId}
-      id={p.id}
-    >
+    <Label class={classMerge("", p.labelClass)} for={p.forId} id={p.id}>
       {p.title}
       {p.required && <LabelAsterix />}
       {p.subtitle && (

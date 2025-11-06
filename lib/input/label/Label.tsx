@@ -7,7 +7,9 @@ export const Label: Component<ComponentProps<"label">> = (p) => {
   return (
     <label
       class={classMerge(
-        "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+        "font-medium leading-none", // font
+        "whitespace-nowrap", // no text wrapping
+        "peer-disabled:cursor-not-allowed peer-disabled:opacity-70", // disabled
         s.class,
       )}
       {...rest}
