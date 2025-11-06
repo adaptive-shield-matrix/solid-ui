@@ -1,7 +1,7 @@
 # Available Solid.js UI Components and utility functions
 
 These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
-Generated at: 2025-10-31 19:14
+Generated at: 2025-11-06 11:38
 
 - ~/i18n/t1.ts
 - ~/i18n/t4pageName.ts
@@ -42,25 +42,22 @@ Generated at: 2025-10-31 19:14
 - ~/input/select/NativeSingleSelect.tsx
 - ~/input/select/Multiselect.tsx
 - ~/input/form/t4Form.ts
+- ~/input/form/formModeIcon.ts
 - ~/input/form/formMode.ts
-- ~/input/form/getFormIcon.ts
+- ~/input/form/formModeMutate.ts
 - ~/input/input/InputS.tsx
-- ~/input/input/inputMaxLength.ts
 - ~/input/input/t4atomizedInput.ts
 - ~/input/input/Input.tsx
 - ~/input/search/searchInputSignal.ts
 - ~/input/label/Label.tsx
-- ~/input/label/PseudoLabel2.tsx
+- ~/input/label/LabelWithInfo.tsx
 - ~/input/label/LabelAsterix.tsx
-- ~/input/label/Label2.tsx
+- ~/input/label/LabelWithSubtitle.tsx
 - ~/input/textarea/TextareaS.tsx
 - ~/input/textarea/Textarea.tsx
 - ~/input/radio/RadioSwitch.tsx
 - ~/input/number/NumberInputS.tsx
 - ~/input/number/t4atomizedNumberInput.ts
-- ~/static/nav/iconGithub.ts
-- ~/static/nav/iconNpm.ts
-- ~/static/nav/NavDemo.tsx
 - ~/static/dev/TailwindIndicator.tsx
 - ~/static/loaders/t4loading.ts
 - ~/static/loaders/RandomLoader.tsx
@@ -111,6 +108,7 @@ Generated at: 2025-10-31 19:14
 - ~/demo_pages/RouteConfig.ts
 - ~/demo_pages/pathDemos.ts
 - ~/demo_pages/LinkBlock.tsx
+- ~/demo_pages/DemoNavDataProps.ts
 - ~/demo_pages/generateDemoRoutes.tsx
 - ~/utils/RouteConfig.ts
 - ~/utils/createStoreObject.ts
@@ -122,6 +120,7 @@ Generated at: 2025-10-31 19:14
 - ~/utils/MayHaveClass.ts
 - ~/utils/createSignalObject.ts
 - ~/utils/MayHaveId.ts
+- ~/utils/HasValueSignalString.ts
 - ~/utils/MayHaveInnerClass.ts
 - ~/utils/MayHaveIcon.ts
 - ~/utils/MayHaveChildren.ts
@@ -133,6 +132,7 @@ Generated at: 2025-10-31 19:14
 - ~/utils/SelectionItem.ts
 - ~/utils/createLocalStore.ts
 - ~/utils/classArr.ts
+- ~/utils/HasId.ts
 - ~/utils/MayHaveSubtitle.ts
 - ~/utils/MayHaveButtonVariantAndClass.ts
 - ~/utils/HasGetOptions.ts
@@ -156,6 +156,7 @@ Generated at: 2025-10-31 19:14
 - ~/interactive/toast/toastAdd.ts
 - ~/interactive/toast/Toaster.tsx
 - ~/interactive/toast/GlobalToasterState.ts
+- ~/interactive/popover/InfoPopover.tsx
 - ~/interactive/popover/CorvuPopover.tsx
 - ~/interactive/details/Details.tsx
 - ~/interactive/toggle/ToggleButton.tsx
