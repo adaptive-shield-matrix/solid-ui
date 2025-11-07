@@ -10,9 +10,7 @@ export interface PageWrapperProps extends MayHaveChildren, MayHaveClass {
 export function PageWrapper(p: PageWrapperProps) {
   return (
     <div class={classArr("min-h-dvh w-full", classesBgGray, p.class)}>
-      <div class={classArr("container max-w-7xl mx-auto", "space-y-8", "dark:text-white", "p-4", p.innerClass)}>
-        {p.children}
-      </div>
+      <div class={classArr("max-w-7xl mx-auto", "dark:text-white", "p-4", p.innerClass)}>{p.children}</div>
     </div>
   )
 }
