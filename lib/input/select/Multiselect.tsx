@@ -46,36 +46,33 @@ export function Multiselect(p: Multiselect2Props) {
         p.class,
       )}
     >
-      <SelectedValues2 valueSignal={p.valueSignal} valueText={p.valueText} />
+      <SelectedValues valueSignal={p.valueSignal} valueText={p.valueText} />
       <CorvuPopover {...buttonProps}>
-        <div class={classArr("bg-white dark:bg-black", "max-h-dvh", "grid grid-cols-3 gap-x-2 gap-y-1")}>
-          <OptionList2 valueSignal={p.valueSignal} getOptions={p.getOptions} valueText={p.valueText} />
+        <div class={classArr("grid grid-cols-3 gap-x-2 gap-y-1")}>
+          <OptionList valueSignal={p.valueSignal} getOptions={p.getOptions} valueText={p.valueText} />
         </div>
       </CorvuPopover>
     </div>
   )
 }
 
-interface Multiselect2OptionState {
+interface MultiselectOptionState {
   option: string
-}
-
-interface Multiselect2OptionState {
   valueSignal: SignalObject<string[]>
   valueText?: (value: string) => string
 }
 
-function SelectedValues2(p: { valueSignal: SignalObject<string[]>; valueText?: (value: string) => string }) {
+function SelectedValues(p: { valueSignal: SignalObject<string[]>; valueText?: (value: string) => string }) {
   return (
     <div class={"flex flex-wrap gap-1"}>
-      <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems2 />}>
-        {(item) => <SelectedValue2 option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
+      <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems />}>
+        {(item) => <SelectedValue option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
       </Key>
     </div>
   )
 }
 
-function SelectedValue2(p: Multiselect2OptionState) {
+function SelectedValue(p: MultiselectOptionState) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <ButtonIcon
@@ -83,8 +80,8 @@ function SelectedValue2(p: Multiselect2OptionState) {
       iconRight={mdiClose}
       class={"text-sm px-2 py-1"}
       data-value={p.option}
-      onMouseDown={(e) => optionRemove2(p)}
-      onClick={(e) => optionRemove2(p)}
+      onMouseDown={(e) => optionRemove(p)}
+      onClick={(e) => optionRemove(p)}
       title={ct1(t4multiselect.Remove_x, label())}
     >
       {label()}
@@ -92,32 +89,32 @@ function SelectedValue2(p: Multiselect2OptionState) {
   )
 }
 
-function OptionList2(p: {
+function OptionList(p: {
   valueSignal: SignalObject<string[]>
   getOptions: Accessor<string[]>
   valueText?: (value: string) => string
 }) {
   return (
     <>
-      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems2 />}>
-        {(item) => <ListOption2 option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
+      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems />}>
+        {(item) => <ListOption option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
       </Key>
     </>
   )
 }
 
-function ListOption2(p: Multiselect2OptionState) {
+function ListOption(p: MultiselectOptionState) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <>
       <ButtonIcon
         type="button"
         role="checkbox"
-        aria-checked={optionIsSelected2(p)}
-        data-state={optionIsSelected2(p)}
-        iconRight={optionIsSelected2(p) ? mdiCheck : undefined}
+        aria-checked={optionIsSelected(p)}
+        data-state={optionIsSelected(p)}
+        iconRight={optionIsSelected(p) ? mdiCheck : undefined}
         onClick={(e) => {
-          toggleOption2(p)
+          toggleOption(p)
         }}
         variant={buttonVariant.ghost}
         class={"justify-start"}
@@ -128,30 +125,30 @@ function ListOption2(p: Multiselect2OptionState) {
   )
 }
 
-function toggleOption2(p: Multiselect2OptionState) {
-  const hasOption = optionIsSelected2(p)
+function toggleOption(p: MultiselectOptionState) {
+  const hasOption = optionIsSelected(p)
   if (hasOption) {
-    return optionRemove2(p)
+    return optionRemove(p)
   }
-  return optionAdd2(p)
+  return optionAdd(p)
 }
 
-function optionRemove2(p: Multiselect2OptionState) {
+function optionRemove(p: MultiselectOptionState) {
   const newValues = p.valueSignal.get().filter((v) => v !== p.option)
   p.valueSignal.set(newValues)
 }
 
-function optionAdd2(p: Multiselect2OptionState) {
+function optionAdd(p: MultiselectOptionState) {
   const newValues = [...p.valueSignal.get(), p.option]
   newValues.sort((a, b) => a.localeCompare(b))
   p.valueSignal.set(newValues)
 }
 
-function optionIsSelected2(p: Multiselect2OptionState) {
+function optionIsSelected(p: MultiselectOptionState) {
   return p.valueSignal.get().includes(p.option)
 }
 
-function NoItems2(p: MayHaveClass = {}) {
+function NoItems(p: MayHaveClass = {}) {
   return (
     <div
       class={classMerge(
