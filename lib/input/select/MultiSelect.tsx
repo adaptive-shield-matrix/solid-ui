@@ -170,7 +170,7 @@ function OptionList(p: OptionListProps) {
       role="listbox"
       aria-multiselectable="true"
       onKeyDown={handleKeyDown}
-      class={classArr(p.innerClass ?? classesGridCols3xl + " gap-x-2 gap-y-1")}
+      class={getInnerClass(options.length, p.innerClass)}
     >
       <For each={options}>
         {(option, index) => (
@@ -188,6 +188,16 @@ function OptionList(p: OptionListProps) {
       </For>
     </div>
   )
+}
+
+function getInnerClass(optionAmount: number, innerClass?: string): string {
+  if (innerClass) return innerClass
+  if (optionAmount <= 0) return ""
+  const base = " gap-x-2 gap-y-1"
+  if (optionAmount <= 5) return "grid grid-cols-1" + base
+  if (optionAmount <= 9) return "grid grid-cols-2" + base
+  if (optionAmount > 9) return classesGridCols3xl + base
+  return ""
 }
 
 interface ListOptionProps extends HasId, MultiselectOptionState {
