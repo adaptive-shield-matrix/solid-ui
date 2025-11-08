@@ -1,0 +1,166 @@
+import { Key } from "@solid-primitives/keyed"
+import type { JSXElement } from "solid-js"
+import { createUniqueId } from "solid-js"
+import { ct0 } from "~ui/i18n/ct0"
+import { t4multiselect } from "~ui/input/select/t4multiselect"
+import { classArr } from "~ui/utils/classArr"
+import type { SignalObject } from "~ui/utils/createSignalObject"
+import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+
+export interface TabsTopProps extends MayHaveChildren, MayHaveClass {
+  valueSignal: SignalObject<string>
+  getOptions: () => string[]
+  valueIcon?: (value: string) => string
+  valueAmount?: (value: string) => number | undefined
+  valueText?: (value: string) => string
+  valueChildren: (value: string) => JSXElement
+  id?: string
+  disabled?: boolean
+}
+
+/**
+ * https://www.radix-ui.com/primitives/docs/components/tabs
+ * https://github.com/radix-ui/primitives/blob/main/packages/react/tabs/src/Tabs.tsx
+ **/
+export function TabsTop(p: TabsTopProps) {
+  const baseId = createUniqueId()
+  return (
+    <>
+      <div
+        id={p.id}
+        role="tablist"
+        data-disabled={p.disabled}
+        class={classArr(
+          "flex flex-wrap gap-2",
+          // "grid gap-2 rounded-md p-2",
+          "bg-white dark:bg-black", // bg
+          "border border-slate-200 dark:border-slate-700", // border
+          p.class,
+        )}
+      >
+        <Key each={p.getOptions()} by={(value) => value} fallback={<NoTabOptions />}>
+          {(value) => (
+            <TabOption
+              baseId={baseId}
+              value={value()}
+              valueSignal={p.valueSignal}
+              disabled={p.disabled}
+              valueAmount={p.valueAmount}
+              valueText={p.valueText}
+              valueChildren={p.valueChildren}
+            />
+          )}
+        </Key>
+      </div>
+      <div>
+        <Key each={p.getOptions()} by={(value) => value} fallback={<NoTabOptions />}>
+          {(value) => (
+            <TabContent
+              baseId={baseId}
+              value={value()}
+              valueSignal={p.valueSignal}
+              disabled={p.disabled}
+              valueAmount={p.valueAmount}
+              valueText={p.valueText}
+              valueChildren={p.valueChildren}
+            />
+          )}
+        </Key>
+      </div>
+    </>
+  )
+}
+
+function NoTabOptions(p: MayHaveClass) {
+  return <div class={p.class}>{ct0(t4multiselect.No_entries)}</div>
+}
+
+interface TabOptionProps extends MayHaveClass {
+  baseId: string
+  value: string
+  valueSignal: SignalObject<string>
+  disabled?: boolean
+  valueAmount?: (value: string) => number | undefined
+  valueText?: (value: string) => string
+  valueChildren: (value: string) => JSXElement
+}
+
+function TabOption(p: TabOptionProps): JSXElement {
+  // console.log("TabOption", p.value, "value:", p.valueSignal.get())
+  return (
+    <button
+      type="button"
+      role="tab"
+      aria-selected={isSelected(p)}
+      id={makeTriggerId(p.baseId, p.value)}
+      aria-controls={makeContentId(p.baseId, p.value)}
+      data-state={isSelected(p) ? "active" : "inactive"}
+      data-disabled={p.disabled}
+      disabled={p.disabled}
+      class={classArr(
+        // "block",
+        "cursor-pointer select-none",
+        "rounded-sm",
+        "px-3 py-2 text-center",
+        isSelected(p) ? "bg-blue-500 text-white" : "hover:bg-slate-50 dark:hover:bg-slate-900", // bg hover
+        "flex gap-2",
+        p.class,
+      )}
+      onClick={(e) => setActiveTab(p)}
+    >
+      {getText(p)}
+    </button>
+  )
+}
+
+function TabContent(p: TabOptionProps): JSXElement {
+  return (
+    <div
+      id={makeContentId(p.baseId, p.value)}
+      role="tabpanel"
+      data-state={isSelected(p) ? "active" : "inactive"}
+      aria-labelledby={makeTriggerId(p.baseId, p.value)}
+      hidden={!isSelected(p)}
+      tabIndex={0}
+      class={classArr("")}
+    >
+      {p.valueChildren(p.value)}
+    </div>
+  )
+}
+
+function makeTriggerId(baseId: string, value: string) {
+  return `${baseId}-${value}-trigger`
+}
+
+function makeContentId(baseId: string, value: string) {
+  return `${baseId}-${value}-content`
+}
+
+function setActiveTab(p: { value: string; valueSignal: SignalObject<string> }) {
+  let prev = p.valueSignal.get()
+  // console.log("setActiveTab", p.value, "prev:", prev)
+  if (prev === p.value) return
+  p.valueSignal.set(p.value)
+}
+
+interface OptionProps {
+  value: string
+  valueSignal: SignalObject<string>
+}
+
+function isSelected(p: OptionProps) {
+  return p.value === p.valueSignal.get()
+}
+
+function getText(p: {
+  value: string
+  valueAmount?: (value: string) => number | undefined
+  valueText?: (value: string) => string
+}): string {
+  const amount = p.valueAmount?.(p.value)
+  const text = p.valueText?.(p.value) || p.value
+  if (!amount) return text
+  return `${text} (${amount})`
+}

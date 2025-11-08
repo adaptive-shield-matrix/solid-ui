@@ -9,11 +9,11 @@ const singleValueSignal = createSignalObject<string>("")
 
 export function DemoNativeSingleSelect() {
   const getOptions: Accessor<string[]> = createMemo(() => options100)
-  const valueDisplay = (value: string) => `Option ${value}`
+  const valueText = (value: string) => `Option ${value}`
 
   return (
     <PageWrapper>
-      <NativeSingleSelect valueSignal={singleValueSignal} getOptions={getOptions} valueDisplay={valueDisplay} />
+      <NativeSingleSelect valueSignal={singleValueSignal} getOptions={getOptions} valueText={valueText} />
     </PageWrapper>
   )
 }

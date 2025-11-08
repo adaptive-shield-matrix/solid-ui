@@ -12,7 +12,7 @@ export type StringStringFn = (value: string) => string
 export interface NativeSingleSelectProps extends MayHaveClass, MayHaveChildren {
   valueSignal: SignalObject<string>
   getOptions: Accessor<string[]>
-  valueDisplay?: StringStringFn
+  valueText?: StringStringFn
   id?: string
 }
 
@@ -33,7 +33,7 @@ export function NativeSingleSelect(p: NativeSingleSelectProps) {
       onChange={(e) => onChange(e, p)}
     >
       <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems />}>
-        {(getItem) => <SelectItem itemValue={getItem()} valueDisplay={p.valueDisplay} />}
+        {(getItem) => <SelectItem itemValue={getItem()} valueText={p.valueText} />}
       </Key>
     </select>
   )
@@ -55,20 +55,20 @@ function NoItems(p: MayHaveClass) {
 
 interface SelectItemProps extends MayHaveClass {
   itemValue: string
-  valueDisplay?: StringStringFn
+  valueText?: StringStringFn
 }
 
 function SelectItem(p: SelectItemProps) {
   return (
     <option value={p.itemValue} class={p.class}>
-      {getDisplayValue(p.itemValue, p.valueDisplay)}
+      {getDisplayValue(p.itemValue, p.valueText)}
     </option>
   )
 }
 
-function getDisplayValue(itemValue: string, valueDisplay?: StringStringFn) {
-  if (!valueDisplay) return itemValue
-  const hasValue = valueDisplay(itemValue)
+function getDisplayValue(itemValue: string, valueText?: StringStringFn) {
+  if (!valueText) return itemValue
+  const hasValue = valueText(itemValue)
   if (!hasValue) return itemValue
   return hasValue
 }

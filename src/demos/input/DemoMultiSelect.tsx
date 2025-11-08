@@ -13,7 +13,7 @@ export function DemoMultiSelect() {
         valueSignal={multiValueSignal}
         getOptions={() => options100Strings}
         buttonProps={{}}
-        valueDisplay={(value) => "Option " + value}
+        valueText={(value) => "Option " + value}
       />
     </PageWrapper>
   )

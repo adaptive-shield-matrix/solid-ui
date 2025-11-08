@@ -21,9 +21,9 @@ export interface Multiselect2Props extends MayHaveClass, MayHaveChildren {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
-  getOptions: Accessor<string[]>
   valueSignal: SignalObject<string[]>
-  valueDisplay?: (value: string) => string
+  getOptions: Accessor<string[]>
+  valueText?: (value: string) => string
 }
 
 export function Multiselect(p: Multiselect2Props) {
@@ -46,10 +46,10 @@ export function Multiselect(p: Multiselect2Props) {
         p.class,
       )}
     >
-      <SelectedValues2 valueSignal={p.valueSignal} valueDisplay={p.valueDisplay} />
+      <SelectedValues2 valueSignal={p.valueSignal} valueText={p.valueText} />
       <CorvuPopover {...buttonProps}>
         <div class={classArr("bg-white dark:bg-black", "max-h-dvh", "grid grid-cols-3 gap-x-2 gap-y-1")}>
-          <OptionList2 valueSignal={p.valueSignal} getOptions={p.getOptions} valueDisplay={p.valueDisplay} />
+          <OptionList2 valueSignal={p.valueSignal} getOptions={p.getOptions} valueText={p.valueText} />
         </div>
       </CorvuPopover>
     </div>
@@ -62,21 +62,21 @@ interface Multiselect2OptionState {
 
 interface Multiselect2OptionState {
   valueSignal: SignalObject<string[]>
-  valueDisplay?: (value: string) => string
+  valueText?: (value: string) => string
 }
 
-function SelectedValues2(p: { valueSignal: SignalObject<string[]>; valueDisplay?: (value: string) => string }) {
+function SelectedValues2(p: { valueSignal: SignalObject<string[]>; valueText?: (value: string) => string }) {
   return (
     <div class={"flex flex-wrap gap-1"}>
       <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems2 />}>
-        {(item) => <SelectedValue2 option={item()} valueSignal={p.valueSignal} valueDisplay={p.valueDisplay} />}
+        {(item) => <SelectedValue2 option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
       </Key>
     </div>
   )
 }
 
 function SelectedValue2(p: Multiselect2OptionState) {
-  const label = () => (p.valueDisplay ? p.valueDisplay(p.option) : p.option)
+  const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <ButtonIcon
       variant={buttonVariant.outline}
@@ -95,19 +95,19 @@ function SelectedValue2(p: Multiselect2OptionState) {
 function OptionList2(p: {
   valueSignal: SignalObject<string[]>
   getOptions: Accessor<string[]>
-  valueDisplay?: (value: string) => string
+  valueText?: (value: string) => string
 }) {
   return (
     <>
       <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems2 />}>
-        {(item) => <ListOption2 option={item()} valueSignal={p.valueSignal} valueDisplay={p.valueDisplay} />}
+        {(item) => <ListOption2 option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
       </Key>
     </>
   )
 }
 
 function ListOption2(p: Multiselect2OptionState) {
-  const label = () => (p.valueDisplay ? p.valueDisplay(p.option) : p.option)
+  const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <>
       <ButtonIcon
