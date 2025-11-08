@@ -1,6 +1,6 @@
 import { createMemo, type Accessor } from "solid-js"
 import { NativeSingleSelect } from "~ui/input/select/NativeSingleSelect"
-import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
+import { PageWrapper } from "~ui/static/page/PageWrapper"
 import { createSignalObject } from "~ui/utils/createSignalObject"
 import { arrCreate } from "~utils/arr/arrCreate"
 
@@ -12,8 +12,8 @@ export function DemoNativeSingleSelect() {
   const valueDisplay = (value: string) => `Option ${value}`
 
   return (
-    <PageWrapper2>
+    <PageWrapper>
       <NativeSingleSelect valueSignal={singleValueSignal} getOptions={getOptions} valueDisplay={valueDisplay} />
-    </PageWrapper2>
+    </PageWrapper>
   )
 }

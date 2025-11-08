@@ -81,7 +81,6 @@ Generated at: 2025-11-06 11:38
 - ~/static/container/classesCardWrapper.ts
 - ~/static/logo/LogoImageText.tsx
 - ~/static/logo/LogoImageOnly.tsx
-- ~/static/page/PageWrapper2.tsx
 - ~/static/page/PageWrapper.tsx
 - ~/static/page/classesPageWrapper.ts
 - ~/static/page/classesPageCentered.ts

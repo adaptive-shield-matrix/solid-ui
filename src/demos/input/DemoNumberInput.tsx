@@ -1,12 +1,12 @@
 import { NumberInputS } from "~ui/input/number/NumberInputS"
-import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
+import { PageWrapper } from "~ui/static/page/PageWrapper"
 import { createSignalObject } from "~ui/utils/createSignalObject"
 
 export function DemoNumberInput() {
   const valueSignal = createSignalObject(0)
   return (
-    <PageWrapper2>
+    <PageWrapper>
       <NumberInputS valueSignal={valueSignal} />
-    </PageWrapper2>
+    </PageWrapper>
   )
 }

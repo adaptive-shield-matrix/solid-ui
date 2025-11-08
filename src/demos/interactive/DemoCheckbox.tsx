@@ -2,18 +2,18 @@ import { createSignal } from "solid-js"
 import { Checkbox } from "~ui/interactive/check/Checkbox"
 import { toastAdd } from "~ui/interactive/toast/toastAdd"
 import { toastVariant } from "~ui/interactive/toast/toastVariant"
-import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
+import { PageWrapper } from "~ui/static/page/PageWrapper"
 
 export function DemoCheckbox() {
   return (
-    <PageWrapper2 class="">
+    <PageWrapper class="">
       <h1 class="text-3xl font-bold mb-6">Checkbox Demo</h1>
       <div class="space-y-8">
         <BasicCheckboxDemo />
         <DisabledCheckboxDemo />
         <MultipleCheckboxesDemo />
       </div>
-    </PageWrapper2>
+    </PageWrapper>
   )
 }
 

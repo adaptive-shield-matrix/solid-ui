@@ -1,5 +1,5 @@
 import { RadioSwitch } from "~ui/input/radio/RadioSwitch"
-import { PageWrapper2 } from "~ui/static/page/PageWrapper2"
+import { PageWrapper } from "~ui/static/page/PageWrapper"
 import type { SelectionItem } from "~ui/utils/SelectionItem"
 import { createSignalObject } from "~ui/utils/createSignalObject"
 import { arrCreate } from "~utils/arr/arrCreate"
@@ -9,8 +9,8 @@ const singleValueSignal = createSignalObject<SelectionItem | null>(null)
 
 export function DemoRadioSwitch() {
   return (
-    <PageWrapper2>
+    <PageWrapper>
       <RadioSwitch valueSignal={singleValueSignal} getOptions={() => options100} />
-    </PageWrapper2>
+    </PageWrapper>
   )
 }
