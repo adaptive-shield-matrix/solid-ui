@@ -1,7 +1,7 @@
 import { mdiCheck, mdiClose, mdiPlus } from "@mdi/js"
 import { Key } from "@solid-primitives/keyed"
 import type { Accessor } from "solid-js"
-import { mergeProps } from "solid-js"
+import { createEffect, createSignal, For, mergeProps, onMount } from "solid-js"
 import { ct0, ct1 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
@@ -11,6 +11,7 @@ import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
+import type { HasId } from "~ui/utils/HasId"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
@@ -18,7 +19,7 @@ import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
  */
-export interface Multiselect2Props extends MayHaveClass, MayHaveInnerClass, MayHaveChildren {
+export interface MultiSelectProps extends HasId, MayHaveClass, MayHaveInnerClass, MayHaveChildren {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
@@ -30,18 +31,16 @@ export interface Multiselect2Props extends MayHaveClass, MayHaveInnerClass, MayH
   listOptionClass?: string
 }
 
-export function Multiselect(p: Multiselect2Props) {
+export function MultiSelect(p: MultiSelectProps) {
   const buttonClass = classMerge(p.addEntryClass, p.buttonProps.class)
-  const buttonProps = mergeProps(
-    {
-      icon: mdiPlus,
-      children: p.textAddEntry ?? ct0(t4multiselect.Add_entry),
-    },
-    p.buttonProps,
-    { class: buttonClass },
-  )
+  const buttonProps = mergeProps(p.buttonProps, {
+    icon: mdiPlus,
+    children: p.textAddEntry ?? ct0(t4multiselect.Add_entry),
+    class: buttonClass,
+  })
   return (
     <div
+      id={p.id}
       class={classArr(
         "group border border-input",
         "px-2 py-2 text-sm",
@@ -53,13 +52,15 @@ export function Multiselect(p: Multiselect2Props) {
       )}
     >
       <SelectedValues valueSignal={p.valueSignal} valueText={p.valueText} noItemsClass={p.noItemsClass} />
-      <CorvuPopover {...buttonProps} innerClass={classArr(p.innerClass ?? "grid grid-cols-3 gap-x-2 gap-y-1")}>
+      <CorvuPopover {...buttonProps}>
         <OptionList
+          id={p.id}
           valueSignal={p.valueSignal}
           getOptions={p.getOptions}
           valueText={p.valueText}
           noItemsClass={p.noItemsClass}
           listOptionClass={p.listOptionClass}
+          innerClass={p.innerClass}
         />
       </CorvuPopover>
     </div>
@@ -74,7 +75,7 @@ interface SelectedValuesProps {
 
 function SelectedValues(p: SelectedValuesProps) {
   return (
-    <div class={"flex flex-wrap gap-1"}>
+    <div class={"flex flex-wrap gap-1"} role="list">
       <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems class={p.noItemsClass} />}>
         {(item) => <SelectedValue option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
       </Key>
@@ -94,20 +95,21 @@ function SelectedValue(p: SelectedValueProps) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <ButtonIcon
-      variant={buttonVariant.outline}
+      role="listitem"
+      variant={buttonVariant.filled}
       iconRight={mdiClose}
       class={"text-sm px-2 py-1"}
       data-value={p.option}
       onMouseDown={(e) => optionRemove(p)}
       onClick={(e) => optionRemove(p)}
-      title={ct1(t4multiselect.Remove_x, label())}
+      title={ct1(t4multiselect.Remove_x, label()) || ""}
     >
       {label()}
     </ButtonIcon>
   )
 }
 
-interface OptionListProps {
+interface OptionListProps extends HasId, MayHaveInnerClass {
   valueSignal: SignalObject<string[]>
   getOptions: Accessor<string[]>
   valueText?: (value: string) => string
@@ -116,45 +118,102 @@ interface OptionListProps {
 }
 
 function OptionList(p: OptionListProps) {
+  const getOptions = p.getOptions
+  const options = getOptions()
+  const [focusedIndex, setFocusedIndex] = createSignal(-1)
+
+  createEffect(() => {
+    const idx = focusedIndex()
+    if (idx >= 0) {
+      setTimeout(() => {
+        const el = document.getElementById(`${p.id}-option-${idx}`)
+        el?.focus()
+      }, 0)
+    }
+  })
+
+  onMount(() => {
+    if (options.length > 0) {
+      setFocusedIndex(0)
+    }
+  })
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    const opts = getOptions()
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault()
+        setFocusedIndex((prev) => (prev + 1) % opts.length)
+        break
+      case "ArrowUp":
+        e.preventDefault()
+        setFocusedIndex((prev) => (prev - 1 + opts.length) % opts.length)
+        break
+      case "Enter":
+      case " ":
+        e.preventDefault()
+        if (focusedIndex() >= 0) {
+          const option = opts[focusedIndex()]!
+          toggleOption({ option, valueSignal: p.valueSignal, valueText: p.valueText })
+        }
+        break
+    }
+  }
+
+  if (options.length === 0) {
+    return <NoItems class={p.noItemsClass} />
+  }
+
   return (
-    <>
-      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems class={p.noItemsClass} />}>
-        {(item) => (
+    <div
+      role="listbox"
+      aria-multiselectable="true"
+      onKeyDown={handleKeyDown}
+      class={classArr(p.innerClass ?? "grid grid-cols-3 gap-x-2 gap-y-1")}
+    >
+      <For each={options}>
+        {(option, index) => (
           <ListOption
-            option={item()}
+            id={p.id}
+            option={option}
+            index={index()}
+            focusedIndex={focusedIndex()}
+            setFocusedIndex={setFocusedIndex}
             valueSignal={p.valueSignal}
             valueText={p.valueText}
             listOptionClass={p.listOptionClass}
           />
         )}
-      </Key>
-    </>
+      </For>
+    </div>
   )
 }
 
-interface ListOptionProps extends MultiselectOptionState {
+interface ListOptionProps extends HasId, MultiselectOptionState {
+  index: number
+  focusedIndex: number
+  setFocusedIndex: (v: number) => void
   listOptionClass?: string
 }
 
 function ListOption(p: ListOptionProps) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
-    <>
-      <ButtonIcon
-        type="button"
-        role="checkbox"
-        aria-checked={optionIsSelected(p)}
-        data-state={optionIsSelected(p)}
-        iconRight={optionIsSelected(p) ? mdiCheck : undefined}
-        onClick={(e) => {
-          toggleOption(p)
-        }}
-        variant={buttonVariant.ghost}
-        class={classMerge("justify-start", p.listOptionClass)}
-      >
-        {label()}
-      </ButtonIcon>
-    </>
+    <ButtonIcon
+      id={`${p.id}-option-${p.index}`}
+      tabIndex={p.focusedIndex === p.index ? 0 : -1}
+      role="option"
+      aria-selected={optionIsSelected(p)}
+      iconRight={optionIsSelected(p) ? mdiCheck : undefined}
+      onClick={() => {
+        toggleOption(p)
+        p.setFocusedIndex(p.index)
+      }}
+      variant={buttonVariant.ghost}
+      class={classMerge("justify-start", p.focusedIndex === p.index ? "ring-2 ring-blue-500" : "", p.listOptionClass)}
+    >
+      {label()}
+    </ButtonIcon>
   )
 }
 
