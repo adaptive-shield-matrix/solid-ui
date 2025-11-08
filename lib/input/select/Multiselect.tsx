@@ -13,11 +13,12 @@ import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
  */
-export interface Multiselect2Props extends MayHaveClass, MayHaveChildren {
+export interface Multiselect2Props extends MayHaveClass, MayHaveInnerClass, MayHaveChildren {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
@@ -47,19 +48,11 @@ export function Multiselect(p: Multiselect2Props) {
       )}
     >
       <SelectedValues valueSignal={p.valueSignal} valueText={p.valueText} />
-      <CorvuPopover {...buttonProps}>
-        <div class={classArr("grid grid-cols-3 gap-x-2 gap-y-1")}>
-          <OptionList valueSignal={p.valueSignal} getOptions={p.getOptions} valueText={p.valueText} />
-        </div>
+      <CorvuPopover {...buttonProps} innerClass={classArr(p.innerClass ?? "grid grid-cols-3 gap-x-2 gap-y-1")}>
+        <OptionList valueSignal={p.valueSignal} getOptions={p.getOptions} valueText={p.valueText} />
       </CorvuPopover>
     </div>
   )
-}
-
-interface MultiselectOptionState {
-  option: string
-  valueSignal: SignalObject<string[]>
-  valueText?: (value: string) => string
 }
 
 function SelectedValues(p: { valueSignal: SignalObject<string[]>; valueText?: (value: string) => string }) {
@@ -72,6 +65,11 @@ function SelectedValues(p: { valueSignal: SignalObject<string[]>; valueText?: (v
   )
 }
 
+interface MultiselectOptionState {
+  option: string
+  valueSignal: SignalObject<string[]>
+  valueText?: (value: string) => string
+}
 function SelectedValue(p: MultiselectOptionState) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
