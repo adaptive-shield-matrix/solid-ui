@@ -25,15 +25,20 @@ export interface Multiselect2Props extends MayHaveClass, MayHaveInnerClass, MayH
   valueSignal: SignalObject<string[]>
   getOptions: Accessor<string[]>
   valueText?: (value: string) => string
+  addEntryClass?: string
+  noItemsClass?: string
+  listOptionClass?: string
 }
 
 export function Multiselect(p: Multiselect2Props) {
+  const buttonClass = classMerge(p.addEntryClass, p.buttonProps.class)
   const buttonProps = mergeProps(
     {
       icon: mdiPlus,
       children: p.textAddEntry ?? ct0(t4multiselect.Add_entry),
     },
     p.buttonProps,
+    { class: buttonClass },
   )
   return (
     <div
@@ -47,18 +52,30 @@ export function Multiselect(p: Multiselect2Props) {
         p.class,
       )}
     >
-      <SelectedValues valueSignal={p.valueSignal} valueText={p.valueText} />
+      <SelectedValues valueSignal={p.valueSignal} valueText={p.valueText} noItemsClass={p.noItemsClass} />
       <CorvuPopover {...buttonProps} innerClass={classArr(p.innerClass ?? "grid grid-cols-3 gap-x-2 gap-y-1")}>
-        <OptionList valueSignal={p.valueSignal} getOptions={p.getOptions} valueText={p.valueText} />
+        <OptionList
+          valueSignal={p.valueSignal}
+          getOptions={p.getOptions}
+          valueText={p.valueText}
+          noItemsClass={p.noItemsClass}
+          listOptionClass={p.listOptionClass}
+        />
       </CorvuPopover>
     </div>
   )
 }
 
-function SelectedValues(p: { valueSignal: SignalObject<string[]>; valueText?: (value: string) => string }) {
+interface SelectedValuesProps {
+  valueSignal: SignalObject<string[]>
+  valueText?: (value: string) => string
+  noItemsClass?: string
+}
+
+function SelectedValues(p: SelectedValuesProps) {
   return (
     <div class={"flex flex-wrap gap-1"}>
-      <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems />}>
+      <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems class={p.noItemsClass} />}>
         {(item) => <SelectedValue option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
       </Key>
     </div>
@@ -70,7 +87,10 @@ interface MultiselectOptionState {
   valueSignal: SignalObject<string[]>
   valueText?: (value: string) => string
 }
-function SelectedValue(p: MultiselectOptionState) {
+
+interface SelectedValueProps extends MultiselectOptionState {}
+
+function SelectedValue(p: SelectedValueProps) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <ButtonIcon
@@ -87,21 +107,36 @@ function SelectedValue(p: MultiselectOptionState) {
   )
 }
 
-function OptionList(p: {
+interface OptionListProps {
   valueSignal: SignalObject<string[]>
   getOptions: Accessor<string[]>
   valueText?: (value: string) => string
-}) {
+  noItemsClass?: string
+  listOptionClass?: string
+}
+
+function OptionList(p: OptionListProps) {
   return (
     <>
-      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems />}>
-        {(item) => <ListOption option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
+      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems class={p.noItemsClass} />}>
+        {(item) => (
+          <ListOption
+            option={item()}
+            valueSignal={p.valueSignal}
+            valueText={p.valueText}
+            listOptionClass={p.listOptionClass}
+          />
+        )}
       </Key>
     </>
   )
 }
 
-function ListOption(p: MultiselectOptionState) {
+interface ListOptionProps extends MultiselectOptionState {
+  listOptionClass?: string
+}
+
+function ListOption(p: ListOptionProps) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <>
@@ -115,7 +150,7 @@ function ListOption(p: MultiselectOptionState) {
           toggleOption(p)
         }}
         variant={buttonVariant.ghost}
-        class={"justify-start"}
+        class={classMerge("justify-start", p.listOptionClass)}
       >
         {label()}
       </ButtonIcon>
@@ -146,7 +181,9 @@ function optionIsSelected(p: MultiselectOptionState) {
   return p.valueSignal.get().includes(p.option)
 }
 
-function NoItems(p: MayHaveClass = {}) {
+interface NoItemsProps extends MayHaveClass {}
+
+function NoItems(p: NoItemsProps) {
   return (
     <div
       class={classMerge(
