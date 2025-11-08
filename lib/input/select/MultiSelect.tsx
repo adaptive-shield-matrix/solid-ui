@@ -1,7 +1,7 @@
 import { mdiCheck, mdiClose, mdiPlus } from "@mdi/js"
 import { Key } from "@solid-primitives/keyed"
 import type { Accessor } from "solid-js"
-import { createEffect, createSignal, For, mergeProps, onMount } from "solid-js"
+import { For, mergeProps } from "solid-js"
 import { ct0, ct1 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
@@ -119,67 +119,14 @@ interface OptionListProps extends HasId, MayHaveInnerClass {
 }
 
 function OptionList(p: OptionListProps) {
-  const getOptions = p.getOptions
-  const options = getOptions()
-  const [focusedIndex, setFocusedIndex] = createSignal(-1)
-
-  createEffect(() => {
-    const idx = focusedIndex()
-    if (idx >= 0) {
-      setTimeout(() => {
-        const el = document.getElementById(`${p.id}-option-${idx}`)
-        el?.focus()
-      }, 0)
-    }
-  })
-
-  onMount(() => {
-    if (options.length > 0) {
-      setFocusedIndex(0)
-    }
-  })
-
-  const handleKeyDown = (e: KeyboardEvent) => {
-    const opts = getOptions()
-    switch (e.key) {
-      case "ArrowDown":
-        e.preventDefault()
-        setFocusedIndex((prev) => (prev + 1) % opts.length)
-        break
-      case "ArrowUp":
-        e.preventDefault()
-        setFocusedIndex((prev) => (prev - 1 + opts.length) % opts.length)
-        break
-      case "Enter":
-      case " ":
-        e.preventDefault()
-        if (focusedIndex() >= 0) {
-          const option = opts[focusedIndex()]!
-          toggleOption({ option, valueSignal: p.valueSignal, valueText: p.valueText })
-        }
-        break
-    }
-  }
-
-  if (options.length === 0) {
-    return <NoItems class={p.noItemsClass} />
-  }
-
   return (
-    <div
-      role="listbox"
-      aria-multiselectable="true"
-      onKeyDown={handleKeyDown}
-      class={getInnerClass(options.length, p.innerClass)}
-    >
-      <For each={options}>
+    <div role="listbox" aria-multiselectable="true" class={getInnerClass(p.getOptions().length, p.innerClass)}>
+      <For each={p.getOptions()} fallback={<NoItems class={p.noItemsClass} />}>
         {(option, index) => (
           <ListOption
             id={p.id}
             option={option}
             index={index()}
-            focusedIndex={focusedIndex()}
-            setFocusedIndex={setFocusedIndex}
             valueSignal={p.valueSignal}
             valueText={p.valueText}
             listOptionClass={p.listOptionClass}
@@ -202,8 +149,6 @@ function getInnerClass(optionAmount: number, innerClass?: string): string {
 
 interface ListOptionProps extends HasId, MultiselectOptionState {
   index: number
-  focusedIndex: number
-  setFocusedIndex: (v: number) => void
   listOptionClass?: string
 }
 
@@ -211,17 +156,15 @@ function ListOption(p: ListOptionProps) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
     <ButtonIcon
-      id={`${p.id}-option-${p.index}`}
-      tabIndex={p.focusedIndex === p.index ? 0 : -1}
+      // id={`${p.id}-option-${p.index}`}
       role="option"
       aria-selected={optionIsSelected(p)}
       iconRight={optionIsSelected(p) ? mdiCheck : undefined}
       onClick={() => {
         toggleOption(p)
-        p.setFocusedIndex(p.index)
       }}
       variant={buttonVariant.ghost}
-      class={classMerge("justify-start", p.focusedIndex === p.index ? "ring-2 ring-blue-500" : "", p.listOptionClass)}
+      class={classMerge("justify-start", p.listOptionClass)}
     >
       {label()}
     </ButtonIcon>
