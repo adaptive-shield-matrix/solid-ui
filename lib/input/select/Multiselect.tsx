@@ -1,39 +1,32 @@
 import { mdiCheck, mdiClose, mdiPlus } from "@mdi/js"
 import { Key } from "@solid-primitives/keyed"
+import type { Accessor } from "solid-js"
 import { mergeProps } from "solid-js"
 import { ct0, ct1 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
-import { CorvuPopover, type CorvuPopoverProps } from "~ui/interactive/popover/CorvuPopover"
+import type { CorvuPopoverProps } from "~ui/interactive/popover/CorvuPopover"
+import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
-import type { HasGetOptions } from "~ui/utils/HasGetOptions"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
-import type { SelectionItem } from "~ui/utils/SelectionItem"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
  */
-export interface MultiselectProps<T extends string = string> extends MultiselectState<T>, MayHaveClass, MayHaveChildren {
+export interface Multiselect2Props extends MayHaveClass, MayHaveChildren {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
+  getOptions: Accessor<string[]>
+  valueSignal: SignalObject<string[]>
+  valueDisplay?: (value: string) => string
 }
 
-export interface MultiselectState<T extends string = string>
-  extends MultiselectStateValue<T>,
-    MultiselectStateOptions<T> {}
-
-export type MultiselectStateValue<T extends string = string> = {
-  valueSignal: SignalObject<SelectionItem<T>[]>
-}
-
-export type MultiselectStateOptions<T extends string = string> = HasGetOptions<T>
-
-export function Multiselect<T extends string = string>(p: MultiselectProps<T>) {
+export function Multiselect(p: Multiselect2Props) {
   const buttonProps = mergeProps(
     {
       icon: mdiPlus,
@@ -53,102 +46,112 @@ export function Multiselect<T extends string = string>(p: MultiselectProps<T>) {
         p.class,
       )}
     >
-      <SelectedValues valueSignal={p.valueSignal} />
+      <SelectedValues2 valueSignal={p.valueSignal} valueDisplay={p.valueDisplay} />
       <CorvuPopover {...buttonProps}>
         <div class={classArr("bg-white dark:bg-black", "max-h-dvh", "grid grid-cols-3 gap-x-2 gap-y-1")}>
-          <OptionList valueSignal={p.valueSignal} getOptions={p.getOptions} />
+          <OptionList2 valueSignal={p.valueSignal} getOptions={p.getOptions} valueDisplay={p.valueDisplay} />
         </div>
       </CorvuPopover>
     </div>
   )
 }
 
-type MultiselectOptionState<T extends string = string> = { option: SelectionItem<T> } & MultiselectStateValue<T>
+interface Multiselect2OptionState {
+  option: string
+}
 
-function SelectedValues<T extends string = string>(p: MultiselectStateValue<T>) {
-  //  items-center justify-center
+interface Multiselect2OptionState {
+  valueSignal: SignalObject<string[]>
+  valueDisplay?: (value: string) => string
+}
+
+function SelectedValues2(p: { valueSignal: SignalObject<string[]>; valueDisplay?: (value: string) => string }) {
   return (
     <div class={"flex flex-wrap gap-1"}>
-      <Key each={p.valueSignal.get()} by={(item) => item.value} fallback={<NoItems />}>
-        {(item) => <SelectedValue option={item()} valueSignal={p.valueSignal} />}
+      <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems2 />}>
+        {(item) => <SelectedValue2 option={item()} valueSignal={p.valueSignal} valueDisplay={p.valueDisplay} />}
       </Key>
     </div>
   )
 }
 
-function SelectedValue<T extends string = string>(p: MultiselectOptionState<T>) {
+function SelectedValue2(p: Multiselect2OptionState) {
+  const label = () => (p.valueDisplay ? p.valueDisplay(p.option) : p.option)
   return (
     <ButtonIcon
       variant={buttonVariant.outline}
       iconRight={mdiClose}
       class={"text-sm px-2 py-1"}
-      data-value={p.option.value}
-      onMouseDown={(e) => optionRemove(p)}
-      onClick={(e) => optionRemove(p)}
-      title={ct1(t4multiselect.Remove_x, p.option.label)}
+      data-value={p.option}
+      onMouseDown={(e) => optionRemove2(p)}
+      onClick={(e) => optionRemove2(p)}
+      title={ct1(t4multiselect.Remove_x, label())}
     >
-      {p.option.label}
+      {label()}
     </ButtonIcon>
   )
 }
 
-function OptionList<T extends string = string>(p: MultiselectState<T>) {
+function OptionList2(p: {
+  valueSignal: SignalObject<string[]>
+  getOptions: Accessor<string[]>
+  valueDisplay?: (value: string) => string
+}) {
   return (
     <>
-      <Key each={p.getOptions()} by={(item) => item.value} fallback={<NoItems />}>
-        {(item) => <ListOption option={item()} valueSignal={p.valueSignal} />}
+      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems2 />}>
+        {(item) => <ListOption2 option={item()} valueSignal={p.valueSignal} valueDisplay={p.valueDisplay} />}
       </Key>
     </>
   )
 }
 
-function ListOption<T extends string = string>(p: MultiselectOptionState<T>) {
+function ListOption2(p: Multiselect2OptionState) {
+  const label = () => (p.valueDisplay ? p.valueDisplay(p.option) : p.option)
   return (
     <>
       <ButtonIcon
         type="button"
         role="checkbox"
-        aria-checked={optionIsSelected(p)}
-        data-state={optionIsSelected(p)}
-        iconRight={optionIsSelected(p) ? mdiCheck : undefined}
+        aria-checked={optionIsSelected2(p)}
+        data-state={optionIsSelected2(p)}
+        iconRight={optionIsSelected2(p) ? mdiCheck : undefined}
         onClick={(e) => {
-          // console.log("onchange", e.currentTarget.id, e.currentTarget.checked)
-          toggleOption(p)
+          toggleOption2(p)
         }}
         variant={buttonVariant.ghost}
-        // class={optionIsSelected(p.option, p.valueSignal) ? "" : "pl-8"}
         class={"justify-start"}
       >
-        {p.option.label}
+        {label()}
       </ButtonIcon>
     </>
   )
 }
 
-function toggleOption<T extends string = string>(p: MultiselectOptionState<T>) {
-  const hasOption = optionIsSelected(p)
+function toggleOption2(p: Multiselect2OptionState) {
+  const hasOption = optionIsSelected2(p)
   if (hasOption) {
-    return optionRemove(p)
+    return optionRemove2(p)
   }
-  return optionAdd(p)
+  return optionAdd2(p)
 }
 
-function optionRemove<T extends string = string>(p: MultiselectOptionState<T>) {
-  const newValues = p.valueSignal.get().filter((v) => v.value !== p.option.value)
+function optionRemove2(p: Multiselect2OptionState) {
+  const newValues = p.valueSignal.get().filter((v) => v !== p.option)
   p.valueSignal.set(newValues)
 }
 
-function optionAdd<T extends string = string>(p: MultiselectOptionState<T>) {
+function optionAdd2(p: Multiselect2OptionState) {
   const newValues = [...p.valueSignal.get(), p.option]
-  newValues.sort((a, b) => a.label.localeCompare(b.label))
+  newValues.sort((a, b) => a.localeCompare(b))
   p.valueSignal.set(newValues)
 }
 
-function optionIsSelected<T extends string = string>(p: MultiselectOptionState<T>) {
-  return p.valueSignal.get().some((v) => v.value === p.option.value)
+function optionIsSelected2(p: Multiselect2OptionState) {
+  return p.valueSignal.get().includes(p.option)
 }
 
-function NoItems(p: MayHaveClass) {
+function NoItems2(p: MayHaveClass = {}) {
   return (
     <div
       class={classMerge(
