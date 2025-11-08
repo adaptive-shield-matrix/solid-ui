@@ -9,8 +9,9 @@ import { Icon1 } from "~ui/static/icon/Icon1"
 import { classArr } from "~ui/utils/classArr"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
-export interface CorvuPopoverProps extends MayHaveClass, MayHaveChildren, ButtonIcon1Props {
+export interface CorvuPopoverProps extends MayHaveClass, MayHaveInnerClass, MayHaveChildren, ButtonIcon1Props {
   // buttonProps: ButtonIcon1Props
   buttonChildren?: JSX.Element
 }
@@ -50,6 +51,7 @@ export function CorvuPopover(p: CorvuPopoverProps) {
             "bg-white dark:bg-black", // background
             "shadow-md", // shadow
             "data-open:animate-in data-open:fade-in-50% data-open:slide-in-from-top-1 data-closed:animate-out data-closed:fade-out-50% data-closed:slide-out-to-top-1", // animations
+            p.innerClass,
           )}
         >
           {p.children}
