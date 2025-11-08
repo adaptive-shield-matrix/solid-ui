@@ -75,8 +75,8 @@ const variantClasses = {
   //
   filled: classArr(
     "dark:text-slate-100", // text
-    "bg-white dark:bg-black", // bg
-    "hover:bg-slate-50 dark:hover:bg-slate-900", // bg hover
+    "bg-white dark:bg-slate-700", // bg
+    "hover:bg-slate-50 dark:hover:bg-slate-600", // bg hover
   ),
   subtle: classArr(
     "text-slate-900 dark:text-slate-100", // text
