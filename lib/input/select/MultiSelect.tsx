@@ -8,6 +8,7 @@ import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import type { CorvuPopoverProps } from "~ui/interactive/popover/CorvuPopover"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
+import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
@@ -169,7 +170,7 @@ function OptionList(p: OptionListProps) {
       role="listbox"
       aria-multiselectable="true"
       onKeyDown={handleKeyDown}
-      class={classArr(p.innerClass ?? "grid grid-cols-3 gap-x-2 gap-y-1")}
+      class={classArr(p.innerClass ?? classesGridCols3xl + " gap-x-2 gap-y-1")}
     >
       <For each={options}>
         {(option, index) => (
