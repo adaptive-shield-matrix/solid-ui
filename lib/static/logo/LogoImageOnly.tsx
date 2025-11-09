@@ -5,6 +5,8 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/classMerge"
 
 export interface LogoImageOnlyProps extends MayHaveClass {
+  href?: string
+  logoUrl?: string
   imageClass?: string
   variant?: ButtonVariant
 }
@@ -12,11 +14,11 @@ export interface LogoImageOnlyProps extends MayHaveClass {
 export function LogoImageOnly(p: LogoImageOnlyProps) {
   return (
     <LinkButtonIconOnly
-      href={"/"}
+      href={p.href ?? "/"}
       variant={p.variant ?? buttonVariant.ghost}
       class={classMerge("flex gap-1.5", p.class)}
     >
-      <Img src={"/logo.svg"} alt={"Logo"} zoomIn={false} class={classMerge("size-7 mr-1", p.imageClass)} />
+      <Img src={p.logoUrl ?? "/logo.svg"} alt={"Logo"} zoomIn={false} class={classMerge("size-7 mr-1", p.imageClass)} />
     </LinkButtonIconOnly>
   )
 }

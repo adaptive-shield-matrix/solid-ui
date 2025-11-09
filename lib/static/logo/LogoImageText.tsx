@@ -5,6 +5,8 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/classMerge"
 
 export interface LogoImageTextProps extends MayHaveClass {
+  href?: string
+  logoUrl?: string
   imageClass?: string
   logoText: string
   logoTextClass?: string
@@ -13,8 +15,12 @@ export interface LogoImageTextProps extends MayHaveClass {
 
 export function LogoImageText(p: LogoImageTextProps) {
   return (
-    <LinkButton href={"/"} variant={p.variant ?? buttonVariant.ghost} class={classMerge("flex gap-1.5", p.class)}>
-      <Img src={"/logo.svg"} alt={"Logo"} zoomIn={false} class={classMerge("size-7 mr-1", p.imageClass)} />
+    <LinkButton
+      href={p.href ?? "/"}
+      variant={p.variant ?? buttonVariant.ghost}
+      class={classMerge("flex gap-1.5", p.class)}
+    >
+      <Img src={p.logoUrl ?? "/logo.svg"} alt={"Logo"} zoomIn={false} class={classMerge("size-7 mr-1", p.imageClass)} />
       <span class={classMerge("text-2xl font-bold", p.logoTextClass)}>{p.logoText}</span>
     </LinkButton>
   )
