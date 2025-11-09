@@ -9,14 +9,14 @@ import type { SignalObject } from "~ui/utils/createSignalObject"
 
 export type StringStringFn = (value: string) => string
 
-export interface NativeSingleSelectProps extends MayHaveClass, MayHaveChildren {
+export interface SelectSingleNativeProps extends MayHaveClass, MayHaveChildren {
   valueSignal: SignalObject<string>
   getOptions: Accessor<string[]>
   valueText?: StringStringFn
   id?: string
 }
 
-export function NativeSingleSelect(p: NativeSingleSelectProps) {
+export function SelectSingleNative(p: SelectSingleNativeProps) {
   return (
     <select
       id={p.id}
@@ -44,7 +44,7 @@ function onChange(
     currentTarget: HTMLSelectElement
     target: HTMLSelectElement
   },
-  p: NativeSingleSelectProps,
+  p: SelectSingleNativeProps,
 ): void {
   p.valueSignal.set(e.currentTarget.value)
 }

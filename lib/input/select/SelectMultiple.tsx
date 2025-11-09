@@ -12,15 +12,15 @@ import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
-import type { HasId } from "~ui/utils/HasId"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
  */
-export interface MultiSelectProps extends HasId, MayHaveClass, MayHaveInnerClass, MayHaveChildren {
+export interface SelectMultipleProps extends MayHaveId, MayHaveClass, MayHaveInnerClass, MayHaveChildren {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
@@ -32,7 +32,7 @@ export interface MultiSelectProps extends HasId, MayHaveClass, MayHaveInnerClass
   listOptionClass?: string
 }
 
-export function MultiSelect(p: MultiSelectProps) {
+export function SelectMultiple(p: SelectMultipleProps) {
   const buttonClass = classMerge(p.addEntryClass, p.buttonProps.class)
   const buttonProps = mergeProps(p.buttonProps, {
     icon: mdiPlus,
@@ -110,7 +110,7 @@ function SelectedValue(p: SelectedValueProps) {
   )
 }
 
-interface OptionListProps extends HasId, MayHaveInnerClass {
+interface OptionListProps extends MayHaveId, MayHaveInnerClass {
   valueSignal: SignalObject<string[]>
   getOptions: Accessor<string[]>
   valueText?: (value: string) => string
@@ -147,7 +147,7 @@ function getInnerClass(optionAmount: number, innerClass?: string): string {
   return ""
 }
 
-interface ListOptionProps extends HasId, MultiselectOptionState {
+interface ListOptionProps extends MayHaveId, MultiselectOptionState {
   index: number
   listOptionClass?: string
 }

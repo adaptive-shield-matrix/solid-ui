@@ -1,4 +1,5 @@
-import { MultiSelect } from "~ui/input/select/MultiSelect"
+import { demoGetTextValue } from "@/demos/input/demoGetTextValue"
+import { SelectMultiple } from "~ui/input/select/SelectMultiple"
 import { PageWrapper } from "~ui/static/page/PageWrapper"
 import { createSignalObject } from "~ui/utils/createSignalObject"
 import { arrCreate } from "~utils/arr/arrCreate"
@@ -6,15 +7,15 @@ import { arrCreate } from "~utils/arr/arrCreate"
 const options100Strings = arrCreate<string>(100, (i) => "" + i)
 const multiValueSignal = createSignalObject<string[]>([])
 
-export function DemoMultiSelect() {
+export function DemoSelectMultiple() {
   return (
     <PageWrapper>
-      <MultiSelect
+      <SelectMultiple
         id="DemoMultiSelect"
         valueSignal={multiValueSignal}
         getOptions={() => options100Strings}
         buttonProps={{}}
-        valueText={(value) => "Option " + value}
+        valueText={demoGetTextValue}
       />
     </PageWrapper>
   )
