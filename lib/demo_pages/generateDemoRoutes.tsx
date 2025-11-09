@@ -1,4 +1,3 @@
-import { type DemoNavProps } from "@/nav/NavDemo"
 import { For, type JSX } from "solid-js"
 import type { DemoNavDataProps } from "~ui/demo_pages/DemoNavDataProps"
 import { LinkBlock } from "~ui/demo_pages/LinkBlock"
@@ -36,7 +35,7 @@ export function generateDemoRoutes(
 function getDemosL2(
   demoList: DemoListType,
   prefix = pathDemos,
-  Nav: (p: DemoNavProps) => JSX.Element,
+  Nav: (p: DemoNavDataProps) => JSX.Element,
 ): RouteObject[] {
   const op = "getDemosL2"
   return objectEntries(demoList).flatMap(([category, tree]) => {
@@ -60,7 +59,7 @@ function getDemosL2(
 function getDemosL1(
   demoList: DemoListType,
   prefix = pathDemos,
-  Nav: (p: DemoNavProps) => JSX.Element,
+  Nav: (p: DemoNavDataProps) => JSX.Element,
 ): RouteObject[] {
   const op = "getDemosL1"
   return objectEntries(demoList).map(([category, nameComp]) => {
@@ -96,7 +95,7 @@ function getDemosL1(
 function getDemosL0(
   demoList: DemoListType,
   prefix: string = pathDemos,
-  Nav: (p: DemoNavProps) => JSX.Element,
+  Nav: (p: DemoNavDataProps) => JSX.Element,
   overridePath?: string,
 ): RouteObject[] {
   const op = "getDemosL0"
@@ -144,7 +143,7 @@ function getDemosL0(
 function getDemos404(
   demoList: DemoListType,
   prefix = pathDemos,
-  Nav: (p: DemoNavProps) => JSX.Element,
+  Nav: (p: DemoNavDataProps) => JSX.Element,
 ): RouteObject[] {
   return [
     {
