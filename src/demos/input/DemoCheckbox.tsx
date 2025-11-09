@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js"
-import { Checkbox } from "~ui/interactive/check/Checkbox"
+import { Checkbox } from "~ui/input/check/Checkbox"
 import { toastAdd } from "~ui/interactive/toast/toastAdd"
 import { toastVariant } from "~ui/interactive/toast/toastVariant"
 import { PageWrapper } from "~ui/static/page/PageWrapper"
