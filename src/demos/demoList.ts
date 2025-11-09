@@ -21,14 +21,9 @@ const DemoTablePagination = lazy(async () => {
   return { default: c.DemoTablePagination }
 })
 
-const DemoRadioSwitch = lazy(async () => {
-  const c = await import("@/demos/input/DemoRadioSwitch")
-  return { default: c.DemoRadioSwitch }
-})
-
-const DemoMultiSelect = lazy(async () => {
-  const c = await import("@/demos/input/DemoMultiSelect")
-  return { default: c.DemoMultiSelect }
+const DemoSwitchSingle = lazy(async () => {
+  const c = await import("@/demos/input/DemoSwitchSingle")
+  return { default: c.DemoSwitchSingle }
 })
 
 const DemoInputS = lazy(async () => {
@@ -41,9 +36,24 @@ const DemoNumberInput = lazy(async () => {
   return { default: c.DemoNumberInput }
 })
 
-const DemoNativeSingleSelect = lazy(async () => {
-  const c = await import("@/demos/input/DemoNativeSingleSelect")
-  return { default: c.DemoNativeSingleSelect }
+const DemoSelectSingleNative = lazy(async () => {
+  const c = await import("@/demos/input/DemoSelectSingleNative")
+  return { default: c.DemoSelectSingleNative }
+})
+
+const DemoCheckMultiple = lazy(async () => {
+  const c = await import("@/demos/input/DemoCheckMultiple")
+  return { default: c.DemoCheckMultiple }
+})
+
+const DemoCheckbox = lazy(async () => {
+  const c = await import("@/demos/input/DemoCheckbox")
+  return { default: c.DemoCheckbox }
+})
+
+const DemoSelectMultiple = lazy(async () => {
+  const c = await import("@/demos/input/DemoSelectMultiple")
+  return { default: c.DemoSelectMultiple }
 })
 
 const DemoIcons = lazy(async () => {
@@ -146,11 +156,6 @@ const DemoDetails = lazy(async () => {
   return { default: c.DemoDetails }
 })
 
-const DemoCheckbox = lazy(async () => {
-  const c = await import("@/demos/interactive/DemoCheckbox")
-  return { default: c.DemoCheckbox }
-})
-
 const DemoDialog = lazy(async () => {
   const c = await import("@/demos/interactive/DemoDialog")
   return { default: c.DemoDialog }
@@ -173,11 +178,13 @@ const DemoLists = lazy(async () => {
 
 export const demoList = {
   input: {
-    DemoRadioSwitch: DemoRadioSwitch,
-    DemoMultiSelect: DemoMultiSelect,
+    DemoSwitchSingle: DemoSwitchSingle,
     DemoInputS: DemoInputS,
     DemoNumberInput: DemoNumberInput,
-    DemoNativeSingleSelect: DemoNativeSingleSelect,
+    DemoSelectSingleNative: DemoSelectSingleNative,
+    DemoCheckMultiple: DemoCheckMultiple,
+    DemoCheckbox: DemoCheckbox,
+    DemoSelectMultiple: DemoSelectMultiple,
   },
   interactive: {
     DemoToaster: DemoToaster,
@@ -186,7 +193,6 @@ export const demoList = {
     DemoToggle: DemoToggle,
     DemoTheme: DemoTheme,
     DemoDetails: DemoDetails,
-    DemoCheckbox: DemoCheckbox,
     DemoDialog: DemoDialog,
     DemoButtons: DemoButtons,
     DemoPopover: DemoPopover,

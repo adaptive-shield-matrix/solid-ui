@@ -8,7 +8,7 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/radio-group/src/Radio.tsx
  */
-export interface RadioSwitchProps extends MayHaveClass {
+export interface SwitchSingleProps extends MayHaveClass {
   id?: string
   valueSignal: SignalObject<string>
   getOptions: () => string[]
@@ -16,7 +16,7 @@ export interface RadioSwitchProps extends MayHaveClass {
   disabled?: boolean
 }
 
-export function RadioSwitch(p: RadioSwitchProps) {
+export function SwitchSingle(p: SwitchSingleProps) {
   const filled = true
   return (
     <div
