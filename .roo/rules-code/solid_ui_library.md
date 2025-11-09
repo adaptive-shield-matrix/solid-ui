@@ -1,7 +1,7 @@
 # Available Solid.js UI Components and utility functions
 
 These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
-Generated at: 2025-11-06 11:38
+Generated at: 2025-11-09 10:50
 
 - ~/i18n/t1.ts
 - ~/i18n/t4pageName.ts
@@ -39,8 +39,8 @@ Generated at: 2025-11-06 11:38
 - ~/table/table1/Table1M.tsx
 - ~/table/table1/Table1R.tsx
 - ~/input/select/t4multiselect.ts
-- ~/input/select/NativeSingleSelect.tsx
-- ~/input/select/Multiselect.tsx
+- ~/input/select/SelectMultiple.tsx
+- ~/input/select/SelectSingleNative.tsx
 - ~/input/form/t4Form.ts
 - ~/input/form/formModeIcon.ts
 - ~/input/form/formMode.ts
@@ -55,9 +55,12 @@ Generated at: 2025-11-06 11:38
 - ~/input/label/LabelWithSubtitle.tsx
 - ~/input/textarea/TextareaS.tsx
 - ~/input/textarea/Textarea.tsx
-- ~/input/radio/RadioSwitch.tsx
 - ~/input/number/NumberInputS.tsx
 - ~/input/number/t4atomizedNumberInput.ts
+- ~/input/switch/SwitchSingle.tsx
+- ~/input/check/CheckMultiple.tsx
+- ~/input/check/Checkbox.tsx
+- ~/input/check/CheckSingle.tsx
 - ~/static/dev/TailwindIndicator.tsx
 - ~/static/loaders/t4loading.ts
 - ~/static/loaders/RandomLoader.tsx
@@ -128,10 +131,11 @@ Generated at: 2025-11-06 11:38
 - ~/utils/HasTitle.ts
 - ~/utils/MayHaveClassAndChildren.ts
 - ~/utils/classMerge.ts
-- ~/utils/SelectionItem.ts
 - ~/utils/createLocalStore.ts
 - ~/utils/classArr.ts
 - ~/utils/HasId.ts
+- ~/utils/HasValueText.ts
+- ~/utils/HasValueSignalStringArray.ts
 - ~/utils/MayHaveSubtitle.ts
 - ~/utils/MayHaveButtonVariantAndClass.ts
 - ~/utils/HasGetOptions.ts
@@ -165,14 +169,12 @@ Generated at: 2025-11-06 11:38
 - ~/interactive/theme/themeSignal.ts
 - ~/interactive/list/BulletLinks.tsx
 - ~/interactive/list/BulletLinksO.tsx
-- ~/interactive/tabs/TabsTop2.tsx
-- ~/interactive/tabs/TabItem.tsx
+- ~/interactive/tabs/TabsTop.tsx
 - ~/interactive/link/LinkButtonProps.tsx
 - ~/interactive/link/LinkText.tsx
 - ~/interactive/link/LinkButton.tsx
 - ~/interactive/link/LinkButtonIconOnly.tsx
 - ~/interactive/link/LinkTextProps.tsx
-- ~/interactive/check/Checkbox.tsx
 - ~/interactive/button/ButtonIcon.tsx
 - ~/interactive/button/buttonCva.ts
 - ~/interactive/button/ButtonIconOnly.tsx
