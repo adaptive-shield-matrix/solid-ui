@@ -21,6 +21,11 @@ const DemoTablePagination = lazy(async () => {
   return { default: c.DemoTablePagination }
 })
 
+const DemoCheckSingle = lazy(async () => {
+  const c = await import("@/demos/input/DemoCheckSingle")
+  return { default: c.DemoCheckSingle }
+})
+
 const DemoSwitchSingle = lazy(async () => {
   const c = await import("@/demos/input/DemoSwitchSingle")
   return { default: c.DemoSwitchSingle }
@@ -178,6 +183,7 @@ const DemoLists = lazy(async () => {
 
 export const demoList = {
   input: {
+    DemoCheckSingle: DemoCheckSingle,
     DemoSwitchSingle: DemoSwitchSingle,
     DemoInputS: DemoInputS,
     DemoNumberInput: DemoNumberInput,
