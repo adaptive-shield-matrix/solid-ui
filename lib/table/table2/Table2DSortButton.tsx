@@ -5,10 +5,12 @@ import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
 import { sortDir, type SortDir } from "~ui/table/table2/sortDir"
 import { classMerge } from "~ui/utils/classMerge"
 
-export function Table2DSortButton<T>(p: {
+export interface Table2DSortButtonProps<T> {
   sortHeader: TableColumnDef<T>
   onClick: (sortDir: TableColumnDef<T>) => void
-}) {
+}
+
+export function Table2DSortButton<T>(p: Table2DSortButtonProps<T>) {
   return (
     <ButtonIcon
       variant={buttonVariant.ghost}

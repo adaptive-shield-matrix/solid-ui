@@ -3,18 +3,23 @@ import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
+import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
+import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
+import type { MayHaveId } from "~ui/utils/MayHaveId"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/radio-group/src/Radio.tsx
  */
-export interface SwitchSingleProps extends MayHaveClass {
-  id?: string
-  valueSignal: SignalObject<string>
-  getOptions: () => string[]
-  valueText?: (value: string) => string
-  disabled?: boolean
-}
+export interface SwitchSingleProps
+  extends HasValueSignalString,
+    HasGetOptions,
+    MayHaveValueText,
+    MayHaveId,
+    MayHaveDisabled,
+    MayHaveClass {}
 
 export function SwitchSingle(p: SwitchSingleProps) {
   const filled = true

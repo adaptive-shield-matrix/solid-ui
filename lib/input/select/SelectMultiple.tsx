@@ -1,6 +1,5 @@
 import { mdiCheck, mdiClose, mdiPlus } from "@mdi/js"
 import { Key } from "@solid-primitives/keyed"
-import type { Accessor } from "solid-js"
 import { For, mergeProps } from "solid-js"
 import { ct0, ct1 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
@@ -12,6 +11,9 @@ import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
+import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { HasValueSignalStringArray } from "~ui/utils/HasValueSignalStringArray"
+import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
@@ -20,13 +22,17 @@ import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
  */
-export interface SelectMultipleProps extends MayHaveId, MayHaveClass, MayHaveInnerClass, MayHaveChildren {
+export interface SelectMultipleProps
+  extends HasValueSignalStringArray,
+    HasGetOptions,
+    MayHaveValueText,
+    MayHaveId,
+    MayHaveClass,
+    MayHaveInnerClass,
+    MayHaveChildren {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
-  valueSignal: SignalObject<string[]>
-  getOptions: Accessor<string[]>
-  valueText?: (value: string) => string
   addEntryClass?: string
   noItemsClass?: string
   listOptionClass?: string
@@ -110,10 +116,12 @@ function SelectedValue(p: SelectedValueProps) {
   )
 }
 
-interface OptionListProps extends MayHaveId, MayHaveInnerClass {
-  valueSignal: SignalObject<string[]>
-  getOptions: Accessor<string[]>
-  valueText?: (value: string) => string
+interface OptionListProps
+  extends HasValueSignalStringArray,
+    HasGetOptions,
+    MayHaveValueText,
+    MayHaveId,
+    MayHaveInnerClass {
   noItemsClass?: string
   listOptionClass?: string
 }

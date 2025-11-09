@@ -1,6 +1,12 @@
 import { BulletLinks } from "~ui/interactive/list/BulletLinks"
 
-export function LinkBlock(p: { header: string; removeUrlPrefix: string; links: string[] }) {
+export interface LinkBlockProps {
+  header: string
+  removeUrlPrefix: string
+  links: string[]
+}
+
+export function LinkBlock(p: LinkBlockProps) {
   return (
     <>
       <h2 class={"text-xl font-semibold"}>{p.header}</h2>

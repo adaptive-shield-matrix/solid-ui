@@ -1,5 +1,4 @@
 import { mdiCheckboxBlankCircleOutline, mdiCheckboxMarkedCircle } from "@mdi/js"
-import type { Accessor } from "solid-js"
 import { For } from "solid-js"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
@@ -7,16 +6,22 @@ import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
+import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { HasValueSignalStringArray } from "~ui/utils/HasValueSignalStringArray"
+import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveButtonVariant } from "~ui/utils/MayHaveButtonVariant"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
-export interface CheckMultipleProps extends MayHaveId, MayHaveButtonVariant, MayHaveClass, MayHaveInnerClass {
-  // content
-  valueSignal: SignalObject<string[]>
-  getOptions: Accessor<string[]>
-  valueText?: (value: string) => string
+export interface CheckMultipleProps
+  extends HasValueSignalStringArray,
+    HasGetOptions,
+    MayHaveValueText,
+    MayHaveId,
+    MayHaveButtonVariant,
+    MayHaveClass,
+    MayHaveInnerClass {
   // styling
   optionClass?: string
 }
@@ -47,10 +52,12 @@ export function CheckMultiple(p: CheckMultipleProps) {
   )
 }
 
-interface OptionListProps extends MayHaveButtonVariant, MayHaveInnerClass {
-  valueSignal: SignalObject<string[]>
-  getOptions: Accessor<string[]>
-  valueText?: (value: string) => string
+interface OptionListProps
+  extends HasValueSignalStringArray,
+    HasGetOptions,
+    MayHaveValueText,
+    MayHaveButtonVariant,
+    MayHaveInnerClass {
   optionClass?: string
 }
 

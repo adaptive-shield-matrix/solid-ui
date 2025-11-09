@@ -1,10 +1,8 @@
 import { type ComponentProps, type JSX, splitProps } from "solid-js"
 import { Input } from "~ui/input/input/Input"
-import type { SignalObject } from "~ui/utils/createSignalObject"
+import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
 
-export interface InputSProps extends ComponentProps<"input"> {
-  valueSignal: SignalObject<string>
-}
+export interface InputSProps extends HasValueSignalString, ComponentProps<"input"> {}
 
 export function InputS(p: InputSProps) {
   const [s, rest] = splitProps(p, ["valueSignal", "value", "onInput"])

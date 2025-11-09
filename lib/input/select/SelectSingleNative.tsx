@@ -1,20 +1,23 @@
 import { Key } from "@solid-primitives/keyed"
-import type { Accessor } from "solid-js"
 import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
+import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
+import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveId } from "~ui/utils/MayHaveId"
 import { classArr } from "~ui/utils/classArr"
-import type { SignalObject } from "~ui/utils/createSignalObject"
 
 export type StringStringFn = (value: string) => string
 
-export interface SelectSingleNativeProps extends MayHaveClass, MayHaveChildren {
-  valueSignal: SignalObject<string>
-  getOptions: Accessor<string[]>
-  valueText?: StringStringFn
-  id?: string
-}
+export interface SelectSingleNativeProps
+  extends HasValueSignalString,
+    HasGetOptions,
+    MayHaveValueText,
+    MayHaveClass,
+    MayHaveId,
+    MayHaveChildren {}
 
 export function SelectSingleNative(p: SelectSingleNativeProps) {
   return (

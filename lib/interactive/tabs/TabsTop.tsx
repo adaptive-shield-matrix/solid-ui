@@ -5,15 +5,20 @@ import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
+import type { HasGetOptions } from "~ui/utils/HasGetOptions"
+import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
+import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export interface TabsTopProps extends MayHaveChildren, MayHaveClass {
-  valueSignal: SignalObject<string>
-  getOptions: () => string[]
+export interface TabsTopProps
+  extends HasValueSignalString,
+    HasGetOptions,
+    MayHaveValueText,
+    MayHaveChildren,
+    MayHaveClass {
   valueIcon?: (value: string) => string
   valueAmount?: (value: string) => number | undefined
-  valueText?: (value: string) => string
   valueChildren: (value: string) => JSXElement
   id?: string
   disabled?: boolean
@@ -138,7 +143,11 @@ function makeContentId(baseId: string, value: string) {
   return `${baseId}-${value}-content`
 }
 
-function setActiveTab(p: { value: string; valueSignal: SignalObject<string> }) {
+interface SetActiveTabProps extends HasValueSignalString {
+  value: string
+}
+
+function setActiveTab(p: SetActiveTabProps) {
   let prev = p.valueSignal.get()
   // console.log("setActiveTab", p.value, "prev:", prev)
   if (prev === p.value) return
@@ -154,11 +163,13 @@ function isSelected(p: OptionProps) {
   return p.value === p.valueSignal.get()
 }
 
-function getText(p: {
+interface GetTextProps {
   value: string
   valueAmount?: (value: string) => number | undefined
   valueText?: (value: string) => string
-}): string {
+}
+
+function getText(p: GetTextProps): string {
   const amount = p.valueAmount?.(p.value)
   const text = p.valueText?.(p.value) || p.value
   if (!amount) return text
