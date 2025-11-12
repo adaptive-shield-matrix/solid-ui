@@ -24,6 +24,7 @@ export interface CheckSingleProps
     MayHaveClass,
     MayHaveInnerClass,
     MayHaveDisabled {
+  disallowDeselection?: boolean
   optionClass?: string
 }
 
@@ -46,6 +47,7 @@ export function CheckSingle(p: CheckSingleProps) {
         getOptions={p.getOptions}
         valueText={p.valueText}
         variant={p.variant}
+        disallowDeselection={p.disallowDeselection}
         optionClass={p.optionClass}
         innerClass={p.innerClass}
       />
@@ -60,6 +62,7 @@ interface OptionListProps
     MayHaveButtonVariant,
     MayHaveDisabled,
     MayHaveInnerClass {
+  disallowDeselection?: boolean
   optionClass?: string
 }
 
@@ -74,6 +77,7 @@ function OptionList(p: OptionListProps) {
             valueText={p.valueText}
             optionClass={p.optionClass}
             variant={p.variant}
+            disallowDeselection={p.disallowDeselection}
             disabled={p.disabled}
           />
         )}
@@ -95,6 +99,7 @@ interface CheckOptionProps extends MayHaveButtonVariant, MayHaveDisabled {
   option: string
   valueSignal: SignalObject<string>
   valueText?: (value: string) => string
+  disallowDeselection?: boolean
   optionClass?: string
 }
 
@@ -108,7 +113,7 @@ function CheckOption(p: CheckOptionProps) {
       aria-selected={isSelected()}
       icon={isSelected() ? mdiCheckboxMarkedCircle : mdiCheckboxBlankCircleOutline}
       // iconRight={isSelected() ? mdiCheckboxMarkedCircle : mdiCheckboxBlankCircleOutline}
-      onClick={() => toggleOption(p)}
+      onClick={() => toggleOption(p, p.disallowDeselection)}
       variant={p.variant ?? buttonVariant.filled}
       class={classMerge("justify-start text-left", p.optionClass)}
       disabled={p.disabled}
@@ -118,9 +123,9 @@ function CheckOption(p: CheckOptionProps) {
   )
 }
 
-function toggleOption(p: CheckOptionProps) {
+function toggleOption(p: CheckOptionProps, disallowDeselection?: boolean) {
   const isSelected = p.valueSignal.get() === p.option
-  if (isSelected) {
+  if (isSelected && !disallowDeselection) {
     p.valueSignal.set("")
   } else {
     p.valueSignal.set(p.option)
