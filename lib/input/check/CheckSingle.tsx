@@ -11,6 +11,7 @@ import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
 import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveButtonVariant } from "~ui/utils/MayHaveButtonVariant"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
@@ -21,8 +22,8 @@ export interface CheckSingleProps
     MayHaveId,
     MayHaveButtonVariant,
     MayHaveClass,
-    MayHaveInnerClass {
-  // styling
+    MayHaveInnerClass,
+    MayHaveDisabled {
   optionClass?: string
 }
 
@@ -30,7 +31,7 @@ export function CheckSingle(p: CheckSingleProps) {
   return (
     <div
       id={p.id}
-      class={classArr(
+      class={classMerge(
         "group border border-input",
         "px-2 py-2",
         "ring-offset-background",
@@ -57,23 +58,14 @@ interface OptionListProps
     HasGetOptions,
     MayHaveValueText,
     MayHaveButtonVariant,
+    MayHaveDisabled,
     MayHaveInnerClass {
   optionClass?: string
 }
 
 function OptionList(p: OptionListProps) {
-  const innerClass = () => {
-    if (p.innerClass) return p.innerClass
-    const optionAmount = p.getOptions().length
-    if (optionAmount <= 0) return ""
-    const base = " gap-x-2 gap-y-1"
-    if (optionAmount <= 5) return `grid grid-cols-1${base}`
-    if (optionAmount <= 9) return `grid grid-cols-2${base}`
-    return `${classesGridCols3xl}${base}`
-  }
-
   return (
-    <div class={innerClass()}>
+    <div class={innerClass(p.getOptions().length, p.innerClass)}>
       <For each={p.getOptions()}>
         {(option) => (
           <CheckOption
@@ -82,6 +74,7 @@ function OptionList(p: OptionListProps) {
             valueText={p.valueText}
             optionClass={p.optionClass}
             variant={p.variant}
+            disabled={p.disabled}
           />
         )}
       </For>
@@ -89,7 +82,16 @@ function OptionList(p: OptionListProps) {
   )
 }
 
-interface CheckOptionProps extends MayHaveButtonVariant {
+function innerClass(optionAmount: number, innerClass?: string): string {
+  if (innerClass) return innerClass
+  if (optionAmount <= 0) return ""
+  const base = "gap-x-2 gap-y-1"
+  if (optionAmount === 1) return classArr("grid grid-cols-1", base)
+  if (optionAmount === 2) return classArr("grid grid-cols-2", base)
+  return classArr(classesGridCols3xl, base)
+}
+
+interface CheckOptionProps extends MayHaveButtonVariant, MayHaveDisabled {
   option: string
   valueSignal: SignalObject<string>
   valueText?: (value: string) => string
@@ -109,6 +111,7 @@ function CheckOption(p: CheckOptionProps) {
       onClick={() => toggleOption(p)}
       variant={p.variant ?? buttonVariant.filled}
       class={classMerge("justify-start text-left", p.optionClass)}
+      disabled={p.disabled}
     >
       {label()}
     </ButtonIcon>
