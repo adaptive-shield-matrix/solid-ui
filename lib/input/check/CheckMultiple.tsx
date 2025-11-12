@@ -62,18 +62,8 @@ interface OptionListProps
 }
 
 function OptionList(p: OptionListProps) {
-  const innerClass = () => {
-    if (p.innerClass) return p.innerClass
-    const optionAmount = p.getOptions().length
-    if (optionAmount <= 0) return ""
-    const base = " gap-x-2 gap-y-1"
-    if (optionAmount <= 5) return `grid grid-cols-1${base}`
-    if (optionAmount <= 9) return `grid grid-cols-2${base}`
-    return `${classesGridCols3xl}${base}`
-  }
-
   return (
-    <div class={innerClass()}>
+    <div class={innerClass(p.getOptions().length, p.innerClass)}>
       <For each={p.getOptions()}>
         {(option) => (
           <CheckOption
@@ -113,6 +103,15 @@ function CheckOption(p: CheckOptionProps) {
       {label()}
     </ButtonIcon>
   )
+}
+
+function innerClass(optionAmount: number, innerClass?: string): string {
+  if (innerClass) return innerClass
+  if (optionAmount <= 0) return ""
+  const base = "gap-x-2 gap-y-1"
+  if (optionAmount <= 5) return classArr("grid grid-cols-1", base)
+  if (optionAmount <= 9) return classArr("grid grid-cols-2", base)
+  return classArr(classesGridCols3xl, base)
 }
 
 function toggleOption(p: CheckOptionProps) {
