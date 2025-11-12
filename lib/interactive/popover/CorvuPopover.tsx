@@ -1,10 +1,10 @@
 import Popover from "@corvu/popover"
 import type { JSX } from "solid-js"
+import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
 import { buttonCva2 } from "~ui/interactive/button/buttonCva"
 import type { ButtonIcon1Props } from "~ui/interactive/button/ButtonIcon1"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
-import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { Icon1 } from "~ui/static/icon/Icon1"
 import { classArr } from "~ui/utils/classArr"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -31,7 +31,7 @@ export function CorvuPopover(p: CorvuPopoverProps) {
           p.variant,
           p.size,
           classesButtonClickAnimation,
-          (p.disabled || p.isDisabled?.()) && classesButtonDisabled,
+          (p.disabled || p.isDisabled?.()) && classesDisabledDirectly,
           p.class,
         )}
       >

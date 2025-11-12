@@ -1,5 +1,6 @@
 import type { Component, ComponentProps } from "solid-js"
 import { splitProps } from "solid-js"
+import { classesDisabledModifierPeer } from "~ui/classes/classesDisabledModifierPeer"
 import { classMerge } from "~ui/utils/classMerge"
 
 export const Label: Component<ComponentProps<"label">> = (p) => {
@@ -9,7 +10,7 @@ export const Label: Component<ComponentProps<"label">> = (p) => {
       class={classMerge(
         "font-medium leading-none", // font
         "whitespace-nowrap", // no text wrapping
-        "peer-disabled:cursor-not-allowed peer-disabled:opacity-70", // disabled
+        classesDisabledModifierPeer, // disabled
         s.class,
       )}
       {...rest}

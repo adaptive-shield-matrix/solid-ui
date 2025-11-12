@@ -1,4 +1,5 @@
 import { Key } from "@solid-primitives/keyed"
+import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
 import { ct0 } from "~ui/i18n/ct0"
 import { t4multiselect } from "~ui/input/select/t4multiselect"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
@@ -6,6 +7,7 @@ import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
 import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import { classArr } from "~ui/utils/classArr"
 
@@ -17,7 +19,8 @@ export interface SelectSingleNativeProps
     MayHaveValueText,
     MayHaveClass,
     MayHaveId,
-    MayHaveChildren {}
+    MayHaveChildren,
+    MayHaveDisabled {}
 
 export function SelectSingleNative(p: SelectSingleNativeProps) {
   return (
@@ -30,10 +33,12 @@ export function SelectSingleNative(p: SelectSingleNativeProps) {
         "bg-gray-50 dark:bg-gray-700", // bg
         "rounded-lg border border-gray-300 dark:border-gray-500", // border
         "focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500",
+        p.disabled && classesDisabledDirectly,
         p.class,
       )}
       value={p.valueSignal.get()}
       onChange={(e) => onChange(e, p)}
+      disabled={p.disabled}
     >
       <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems />}>
         {(getItem) => <SelectItem itemValue={getItem()} valueText={p.valueText} />}

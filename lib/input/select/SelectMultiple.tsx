@@ -16,6 +16,7 @@ import type { HasValueSignalStringArray } from "~ui/utils/HasValueSignalStringAr
 import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
@@ -29,7 +30,8 @@ export interface SelectMultipleProps
     MayHaveId,
     MayHaveClass,
     MayHaveInnerClass,
-    MayHaveChildren {
+    MayHaveChildren,
+    MayHaveDisabled {
   buttonProps: CorvuPopoverProps
   textNoEntries?: string
   textAddEntry?: string
@@ -44,6 +46,7 @@ export function SelectMultiple(p: SelectMultipleProps) {
     icon: mdiPlus,
     children: p.textAddEntry ?? ct0(t4multiselect.Add_entry),
     class: buttonClass,
+    disabled: p.disabled,
   })
   return (
     <div
@@ -68,6 +71,7 @@ export function SelectMultiple(p: SelectMultipleProps) {
           noItemsClass={p.noItemsClass}
           listOptionClass={p.listOptionClass}
           innerClass={p.innerClass}
+          disabled={p.disabled}
         />
       </CorvuPopover>
     </div>
@@ -121,7 +125,8 @@ interface OptionListProps
     HasGetOptions,
     MayHaveValueText,
     MayHaveId,
-    MayHaveInnerClass {
+    MayHaveInnerClass,
+    MayHaveDisabled {
   noItemsClass?: string
   listOptionClass?: string
 }
@@ -138,6 +143,7 @@ function OptionList(p: OptionListProps) {
             valueSignal={p.valueSignal}
             valueText={p.valueText}
             listOptionClass={p.listOptionClass}
+            disabled={p.disabled}
           />
         )}
       </For>
@@ -155,7 +161,7 @@ function getInnerClass(optionAmount: number, innerClass?: string): string {
   return ""
 }
 
-interface ListOptionProps extends MayHaveId, MultiselectOptionState {
+interface ListOptionProps extends MayHaveId, MultiselectOptionState, MayHaveDisabled {
   index: number
   listOptionClass?: string
 }
@@ -173,6 +179,7 @@ function ListOption(p: ListOptionProps) {
       }}
       variant={buttonVariant.ghost}
       class={classMerge("justify-start", p.listOptionClass)}
+      disabled={p.disabled}
     >
       {label()}
     </ButtonIcon>

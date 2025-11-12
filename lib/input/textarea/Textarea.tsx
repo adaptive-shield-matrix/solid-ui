@@ -1,5 +1,6 @@
 import type { Component, ComponentProps } from "solid-js"
 import { splitProps } from "solid-js"
+import { classesDisabledModifier } from "~ui/classes/classesDisabledModifier"
 import { classMerge } from "~ui/utils/classMerge"
 
 export const Textarea: Component<ComponentProps<"textarea">> = (p) => {
@@ -15,7 +16,7 @@ export const Textarea: Component<ComponentProps<"textarea">> = (p) => {
         "placeholder:text-muted-foreground", // typography
         "px-3 py-2", // spacing
         "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background", // focus states
-        "disabled:cursor-not-allowed disabled:opacity-50", // disabled states
+        classesDisabledModifier, // disabled
         s.class,
       )}
       {...rest}

@@ -1,8 +1,8 @@
 import { type Accessor, type Component, type ComponentProps, splitProps } from "solid-js"
+import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
 import { buttonCva2, type ButtonCvaProps } from "~ui/interactive/button/buttonCva"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
-import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { Icon1 } from "~ui/static/icon/Icon1"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
@@ -50,7 +50,7 @@ export const ButtonIcon1: Component<ButtonIcon1Props> = (p) => {
         s.variant,
         s.size,
         classesButtonClickAnimation,
-        (s.disabled || s.isDisabled?.()) && classesButtonDisabled,
+        (s.disabled || s.isDisabled?.()) && classesDisabledDirectly,
         s.class,
       )}
       onClick={onClick2}

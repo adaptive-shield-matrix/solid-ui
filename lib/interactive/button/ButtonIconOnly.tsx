@@ -1,8 +1,8 @@
 import { type Component, type ComponentProps, splitProps } from "solid-js"
+import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
 import { buttonCvaIconOnly, type ButtonCvaProps } from "~ui/interactive/button/buttonCva"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
-import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { Icon0 } from "~ui/static/icon/Icon0"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import { isDisabled } from "~ui/utils/MayHaveDisabledAccessor"
@@ -51,7 +51,7 @@ export const ButtonIconOnly: Component<ButtonIconOnlyProps> = (p) => {
             s.variant,
             s.children && "mr-2",
             s.isLoading && "animate-spin-faster",
-            s.disabled && classesButtonDisabled,
+            s.disabled && classesDisabledDirectly,
             s.iconClass,
           )}
         />

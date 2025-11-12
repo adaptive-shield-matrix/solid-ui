@@ -1,5 +1,6 @@
+import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
+import { classesDisabledModifier } from "~ui/classes/classesDisabledModifier"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
-import { classesButtonDisabled } from "~ui/interactive/button/classesButtonDisabled"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 
@@ -46,6 +47,7 @@ const baseClasses = classArr(
   "transition-colors", // animation
   "group",
   "cursor-pointer",
+  classesDisabledModifier,
 )
 
 const variantClasses = {
@@ -179,7 +181,7 @@ export function buttonCvaIconOnly(
     buttonSize.none,
     classesButtonClickAnimation,
     "rounded-full p-2.5",
-    (isDisabled || isLoading) && classesButtonDisabled,
+    (isDisabled || isLoading) && classesDisabledDirectly,
     ...customClasses,
   )
   return classes

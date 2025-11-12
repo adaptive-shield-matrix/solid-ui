@@ -11,6 +11,7 @@ import type { HasValueSignalStringArray } from "~ui/utils/HasValueSignalStringAr
 import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveButtonVariant } from "~ui/utils/MayHaveButtonVariant"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
@@ -21,7 +22,8 @@ export interface CheckMultipleProps
     MayHaveId,
     MayHaveButtonVariant,
     MayHaveClass,
-    MayHaveInnerClass {
+    MayHaveInnerClass,
+    MayHaveDisabled {
   // styling
   optionClass?: string
 }
@@ -57,7 +59,8 @@ interface OptionListProps
     HasGetOptions,
     MayHaveValueText,
     MayHaveButtonVariant,
-    MayHaveInnerClass {
+    MayHaveInnerClass,
+    MayHaveDisabled {
   optionClass?: string
 }
 
@@ -72,6 +75,7 @@ function OptionList(p: OptionListProps) {
             valueText={p.valueText}
             optionClass={p.optionClass}
             variant={p.variant}
+            disabled={p.disabled}
           />
         )}
       </For>
@@ -79,7 +83,7 @@ function OptionList(p: OptionListProps) {
   )
 }
 
-interface CheckOptionProps extends MayHaveButtonVariant {
+interface CheckOptionProps extends MayHaveButtonVariant, MayHaveDisabled {
   option: string
   valueSignal: SignalObject<string[]>
   valueText?: (value: string) => string
@@ -99,6 +103,7 @@ function CheckOption(p: CheckOptionProps) {
       onClick={() => toggleOption(p)}
       variant={p.variant ?? buttonVariant.filled}
       class={classMerge("justify-start text-left", p.optionClass)}
+      disabled={p.disabled}
     >
       {label()}
     </ButtonIcon>
