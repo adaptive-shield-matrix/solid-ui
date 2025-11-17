@@ -38,7 +38,7 @@ export function CheckSingle(p: CheckSingleProps) {
         "ring-offset-background",
         "rounded-md",
         "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
-        "flex flex-col items-center justify-center gap-1", // layout
+        "flex flex-col justify-center gap-1", // layout
         p.class,
       )}
     >
