@@ -15,6 +15,7 @@ export function DemoCheckBoolean() {
           valueSignal={booleanValueSignal}
           valueText={(value) => (value ? "Enabled" : "Disabled")}
           class="max-w-sm"
+          optionClass="bg-gray-50"
         />
 
         <CheckBoolean
@@ -22,6 +23,7 @@ export function DemoCheckBoolean() {
           valueSignal={booleanBothValueSignal}
           valueText={(value) => (value ? "Enabled" : "Disabled")}
           class="max-w-sm"
+          optionClass="bg-gray-50"
         />
       </div>
     </PageWrapper>

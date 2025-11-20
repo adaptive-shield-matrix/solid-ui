@@ -17,6 +17,7 @@ export interface CheckBooleanSingleProps
     MayHaveDisabled {
   valueSignal: SignalObject<boolean>
   valueText: (value: boolean) => string
+  optionClass?: string
 }
 
 export function CheckBooleanSingle(p: CheckBooleanSingleProps) {
@@ -42,7 +43,7 @@ export function CheckBooleanSingle(p: CheckBooleanSingleProps) {
         icon={isSelected() ? mdiCheckboxMarkedCircle : mdiCheckboxBlankCircleOutline}
         onClick={() => toggleOption(p)}
         variant={p.variant ?? buttonVariant.filled}
-        class={classMerge("justify-start text-left", p.innerClass)}
+        class={classMerge("justify-start text-left", p.innerClass, p.optionClass)}
         disabled={p.disabled}
       >
         {label()}

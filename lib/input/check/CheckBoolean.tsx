@@ -17,6 +17,7 @@ export interface CheckBooleanProps
     MayHaveDisabled {
   valueSignal: SignalObject<boolean>
   valueText: (value: boolean) => string
+  optionClass?: string
 }
 
 export function CheckBoolean(p: CheckBooleanProps) {
@@ -42,7 +43,7 @@ export function CheckBoolean(p: CheckBooleanProps) {
           icon={!currentValue() ? mdiCheckboxMarkedCircle : mdiCheckboxBlankCircleOutline}
           onClick={() => p.valueSignal.set(false)}
           variant={!currentValue() ? (p.variant ?? buttonVariant.filled) : buttonVariant.outline}
-          class={classMerge("justify-start text-left", p.innerClass)}
+          class={classMerge("justify-start text-left", p.innerClass, p.optionClass)}
           disabled={p.disabled}
         >
           {p.valueText(false)}
@@ -54,7 +55,7 @@ export function CheckBoolean(p: CheckBooleanProps) {
           icon={currentValue() ? mdiCheckboxMarkedCircle : mdiCheckboxBlankCircleOutline}
           onClick={() => p.valueSignal.set(true)}
           variant={currentValue() ? (p.variant ?? buttonVariant.filled) : buttonVariant.outline}
-          class={classMerge("justify-start text-left", p.innerClass)}
+          class={classMerge("justify-start text-left", p.innerClass, p.optionClass)}
           disabled={p.disabled}
         >
           {p.valueText(true)}
