@@ -6,29 +6,29 @@ import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
-import type { HasGetOptions } from "~ui/utils/HasGetOptions"
-import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
-import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveButtonVariant } from "~ui/utils/MayHaveButtonVariant"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 
-export interface CheckSingleProps
-  extends HasValueSignalString,
-    HasGetOptions,
-    MayHaveValueText,
-    MayHaveId,
+export interface CheckSingleProps<T extends string>
+  extends MayHaveId,
     MayHaveButtonVariant,
     MayHaveClass,
     MayHaveInnerClass,
     MayHaveDisabled {
+  // state
+  valueSignal: SignalObject<T>
+  getOptions: () => T[]
+  valueText?: (value: T) => string
+  // behavior
   disallowDeselection?: boolean
+  // styling
   optionClass?: string
 }
 
-export function CheckSingle(p: CheckSingleProps) {
+export function CheckSingle<T extends string = string>(p: CheckSingleProps<T>) {
   return (
     <div
       id={p.id}
@@ -55,18 +55,16 @@ export function CheckSingle(p: CheckSingleProps) {
   )
 }
 
-interface OptionListProps
-  extends HasValueSignalString,
-    HasGetOptions,
-    MayHaveValueText,
-    MayHaveButtonVariant,
-    MayHaveDisabled,
-    MayHaveInnerClass {
+interface OptionListProps<T extends string> extends MayHaveButtonVariant, MayHaveDisabled, MayHaveInnerClass {
+  valueSignal: SignalObject<T>
+  getOptions: () => T[]
+  valueText?: (value: T) => string
+
   disallowDeselection?: boolean
   optionClass?: string
 }
 
-function OptionList(p: OptionListProps) {
+function OptionList<T extends string>(p: OptionListProps<T>) {
   return (
     <div class={innerClass(p.getOptions().length, p.innerClass)}>
       <For each={p.getOptions()}>
@@ -95,15 +93,15 @@ function innerClass(optionAmount: number, innerClass?: string): string {
   return classArr(classesGridCols3xl, base)
 }
 
-interface CheckOptionProps extends MayHaveButtonVariant, MayHaveDisabled {
-  option: string
-  valueSignal: SignalObject<string>
-  valueText?: (value: string) => string
+interface CheckOptionProps<T extends string> extends MayHaveButtonVariant, MayHaveDisabled {
+  option: T
+  valueSignal: SignalObject<T>
+  valueText?: (value: T) => string
   disallowDeselection?: boolean
   optionClass?: string
 }
 
-function CheckOption(p: CheckOptionProps) {
+function CheckOption<T extends string>(p: CheckOptionProps<T>) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   const isSelected = () => p.valueSignal.get() === p.option
 
@@ -123,10 +121,10 @@ function CheckOption(p: CheckOptionProps) {
   )
 }
 
-function toggleOption(p: CheckOptionProps, disallowDeselection?: boolean) {
+function toggleOption<T extends string>(p: CheckOptionProps<T>, disallowDeselection?: boolean) {
   const isSelected = p.valueSignal.get() === p.option
   if (isSelected && !disallowDeselection) {
-    p.valueSignal.set("")
+    p.valueSignal.set("" as T)
   } else {
     p.valueSignal.set(p.option)
   }
