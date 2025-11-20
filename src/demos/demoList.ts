@@ -31,6 +31,11 @@ const DemoSwitchSingle = lazy(async () => {
   return { default: c.DemoSwitchSingle }
 })
 
+const DemoCheckBoolean = lazy(async () => {
+  const c = await import("@/demos/input/DemoCheckBoolean")
+  return { default: c.DemoCheckBoolean }
+})
+
 const DemoInputS = lazy(async () => {
   const c = await import("@/demos/input/DemoInputS")
   return { default: c.DemoInputS }
@@ -185,6 +190,7 @@ export const demoList = {
   input: {
     DemoCheckSingle: DemoCheckSingle,
     DemoSwitchSingle: DemoSwitchSingle,
+    DemoCheckBoolean: DemoCheckBoolean,
     DemoInputS: DemoInputS,
     DemoNumberInput: DemoNumberInput,
     DemoSelectSingleNative: DemoSelectSingleNative,
