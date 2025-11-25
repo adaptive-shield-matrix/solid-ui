@@ -1,13 +1,13 @@
 import { mdiCheck, mdiClose, mdiPlus } from "@mdi/js"
 import { Key } from "@solid-primitives/keyed"
 import { For, mergeProps } from "solid-js"
-import { ct0, ct1 } from "~ui/i18n/ct0"
-import { t4multiselect } from "~ui/input/select/t4multiselect"
+import { ttl, ttl1 } from "~ui/i18n/ttl"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import type { CorvuPopoverProps } from "~ui/interactive/popover/CorvuPopover"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
+import { tbNoEntries } from "~ui/table/i18n/tbNoEntries"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
@@ -19,6 +19,8 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
+import { tbRemoveX } from "../form/i18n/tbRemoveX"
+import { tbAddEntry } from "./i18n/tbAddEntry"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
@@ -44,7 +46,7 @@ export function SelectMultiple(p: SelectMultipleProps) {
   const buttonClass = classMerge(p.addEntryClass, p.buttonProps.class)
   const buttonProps = mergeProps(p.buttonProps, {
     icon: mdiPlus,
-    children: p.textAddEntry ?? ct0(t4multiselect.Add_entry),
+    children: p.textAddEntry ?? ttl(tbAddEntry),
     class: buttonClass,
     disabled: p.disabled,
   })
@@ -113,7 +115,7 @@ function SelectedValue(p: SelectedValueProps) {
       data-value={p.option}
       onMouseDown={(e) => optionRemove(p)}
       onClick={(e) => optionRemove(p)}
-      title={ct1(t4multiselect.Remove_x, label()) || ""}
+      title={ttl1(tbRemoveX, label()) || ""}
     >
       {label()}
     </ButtonIcon>
@@ -222,7 +224,7 @@ function NoItems(p: NoItemsProps) {
         p.class,
       )}
     >
-      {ct0(t4multiselect.No_entries)}
+      {ttl(tbNoEntries)}
     </div>
   )
 }

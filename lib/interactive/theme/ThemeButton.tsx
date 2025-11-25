@@ -1,12 +1,21 @@
 import { createEffect, onCleanup } from "solid-js"
-import { ct0, ct1 } from "~ui/i18n/ct0"
+import { ttl, ttl1 } from "~ui/i18n/ttl"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
-import { t4theme } from "~ui/interactive/theme/t4theme"
+import { tbCurrentThemeX } from "~ui/interactive/theme/i18n/tbCurrentThemeX"
+import { tbDark } from "~ui/interactive/theme/i18n/tbDark"
+import { tbLight } from "~ui/interactive/theme/i18n/tbLight"
+import { tbOs } from "~ui/interactive/theme/i18n/tbOs"
 import { themeInit, themeRotate, themeSignal } from "~ui/interactive/theme/themeSignal"
 import { themeIcon, type ThemeVariant } from "~ui/interactive/theme/themeVariant"
 import { classMerge } from "~ui/utils/classMerge"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+
+const themeTranslations = {
+  light: tbLight,
+  dark: tbDark,
+  os: tbOs,
+} as const
 
 function createGlobalKeyHandler(navigate: (to: string) => void) {
   return (e: KeyboardEvent) => {
@@ -35,7 +44,7 @@ export function ThemeButton(p: ThemeButtonProps) {
   })
   return (
     <ButtonIconOnly
-      title={ct1(t4theme.Current_theme_x, ct0(t4theme[themeSignal.get()]))}
+      title={ttl1(tbCurrentThemeX, ttl(themeTranslations[themeSignal.get()]))}
       icon={themeIcon(themeSignal.get())}
       variant={buttonVariant.ghost}
       class={classMerge(p.class)}
@@ -48,5 +57,5 @@ export function ThemeButton(p: ThemeButtonProps) {
 
 function themeText(): string {
   const theme: ThemeVariant = themeSignal.get()
-  return ct0(t4theme[theme])
+  return ttl(themeTranslations[theme])
 }

@@ -1,19 +1,19 @@
-import { languageSignal } from "~ui/i18n/languageSignal"
-import { tt0 } from "~ui/i18n/t1"
+import { ttt } from "~ui/i18n/ttt"
 import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassNames"
 import { sharedTableRowClassName } from "~ui/table/shared/sharedTableRowClassName"
-import { t4table } from "~ui/table/shared/t4table"
 import type { Table1Data } from "~ui/table/table1/Table1Data"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/classMerge"
 
 export interface Table1aDProps<T> extends Table1Data<T>, MayHaveClass {
   desktopClasses?: DesktopTableClassNames
+  translate?: (en: string) => string
 }
 
 export function Table1D<T>(p: Table1aDProps<T>) {
-  if (p.rows.length <= 0)
-    return <span class={"text-lg text-center p-2 pt-6"}>{tt0(languageSignal.get(), t4table.No_entries)}</span>
+  const noEntriesText = p.translate ? p.translate("No entries") : ttt("No entries")
+
+  if (p.rows.length <= 0) return <span class={"text-lg text-center p-2 pt-6"}>{noEntriesText}</span>
   return (
     <table class={classMerge("overflow-x-auto", p.class, p.desktopClasses?.class)}>
       <thead>

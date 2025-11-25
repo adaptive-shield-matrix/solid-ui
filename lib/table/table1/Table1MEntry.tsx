@@ -7,6 +7,7 @@ export type Table1aMEntryProps<T> = {
   row: T
   columns: TableColumnDef<T>[]
   mobileClasses?: MobileTableClassNames
+  translate?: (en: string) => string
 }
 
 export function Table1MEntry<T>(p: Table1aMEntryProps<T>) {

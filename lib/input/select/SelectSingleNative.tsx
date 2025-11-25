@@ -1,7 +1,7 @@
 import { Key } from "@solid-primitives/keyed"
 import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
-import { ct0 } from "~ui/i18n/ct0"
-import { t4multiselect } from "~ui/input/select/t4multiselect"
+import { ttl } from "~ui/i18n/ttl"
+import { tbNoEntries } from "~ui/table/i18n/tbNoEntries"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
 import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
 import type { MayHaveValueText } from "~ui/utils/HasValueText"
@@ -58,7 +58,7 @@ function onChange(
 }
 
 function NoItems(p: MayHaveClass) {
-  return <div class={p.class}>{ct0(t4multiselect.No_entries)}</div>
+  return <div class={p.class}>{ttl(tbNoEntries)}</div>
 }
 
 interface SelectItemProps extends MayHaveClass {

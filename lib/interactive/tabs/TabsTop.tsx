@@ -1,8 +1,8 @@
 import { Key } from "@solid-primitives/keyed"
 import type { JSXElement } from "solid-js"
 import { createUniqueId } from "solid-js"
-import { ct0 } from "~ui/i18n/ct0"
-import { t4multiselect } from "~ui/input/select/t4multiselect"
+import { ttl } from "~ui/i18n/ttl"
+import { tbNoEntries } from "~ui/table/i18n/tbNoEntries"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
@@ -78,7 +78,7 @@ export function TabsTop(p: TabsTopProps) {
 }
 
 function NoTabOptions(p: MayHaveClass) {
-  return <div class={p.class}>{ct0(t4multiselect.No_entries)}</div>
+  return <div class={p.class}>{ttl(tbNoEntries)}</div>
 }
 
 interface TabOptionProps extends MayHaveClass {

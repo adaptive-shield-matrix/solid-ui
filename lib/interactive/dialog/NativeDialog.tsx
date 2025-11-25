@@ -1,13 +1,13 @@
 import { mdiClose } from "@mdi/js"
 import { createUniqueId, mergeProps, Show, splitProps } from "solid-js"
-import { ct0 } from "~ui/i18n/ct0"
+import { ttl } from "~ui/i18n/ttl"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon, type ButtonIconProps } from "~ui/interactive/button/ButtonIcon"
 import {
   createNativeDialogOpenStateSignal,
   type IsOpenSignalObject,
 } from "~ui/interactive/dialog/createNativeDialogOpenStateSignal"
-import { tbCloseDialog } from "~ui/interactive/dialog/tbCloseDialog"
+import { tbCloseDialog } from "~ui/interactive/dialog/i18n/tbCloseDialog"
 import { classMerge } from "~ui/utils/classMerge"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -103,7 +103,7 @@ export function NativeDialog(pp: DialogProps) {
           </h2>
           <ButtonIcon
             variant={buttonVariant.ghost}
-            title={ct0(tbCloseDialog)}
+            title={ttl(tbCloseDialog)}
             icon={mdiClose}
             onClick={() => p.openState.close()}
           />

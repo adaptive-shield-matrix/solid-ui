@@ -8,6 +8,7 @@ import { classMerge } from "~ui/utils/classMerge"
 
 export interface SortableTableMProps<T> extends Table2Signals<T>, MayHaveClass {
   mobileClasses?: MobileTableClassNames
+  translate?: (en: string) => string
 }
 
 export function Table2M<T>(p: SortableTableMProps<T>) {
@@ -17,7 +18,7 @@ export function Table2M<T>(p: SortableTableMProps<T>) {
         {(row, i) => (
           <>
             <Separator />
-            <Table1MEntry row={row} columns={p.columns.get()} mobileClasses={p.mobileClasses} />
+            <Table1MEntry row={row} columns={p.columns.get()} mobileClasses={p.mobileClasses} translate={p.translate} />
           </>
         )}
       </For>

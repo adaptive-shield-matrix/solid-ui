@@ -2,25 +2,12 @@ export type Language = keyof typeof language
 export const language = {
   en: "en",
   de: "de",
+  ru: "ru",
+  tj: "tj",
 } as const
 
-export const defaultLanguage: Language = language.de
-// export let defaultLanguage: Language = languages.en
+export const languageDefault: Language = language.de
 
-export function isDe() {
-  return defaultLanguage === language.de
+export function isEn(l: Language) {
+  return languageDefault === language.en
 }
-
-export function isEn() {
-  return defaultLanguage === language.en
-}
-
-export const knownLanguages = {
-  en: "English",
-  de: "Deutsch",
-} as const
-
-export const languageFlag = {
-  en: "🇺🇸",
-  de: "🇩🇪",
-} as const

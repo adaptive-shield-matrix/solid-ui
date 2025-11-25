@@ -7,6 +7,7 @@ import { classMerge } from "~ui/utils/classMerge"
 
 export interface Table1aMProps<T> extends Table1Data<T>, MayHaveClass {
   mobileClasses?: MobileTableClassNames
+  translate?: (en: string) => string
 }
 
 export function Table1M<T>(p: Table1aMProps<T>) {
@@ -15,7 +16,7 @@ export function Table1M<T>(p: Table1aMProps<T>) {
       {p.rows.map((row, y) => (
         <>
           <Separator />
-          <Table1MEntry row={row} columns={p.columns} mobileClasses={p.mobileClasses} />
+          <Table1MEntry row={row} columns={p.columns} mobileClasses={p.mobileClasses} translate={p.translate} />
         </>
       ))}
     </div>

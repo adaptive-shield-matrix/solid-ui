@@ -1,8 +1,10 @@
 import { mdiMinus, mdiMinusBox, mdiPlus, mdiPlusBox } from "@mdi/js"
 import { type JSX } from "solid-js"
-import { ct1 } from "~ui/i18n/ct0"
+import type { TranslationBlock } from "~ui/i18n/TranslationBlock"
+import { ttl1 } from "~ui/i18n/ttl"
 import { Input } from "~ui/input/input/Input"
-import { t4atomizedNumberInput } from "~ui/input/number/t4atomizedNumberInput"
+import { tbDecreaseByX } from "~ui/input/number/i18n/tbDecreaseByX"
+import { tbIncreaseByX } from "~ui/input/number/i18n/tbIncreaseByX."
 import { buttonVariant, type ButtonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
 import { classMerge } from "~ui/utils/classMerge"
@@ -22,6 +24,7 @@ export type NumberInputSProps = {
   buttonClass?: string
   onChanged?: (v: number) => void
   id?: string
+  translate?: (en: string, x1?: string | number) => string
 }
 
 export function NumberInputS(p: NumberInputSProps) {
@@ -63,12 +66,20 @@ export function NumberInputS(p: NumberInputSProps) {
     if (p.onChanged) p.onChanged(newN)
   }
   const defaultVariant = buttonVariant.ghost
+
+  function tl(b: TranslationBlock, x1: string | number): string {
+    if (p.translate) {
+      return p.translate(b.en, x1)
+    }
+    return ttl1(b, x1)
+  }
+
   return (
     <div class={classMerge("flex flex-row flex-nowrap items-center", p.class)}>
       {p.incrDecrAmountMajor && (
         <ButtonIconOnly
           icon={mdiMinusBox}
-          title={ct1(t4atomizedNumberInput.Decrease_by_X, p.incrDecrAmountMajor)}
+          title={tl(tbDecreaseByX, p.incrDecrAmountMajor)}
           onClick={decrementMajor}
           variant={p.variant ?? defaultVariant}
           class={classMerge("rounded-r-none", p.buttonClass)}
@@ -78,7 +89,7 @@ export function NumberInputS(p: NumberInputSProps) {
       )}
       <ButtonIconOnly
         icon={mdiMinus}
-        title={ct1(t4atomizedNumberInput.Decrease_by_X, p.incrDecrAmount ?? 1)}
+        title={tl(tbDecreaseByX, p.incrDecrAmount ?? 1)}
         onClick={decrement}
         variant={p.variant ?? defaultVariant}
         class={classMerge(hasMajor ? "rounded-none" : "rounded-r-none", p.buttonClass)}
@@ -97,7 +108,7 @@ export function NumberInputS(p: NumberInputSProps) {
       />
       <ButtonIconOnly
         icon={mdiPlus}
-        title={ct1(t4atomizedNumberInput.Increase_by_X, p.incrDecrAmount ?? 1)}
+        title={tl(tbIncreaseByX, p.incrDecrAmount ?? 1)}
         onClick={increment}
         variant={p.variant ?? defaultVariant}
         class={classMerge(hasMajor ? "rounded-none" : "rounded-l-none", p.buttonClass)}
@@ -107,7 +118,7 @@ export function NumberInputS(p: NumberInputSProps) {
       {p.incrDecrAmountMajor && (
         <ButtonIconOnly
           icon={mdiPlusBox}
-          title={ct1(t4atomizedNumberInput.Increase_by_X, p.incrDecrAmountMajor)}
+          title={tl(tbIncreaseByX, p.incrDecrAmountMajor)}
           onClick={incrementMajor}
           variant={p.variant ?? defaultVariant}
           class={classMerge("rounded-l-none", p.buttonClass)}

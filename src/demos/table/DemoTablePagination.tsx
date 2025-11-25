@@ -1,11 +1,16 @@
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js"
 import type { JSXElement } from "solid-js"
-import { ct0 } from "~ui/i18n/ct0"
+import { ttl } from "~ui/i18n/ttl"
 import { NumberInputS } from "~ui/input/number/NumberInputS"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
 import { commonHeaderClass } from "~ui/static/text/commonHeaderClass"
-import { t4tablePagination } from "~ui/table/table3/pagination/t4tablePagination"
+import { tbShowing } from "~ui/table/table3/pagination/tbShowing"
+import { tbTo } from "~ui/table/table3/pagination/tbTo"
+import { tbOf } from "~ui/table/table3/pagination/tbOf"
+import { tbEntries } from "~ui/table/table3/pagination/tbEntries"
+import { tbPreviousPage } from "~ui/table/table3/pagination/tbPreviousPage"
+import { tbNextPage } from "~ui/table/table3/pagination/tbNextPage"
 import { classMerge } from "~ui/utils/classMerge"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -85,7 +90,7 @@ function TablePaginationButtons3(p: TablePaginationProps) {
         variant={"subtle"}
         disabled={p.currentPage.get() <= 0}
         onClick={decr}
-        title={ct0(t4tablePagination.Previous_page)}
+        title={ttl(tbPreviousPage)}
       />
       <ButtonIcon
         iconRight={mdiChevronRight}
@@ -94,7 +99,7 @@ function TablePaginationButtons3(p: TablePaginationProps) {
         disabled={hasReachedMax(p)}
         onClick={incr}
       >
-        {ct0(t4tablePagination.Next_page)}
+        {ttl(tbNextPage)}
       </ButtonIcon>
     </div>
   )
@@ -102,13 +107,13 @@ function TablePaginationButtons3(p: TablePaginationProps) {
 function TablePaginationInfo(p: TablePaginationProps) {
   return (
     <p class={"flex flex-wrap gap-1 my-auto mx-1"}>
-      <L>{ct0(t4tablePagination.Showing_x1_to_x2_of_x3_entries_1)}</L>
+      <L>{ttl(tbShowing)}</L>
       <B>{p.currentPage.get() * p.entriesPerPage.get() + 1}</B>
-      <L>{ct0(t4tablePagination.Showing_x1_to_x2_of_x3_entries_2)}</L>
+      <L>{ttl(tbTo)}</L>
       <B>{Math.min((p.currentPage.get() + 1) * p.entriesPerPage.get(), p.entries.get())}</B>
-      <L>{ct0(t4tablePagination.Showing_x1_to_x2_of_x3_entries_3)}</L>
+      <L>{ttl(tbOf)}</L>
       <B>{p.entries.get()}</B>
-      <L>{ct0(t4tablePagination.Showing_x1_to_x2_of_x3_entries_4)}</L>
+      <L>{ttl(tbEntries)}</L>
     </p>
   )
 }

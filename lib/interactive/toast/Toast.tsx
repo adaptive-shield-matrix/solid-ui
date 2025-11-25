@@ -1,9 +1,9 @@
 import { mdiClose } from "@mdi/js"
 import { Show } from "solid-js"
-import { ct0 } from "~ui/i18n/ct0"
+import { ttl } from "~ui/i18n/ttl"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
-import { tbClose } from "~ui/interactive/dialog/tbClose"
+import { tbClose } from "~ui/interactive/dialog/i18n/tbClose"
 import { toastCva } from "~ui/interactive/toast/toastCva"
 import { toastDismiss } from "~ui/interactive/toast/toastDismiss"
 import { toastIconCva } from "~ui/interactive/toast/toastIconCva"
@@ -42,7 +42,7 @@ function ToastHeader(p: ToastPropsInternal) {
       </Show>
       <ButtonIcon
         variant={buttonVariant.ghost}
-        title={ct0(tbClose)}
+        title={ttl(tbClose)}
         icon={mdiClose}
         iconClass={"text-white fill-white"}
         onClick={() => toastDismiss(p.id)}
