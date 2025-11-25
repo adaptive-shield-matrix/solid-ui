@@ -1,6 +1,5 @@
 import { Key } from "@solid-primitives/keyed"
-import { ttl } from "~ui/i18n/ttl"
-import { tbNoEntries } from "~ui/table/i18n/tbNoEntries"
+import { ttt } from "~ui/i18n/ttt"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
@@ -19,10 +18,22 @@ export interface SwitchSingleProps
     MayHaveValueText,
     MayHaveId,
     MayHaveDisabled,
-    MayHaveClass {}
+    MayHaveClass {
+  texts?: SwitchSingleTexts
+}
+
+export type SwitchSingleTexts = {
+  noEntries: string
+}
 
 export function SwitchSingle(p: SwitchSingleProps) {
   const filled = true
+  const texts =
+    p.texts ??
+    ({
+      noEntries: ttt("No entries"),
+    } as const satisfies SwitchSingleTexts)
+
   return (
     <div
       id={p.id}
@@ -36,7 +47,7 @@ export function SwitchSingle(p: SwitchSingleProps) {
         p.class,
       )}
     >
-      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems />}>
+      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems texts={texts} />}>
         {(item) => (
           <Option
             item={item()}
@@ -51,8 +62,12 @@ export function SwitchSingle(p: SwitchSingleProps) {
   )
 }
 
-function NoItems(p: MayHaveClass) {
-  return <div class={p.class}>{ttl(tbNoEntries)}</div>
+interface NoItemsProps extends MayHaveClass {
+  texts: SwitchSingleTexts
+}
+
+function NoItems(p: NoItemsProps) {
+  return <div class={p.class}>{p.texts.noEntries}</div>
 }
 
 interface Option2Props extends MayHaveClass {

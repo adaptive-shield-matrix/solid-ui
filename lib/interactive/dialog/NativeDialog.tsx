@@ -1,13 +1,12 @@
 import { mdiClose } from "@mdi/js"
 import { createUniqueId, mergeProps, Show, splitProps } from "solid-js"
-import { ttl } from "~ui/i18n/ttl"
+import { ttt } from "~ui/i18n/ttt"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon, type ButtonIconProps } from "~ui/interactive/button/ButtonIcon"
 import {
   createNativeDialogOpenStateSignal,
   type IsOpenSignalObject,
 } from "~ui/interactive/dialog/createNativeDialogOpenStateSignal"
-import { tbCloseDialog } from "~ui/interactive/dialog/i18n/tbCloseDialog"
 import { classMerge } from "~ui/utils/classMerge"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -16,10 +15,15 @@ import "./NativeDialog.module.css"
 
 export type DialogButtonProps = Omit<ButtonIconProps, "id" | "type">
 
+export type NativeDialogTexts = {
+  closeDialog: string
+}
+
 interface DialogProps extends MayHaveClass, MayHaveChildren, Partial<DialogInternalProps> {
   // trigger
   buttonProps: DialogButtonProps
   title: string
+  texts?: NativeDialogTexts
 }
 
 interface DialogInternalProps extends MayHaveClass, MayHaveChildren {
@@ -31,6 +35,8 @@ interface DialogInternalProps extends MayHaveClass, MayHaveChildren {
 
   description?: string
   descriptionClass?: string
+
+  texts?: NativeDialogTexts
   //
   // internal
   //
@@ -43,7 +49,7 @@ interface DialogInternalProps extends MayHaveClass, MayHaveChildren {
 }
 
 function initProps(p: DialogProps): DialogInternalProps {
-  let dialogRef = p.dialogRef ?? createSignalObject<HTMLDialogElement | null>(null)
+  const dialogRef = p.dialogRef ?? createSignalObject<HTMLDialogElement | null>(null)
   return mergeProps(
     {
       openByDefault: p.openByDefault ?? false,
@@ -69,6 +75,13 @@ function initProps(p: DialogProps): DialogInternalProps {
 export function NativeDialog(pp: DialogProps) {
   const p = initProps(pp)
   const [a, buttonProps] = splitProps(p.buttonProps, ["onClick"])
+
+  const texts =
+    p.texts ??
+    ({
+      closeDialog: ttt("Close dialog"),
+    } as const satisfies NativeDialogTexts)
+
   return (
     <>
       <ButtonIcon
@@ -103,7 +116,7 @@ export function NativeDialog(pp: DialogProps) {
           </h2>
           <ButtonIcon
             variant={buttonVariant.ghost}
-            title={ttl(tbCloseDialog)}
+            title={texts.closeDialog}
             icon={mdiClose}
             onClick={() => p.openState.close()}
           />

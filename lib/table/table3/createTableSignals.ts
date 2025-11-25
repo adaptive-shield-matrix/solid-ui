@@ -1,5 +1,4 @@
 import type { Accessor } from "solid-js"
-import { languageSignal } from "~ui/i18n/languageSignal"
 import { searchInputSignal } from "~ui/input/search/searchInputSignal"
 import { createTableColumnDef, type TableColumnDef, tableFilterColumns } from "~ui/table/shared/TableColumnDef"
 import { sortData } from "~ui/table/table2/sortData"
@@ -129,8 +128,7 @@ function createTableAtomsComputed<T>(state: TableAtomState<T>): FilterableTableA
       return rows
     }
     const sortDir = state.sortDir.get()
-    const l = languageSignal.get()
-    const sortedRows = sortData<T>(l, rows, sortColumn, sortDir)
+    const sortedRows = sortData<T>(rows, sortColumn, sortDir)
     if (log) console.log("rowsFilteredSorted", sortedRows)
     return sortedRows
   }

@@ -1,9 +1,5 @@
 import * as v from "valibot"
-import { ttl, ttl1 } from "~ui/i18n/ttl"
-import { tbDark } from "~ui/interactive/theme/i18n/tbDark"
-import { tbLight } from "~ui/interactive/theme/i18n/tbLight"
-import { tbOs } from "~ui/interactive/theme/i18n/tbOs"
-import { tbSetThemeX } from "~ui/interactive/theme/i18n/tbSetThemeX"
+import { themeButtonTextDefault } from "~ui/interactive/theme/ThemeButtonText"
 import {
   getThemeFromStorageOrBrowserPref,
   nextTheme2,
@@ -54,14 +50,8 @@ export function themeRotate() {
   const currentTheme = themeSignal.get()
   const newTheme = nextTheme2(currentTheme)
 
-  const themeTranslations = {
-    light: tbLight,
-    dark: tbDark,
-    os: tbOs,
-  } as const
-
-  const themeText = ttl(themeTranslations[newTheme])
-  const title = ttl1(tbSetThemeX, themeText)
+  const themeText = themeButtonTextDefault[newTheme]
+  const title = themeButtonTextDefault.setTheme(themeText)
   const icon = themeIcon(newTheme)
   toastAdd({ title, icon, variant: toastVariant.default })
   themeSet(newTheme, true)

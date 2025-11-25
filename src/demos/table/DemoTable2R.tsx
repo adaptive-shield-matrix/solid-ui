@@ -1,5 +1,4 @@
 import { mdiMagicStaff, mdiTrashCan } from "@mdi/js"
-import { languageSignal } from "~ui/i18n/languageSignal"
 import { ttt } from "~ui/i18n/ttt"
 import { formModeIcon } from "~ui/input/form/formModeIcon"
 import { InputS } from "~ui/input/input/InputS"
@@ -55,7 +54,6 @@ const columns = createSignalObject(createTableColumns())
 const state = createTable2Signals({ rows, columns })
 
 function createTableColumns(): TableColumnDef<Person>[] {
-  const l = languageSignal.get()
   type D = Person
   function deleteData(d: D) {
     console.log("delete", d)

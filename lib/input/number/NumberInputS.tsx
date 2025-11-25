@@ -1,10 +1,7 @@
 import { mdiMinus, mdiMinusBox, mdiPlus, mdiPlusBox } from "@mdi/js"
 import { type JSX } from "solid-js"
-import type { TranslationBlock } from "~ui/i18n/TranslationBlock"
-import { ttl1 } from "~ui/i18n/ttl"
+import { ttt1 } from "~ui/i18n/ttt"
 import { Input } from "~ui/input/input/Input"
-import { tbDecreaseByX } from "~ui/input/number/i18n/tbDecreaseByX"
-import { tbIncreaseByX } from "~ui/input/number/i18n/tbIncreaseByX."
 import { buttonVariant, type ButtonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
 import { classMerge } from "~ui/utils/classMerge"
@@ -25,6 +22,12 @@ export type NumberInputSProps = {
   onChanged?: (v: number) => void
   id?: string
   translate?: (en: string, x1?: string | number) => string
+  texts?: NumberInputText
+}
+
+type NumberInputText = {
+  decreaseByX: (amount: number) => string
+  increaseByX: (amount: number) => string
 }
 
 export function NumberInputS(p: NumberInputSProps) {
@@ -67,19 +70,19 @@ export function NumberInputS(p: NumberInputSProps) {
   }
   const defaultVariant = buttonVariant.ghost
 
-  function tl(b: TranslationBlock, x1: string | number): string {
-    if (p.translate) {
-      return p.translate(b.en, x1)
-    }
-    return ttl1(b, x1)
-  }
+  const texts =
+    p.texts ??
+    ({
+      decreaseByX: (amount: number) => ttt1("Decrease by [X]", amount.toString()),
+      increaseByX: (amount: number) => ttt1("Increase by [X]", amount.toString()),
+    } as const satisfies NumberInputText)
 
   return (
     <div class={classMerge("flex flex-row flex-nowrap items-center", p.class)}>
       {p.incrDecrAmountMajor && (
         <ButtonIconOnly
           icon={mdiMinusBox}
-          title={tl(tbDecreaseByX, p.incrDecrAmountMajor)}
+          title={texts.decreaseByX(p.incrDecrAmountMajor)}
           onClick={decrementMajor}
           variant={p.variant ?? defaultVariant}
           class={classMerge("rounded-r-none", p.buttonClass)}
@@ -89,7 +92,7 @@ export function NumberInputS(p: NumberInputSProps) {
       )}
       <ButtonIconOnly
         icon={mdiMinus}
-        title={tl(tbDecreaseByX, p.incrDecrAmount ?? 1)}
+        title={texts.decreaseByX(p.incrDecrAmount ?? 1)}
         onClick={decrement}
         variant={p.variant ?? defaultVariant}
         class={classMerge(hasMajor ? "rounded-none" : "rounded-r-none", p.buttonClass)}
@@ -108,7 +111,7 @@ export function NumberInputS(p: NumberInputSProps) {
       />
       <ButtonIconOnly
         icon={mdiPlus}
-        title={tl(tbIncreaseByX, p.incrDecrAmount ?? 1)}
+        title={texts.increaseByX(p.incrDecrAmount ?? 1)}
         onClick={increment}
         variant={p.variant ?? defaultVariant}
         class={classMerge(hasMajor ? "rounded-none" : "rounded-l-none", p.buttonClass)}
@@ -118,7 +121,7 @@ export function NumberInputS(p: NumberInputSProps) {
       {p.incrDecrAmountMajor && (
         <ButtonIconOnly
           icon={mdiPlusBox}
-          title={tl(tbIncreaseByX, p.incrDecrAmountMajor)}
+          title={texts.increaseByX(p.incrDecrAmountMajor)}
           onClick={incrementMajor}
           variant={p.variant ?? defaultVariant}
           class={classMerge("rounded-l-none", p.buttonClass)}

@@ -17,6 +17,12 @@ export interface AddToastProps extends MayHaveClass, MayHaveChildren {
 
   description?: string
   descriptionClass?: string
+
+  texts?: ToastTexts
+}
+
+export type ToastTexts = {
+  close: string
 }
 
 export interface ToastPropsInternal extends AddToastProps {

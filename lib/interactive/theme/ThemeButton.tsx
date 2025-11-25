@@ -1,21 +1,12 @@
 import { createEffect, onCleanup } from "solid-js"
-import { ttl, ttl1 } from "~ui/i18n/ttl"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
-import { tbCurrentThemeX } from "~ui/interactive/theme/i18n/tbCurrentThemeX"
-import { tbDark } from "~ui/interactive/theme/i18n/tbDark"
-import { tbLight } from "~ui/interactive/theme/i18n/tbLight"
-import { tbOs } from "~ui/interactive/theme/i18n/tbOs"
 import { themeInit, themeRotate, themeSignal } from "~ui/interactive/theme/themeSignal"
-import { themeIcon, type ThemeVariant } from "~ui/interactive/theme/themeVariant"
+import { themeIcon } from "~ui/interactive/theme/themeVariant"
 import { classMerge } from "~ui/utils/classMerge"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
-
-const themeTranslations = {
-  light: tbLight,
-  dark: tbDark,
-  os: tbOs,
-} as const
+import type { ThemeButtonText } from "~ui/interactive/theme/ThemeButtonText"
+import { themeButtonTextDefault } from "~ui/interactive/theme/ThemeButtonText"
 
 function createGlobalKeyHandler(navigate: (to: string) => void) {
   return (e: KeyboardEvent) => {
@@ -31,6 +22,7 @@ function createGlobalKeyHandler(navigate: (to: string) => void) {
 
 export interface ThemeButtonProps extends MayHaveClass {
   showText?: boolean
+  texts?: ThemeButtonText
 }
 
 export function ThemeButton(p: ThemeButtonProps) {
@@ -38,24 +30,25 @@ export function ThemeButton(p: ThemeButtonProps) {
   const navigate = (to: string) => {}
   const handleGlobalKeyDown = createGlobalKeyHandler(navigate)
 
+  const texts = p.texts ?? themeButtonTextDefault
+
   createEffect(() => {
     window.addEventListener("keydown", handleGlobalKeyDown)
     onCleanup(() => window.removeEventListener("keydown", handleGlobalKeyDown))
   })
+
+  const currentTheme = themeSignal.get()
+  const themeName = texts[currentTheme]
+
   return (
     <ButtonIconOnly
-      title={ttl1(tbCurrentThemeX, ttl(themeTranslations[themeSignal.get()]))}
-      icon={themeIcon(themeSignal.get())}
+      title={texts.currentTheme(themeName)}
+      icon={themeIcon(currentTheme)}
       variant={buttonVariant.ghost}
       class={classMerge(p.class)}
       onClick={themeRotate}
     >
-      {p.showText && themeText()}
+      {p.showText && themeName}
     </ButtonIconOnly>
   )
-}
-
-function themeText(): string {
-  const theme: ThemeVariant = themeSignal.get()
-  return ttl(themeTranslations[theme])
 }

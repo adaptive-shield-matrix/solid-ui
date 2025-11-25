@@ -1,8 +1,6 @@
 import { Key } from "@solid-primitives/keyed"
 import type { JSXElement } from "solid-js"
 import { createUniqueId } from "solid-js"
-import { ttl } from "~ui/i18n/ttl"
-import { tbNoEntries } from "~ui/table/i18n/tbNoEntries"
 import { classArr } from "~ui/utils/classArr"
 import type { SignalObject } from "~ui/utils/createSignalObject"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
@@ -10,6 +8,8 @@ import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
 import type { MayHaveValueText } from "~ui/utils/HasValueText"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { TabsTopText } from "~ui/interactive/tabs/TabsTopText"
+import { tabsTopTextDefault } from "~ui/interactive/tabs/TabsTopText"
 
 export interface TabsTopProps
   extends HasValueSignalString,
@@ -22,6 +22,7 @@ export interface TabsTopProps
   valueChildren: (value: string) => JSXElement
   id?: string
   disabled?: boolean
+  texts?: TabsTopText
 }
 
 /**
@@ -44,7 +45,7 @@ export function TabsTop(p: TabsTopProps) {
           p.class,
         )}
       >
-        <Key each={p.getOptions()} by={(value) => value} fallback={<NoTabOptions />}>
+        <Key each={p.getOptions()} by={(value) => value} fallback={<NoTabOptions class={p.class} texts={p.texts} />}>
           {(value) => (
             <TabOption
               baseId={baseId}
@@ -59,7 +60,7 @@ export function TabsTop(p: TabsTopProps) {
         </Key>
       </div>
       <div>
-        <Key each={p.getOptions()} by={(value) => value} fallback={<NoTabOptions />}>
+        <Key each={p.getOptions()} by={(value) => value} fallback={<NoTabOptions class={p.class} texts={p.texts} />}>
           {(value) => (
             <TabContent
               baseId={baseId}
@@ -77,8 +78,9 @@ export function TabsTop(p: TabsTopProps) {
   )
 }
 
-function NoTabOptions(p: MayHaveClass) {
-  return <div class={p.class}>{ttl(tbNoEntries)}</div>
+function NoTabOptions(p: { class?: string; texts?: TabsTopText }) {
+  const texts = p.texts ?? tabsTopTextDefault
+  return <div class={p.class}>{texts.noEntries}</div>
 }
 
 interface TabOptionProps extends MayHaveClass {

@@ -1,8 +1,7 @@
-import type { Language } from "~ui/i18n/language"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
 import { sortDir, type SortDir } from "~ui/table/table2/sortDir"
 
-export function sortData<T>(l: Language, data: T[], sortHeader: TableColumnDef<T>, dir: SortDir) {
+export function sortData<T>(data: T[], sortHeader: TableColumnDef<T>, dir: SortDir) {
   const sorted: T[] = [...data]
   sorted.sort((d1, d2) => {
     const s1 = sortHeader.data ? sortHeader.data(d1) : ""
@@ -14,7 +13,7 @@ export function sortData<T>(l: Language, data: T[], sortHeader: TableColumnDef<T
       return -c
     }
     // string comparison
-    const c = s1.toString().localeCompare(s2.toString(), l, { numeric: true })
+    const c = s1.toString().localeCompare(s2.toString(), "en", { numeric: true })
     if (dir === sortDir.asc) return c
     return -c
   })

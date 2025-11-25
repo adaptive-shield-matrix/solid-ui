@@ -1,7 +1,4 @@
 import { For } from "solid-js"
-import { languageSignal } from "~ui/i18n/languageSignal"
-import type { TranslationBlock } from "~ui/i18n/TranslationBlock"
-import { ttl } from "~ui/i18n/ttl"
 import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassNames"
 import { sharedTableRowClassName } from "~ui/table/shared/sharedTableRowClassName"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
@@ -14,7 +11,6 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
 export interface SortableTableDProps<T> extends Table2Signals<T>, MayHaveClass {
   desktopClasses?: DesktopTableClassNames
-  translate?: (en: string) => string
 }
 
 //
@@ -28,19 +24,12 @@ export function Table2D<T>(p: SortableTableDProps<T>) {
   // const [sortDir, setSortDir] = useAtom(atoms.sortDir)
   // const [prevHeader, setPrevHeader] = useAtom(atoms.prevHeader)
 
-  function tl(b: TranslationBlock): string {
-    if (p.translate) {
-      return p.translate(b.en)
-    }
-    return ttl(b)
-  }
-
   function doSort(sortHeader: TableColumnDef<T>) {
     const nextSortDirState = nextSortDir(p.prevHeader.get(), sortHeader, p.sortDir.get())
     // console.log(prevHeader?.name, "->", sortHeader.name, sortDir, "->", nextSortDirState)
     p.sortDir.set(nextSortDirState)
     p.prevHeader.set(sortHeader)
-    const sortedData = sortData<T>(languageSignal.get(), p.rows.get(), sortHeader, p.sortDir.get())
+    const sortedData = sortData<T>(p.rows.get(), sortHeader, p.sortDir.get())
     p.rows.set(sortedData)
   }
 

@@ -1,5 +1,3 @@
-import type { Language } from "~ui/i18n/language"
-import { languageSignal } from "~ui/i18n/languageSignal"
 import { ttt } from "~ui/i18n/ttt"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
 import { Table1R } from "~ui/table/table1/Table1R"
@@ -9,7 +7,7 @@ export function DemoTable1R() {
   return (
     <Table1R
       rows={generateRows()}
-      columns={createTableColumns(languageSignal.get())}
+      columns={createTableColumns()}
       desktopClasses={{
         data: "px-3 py-2",
       }}
@@ -30,7 +28,7 @@ type Person = {
   name: string
 }
 
-function createTableColumns(l: Language): TableColumnDef<Person>[] {
+function createTableColumns(): TableColumnDef<Person>[] {
   type D = Person
   const headers: TableColumnDef<D>[] = [
     {

@@ -1,22 +1,14 @@
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js"
 import type { JSXElement } from "solid-js"
 import { createEffect, Show } from "solid-js"
-import { ttl } from "~ui/i18n/ttl"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
-import { tbShowing } from "~ui/table/table3/pagination/tbShowing"
-import { tbTo } from "~ui/table/table3/pagination/tbTo"
-import { tbOf } from "~ui/table/table3/pagination/tbOf"
-import { tbEntries } from "~ui/table/table3/pagination/tbEntries"
-import { tbPage } from "~ui/table/table3/pagination/tbPage"
-import { tbPreviousPage } from "~ui/table/table3/pagination/tbPreviousPage"
-import { tbPreviousPageWithShortcut } from "~ui/table/table3/pagination/tbPreviousPageWithShortcut"
-import { tbNextPage } from "~ui/table/table3/pagination/tbNextPage"
-import { tbNextPageWithShortcut } from "~ui/table/table3/pagination/tbNextPageWithShortcut"
 import { classMerge } from "~ui/utils/classMerge"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { TablePagination2Text } from "./TablePagination2Text"
+import { tablePagination2TextDefault } from "./TablePagination2Text"
 
 export interface AtomizedTablePaginationProps extends MayHaveClass {
   entriesPerPage: number
@@ -24,6 +16,7 @@ export interface AtomizedTablePaginationProps extends MayHaveClass {
   currentPageSignal: SignalObject<number>
   incrementPage: () => void
   decrementPage: () => void
+  texts?: TablePagination2Text
 }
 
 export function DemoTablePagination2() {
@@ -43,20 +36,21 @@ export function DemoTablePagination2() {
     incrementPage,
     decrementPage,
   }
+  const texts = tablePagination2TextDefault
   return (
     <div class={classMerge("flex flex-wrap justify-center md:justify-between py-1 pl-3 gap-2", p.class)}>
-      <TablePaginationInfo {...p} />
-      <TablePaginationButtons {...p} />
+      <TablePaginationInfo {...p} texts={texts} />
+      <TablePaginationButtons {...p} texts={texts} />
       <TablePaginationButtonShortcuts {...p} />
     </div>
   )
 }
 
-function TablePaginationInfo(p: AtomizedTablePaginationProps) {
+function TablePaginationInfo(p: AtomizedTablePaginationProps & { texts: TablePagination2Text }) {
   return (
     <Show when={p.entriesSignal.get() > 0 && p.entriesSignal.get() > p.entriesPerPage}>
       <p class={classMerge("flex flex-wrap gap-1 my-auto mx-1", p.class)}>
-        <T>{ttl(tbPage)}</T>
+        <T>{p.texts.page}</T>
         <A>{p.currentPageSignal.get() + 1}</A>
         <T>{"/"}</T>
         <A>{Math.ceil(p.entriesSignal.get() / p.entriesPerPage)}</A>
@@ -65,7 +59,7 @@ function TablePaginationInfo(p: AtomizedTablePaginationProps) {
   )
 }
 
-function TablePaginationInfo2(p: AtomizedTablePaginationProps) {
+function TablePaginationInfo2(p: AtomizedTablePaginationProps & { texts: TablePagination2Text }) {
   const entries = p.entriesSignal.get()
   const currentPage = p.currentPageSignal.get()
 
@@ -73,30 +67,25 @@ function TablePaginationInfo2(p: AtomizedTablePaginationProps) {
   if (entries <= p.entriesPerPage) return null
   const totalPages = Math.ceil(entries / p.entriesPerPage)
 
-  const text1 = ttl(tbShowing)
   const from = entries > p.entriesPerPage ? currentPage * p.entriesPerPage + 1 : 1
-  const text2 = ttl(tbTo)
   const to = Math.min((currentPage + 1) * p.entriesPerPage, entries)
-  const text3 = ttl(tbOf)
-  const total = entries
-  const text4 = ttl(tbEntries)
 
   return (
     <div>
       <p class={classMerge("flex flex-wrap gap-1 my-auto mx-1", p.class)}>
-        <T>{ttl(tbPage)}</T>
+        <T>{p.texts.page}</T>
         <B>{currentPage + 1}</B>
         <T>{"/"}</T>
         <A>{totalPages}</A>
       </p>
       <p class={classMerge("flex flex-wrap gap-1 my-auto mx-1", p.class)}>
-        <T>{text1}</T>
+        <T>{p.texts.showing}</T>
         <A>{from}</A>
-        <T>{text2}</T>
+        <T>{p.texts.to}</T>
         <A>{to}</A>
-        <T>{text3}</T>
-        <A>{total}</A>
-        <T>{text4}</T>
+        <T>{p.texts.of}</T>
+        <A>{entries}</A>
+        <T>{p.texts.entries}</T>
       </p>
     </div>
   )
@@ -116,7 +105,7 @@ function B({ children }: MayHaveChildren): JSXElement {
   return <span class={"font-semibold text-blue-500 dark:text-blue-800"}>{children}</span>
 }
 
-function TablePaginationButtons(p: AtomizedTablePaginationProps) {
+function TablePaginationButtons(p: AtomizedTablePaginationProps & { texts: TablePagination2Text }) {
   // const l = useAtomValue(languageAtom)
   // const entries = useAtomValue(entriesAtom)
   // const [currentPage, setCurrentPage] = useAtom(currentPageAtom)
@@ -134,9 +123,9 @@ function TablePaginationButtons(p: AtomizedTablePaginationProps) {
           variant={buttonVariant.subtle}
           disabled={p.currentPageSignal.get() <= 0}
           onClick={p.decrementPage}
-          title={ttl(tbPreviousPageWithShortcut)}
+          title={p.texts.previousPageWithShortcut}
         >
-          {ttl(tbPreviousPage)}
+          {p.texts.previousPage}
         </ButtonIcon>
         <ButtonIcon
           iconRight={mdiChevronRight}
@@ -144,9 +133,9 @@ function TablePaginationButtons(p: AtomizedTablePaginationProps) {
           variant={buttonVariant.subtle}
           disabled={p.currentPageSignal.get() >= Math.floor(p.entriesSignal.get() / p.entriesPerPage)}
           onClick={p.incrementPage}
-          title={ttl(tbNextPageWithShortcut)}
+          title={p.texts.nextPageWithShortcut}
         >
-          {ttl(tbNextPage)}
+          {p.texts.nextPage}
         </ButtonIcon>
       </div>
     </Show>

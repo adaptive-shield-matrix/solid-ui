@@ -1,7 +1,7 @@
 import { Key } from "@solid-primitives/keyed"
 import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
-import { ttl } from "~ui/i18n/ttl"
-import { tbNoEntries } from "~ui/table/i18n/tbNoEntries"
+import { ttt } from "~ui/i18n/ttt"
+import { classArr } from "~ui/utils/classArr"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
 import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
 import type { MayHaveValueText } from "~ui/utils/HasValueText"
@@ -9,7 +9,6 @@ import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
-import { classArr } from "~ui/utils/classArr"
 
 export type StringStringFn = (value: string) => string
 
@@ -20,9 +19,21 @@ export interface SelectSingleNativeProps
     MayHaveClass,
     MayHaveId,
     MayHaveChildren,
-    MayHaveDisabled {}
+    MayHaveDisabled {
+  texts?: SelectSingleNativeTexts
+}
+
+export type SelectSingleNativeTexts = {
+  noEntries: string
+}
 
 export function SelectSingleNative(p: SelectSingleNativeProps) {
+  const texts =
+    p.texts ??
+    ({
+      noEntries: ttt("No entries"),
+    } as const satisfies SelectSingleNativeTexts)
+
   return (
     <select
       id={p.id}
@@ -40,7 +51,7 @@ export function SelectSingleNative(p: SelectSingleNativeProps) {
       onChange={(e) => onChange(e, p)}
       disabled={p.disabled}
     >
-      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems />}>
+      <Key each={p.getOptions()} by={(item) => item} fallback={<NoItems texts={texts} />}>
         {(getItem) => <SelectItem itemValue={getItem()} valueText={p.valueText} />}
       </Key>
     </select>
@@ -57,8 +68,12 @@ function onChange(
   p.valueSignal.set(e.currentTarget.value)
 }
 
-function NoItems(p: MayHaveClass) {
-  return <div class={p.class}>{ttl(tbNoEntries)}</div>
+interface NoItemsProps extends MayHaveClass {
+  texts: SelectSingleNativeTexts
+}
+
+function NoItems(p: NoItemsProps) {
+  return <div class={p.class}>{p.texts.noEntries}</div>
 }
 
 interface SelectItemProps extends MayHaveClass {

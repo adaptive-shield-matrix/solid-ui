@@ -1,13 +1,12 @@
 import { mdiCheck, mdiClose, mdiPlus } from "@mdi/js"
 import { Key } from "@solid-primitives/keyed"
 import { For, mergeProps } from "solid-js"
-import { ttl, ttl1 } from "~ui/i18n/ttl"
+import { ttt, ttt1 } from "~ui/i18n/ttt"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import type { CorvuPopoverProps } from "~ui/interactive/popover/CorvuPopover"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
 import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
-import { tbNoEntries } from "~ui/table/i18n/tbNoEntries"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import type { SignalObject } from "~ui/utils/createSignalObject"
@@ -19,8 +18,6 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
-import { tbRemoveX } from "../form/i18n/tbRemoveX"
-import { tbAddEntry } from "./i18n/tbAddEntry"
 
 /**
  * https://github.com/radix-ui/primitives/blob/main/packages/react/checkbox/src/Checkbox.tsx
@@ -40,13 +37,28 @@ export interface SelectMultipleProps
   addEntryClass?: string
   noItemsClass?: string
   listOptionClass?: string
+  texts?: SelectMultipleTexts
+}
+
+export type SelectMultipleTexts = {
+  removeX: (x: string) => string
+  addEntry: string
+  noEntries: string
 }
 
 export function SelectMultiple(p: SelectMultipleProps) {
+  const texts =
+    p.texts ??
+    ({
+      removeX: (x: string) => ttt1("Remove [X]", x),
+      addEntry: ttt("Add entry"),
+      noEntries: ttt("No entries"),
+    } as const satisfies SelectMultipleTexts)
+
   const buttonClass = classMerge(p.addEntryClass, p.buttonProps.class)
   const buttonProps = mergeProps(p.buttonProps, {
     icon: mdiPlus,
-    children: p.textAddEntry ?? ttl(tbAddEntry),
+    children: p.textAddEntry ?? texts.addEntry,
     class: buttonClass,
     disabled: p.disabled,
   })
@@ -63,7 +75,7 @@ export function SelectMultiple(p: SelectMultipleProps) {
         p.class,
       )}
     >
-      <SelectedValues valueSignal={p.valueSignal} valueText={p.valueText} noItemsClass={p.noItemsClass} />
+      <SelectedValues valueSignal={p.valueSignal} valueText={p.valueText} noItemsClass={p.noItemsClass} texts={texts} />
       <CorvuPopover {...buttonProps}>
         <OptionList
           id={p.id}
@@ -74,6 +86,7 @@ export function SelectMultiple(p: SelectMultipleProps) {
           listOptionClass={p.listOptionClass}
           innerClass={p.innerClass}
           disabled={p.disabled}
+          texts={texts}
         />
       </CorvuPopover>
     </div>
@@ -84,15 +97,18 @@ interface SelectedValuesProps {
   valueSignal: SignalObject<string[]>
   valueText?: (value: string) => string
   noItemsClass?: string
+  texts: SelectMultipleTexts
 }
 
 function SelectedValues(p: SelectedValuesProps) {
   return (
-    <div class={"flex flex-wrap gap-1"} role="list">
-      <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems class={p.noItemsClass} />}>
-        {(item) => <SelectedValue option={item()} valueSignal={p.valueSignal} valueText={p.valueText} />}
+    <ul class={"flex flex-wrap gap-1 m-0 p-0 list-none"}>
+      <Key each={p.valueSignal.get()} by={(item) => item} fallback={<NoItems class={p.noItemsClass} texts={p.texts} />}>
+        {(item) => (
+          <SelectedValue option={item()} valueSignal={p.valueSignal} valueText={p.valueText} texts={p.texts} />
+        )}
       </Key>
-    </div>
+    </ul>
   )
 }
 
@@ -102,23 +118,26 @@ interface MultiselectOptionState {
   valueText?: (value: string) => string
 }
 
-interface SelectedValueProps extends MultiselectOptionState {}
+interface SelectedValueProps extends MultiselectOptionState {
+  texts: SelectMultipleTexts
+}
 
 function SelectedValue(p: SelectedValueProps) {
   const label = () => (p.valueText ? p.valueText(p.option) : p.option)
   return (
-    <ButtonIcon
-      role="listitem"
-      variant={buttonVariant.filled}
-      iconRight={mdiClose}
-      class={"text-sm px-2 py-1"}
-      data-value={p.option}
-      onMouseDown={(e) => optionRemove(p)}
-      onClick={(e) => optionRemove(p)}
-      title={ttl1(tbRemoveX, label()) || ""}
-    >
-      {label()}
-    </ButtonIcon>
+    <li class="contents">
+      <ButtonIcon
+        variant={buttonVariant.filled}
+        iconRight={mdiClose}
+        class={"text-sm px-2 py-1"}
+        data-value={p.option}
+        onMouseDown={(_e) => optionRemove(p)}
+        onClick={(_e) => optionRemove(p)}
+        title={p.texts.removeX(label())}
+      >
+        {label()}
+      </ButtonIcon>
+    </li>
   )
 }
 
@@ -131,12 +150,13 @@ interface OptionListProps
     MayHaveDisabled {
   noItemsClass?: string
   listOptionClass?: string
+  texts: SelectMultipleTexts
 }
 
 function OptionList(p: OptionListProps) {
   return (
     <div role="listbox" aria-multiselectable="true" class={getInnerClass(p.getOptions().length, p.innerClass)}>
-      <For each={p.getOptions()} fallback={<NoItems class={p.noItemsClass} />}>
+      <For each={p.getOptions()} fallback={<NoItems class={p.noItemsClass} texts={p.texts} />}>
         {(option, index) => (
           <ListOption
             id={p.id}
@@ -157,8 +177,8 @@ function getInnerClass(optionAmount: number, innerClass?: string): string {
   if (innerClass) return innerClass
   if (optionAmount <= 0) return ""
   const base = " gap-x-2 gap-y-1"
-  if (optionAmount <= 5) return "grid grid-cols-1" + base
-  if (optionAmount <= 9) return "grid grid-cols-2" + base
+  if (optionAmount <= 5) return `grid grid-cols-1${base}`
+  if (optionAmount <= 9) return `grid grid-cols-2${base}`
   if (optionAmount > 9) return classesGridCols3xl + base
   return ""
 }
@@ -211,7 +231,9 @@ function optionIsSelected(p: MultiselectOptionState) {
   return p.valueSignal.get().includes(p.option)
 }
 
-interface NoItemsProps extends MayHaveClass {}
+interface NoItemsProps extends MayHaveClass {
+  texts?: SelectMultipleTexts
+}
 
 function NoItems(p: NoItemsProps) {
   return (
@@ -224,7 +246,7 @@ function NoItems(p: NoItemsProps) {
         p.class,
       )}
     >
-      {ttl(tbNoEntries)}
+      {p.texts?.noEntries ?? "No entries"}
     </div>
   )
 }
