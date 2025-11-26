@@ -1,18 +1,10 @@
 # Available Solid.js UI Components and utility functions
 
 These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
-Generated at: 2025-11-09 10:50
+Generated at: 2025-11-26 19:20
 
-- ~/i18n/t1.ts
-- ~/i18n/t4pageName.ts
-- ~/i18n/getBrowserUserDefinedLanguage.ts
-- ~/i18n/languageSignal.ts
-- ~/i18n/TranslationBlock.ts
-- ~/i18n/ct0.ts
-- ~/i18n/language.ts
 - ~/i18n/ttt.ts
 - ~/table/shared/DesktopTableClassNames.ts
-- ~/table/shared/t4table.ts
 - ~/table/shared/TableColumnDef.ts
 - ~/table/shared/tableVisibilityClasses.ts
 - ~/table/shared/sharedTableRowClassName.ts
@@ -30,39 +22,40 @@ Generated at: 2025-11-09 10:50
 - ~/table/table2/sortData.ts
 - ~/table/table2/Table2MSortButton.tsx
 - ~/table/table3/tableRowSearchSimple.ts
-- ~/table/table3/pagination/t4tablePagination.ts
-- ~/table/table3/pagination/defaultEntriesPerPage.ts
+- ~/table/table3/defaultEntriesPerPage.ts
 - ~/table/table3/createTableSignals.ts
 - ~/table/table1/Table1MEntry.tsx
 - ~/table/table1/Table1D.tsx
+- ~/table/table1/Table1DTexts.ts
 - ~/table/table1/Table1Data.ts
 - ~/table/table1/Table1M.tsx
 - ~/table/table1/Table1R.tsx
-- ~/input/select/t4multiselect.ts
+- ~/input/select/SelectSingleNativeTexts.ts
 - ~/input/select/SelectMultiple.tsx
+- ~/input/select/SelectMultipleTexts.ts
 - ~/input/select/SelectSingleNative.tsx
-- ~/input/form/t4Form.ts
 - ~/input/form/formModeIcon.ts
 - ~/input/form/formMode.ts
 - ~/input/form/formModeMutate.ts
 - ~/input/input/InputS.tsx
-- ~/input/input/t4atomizedInput.ts
 - ~/input/input/Input.tsx
 - ~/input/search/searchInputSignal.ts
 - ~/input/label/Label.tsx
+- ~/input/label/LabelAsterixTexts.ts
 - ~/input/label/LabelWithInfo.tsx
 - ~/input/label/LabelAsterix.tsx
 - ~/input/label/LabelWithSubtitle.tsx
 - ~/input/textarea/TextareaS.tsx
 - ~/input/textarea/Textarea.tsx
 - ~/input/number/NumberInputS.tsx
-- ~/input/number/t4atomizedNumberInput.ts
+- ~/input/number/NumberInputTexts.tsx
 - ~/input/switch/SwitchSingle.tsx
+- ~/input/check/CheckBooleanSingle.tsx
 - ~/input/check/CheckMultiple.tsx
+- ~/input/check/CheckBoolean.tsx
 - ~/input/check/Checkbox.tsx
 - ~/input/check/CheckSingle.tsx
 - ~/static/dev/TailwindIndicator.tsx
-- ~/static/loaders/t4loading.ts
 - ~/static/loaders/RandomLoader.tsx
 - ~/static/loaders/LoadingPage.tsx
 - ~/static/loaders/LoaderShuffle4Dots.tsx
@@ -82,6 +75,7 @@ Generated at: 2025-11-09 10:50
 - ~/static/container/classesGridCols.ts
 - ~/static/container/LayoutWrapperDemo.tsx
 - ~/static/container/classesCardWrapper.ts
+- ~/static/container/classesBorderWrapper.ts
 - ~/static/logo/LogoImageText.tsx
 - ~/static/logo/LogoImageOnly.tsx
 - ~/static/page/PageWrapper.tsx
@@ -163,12 +157,13 @@ Generated at: 2025-11-09 10:50
 - ~/interactive/popover/CorvuPopover.tsx
 - ~/interactive/details/Details.tsx
 - ~/interactive/toggle/ToggleButton.tsx
-- ~/interactive/theme/t4theme.ts
 - ~/interactive/theme/ThemeButton.tsx
 - ~/interactive/theme/themeVariant.ts
 - ~/interactive/theme/themeSignal.ts
+- ~/interactive/theme/ThemeButtonText.ts
 - ~/interactive/list/BulletLinks.tsx
 - ~/interactive/list/BulletLinksO.tsx
+- ~/interactive/tabs/TabsTopText.ts
 - ~/interactive/tabs/TabsTop.tsx
 - ~/interactive/link/LinkButtonProps.tsx
 - ~/interactive/link/LinkText.tsx
@@ -179,15 +174,16 @@ Generated at: 2025-11-09 10:50
 - ~/interactive/button/buttonCva.ts
 - ~/interactive/button/ButtonIconOnly.tsx
 - ~/interactive/button/classesButtonClickAnimationSquish.ts
-- ~/interactive/button/classesButtonDisabled.ts
 - ~/interactive/button/buttonIconCva.ts
 - ~/interactive/button/classesButtonClickAnimationPush.ts
 - ~/interactive/button/ButtonIcon1.tsx
 - ~/interactive/button/classesButtonClickAnimation.ts
 - ~/interactive/button/Button.tsx
+- ~/interactive/dialog/NativeDialogTexts.ts
 - ~/interactive/dialog/NativeDialog.tsx
-- ~/interactive/dialog/tbCloseDialog.ts
 - ~/interactive/dialog/createNativeDialogOpenStateSignal.ts
-- ~/interactive/dialog/tbClose.ts
 - ~/classes/classesBg.tsx
 - ~/classes/classesTextLink.ts
+- ~/classes/classesDisabledDirectly.ts
+- ~/classes/classesDisabledModifierPeer.ts
+- ~/classes/classesDisabledModifier.ts
