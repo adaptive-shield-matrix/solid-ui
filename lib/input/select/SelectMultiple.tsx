@@ -1,7 +1,8 @@
 import { mdiCheck, mdiClose, mdiPlus } from "@mdi/js"
 import { Key } from "@solid-primitives/keyed"
 import { For, mergeProps } from "solid-js"
-import { ttt, ttt1 } from "~ui/i18n/ttt"
+import type { SelectMultipleTexts } from "~ui/input/select/SelectMultipleTexts"
+import { selectMultipleTextDefault } from "~ui/input/select/SelectMultipleTexts"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import type { CorvuPopoverProps } from "~ui/interactive/popover/CorvuPopover"
@@ -40,20 +41,8 @@ export interface SelectMultipleProps
   texts?: SelectMultipleTexts
 }
 
-export type SelectMultipleTexts = {
-  removeX: (x: string) => string
-  addEntry: string
-  noEntries: string
-}
-
 export function SelectMultiple(p: SelectMultipleProps) {
-  const texts =
-    p.texts ??
-    ({
-      removeX: (x: string) => ttt1("Remove [X]", x),
-      addEntry: ttt("Add entry"),
-      noEntries: ttt("No entries"),
-    } as const satisfies SelectMultipleTexts)
+  const texts = p.texts ?? selectMultipleTextDefault
 
   const buttonClass = classMerge(p.addEntryClass, p.buttonProps.class)
   const buttonProps = mergeProps(p.buttonProps, {

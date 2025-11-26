@@ -1,6 +1,7 @@
 import { mdiClose } from "@mdi/js"
 import { createUniqueId, mergeProps, Show, splitProps } from "solid-js"
-import { ttt } from "~ui/i18n/ttt"
+import type { NativeDialogTexts } from "~ui/interactive/dialog/NativeDialogTexts"
+import { nativeDialogTextDefault } from "~ui/interactive/dialog/NativeDialogTexts"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon, type ButtonIconProps } from "~ui/interactive/button/ButtonIcon"
 import {
@@ -15,11 +16,7 @@ import "./NativeDialog.module.css"
 
 export type DialogButtonProps = Omit<ButtonIconProps, "id" | "type">
 
-export type NativeDialogTexts = {
-  closeDialog: string
-}
-
-interface DialogProps extends MayHaveClass, MayHaveChildren, Partial<DialogInternalProps> {
+export interface DialogProps extends MayHaveClass, MayHaveChildren, Partial<DialogInternalProps> {
   // trigger
   buttonProps: DialogButtonProps
   title: string
@@ -76,11 +73,7 @@ export function NativeDialog(pp: DialogProps) {
   const p = initProps(pp)
   const [a, buttonProps] = splitProps(p.buttonProps, ["onClick"])
 
-  const texts =
-    p.texts ??
-    ({
-      closeDialog: ttt("Close dialog"),
-    } as const satisfies NativeDialogTexts)
+  const texts = p.texts ?? nativeDialogTextDefault
 
   return (
     <>

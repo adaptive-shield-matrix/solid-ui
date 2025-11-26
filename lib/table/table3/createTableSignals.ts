@@ -3,7 +3,7 @@ import { searchInputSignal } from "~ui/input/search/searchInputSignal"
 import { createTableColumnDef, type TableColumnDef, tableFilterColumns } from "~ui/table/shared/TableColumnDef"
 import { sortData } from "~ui/table/table2/sortData"
 import { defaultSortDir, sortDir, type SortDir } from "~ui/table/table2/sortDir"
-import { defaultEntriesPerPage } from "~ui/table/table3/pagination/defaultEntriesPerPage"
+import { defaultEntriesPerPage } from "~ui/table/table3/defaultEntriesPerPage"
 import { tableRowSearchSimple } from "~ui/table/table3/tableRowSearchSimple"
 import { createSignalObject, type SignalObject } from "~ui/utils/createSignalObject"
 

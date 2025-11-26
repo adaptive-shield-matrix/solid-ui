@@ -1,6 +1,7 @@
 import { mdiMinus, mdiMinusBox, mdiPlus, mdiPlusBox } from "@mdi/js"
 import { type JSX } from "solid-js"
-import { ttt1 } from "~ui/i18n/ttt"
+import type { NumberInputText } from "~ui/input/number/NumberInputTexts"
+import { numberInputTextDefault } from "~ui/input/number/NumberInputTexts"
 import { Input } from "~ui/input/input/Input"
 import { buttonVariant, type ButtonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
@@ -23,11 +24,6 @@ export type NumberInputSProps = {
   id?: string
   translate?: (en: string, x1?: string | number) => string
   texts?: NumberInputText
-}
-
-type NumberInputText = {
-  decreaseByX: (amount: number) => string
-  increaseByX: (amount: number) => string
 }
 
 export function NumberInputS(p: NumberInputSProps) {
@@ -70,12 +66,7 @@ export function NumberInputS(p: NumberInputSProps) {
   }
   const defaultVariant = buttonVariant.ghost
 
-  const texts =
-    p.texts ??
-    ({
-      decreaseByX: (amount: number) => ttt1("Decrease by [X]", amount.toString()),
-      increaseByX: (amount: number) => ttt1("Increase by [X]", amount.toString()),
-    } as const satisfies NumberInputText)
+  const texts = p.texts ?? numberInputTextDefault
 
   return (
     <div class={classMerge("flex flex-row flex-nowrap items-center", p.class)}>

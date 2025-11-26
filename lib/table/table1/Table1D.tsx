@@ -1,4 +1,5 @@
-import { ttt } from "~ui/i18n/ttt"
+import type { Table1DTexts } from "~ui/table/table1/Table1DTexts"
+import { table1DTextDefault } from "~ui/table/table1/Table1DTexts"
 import type { DesktopTableClassNames } from "~ui/table/shared/DesktopTableClassNames"
 import { sharedTableRowClassName } from "~ui/table/shared/sharedTableRowClassName"
 import type { Table1Data } from "~ui/table/table1/Table1Data"
@@ -8,10 +9,12 @@ import { classMerge } from "~ui/utils/classMerge"
 export interface Table1aDProps<T> extends Table1Data<T>, MayHaveClass {
   desktopClasses?: DesktopTableClassNames
   translate?: (en: string) => string
+  texts?: Table1DTexts
 }
 
 export function Table1D<T>(p: Table1aDProps<T>) {
-  const noEntriesText = p.translate ? p.translate("No entries") : ttt("No entries")
+  const texts = p.texts ?? table1DTextDefault
+  const noEntriesText = p.translate ? p.translate("No entries") : texts.noEntries
 
   if (p.rows.length <= 0) return <span class={"text-lg text-center p-2 pt-6"}>{noEntriesText}</span>
   return (

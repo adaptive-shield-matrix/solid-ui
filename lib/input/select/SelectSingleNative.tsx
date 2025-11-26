@@ -1,6 +1,7 @@
 import { Key } from "@solid-primitives/keyed"
 import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
-import { ttt } from "~ui/i18n/ttt"
+import type { SelectSingleNativeTexts } from "~ui/input/select/SelectSingleNativeTexts"
+import { selectSingleNativeTextDefault } from "~ui/input/select/SelectSingleNativeTexts"
 import { classArr } from "~ui/utils/classArr"
 import type { HasGetOptions } from "~ui/utils/HasGetOptions"
 import type { HasValueSignalString } from "~ui/utils/HasValueSignalString"
@@ -23,16 +24,8 @@ export interface SelectSingleNativeProps
   texts?: SelectSingleNativeTexts
 }
 
-export type SelectSingleNativeTexts = {
-  noEntries: string
-}
-
 export function SelectSingleNative(p: SelectSingleNativeProps) {
-  const texts =
-    p.texts ??
-    ({
-      noEntries: ttt("No entries"),
-    } as const satisfies SelectSingleNativeTexts)
+  const texts = p.texts ?? selectSingleNativeTextDefault
 
   return (
     <select
