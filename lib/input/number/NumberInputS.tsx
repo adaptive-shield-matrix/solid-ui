@@ -20,7 +20,7 @@ export interface NumberInputSProps extends ComponentProps<"input"> {
   inputClass?: string
   variant?: ButtonVariant
   buttonClass?: string
-  onChanged?: (v: number) => void
+  onValueChange?: (v: number) => void
   id?: string
   texts?: NumberInputText
 }
@@ -28,6 +28,7 @@ export interface NumberInputSProps extends ComponentProps<"input"> {
 export function NumberInputS(p: NumberInputSProps) {
   const [s, rest] = splitProps(p, [
     "valueSignal",
+    "onValueChange",
     "min",
     "max",
     "incrDecrAmount",
@@ -37,7 +38,6 @@ export function NumberInputS(p: NumberInputSProps) {
     "inputClass",
     "variant",
     "buttonClass",
-    "onChanged",
     "id",
     "texts",
   ])
@@ -48,35 +48,35 @@ export function NumberInputS(p: NumberInputSProps) {
     if (s.min !== undefined) newN = Math.max(s.min, newN)
     if (s.max !== undefined) newN = Math.min(s.max, newN)
     s.valueSignal.set(newN)
-    if (s.onChanged) s.onChanged(newN)
+    if (s.onValueChange) s.onValueChange(newN)
   }
   const decrementMajor: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent> | undefined = (e) => {
     const n = s.valueSignal.get()
     let newN = n - (s.incrDecrAmountMajor ?? 10) * (e.ctrlKey ? 100 : 1)
     if (s.min !== undefined) newN = Math.max(s.min, newN)
     s.valueSignal.set(newN)
-    if (s.onChanged) s.onChanged(newN)
+    if (s.onValueChange) s.onValueChange(newN)
   }
   const decrement: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent> | undefined = (e) => {
     const n = s.valueSignal.get()
     let newN = n - (s.incrDecrAmount ?? 1) * (e.ctrlKey ? 100 : 1)
     if (s.min !== undefined) newN = Math.max(s.min, newN)
     s.valueSignal.set(newN)
-    if (s.onChanged) s.onChanged(newN)
+    if (s.onValueChange) s.onValueChange(newN)
   }
   const increment: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent> | undefined = (e) => {
     const n = s.valueSignal.get()
     let newN = n + (s.incrDecrAmount ?? 1) * (e.ctrlKey ? 100 : 1)
     if (s.max !== undefined) newN = Math.min(s.max, newN)
     s.valueSignal.set(newN)
-    if (s.onChanged) s.onChanged(newN)
+    if (s.onValueChange) s.onValueChange(newN)
   }
   const incrementMajor: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent> | undefined = (e) => {
     const n = s.valueSignal.get()
     let newN = n + (s.incrDecrAmountMajor ?? 10) * (e.ctrlKey ? 100 : 1)
     if (s.max !== undefined) newN = Math.min(s.max, newN)
     s.valueSignal.set(newN)
-    if (s.onChanged) s.onChanged(newN)
+    if (s.onValueChange) s.onValueChange(newN)
   }
   const defaultVariant = buttonVariant.ghost
 
