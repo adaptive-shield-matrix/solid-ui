@@ -1,23 +1,15 @@
-import { ttt1 } from "~ui/i18n/ttt"
+import { loadingPageTextsDefault, type LoadingPageTexts } from "~ui/static/loaders/LoadingPageTexts"
 import { RandomLoader } from "~ui/static/loaders/RandomLoader"
 import { classMerge } from "~ui/utils/classMerge"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
-export type LoadingPageText = {
-  loading: (item?: string) => string
-}
-
 export interface LoadingPageProps extends MayHaveClass {
   loadingItem?: string
-  texts?: LoadingPageText
+  texts?: LoadingPageTexts
 }
 
 export function LoadingPage(p: LoadingPageProps) {
-  const texts =
-    p.texts ??
-    ({
-      loading: (item?: string) => (item ? ttt1("Loading [X]...", item) : "Loading..."),
-    } as const satisfies LoadingPageText)
+  const texts = p.texts ?? loadingPageTextsDefault
 
   return (
     <div class={classMerge("flex w-full items-center justify-center", p.class)}>
