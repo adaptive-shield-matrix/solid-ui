@@ -1,5 +1,4 @@
 import { mdiMagicStaff, mdiTrashCan } from "@mdi/js"
-import { ttt } from "~ui/i18n/ttt"
 import { formModeIcon } from "~ui/input/form/formModeIcon"
 import { InputS } from "~ui/input/input/InputS"
 import { Button } from "~ui/interactive/button/Button"
@@ -27,7 +26,6 @@ export function DemoTable2R() {
         desktopClasses={{
           data: "px-3 py-2",
         }}
-        translate={(en) => ttt(en)}
       />
     </>
   )

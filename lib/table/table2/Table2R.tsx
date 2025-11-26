@@ -11,7 +11,6 @@ export interface Table2RProps<T> extends Table2Signals<T> {
   breakpoint?: TailwindBreakpoint
   desktopClasses?: DesktopTableClassNames
   mobileClasses?: MobileTableClassNames
-  translate?: (en: string) => string
 }
 
 export function Table2R<T>(p: Table2RProps<T>) {

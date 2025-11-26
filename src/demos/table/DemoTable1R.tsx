@@ -11,7 +11,6 @@ export function DemoTable1R() {
       desktopClasses={{
         data: "px-3 py-2",
       }}
-      translate={(en) => ttt(en)}
     />
   )
 }
