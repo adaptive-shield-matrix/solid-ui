@@ -1,19 +1,9 @@
 import type { Component, ComponentProps } from "solid-js"
 import { splitProps } from "solid-js"
-import { classesDisabledModifierPeer } from "~ui/classes/classesDisabledModifierPeer"
+import { classesLabel } from "~ui/input/label/classesLabel"
 import { classMerge } from "~ui/utils/classMerge"
 
 export const Label: Component<ComponentProps<"label">> = (p) => {
   const [s, rest] = splitProps(p, ["class"])
-  return (
-    <label
-      class={classMerge(
-        "font-medium leading-none", // font
-        "whitespace-nowrap", // no text wrapping
-        classesDisabledModifierPeer, // disabled
-        s.class,
-      )}
-      {...rest}
-    />
-  )
+  return <label class={classMerge(classesLabel, s.class)} {...rest} />
 }
