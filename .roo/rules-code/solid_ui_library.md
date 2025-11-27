@@ -1,7 +1,7 @@
 # Available Solid.js UI Components and utility functions
 
 These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
-Generated at: 2025-11-26 19:20
+Generated at: 2025-11-27 22:44
 
 - ~/i18n/ttt.ts
 - ~/table/shared/DesktopTableClassNames.ts
@@ -45,6 +45,9 @@ Generated at: 2025-11-26 19:20
 - ~/input/label/LabelWithInfo.tsx
 - ~/input/label/LabelAsterix.tsx
 - ~/input/label/LabelWithSubtitle.tsx
+- ~/input/label/classesLabel.ts
+- ~/input/fieldset/Fieldset.tsx
+- ~/input/fieldset/classesFieldset.ts
 - ~/input/textarea/TextareaS.tsx
 - ~/input/textarea/Textarea.tsx
 - ~/input/number/NumberInputS.tsx
@@ -59,6 +62,7 @@ Generated at: 2025-11-26 19:20
 - ~/static/loaders/RandomLoader.tsx
 - ~/static/loaders/LoadingPage.tsx
 - ~/static/loaders/LoaderShuffle4Dots.tsx
+- ~/static/loaders/LoadingPageTexts.ts
 - ~/static/loaders/LoaderSpin4Square.tsx
 - ~/static/loaders/LoaderShuffle9Squares.tsx
 - ~/static/text/commonHeaderClass.ts
@@ -154,6 +158,8 @@ Generated at: 2025-11-26 19:20
 - ~/interactive/toast/Toaster.tsx
 - ~/interactive/toast/GlobalToasterState.ts
 - ~/interactive/popover/InfoPopover.tsx
+- ~/interactive/popover/classesPopoverContent.ts
+- ~/interactive/popover/CorvuPopoverIcon.tsx
 - ~/interactive/popover/CorvuPopover.tsx
 - ~/interactive/details/Details.tsx
 - ~/interactive/toggle/ToggleButton.tsx
