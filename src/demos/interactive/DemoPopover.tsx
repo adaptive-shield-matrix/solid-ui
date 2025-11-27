@@ -1,6 +1,7 @@
 import { mdiDotsVertical } from "@mdi/js"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
+import { CorvuPopoverIcon } from "~ui/interactive/popover/CorvuPopoverIcon"
 import { classesGridCols3xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
@@ -13,6 +14,7 @@ export function DemoPopover() {
         <BasicPopoverDemo title="Start" class="justify-start items-start" />
         <BasicPopoverDemo title="Center" class="justify-center items-center" />
         <BasicPopoverDemo title="End" class="justify-end items-end" />
+        <IconPopoverDemo title="Icon" class="justify-center items-center" />
       </div>
     </div>
   )
@@ -29,6 +31,17 @@ function BasicPopoverDemo(p: BasicPopoverDemo) {
       <CorvuPopover icon={mdiDotsVertical} variant={buttonVariant.outline} buttonChildren={"Open"}>
         <Content />
       </CorvuPopover>
+    </div>
+  )
+}
+
+function IconPopoverDemo(p: BasicPopoverDemo) {
+  return (
+    <div class={classArr("flex flex-col", p.class)}>
+      <h2 class="text-2xl font-bold mb-4">{p.title + " Popover"}</h2>
+      <CorvuPopoverIcon icon={mdiDotsVertical} variant={buttonVariant.outline} title="Open popover">
+        <Content />
+      </CorvuPopoverIcon>
     </div>
   )
 }

@@ -5,8 +5,8 @@ import { buttonCva2 } from "~ui/interactive/button/buttonCva"
 import type { ButtonIcon1Props } from "~ui/interactive/button/ButtonIcon1"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
+import { classesPopoverContentMerge } from "~ui/interactive/popover/classesPopoverContent"
 import { Icon1 } from "~ui/static/icon/Icon1"
-import { classArr } from "~ui/utils/classArr"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
@@ -42,20 +42,7 @@ export function CorvuPopover(p: CorvuPopoverProps) {
         )}
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content
-          class={classArr(
-            "z-50", // positioning
-            "px-3 py-3", // spacing
-            "rounded-lg", // border
-            "dark:border", // border
-            "bg-white dark:bg-black", // background
-            "shadow-md", // shadow
-            "data-open:animate-in data-open:fade-in-50% data-open:slide-in-from-top-1 data-closed:animate-out data-closed:fade-out-50% data-closed:slide-out-to-top-1", // animations
-            p.innerClass,
-          )}
-        >
-          {p.children}
-        </Popover.Content>
+        <Popover.Content class={classesPopoverContentMerge(p.innerClass)}>{p.children}</Popover.Content>
       </Popover.Portal>
     </Popover>
   )
