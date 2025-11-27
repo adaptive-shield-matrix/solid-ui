@@ -11,7 +11,6 @@ export interface SortableTable1RProps<T> extends Table1Data<T> {
   breakpoint?: TailwindBreakpoint
   desktopClasses?: DesktopTableClassNames
   mobileClasses?: MobileTableClassNames
-  translate?: (en: string) => string
 }
 
 export function Table1R<T>(p: SortableTable1RProps<T>) {
@@ -22,14 +21,12 @@ export function Table1R<T>(p: SortableTable1RProps<T>) {
         columns={p.columns}
         class={tableVisibilityClasses.desktop(p.breakpoint ?? tailwindBreakpoint.sm)}
         desktopClasses={p.desktopClasses}
-        translate={p.translate}
       />
       <Table1M
         rows={p.rows}
         columns={p.columns}
         class={tableVisibilityClasses.mobile(p.breakpoint ?? tailwindBreakpoint.sm)}
         mobileClasses={p.mobileClasses}
-        translate={p.translate}
       />
     </>
   )
