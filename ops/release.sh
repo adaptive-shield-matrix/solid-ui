@@ -72,6 +72,12 @@ fi
 # --- Step 5: Build and Deploy ---
 bun run deploy
 
+# update docs
+bash ./lib/generate_ai_rules/generate_agent_rules_1_lib.bash
+bash ./lib/generate_ai_rules/generate_agent_rules_3_combine.bash
+git add .roo
+git commit -m "doc(ui): update file list in ui lib"
+
 # --- Step 6: Update package.json ---
 echo "🔄 Updating $PACKAGE_JSON to v$NEW_VERSION..."
 jq --arg v "$NEW_VERSION" '.version = $v' "$PACKAGE_JSON" > tmp.$$.json && mv tmp.$$.json "$PACKAGE_JSON"
@@ -98,6 +104,3 @@ git branch -f released
 echo "✅ Release v$NEW_VERSION complete!"
 echo "📄 Changelog: $CHANGELOG_FILE"
 echo "🔗 GitHub: https://github.com$(echo "$REPO_URL" | sed 's/.*github.com//')/releases/tag/$TAG"
-
-bash ./lib/generate_ai_rules/generate_agent_rules_1_lib.bash
-bash ./lib/generate_ai_rules/generate_agent_rules_3_combine.bash
