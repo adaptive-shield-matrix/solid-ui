@@ -20,7 +20,7 @@ export function BulletLinks(p: BulletLinksProps) {
         return (
           <div class={classMerge("flex flex-row flex-nowrap content-center", p.itemClass)}>
             <BlueBulletPoint class={p.bulletClass} />
-            <LinkText href={url} class={classMerge("leading-relaxed", p.linkClass)} onClick={p.onClick}>
+            <LinkText href={url} class={classMerge(p.linkClass)} onClick={p.onClick}>
               {displayAs}
             </LinkText>
           </div>
