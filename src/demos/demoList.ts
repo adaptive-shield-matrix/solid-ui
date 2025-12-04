@@ -61,6 +61,11 @@ const DemoCheckbox = lazy(async () => {
   return { default: c.DemoCheckbox }
 })
 
+const DemoInputDatalist = lazy(async () => {
+  const c = await import("@/demos/input/DemoInputDatalist")
+  return { default: c.DemoInputDatalist }
+})
+
 const DemoSelectMultiple = lazy(async () => {
   const c = await import("@/demos/input/DemoSelectMultiple")
   return { default: c.DemoSelectMultiple }
@@ -196,6 +201,7 @@ export const demoList = {
     DemoSelectSingleNative: DemoSelectSingleNative,
     DemoCheckMultiple: DemoCheckMultiple,
     DemoCheckbox: DemoCheckbox,
+    DemoInputDatalist: DemoInputDatalist,
     DemoSelectMultiple: DemoSelectMultiple,
   },
   interactive: {
