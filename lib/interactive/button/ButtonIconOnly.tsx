@@ -4,19 +4,20 @@ import { buttonCvaIconOnly, type ButtonCvaProps } from "~ui/interactive/button/b
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import { Icon0 } from "~ui/static/icon/Icon0"
+import type { HasIcon } from "~ui/utils/HasIcon"
+import type { HasTitle } from "~ui/utils/HasTitle"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import { isDisabled } from "~ui/utils/MayHaveDisabledAccessor"
 import { isLoading, type MayHaveIsLoading } from "~ui/utils/MayHaveIsLoading"
 
 export interface ButtonIconOnlyProps
-  extends ComponentProps<"button">,
+  extends Omit<ComponentProps<"button">, "title">,
     ButtonCvaProps,
+    HasTitle,
+    HasIcon,
     MayHaveIsLoading,
     MayHaveChildren {
-  title: string
-  icon: string
   iconRight?: boolean
-  iconClass?: string
 }
 
 export const ButtonIconOnly: Component<ButtonIconOnlyProps> = (p) => {

@@ -6,22 +6,22 @@ import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import { classesPopoverContentMerge } from "~ui/interactive/popover/classesPopoverContent"
 import { Icon0 } from "~ui/static/icon/Icon0"
+import type { HasIcon } from "~ui/utils/HasIcon"
+import type { HasTitle } from "~ui/utils/HasTitle"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
 import { isLoading, type MayHaveIsLoading } from "~ui/utils/MayHaveIsLoading"
 
 export interface CorvuPopoverIconProps
-  extends ComponentProps<"button">,
+  extends Omit<ComponentProps<"button">, "title">,
     ButtonCvaProps,
+    HasIcon,
+    HasTitle,
     MayHaveClass,
     MayHaveInnerClass,
     MayHaveChildren,
-    MayHaveIsLoading {
-  title: string
-  icon: string
-  iconClass?: string
-}
+    MayHaveIsLoading {}
 
 export const CorvuPopoverIcon: Component<CorvuPopoverIconProps> = (p) => {
   const [s, rest] = splitProps(p, [

@@ -1,19 +1,14 @@
 import type { JSXElement } from "solid-js"
 import type { ToastVariant } from "~ui/interactive/toast/toastVariant"
+import type { HasTitle } from "~ui/utils/HasTitle"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveIcon } from "~ui/utils/MayHaveIcon"
+import type { MayHaveId } from "~ui/utils/MayHaveId"
 
-export interface AddToastProps extends MayHaveClass, MayHaveChildren {
-  id?: string
-
+export interface AddToastProps extends MayHaveId, MayHaveIcon, HasTitle, MayHaveClass, MayHaveChildren {
   variant?: ToastVariant
   duration?: number
-
-  icon?: string
-  iconClass?: string
-
-  title: string
-  titleClass?: string
 
   description?: string
   descriptionClass?: string
