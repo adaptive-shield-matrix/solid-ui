@@ -2,6 +2,7 @@ import { classMerge } from "~ui/utils/classMerge"
 
 export const classesPopoverContent = [
   "z-50", // positioning
+  "max-w-4xl",
   "px-3 py-3", // spacing
   "rounded-lg", // border
   "dark:border", // border

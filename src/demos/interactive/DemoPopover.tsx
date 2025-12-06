@@ -1,3 +1,4 @@
+import { LongContent } from "@/demos/interactive/LongContent"
 import { mdiDotsVertical } from "@mdi/js"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { CorvuPopover } from "~ui/interactive/popover/CorvuPopover"
@@ -12,7 +13,7 @@ export function DemoPopover() {
       <h1 class="text-3xl font-bold mb-6">Popover Demo</h1>
       <div class={classArr(classesGridCols3xl, "gap-4")}>
         <BasicPopoverDemo title="Start" class="justify-start items-start" />
-        <BasicPopoverDemo title="Center" class="justify-center items-center" />
+        <BasicPopoverDemo title="Long content" class="justify-center items-center" />
         <BasicPopoverDemo title="End" class="justify-end items-end" />
         <IconPopoverDemo title="Icon" class="justify-center items-center" />
       </div>
@@ -29,7 +30,7 @@ function BasicPopoverDemo(p: BasicPopoverDemo) {
     <div class={classArr("flex flex-col", p.class)}>
       <h2 class="text-2xl font-bold mb-4">{p.title + " Popover"}</h2>
       <CorvuPopover icon={mdiDotsVertical} variant={buttonVariant.outline} buttonChildren={"Open"}>
-        <Content />
+        <LongContent />
       </CorvuPopover>
     </div>
   )
