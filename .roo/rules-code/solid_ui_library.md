@@ -1,7 +1,7 @@
 # Available Solid.js UI Components and utility functions
 
 These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
-Generated at: 2025-11-27 22:44
+Generated at: 2025-12-06 11:21
 
 - ~/i18n/ttt.ts
 - ~/table/shared/DesktopTableClassNames.ts
@@ -37,12 +37,14 @@ Generated at: 2025-11-27 22:44
 - ~/input/form/formModeIcon.ts
 - ~/input/form/formMode.ts
 - ~/input/form/formModeMutate.ts
+- ~/input/input/InputDatalist.tsx
 - ~/input/input/InputS.tsx
 - ~/input/input/Input.tsx
 - ~/input/search/searchInputSignal.ts
 - ~/input/label/Label.tsx
 - ~/input/label/LabelAsterixTexts.ts
 - ~/input/label/LabelWithInfo.tsx
+- ~/input/label/LabelPseudo.tsx
 - ~/input/label/LabelAsterix.tsx
 - ~/input/label/LabelWithSubtitle.tsx
 - ~/input/label/classesLabel.ts
@@ -122,6 +124,7 @@ Generated at: 2025-11-27 22:44
 - ~/utils/MayHaveId.ts
 - ~/utils/HasValueSignalString.ts
 - ~/utils/MayHaveInnerClass.ts
+- ~/utils/HasIcon.ts
 - ~/utils/MayHaveIcon.ts
 - ~/utils/MayHaveChildren.ts
 - ~/utils/NavigateTo.ts
@@ -185,9 +188,10 @@ Generated at: 2025-11-27 22:44
 - ~/interactive/button/ButtonIcon1.tsx
 - ~/interactive/button/classesButtonClickAnimation.ts
 - ~/interactive/button/Button.tsx
-- ~/interactive/dialog/NativeDialogTexts.ts
-- ~/interactive/dialog/NativeDialog.tsx
-- ~/interactive/dialog/createNativeDialogOpenStateSignal.ts
+- ~/interactive/dialog/CorcuDialogTexts.ts
+- ~/interactive/dialog/classesDialogContent.ts
+- ~/interactive/dialog/CorvuDialogIcon.tsx
+- ~/interactive/dialog/CorvuDialog.tsx
 - ~/classes/classesBg.tsx
 - ~/classes/classesTextLink.ts
 - ~/classes/classesDisabledDirectly.ts
