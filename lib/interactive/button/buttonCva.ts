@@ -57,8 +57,8 @@ const variantClasses = {
   outline: classArr(
     "bg-transparent dark:bg-transparent",
     "dark:text-slate-100", // text
-    "hover:bg-slate-100", // bg hover
-    "border border-slate-200 dark:border-slate-700 dark:hover:bg-slate-900", // border
+    "hover:bg-slate-100 dark:hover:bg-slate-900", // bg hover
+    "border border-slate-200 dark:border-stone-500", // border
   ),
   ghost: classArr(
     "dark:text-slate-100 dark:hover:text-slate-100", // text
