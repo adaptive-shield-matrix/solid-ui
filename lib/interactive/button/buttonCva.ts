@@ -180,7 +180,7 @@ export function buttonCvaIconOnly(
     variant,
     buttonSize.none,
     classesButtonClickAnimation,
-    "rounded-full p-2.5",
+    "rounded-full p-2",
     (isDisabled || isLoading) && classesDisabledDirectly,
     ...customClasses,
   )
