@@ -1,212 +1,91 @@
-import { mdiAccount, mdiInformation, mdiPencil } from "@mdi/js"
-import { createSignal } from "solid-js"
-import { Button } from "~ui/interactive/button/Button"
+import { LongContent } from "@/demos/interactive/LongContent"
+import { mdiCog } from "@mdi/js"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
-import { NativeDialog } from "~ui/interactive/dialog/NativeDialog"
+import { CorvuDialog } from "~ui/interactive/dialog/CorvuDialog"
+import { CorvuDialogIcon } from "~ui/interactive/dialog/CorvuDialogIcon"
 import { classesGridCols4xl } from "~ui/static/container/classesGridCols"
 import { classArr } from "~ui/utils/classArr"
-import { arrCreate } from "~utils/arr/arrCreate"
 
 export function DemoDialog() {
   return (
     <div class="p-4">
       <h1 class="text-3xl font-bold mb-6">Dialog Demo</h1>
       <div class={classArr(classesGridCols4xl, "gap-4")}>
-        <BasicDialogDemo />
-        <DialogWithDescriptionDemo />
-        <DialogWithFormDemo />
-        <DialogVariantsDemo />
-        <DialogNestedDemo />
-        <DialogLongContentDemo />
+        <SimpleDialogDemo />
+        <NestedDialogDemo />
+        <LongContentDialogDemo />
       </div>
     </div>
   )
 }
 
-function BasicDialogDemo() {
+function SimpleDialogDemo() {
   return (
     <div>
-      <h2 class="text-2xl font-bold mb-4">Basic Dialog</h2>
-      <NativeDialog
-        buttonProps={{
-          children: "Open Dialog",
-          variant: buttonVariant.primary,
-        }}
-        title="Basic Dialog"
+      <h2 class="text-xl font-semibold mb-3">Simple Icon Dialog</h2>
+      <CorvuDialogIcon
+        variant={buttonVariant.outline}
+        icon={mdiCog}
+        title="Settings"
+        dialogTitle="Settings"
+        description="Configure your application settings"
       >
-        <div class="mt-4">
-          <p>This is a basic dialog with simple content.</p>
-          <p class="mt-2">Click the close button or outside to dismiss.</p>
-        </div>
-      </NativeDialog>
-    </div>
-  )
-}
-
-function DialogWithDescriptionDemo() {
-  return (
-    <div>
-      <h2 class="text-2xl font-bold mb-4">Dialog with Description</h2>
-      <NativeDialog
-        buttonProps={{
-          icon: mdiInformation,
-          children: "Info Dialog",
-          variant: buttonVariant.outline,
-        }}
-        title="Information"
-        description="This dialog includes a description below the title."
-      >
-        <div class="mt-4">
-          <p>Additional content goes here.</p>
-          <p class="mt-2">The description provides context for the dialog's purpose.</p>
-        </div>
-      </NativeDialog>
-    </div>
-  )
-}
-
-function DialogWithFormDemo() {
-  const [name, setName] = createSignal("")
-  const [email, setEmail] = createSignal("")
-
-  return (
-    <div>
-      <h2 class="text-2xl font-bold mb-4">Dialog with Form</h2>
-      <NativeDialog
-        buttonProps={{
-          icon: mdiPencil,
-          children: "Edit Profile",
-          variant: buttonVariant.success,
-        }}
-        title="Edit Profile"
-        description="Update your account information"
-      >
-        <form class="mt-4 space-y-4">
+        <div class="space-y-4">
           <div>
-            <label class="block text-sm font-medium mb-1">Name</label>
-            <input
-              type="text"
-              value={name()}
-              onInput={(e) => setName(e.currentTarget.value)}
-              class="w-full p-2 border rounded-md"
-              placeholder="Enter your name"
-            />
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="rounded" />
+              <span>Enable notifications</span>
+            </label>
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">Email</label>
-            <input
-              type="email"
-              value={email()}
-              onInput={(e) => setEmail(e.currentTarget.value)}
-              class="w-full p-2 border rounded-md"
-              placeholder="Enter your email"
-            />
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="rounded" />
+              <span>Dark mode</span>
+            </label>
           </div>
-          <div class="flex gap-2 justify-end">
-            <Button variant={buttonVariant.outline} type="button">
-              Cancel
-            </Button>
-            <Button variant={buttonVariant.primary} type="submit">
-              Save Changes
-            </Button>
+          <div>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="rounded" />
+              <span>Auto-save</span>
+            </label>
           </div>
-        </form>
-      </NativeDialog>
+        </div>
+      </CorvuDialogIcon>
     </div>
   )
 }
 
-function DialogVariantsDemo() {
+function NestedDialogDemo() {
   return (
     <div>
-      <h2 class="text-2xl font-bold mb-4">Dialog Button Variants</h2>
-      <div class="flex flex-wrap gap-4">
-        <NativeDialog
-          buttonProps={{
-            children: "Default",
-            variant: buttonVariant.default,
-          }}
-          title="Default Dialog"
-        >
-          <div class="mt-4">
-            <p>This dialog uses the default button variant.</p>
-          </div>
-        </NativeDialog>
-
-        <NativeDialog
-          buttonProps={{
-            icon: mdiAccount,
-            children: "Ghost",
-            variant: buttonVariant.ghost,
-          }}
-          title="Ghost Dialog"
-        >
-          <div class="mt-4">
-            <p>This dialog uses the ghost button variant.</p>
-          </div>
-        </NativeDialog>
-
-        <NativeDialog
-          buttonProps={{
-            children: "Destructive",
-            variant: buttonVariant.destructive,
-          }}
-          title="Destructive Dialog"
-        >
-          <div class="mt-4">
-            <p>This dialog uses the destructive button variant.</p>
-          </div>
-        </NativeDialog>
-      </div>
-    </div>
-  )
-}
-function DialogNestedDemo() {
-  return (
-    <div>
-      <h2 class="text-2xl font-bold mb-4">Dialog Nested</h2>
-      <div class="flex flex-wrap gap-4">
-        <NativeDialog
-          buttonProps={{
-            variant: buttonVariant.outline,
-            children: "Show Nested Dialog",
-          }}
-          title={"Nested Dialog"}
-        >
-          <NativeDialog
-            buttonProps={{
-              variant: buttonVariant.outline,
-              children: "Inside a nested Dialog",
-            }}
-            title={"Inside a nested Dialog"}
-          >
-            tada!
-          </NativeDialog>
-        </NativeDialog>
-      </div>
+      <h2 class="text-xl font-semibold mb-3">Nested Dialog</h2>
+      <CorvuDialog variant={buttonVariant.outline} buttonChildren="Show Nested Dialog" title="Parent Dialog">
+        <div class="space-y-4">
+          <p>This is the parent dialog. Click the button below to open a nested dialog.</p>
+          <CorvuDialog variant={buttonVariant.primary} buttonChildren="Open Nested Dialog" title="Nested Dialog">
+            <div>
+              <p>This is a nested dialog inside the parent dialog!</p>
+              <p class="mt-2">You can have multiple levels of nesting.</p>
+            </div>
+          </CorvuDialog>
+        </div>
+      </CorvuDialog>
     </div>
   )
 }
 
-function DialogLongContentDemo() {
+function LongContentDialogDemo() {
   return (
     <div>
-      <h2 class="text-2xl font-bold mb-4">Dialog Long Content</h2>
-      <div class="flex flex-wrap gap-4">
-        <NativeDialog
-          buttonProps={{
-            variant: buttonVariant.outline,
-            children: "Show dialog",
-          }}
-          title={"My first dialog"}
-        >
-          <div class={"flex flex-col gap-20"}>
-            {arrCreate(10, (i) => (
-              <p>Dialog content {i}</p>
-            ))}
-          </div>
-        </NativeDialog>
-      </div>
+      <h2 class="text-xl font-semibold mb-3">Long Content Dialog</h2>
+      <CorvuDialog
+        variant={buttonVariant.outline}
+        buttonChildren="Open Long Content Dialog"
+        title="Terms and Conditions"
+        description="Please read through our complete terms of service"
+      >
+        <LongContent />
+      </CorvuDialog>
     </div>
   )
 }

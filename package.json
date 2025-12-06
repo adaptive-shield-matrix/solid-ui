@@ -27,10 +27,11 @@
   },
   "dependencies": {
     "@adaptive-sm/utils": "^0.4.2",
+    "@corvu/dialog": "^0.2.4",
+    "@corvu/popover": "^0.2.0",
     "@mdi/js": "^7.4.47",
     "@solid-primitives/keyed": "^1.5.2",
-    "@solid-primitives/scheduled": "^1.5.2",
-    "@corvu/popover": "^0.2.0"
+    "@solid-primitives/scheduled": "^1.5.2"
   },
   "peerDependencies": {
     "solid-js": "^1.9.10",
