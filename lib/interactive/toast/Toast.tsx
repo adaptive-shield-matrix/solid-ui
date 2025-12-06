@@ -39,9 +39,6 @@ function ToastHeader(p: ToastHeaderProps) {
         <Icon path={p.icon!} class={toastIconCva(p.variant, p.iconClass)} />
       </Show>
       <p class={classMerge("text-lg font-bold break-words flex-1", p.titleClass)}>{p.title}</p>
-      <Show when={p.description}>
-        <p class={classMerge("break-words flex-1", p.descriptionClass)}>{p.description}</p>
-      </Show>
       <ButtonIcon
         variant={buttonVariant.ghost}
         title={p.texts.close}
