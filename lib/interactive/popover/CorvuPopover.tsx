@@ -6,7 +6,7 @@ import type { ButtonIcon1Props } from "~ui/interactive/button/ButtonIcon1"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import { classesPopoverContentMerge } from "~ui/interactive/popover/classesPopoverContent"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveInnerClass } from "~ui/utils/MayHaveInnerClass"
@@ -35,10 +35,10 @@ export function CorvuPopover(p: CorvuPopoverProps) {
           p.class,
         )}
       >
-        {p.icon && <Icon1 path={p.icon} class={buttonIconCva(p.variant, p.buttonChildren && "mr-2", p.iconClass)} />}
+        {p.icon && <Icon path={p.icon} class={buttonIconCva(p.variant, p.buttonChildren && "mr-2", p.iconClass)} />}
         {p.buttonChildren}
         {p.iconRight && (
-          <Icon1 path={p.iconRight} class={buttonIconCva(p.variant, p.buttonChildren && "ml-2", p.iconClass)} />
+          <Icon path={p.iconRight} class={buttonIconCva(p.variant, p.buttonChildren && "ml-2", p.iconClass)} />
         )}
       </Popover.Trigger>
       <Popover.Portal>

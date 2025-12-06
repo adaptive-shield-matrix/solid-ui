@@ -1,13 +1,13 @@
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/classMerge"
 
-export interface Icon1Props extends MayHaveClass {
+export interface IconProps extends MayHaveClass {
   path: string
   title?: string
   color?: string | null
 }
 
-export function Icon1(p: Icon1Props) {
+export function Icon(p: IconProps) {
   return (
     <svg
       viewBox={"0 0 24 24"}

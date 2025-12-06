@@ -8,7 +8,7 @@ import { classesButtonClickAnimation } from "~ui/interactive/button/classesButto
 import type { CorcuDialogTexts } from "~ui/interactive/dialog/CorcuDialogTexts"
 import { corvuDialogTextDefault } from "~ui/interactive/dialog/CorcuDialogTexts"
 import { classesDialogContentMerge, classesDialogOverlayMerge } from "~ui/interactive/dialog/classesDialogContent"
-import { Icon0 } from "~ui/static/icon/Icon0"
+import { Icon } from "~ui/static/icon/Icon"
 import type { HasIcon } from "~ui/utils/HasIcon"
 import type { HasTitle } from "~ui/utils/HasTitle"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -65,7 +65,7 @@ export const CorvuDialogIcon: Component<CorvuDialogIconProps> = (p) => {
         title={s.title}
         {...rest}
       >
-        <Icon0
+        <Icon
           path={s.icon}
           class={buttonIconCva(
             s.variant,
@@ -88,7 +88,7 @@ export const CorvuDialogIcon: Component<CorvuDialogIconProps> = (p) => {
               )}
             </div>
             <Dialog.Close class={buttonCvaIconOnly(buttonVariant.outline, false, false)} title={texts.closeDialog}>
-              <Icon0 path={mdiClose} class={buttonIconCva(buttonVariant.outline, "")} />
+              <Icon path={mdiClose} class={buttonIconCva(buttonVariant.outline, "")} />
             </Dialog.Close>
           </header>
           {s.children}

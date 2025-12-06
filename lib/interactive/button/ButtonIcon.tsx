@@ -5,7 +5,7 @@ import type { ButtonVariant } from "~ui/interactive/button/buttonCva"
 import { type ButtonCvaProps } from "~ui/interactive/button/buttonCva"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import { classMerge } from "~ui/utils/classMerge"
 
 export interface ButtonIconProps extends ComponentProps<"button">, ButtonCvaProps {
@@ -64,7 +64,7 @@ export const ButtonIcon: Component<ButtonIconProps> = (p) => {
       {...rest}
     >
       {(s.isLoading || s.validationMessage || s.icon) && (
-        <Icon1
+        <Icon
           path={(s.isLoading ? mdiLoading : s.validationMessage ? s.validationIcon : (s.icon ?? mdiLoading))!}
           class={buttonIconCva(
             s.validationMessage ? s.validationVariant : s.variant,
@@ -76,7 +76,7 @@ export const ButtonIcon: Component<ButtonIconProps> = (p) => {
       )}
       {s.validationMessage ? s.validationMessage : s.children}
       {!s.isLoading && !s.validationMessage && s.iconRight && (
-        <Icon1
+        <Icon
           path={s.iconRight}
           class={buttonIconCva(
             s.validationMessage ? s.validationVariant : s.variant,

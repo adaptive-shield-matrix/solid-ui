@@ -3,7 +3,7 @@ import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
 import { buttonCvaIconOnly, type ButtonCvaProps } from "~ui/interactive/button/buttonCva"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
-import { Icon0 } from "~ui/static/icon/Icon0"
+import { Icon } from "~ui/static/icon/Icon"
 import type { HasIcon } from "~ui/utils/HasIcon"
 import type { HasTitle } from "~ui/utils/HasTitle"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -46,7 +46,7 @@ export const ButtonIconOnly: Component<ButtonIconOnlyProps> = (p) => {
       {...rest}
     >
       {!s.iconRight && (
-        <Icon0
+        <Icon
           path={s.icon}
           class={buttonIconCva(
             s.variant,
@@ -58,7 +58,7 @@ export const ButtonIconOnly: Component<ButtonIconOnlyProps> = (p) => {
         />
       )}
       {s.children}
-      {s.iconRight && <Icon0 path={s.icon} class={buttonIconCva(s.variant, s.iconClass)} />}
+      {s.iconRight && <Icon path={s.icon} class={buttonIconCva(s.variant, s.iconClass)} />}
     </button>
   )
 }

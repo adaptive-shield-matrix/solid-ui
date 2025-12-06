@@ -1,6 +1,6 @@
 import { mdiCheckCircleOutline } from "@mdi/js"
 import { Show } from "solid-js"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import { classesPageWrapper } from "~ui/static/page/classesPageWrapper"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
@@ -29,7 +29,7 @@ export function SuccessPage(p: SuccessPageProps) {
     <div class={classMerge(classesPageWrapper, p.class)}>
       <div class={classMerge(classesPageWrapperInner, p.innerClass)}>
         <Show when={p.icon}>
-          <Icon1
+          <Icon
             path={p.icon ?? mdiCheckCircleOutline}
             class={classMerge(
               "w-16 h-16", // sizing

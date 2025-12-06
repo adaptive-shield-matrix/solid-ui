@@ -2,7 +2,7 @@ import { splitProps } from "solid-js"
 import { buttonCva2 } from "~ui/interactive/button/buttonCva"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import type { LinkButtonProps } from "~ui/interactive/link/LinkButtonProps"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 
 export function LinkButton(p: LinkButtonProps) {
   const [s, rest] = splitProps(p, [
@@ -30,9 +30,9 @@ export function LinkButton(p: LinkButtonProps) {
       // disabled={disabled}
       {...rest}
     >
-      {s.icon && <Icon1 path={s.icon} class={buttonIconCva(s.variant, s.children && "mr-2", s.iconClass)} />}
+      {s.icon && <Icon path={s.icon} class={buttonIconCva(s.variant, s.children && "mr-2", s.iconClass)} />}
       {s.children}
-      {s.iconRight && <Icon1 path={s.iconRight} class={buttonIconCva(s.variant, s.children && "ml-2", s.iconClass)} />}
+      {s.iconRight && <Icon path={s.iconRight} class={buttonIconCva(s.variant, s.children && "ml-2", s.iconClass)} />}
     </a>
   )
 }

@@ -5,7 +5,7 @@ import { buttonCvaIconOnly, type ButtonCvaProps } from "~ui/interactive/button/b
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
 import { classesPopoverContentMerge } from "~ui/interactive/popover/classesPopoverContent"
-import { Icon0 } from "~ui/static/icon/Icon0"
+import { Icon } from "~ui/static/icon/Icon"
 import type { HasIcon } from "~ui/utils/HasIcon"
 import type { HasTitle } from "~ui/utils/HasTitle"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
@@ -54,7 +54,7 @@ export const CorvuPopoverIcon: Component<CorvuPopoverIconProps> = (p) => {
         title={s.title}
         {...rest}
       >
-        <Icon0
+        <Icon
           path={s.icon}
           class={buttonIconCva(
             s.variant,

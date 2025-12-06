@@ -1,5 +1,5 @@
 import { mdiAlertBoxOutline } from "@mdi/js"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import type { HasTitle } from "~ui/utils/HasTitle"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
@@ -27,7 +27,7 @@ export function ErrorPage(p: ErrorPageProps) {
           "p-8 text-center", // spacing + typography
         )}
       >
-        <Icon1
+        <Icon
           path={p.icon ?? mdiAlertBoxOutline}
           class={classMerge(
             "w-16 h-16 mx-auto", // sizing + layout

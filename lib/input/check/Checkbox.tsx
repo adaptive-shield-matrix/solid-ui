@@ -1,7 +1,7 @@
 import { mdiCheckboxBlankOutline, mdiCheckboxMarked } from "@mdi/js"
 import { splitProps, type ComponentProps } from "solid-js"
 import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveDisabled } from "~ui/utils/MayHaveDisabled"
@@ -51,7 +51,7 @@ export function Checkbox(p: CheckboxProps) {
           }
         }}
       >
-        <Icon1 path={s.checked ? mdiCheckboxMarked : mdiCheckboxBlankOutline} class="size-6 text-current" />
+        <Icon path={s.checked ? mdiCheckboxMarked : mdiCheckboxBlankOutline} class="size-6 text-current" />
       </div>
       <label
         id={s.id ? `${s.id}-label` : undefined}

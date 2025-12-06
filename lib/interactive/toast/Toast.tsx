@@ -7,7 +7,7 @@ import type { ToastPropsInternal, ToastTexts } from "~ui/interactive/toast/Toast
 import { toastCva } from "~ui/interactive/toast/toastCva"
 import { toastDismiss } from "~ui/interactive/toast/toastDismiss"
 import { toastIconCva } from "~ui/interactive/toast/toastIconCva"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import { classMerge } from "~ui/utils/classMerge"
 
 export function Toast(p: ToastPropsInternal) {
@@ -36,7 +36,7 @@ function ToastHeader(p: ToastHeaderProps) {
   return (
     <div class={classMerge("flex flex-wrap", "gap-2", "items-center", "print:hidden")}>
       <Show when={p.icon}>
-        <Icon1 path={p.icon!} class={toastIconCva(p.variant, p.iconClass)} />
+        <Icon path={p.icon!} class={toastIconCva(p.variant, p.iconClass)} />
       </Show>
       <p class={classMerge("text-lg font-bold break-words flex-1", p.titleClass)}>{p.title}</p>
       <Show when={p.description}>

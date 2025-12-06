@@ -1,6 +1,6 @@
 import { mdiBrain, mdiCodeTags, mdiPencilRuler, mdiRocketLaunch, mdiTestTube } from "@mdi/js"
 import type { JSXElement } from "solid-js"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import { Timeline } from "~ui/static/timeline/Timeline"
 
 export function DemoTimeline() {
@@ -12,27 +12,27 @@ export function DemoTimeline() {
     {
       title: "Planning",
       description: "Define project goals and scope",
-      bullet: <Icon1 path={mdiBrain} class="h-4 w-4" />,
+      bullet: <Icon path={mdiBrain} class="h-4 w-4" />,
     },
     {
       title: "Design",
       description: "Create wireframes and mockups",
-      bullet: <Icon1 path={mdiPencilRuler} class="h-4 w-4" />,
+      bullet: <Icon path={mdiPencilRuler} class="h-4 w-4" />,
     },
     {
       title: "Development",
       description: "Implement features and functionality",
-      bullet: <Icon1 path={mdiCodeTags} class="h-4 w-4" />,
+      bullet: <Icon path={mdiCodeTags} class="h-4 w-4" />,
     },
     {
       title: "Testing",
       description: "Ensure quality and fix issues",
-      bullet: <Icon1 path={mdiTestTube} class="h-4 w-4" />,
+      bullet: <Icon path={mdiTestTube} class="h-4 w-4" />,
     },
     {
       title: "Deployment",
       description: "Launch the product",
-      bullet: <Icon1 path={mdiRocketLaunch} class="h-4 w-4" />,
+      bullet: <Icon path={mdiRocketLaunch} class="h-4 w-4" />,
     },
   ]
 

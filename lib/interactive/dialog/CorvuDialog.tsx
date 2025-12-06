@@ -9,7 +9,7 @@ import { classesButtonClickAnimation } from "~ui/interactive/button/classesButto
 import { classesDialogContentMerge, classesDialogOverlayMerge } from "~ui/interactive/dialog/classesDialogContent"
 import type { CorcuDialogTexts } from "~ui/interactive/dialog/CorcuDialogTexts"
 import { corvuDialogTextDefault } from "~ui/interactive/dialog/CorcuDialogTexts"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import { classMerge } from "~ui/utils/classMerge"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
@@ -38,10 +38,10 @@ export function CorvuDialog(p: CorvuDialogProps) {
           p.class,
         )}
       >
-        {p.icon && <Icon1 path={p.icon} class={buttonIconCva(p.variant, p.buttonChildren && "mr-2", p.iconClass)} />}
+        {p.icon && <Icon path={p.icon} class={buttonIconCva(p.variant, p.buttonChildren && "mr-2", p.iconClass)} />}
         {p.buttonChildren}
         {p.iconRight && (
-          <Icon1 path={p.iconRight} class={buttonIconCva(p.variant, p.buttonChildren && "ml-2", p.iconClass)} />
+          <Icon path={p.iconRight} class={buttonIconCva(p.variant, p.buttonChildren && "ml-2", p.iconClass)} />
         )}
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -57,7 +57,7 @@ export function CorvuDialog(p: CorvuDialogProps) {
               )}
             </div>
             <Dialog.Close class={buttonCvaIconOnly(buttonVariant.outline, false, false)} title={texts.closeDialog}>
-              <Icon1 path={mdiClose} class={buttonIconCva(buttonVariant.outline, "")} />
+              <Icon path={mdiClose} class={buttonIconCva(buttonVariant.outline, "")} />
             </Dialog.Close>
           </header>
           {p.children}

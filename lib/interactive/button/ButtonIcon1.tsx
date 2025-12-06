@@ -3,7 +3,7 @@ import { classesDisabledDirectly } from "~ui/classes/classesDisabledDirectly"
 import { buttonCva2, type ButtonCvaProps } from "~ui/interactive/button/buttonCva"
 import { buttonIconCva } from "~ui/interactive/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/interactive/button/classesButtonClickAnimation"
-import { Icon1 } from "~ui/static/icon/Icon1"
+import { Icon } from "~ui/static/icon/Icon"
 import type { MayHaveChildren } from "~ui/utils/MayHaveChildren"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
@@ -58,9 +58,9 @@ export const ButtonIcon1: Component<ButtonIcon1Props> = (p) => {
       type={s.type ?? "button"}
       {...rest}
     >
-      {s.icon && <Icon1 path={s.icon} class={buttonIconCva(s.variant, s.children && "mr-2", s.iconClass)} />}
+      {s.icon && <Icon path={s.icon} class={buttonIconCva(s.variant, s.children && "mr-2", s.iconClass)} />}
       {s.children}
-      {s.iconRight && <Icon1 path={s.iconRight} class={buttonIconCva(s.variant, s.children && "ml-2", s.iconClass)} />}
+      {s.iconRight && <Icon path={s.iconRight} class={buttonIconCva(s.variant, s.children && "ml-2", s.iconClass)} />}
     </button>
   )
 }
