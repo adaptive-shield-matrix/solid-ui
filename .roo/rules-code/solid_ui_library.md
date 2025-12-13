@@ -94,9 +94,8 @@ Generated at: 2025-12-06 11:21
 - ~/static/lists/BlackBulletPoint.tsx
 - ~/static/lists/BlueBulletPoint.tsx
 - ~/static/meta/SetPageTitle.tsx
-- ~/static/icon/Icon1.tsx
+- ~/static/icon/Icon.tsx
 - ~/static/icon/linkIcons.ts
-- ~/static/icon/Icon0.tsx
 - ~/static/icon/IconGoogle.tsx
 - ~/generate_demo_list/parts/removeDemoObjectValueQuotes.ts
 - ~/generate_demo_list/parts/sortDemoObjectKeys.ts
