@@ -39,12 +39,12 @@ export function Details(p: DetailsProps) {
             <Show when={p.icon}>
               <Icon path={p.icon!} class="size-7 mt-1" />
             </Show>
-            <div>
+            <span>
               <h3 class={"text-xl font-semibold"}>{p.title}</h3>
               <Show when={p.subtitle}>
-                <p class={"text-muted-foreground mt-1"}>{p.subtitle}</p>
+                <span class={"text-muted-foreground mt-1"}>{p.subtitle}</span>
               </Show>
-            </div>
+            </span>
           </div>
         </Show>
         <Show when={p.summaryEl}>{p.summaryEl}</Show>
