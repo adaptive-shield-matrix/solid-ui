@@ -5,7 +5,7 @@ import { NavDemo } from "@/nav/NavDemo"
 import { Router } from "@solidjs/router"
 import { render } from "solid-js/web"
 import { generateDemoRoutes } from "~ui/demo_pages/generateDemoRoutes"
-import "./global.css"
+import "./tailwind.css"
 
 const root = document.getElementById("root")
 

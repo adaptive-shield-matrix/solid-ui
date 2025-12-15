@@ -44,7 +44,7 @@ bun add solid-js clsx tailwind-merge valibot dayjs @solid-primitives/keyed @soli
 
 ## Setup: Tailwind CSS Configuration
 
-To ensure Tailwind scans the library's source files for classes (since components are published as source without a build step), add the following `@source` directive to your project's `src/layouts/global.css` (or equivalent global stylesheet):
+To ensure Tailwind scans the library's source files for classes (since components are published as source without a build step), add the following `@source` directive to your project's `src/layouts/tailwind.css` (or equivalent global stylesheet):
 
 ```css
 @source '/node_modules/@adaptive-sm/solid-ui/export/**/*.{astro,html,md,mdx,ts,tsx}';
