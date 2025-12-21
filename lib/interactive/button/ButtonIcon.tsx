@@ -69,7 +69,7 @@ export const ButtonIcon: Component<ButtonIconProps> = (p) => {
           class={buttonIconCva(
             s.validationMessage ? s.validationVariant : s.variant,
             s.children && "mr-2",
-            s.isLoading && "animate-spin-faster",
+            s.isLoading && "animate-spin",
             s.iconClass,
           )}
         />
@@ -81,7 +81,7 @@ export const ButtonIcon: Component<ButtonIconProps> = (p) => {
           class={buttonIconCva(
             s.validationMessage ? s.validationVariant : s.variant,
             s.children && "ml-2",
-            s.isLoading && "animate-spin-faster",
+            s.isLoading && "animate-spin",
             s.iconClass,
           )}
         />
