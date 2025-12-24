@@ -1,7 +1,7 @@
 # Available Solid.js UI Components and utility functions
 
 These components from @adaptive-sm/solid-ui can be imported using the `~ui/` alias.
-Generated at: 2025-12-06 11:21
+Generated at: 2025-12-24 10:22
 
 - ~/i18n/ttt.ts
 - ~/table/shared/DesktopTableClassNames.ts
@@ -40,6 +40,7 @@ Generated at: 2025-12-06 11:21
 - ~/input/input/InputDatalist.tsx
 - ~/input/input/InputS.tsx
 - ~/input/input/Input.tsx
+- ~/input/input/classesInput.ts
 - ~/input/search/searchInputSignal.ts
 - ~/input/label/Label.tsx
 - ~/input/label/LabelAsterixTexts.ts
@@ -69,6 +70,7 @@ Generated at: 2025-12-06 11:21
 - ~/static/loaders/LoaderShuffle9Squares.tsx
 - ~/static/text/commonHeaderClass.ts
 - ~/static/img/TypedImg.tsx
+- ~/static/img/TypedImgB2.tsx
 - ~/static/img/Img.tsx
 - ~/static/img/classesImgZoomInOnHover5.ts
 - ~/static/img/classesImgZoomInOnHover10.ts
@@ -87,6 +89,13 @@ Generated at: 2025-12-06 11:21
 - ~/static/page/PageWrapper.tsx
 - ~/static/page/classesPageWrapper.ts
 - ~/static/page/classesPageCentered.ts
+- ~/static/icons/iconGithub.ts
+- ~/static/icons/iconLinkedin.ts
+- ~/static/icons/iconNpm.ts
+- ~/static/icons/iconTelegram.ts
+- ~/static/icons/iconXcom.ts
+- ~/static/icons/iconGoogle.ts
+- ~/static/icons/iconTrello.ts
 - ~/static/pages/ErrorPage.tsx
 - ~/static/pages/SuccessPage.tsx
 - ~/static/badge/badgeCva.tsx
