@@ -22,6 +22,13 @@ export function getFormModeTitle(mode: FormMode, subject: string): string {
   }
 }
 
+export function getFormModeButtonTitle(mode: FormMode, subject: string): string {
+  if (mode === formMode.edit) {
+    return ttt("Save") + " " + subject
+  }
+  return getFormModeTitle(mode, subject)
+}
+
 export interface HasFormMode {
   mode: FormMode
 }
