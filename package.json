@@ -18,7 +18,7 @@
     "upload": "bun run wrangler pages deploy ./out --project-name=adaptive-solid-ui --commit-dirty",
     "tag:deployed": "git branch -f deployed",
     "release": "bash ./ops/release.sh",
-    "generateDemoList": "bun run ./src/demos/generateDemoList.cli.ts",
+    "generateDemoList": "bun run ./src/app/demos/generateDemoList.cli.ts",
     "generateRulesUiLib": "bash ./lib/generate_ai_rules/generate_agent_rules_1_lib.bash",
     "update": "nice -15 bun x npm-check-updates -u && bun i",
     "update:commit": "bun x npm-check-updates -u && bun i && git add package.json && bun run tsc && git commit -m \"chore(deps): update dependencies\" && git push",
