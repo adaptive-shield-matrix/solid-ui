@@ -71,6 +71,11 @@ const DemoSelectMultiple = lazy(async () => {
   return { default: c.DemoSelectMultiple }
 })
 
+const DemoStyles = lazy(async () => {
+  const c = await import("@/demos/static/DemoStyles")
+  return { default: c.DemoStyles }
+})
+
 const DemoIcons = lazy(async () => {
   const c = await import("@/demos/static/DemoIcons")
   return { default: c.DemoIcons }
@@ -81,6 +86,11 @@ const DemoBadge = lazy(async () => {
   return { default: c.DemoBadge }
 })
 
+const DemoCard = lazy(async () => {
+  const c = await import("@/demos/static/DemoCard")
+  return { default: c.DemoCard }
+})
+
 const DemoSeparators = lazy(async () => {
   const c = await import("@/demos/static/DemoSeparators")
   return { default: c.DemoSeparators }
@@ -89,6 +99,11 @@ const DemoSeparators = lazy(async () => {
 const DemoLoaders = lazy(async () => {
   const c = await import("@/demos/static/DemoLoaders")
   return { default: c.DemoLoaders }
+})
+
+const DemoFeatureGridSection = lazy(async () => {
+  const c = await import("@/demos/static/DemoFeatureGridSection")
+  return { default: c.DemoFeatureGridSection }
 })
 
 const DemoTimeline = lazy(async () => {
@@ -171,6 +186,11 @@ const DemoDetails = lazy(async () => {
   return { default: c.DemoDetails }
 })
 
+const DemoSidebar = lazy(async () => {
+  const c = await import("@/demos/interactive/DemoSidebar")
+  return { default: c.DemoSidebar }
+})
+
 const DemoDialog = lazy(async () => {
   const c = await import("@/demos/interactive/DemoDialog")
   return { default: c.DemoDialog }
@@ -211,6 +231,7 @@ export const demoList = {
     DemoToggle: DemoToggle,
     DemoTheme: DemoTheme,
     DemoDetails: DemoDetails,
+    DemoSidebar: DemoSidebar,
     DemoDialog: DemoDialog,
     DemoButtons: DemoButtons,
     DemoPopover: DemoPopover,
@@ -227,10 +248,13 @@ export const demoList = {
     DemoUseSubmission1: DemoUseSubmission1,
   },
   static: {
+    DemoStyles: DemoStyles,
     DemoIcons: DemoIcons,
     DemoBadge: DemoBadge,
+    DemoCard: DemoCard,
     DemoSeparators: DemoSeparators,
     DemoLoaders: DemoLoaders,
+    DemoFeatureGridSection: DemoFeatureGridSection,
     DemoTimeline: DemoTimeline,
     DemoBadges: DemoBadges,
   },

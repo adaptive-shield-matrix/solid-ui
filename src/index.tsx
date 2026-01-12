@@ -1,6 +1,6 @@
 /* @refresh reload */
 
-import { demoList } from "@/demos/demoList"
+import { demoList } from "@/app/demos/demoList"
 import { NavDemo } from "@/nav/NavDemo"
 import { Router } from "@solidjs/router"
 import { render } from "solid-js/web"
