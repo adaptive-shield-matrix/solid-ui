@@ -8,18 +8,6 @@ import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { ThemeButtonText } from "~ui/interactive/theme/ThemeButtonText"
 import { themeButtonTextDefault } from "~ui/interactive/theme/ThemeButtonText"
 
-function createGlobalKeyHandler(navigate: (to: string) => void) {
-  return (e: KeyboardEvent) => {
-    if (e.key === "s" && e.altKey) {
-      e.preventDefault()
-      themeRotate()
-    } else if (e.key === "d" && e.altKey) {
-      e.preventDefault()
-      navigate("/demos")
-    }
-  }
-}
-
 export interface ThemeButtonProps extends MayHaveClass {
   showText?: boolean
   texts?: ThemeButtonText
@@ -51,4 +39,16 @@ export function ThemeButton(p: ThemeButtonProps) {
       {p.showText && themeName}
     </ButtonIconOnly>
   )
+}
+
+function createGlobalKeyHandler(navigate: (to: string) => void) {
+  return (e: KeyboardEvent) => {
+    if (e.key === "s" && e.altKey) {
+      e.preventDefault()
+      themeRotate()
+    } else if (e.key === "d" && e.altKey) {
+      e.preventDefault()
+      navigate("/demos")
+    }
+  }
 }
