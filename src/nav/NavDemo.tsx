@@ -24,9 +24,8 @@ export function NavDemo(p: DemoNavProps) {
       class={classMerge("flex flex-wrap items-center justify-between p-1 gap-1 max-w-4xl mx-auto", s.class)}
       {...rest}
     >
-      <div class="flex flex-wrap items-center justify-center"></div>
-      <div class={"flex flex-wrap items-center gap-1"}>
-        <LogoImageText logoText="solid-ui" logoTextClass="text-lg font-semibold" />
+      <div class={"flex flex-wrap gap-1"}>
+        <LogoImageText logoText="solid-ui" logoTextClass="text-lg font-semibold" class="sm:pl-0" />
         {/* <LogoImageOnly /> */}
         {s.category && (
           <>
@@ -55,7 +54,7 @@ export function NavDemo(p: DemoNavProps) {
       <LinkButton variant={buttonVariant.ghost} icon={iconNpm} iconClass="size-8" href={npmUrl} title="NPM">
         Package
       </LinkButton>
-      <ThemeButton showText={true} class="rounded-md" />
+      <ThemeButton showText={true} class="rounded-md sm:pr-0" />
     </nav>
   )
 }
