@@ -15,7 +15,7 @@ export function Icon(p: IconProps) {
       stroke-width={0.5}
       class={classMerge("size-6 shrink-0 align-middle dark:fill-white", p.class)}
     >
-      <path d={p.path}></path>
+      <path d={p.path} />
     </svg>
   )
 }
