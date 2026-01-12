@@ -5,7 +5,7 @@ import { Button } from "~ui/interactive/button/Button"
 import { buttonVariant } from "~ui/interactive/button/buttonCva"
 import { ButtonIcon } from "~ui/interactive/button/ButtonIcon"
 import { ButtonIconOnly } from "~ui/interactive/button/ButtonIconOnly"
-import { NativeDialog } from "~ui/interactive/dialog/NativeDialog"
+import { CorvuDialog } from "~ui/interactive/dialog/CorvuDialog"
 import type { TableColumnDef } from "~ui/table/shared/TableColumnDef"
 import { createTable2Signals } from "~ui/table/table2/createSortableTableSignals"
 import { Table2R } from "~ui/table/table2/Table2R"
@@ -156,13 +156,10 @@ function EditDialog(p: { d: Person }) {
     updateTableState()
   }
   return (
-    <NativeDialog
-      buttonProps={{
-        icon: formModeIcon.edit,
-        variant: buttonVariant.ghost,
-        title: "Edit",
-        onClick: () => updateFormState(p.d),
-      }}
+    <CorvuDialog
+      icon={formModeIcon.edit}
+      variant={buttonVariant.ghost}
+      onClick={() => updateFormState(p.d)}
       title={"Edit profile"}
       description={"Make changes to your profile here. Click save when you're done."}
     >
@@ -177,6 +174,6 @@ function EditDialog(p: { d: Person }) {
         </label>
         <Button type="submit">Save changes</Button>
       </form>
-    </NativeDialog>
+    </CorvuDialog>
   )
 }
