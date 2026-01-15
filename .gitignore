@@ -96,3 +96,7 @@ AGENTS.md
 /discarded
 /docs
 /export
+
+# Local images (original quality, not committed)
+/public-images
+/public-image-versions

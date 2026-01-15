@@ -14,7 +14,7 @@
     "rsbuild:dev": "nice -5 rsbuild dev",
     "rsbuild:build": "nice -15 rsbuild build",
     "rsbuild:deploy": "bun run rsbuild:build && bun run solid:upload && bun run tag:deployed",
-    "deploy": "bun run build && bun run upload && bun run tag:deployed",
+    "deploy": "bash ./ops/deploy.bash",
     "upload": "bun run wrangler pages deploy ./out --project-name=adaptive-solid-ui --commit-dirty",
     "tag:deployed": "git branch -f deployed",
     "release": "bash ./ops/release.sh",

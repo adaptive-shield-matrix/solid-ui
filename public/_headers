@@ -22,3 +22,8 @@
 # 1 year (31556952 seconds)
 /assets/*
   Cache-Control: public, max-age=31556952, immutable
+
+# Cache-Control for images from /public-images/ folder
+# 24 hours (86400 seconds)
+/images/*
+  Cache-Control: public, max-age=86400

@@ -1,12 +1,12 @@
 (shared_config_solid_ui) {
-	handle_path /media-b2* {
+	handle_path /images* {
 		rewrite * {path}
+		root * /home/david/Coding/adaptive-solid-ui/public-images
+		file_server
 		header {
-			Routed "astro-media-b2"
+			Routed "solid-ui-images"
 			Cache-Control "public, max-age=60, immutable"
 		}
-		root * /home/david/Coding/adaptive-solid-ui-media
-		file_server
 	}
 }
 
