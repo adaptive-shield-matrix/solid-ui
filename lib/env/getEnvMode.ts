@@ -1,6 +1,6 @@
 import { envMode, type EnvMode } from "./envMode"
 
-export function getEnvMode(): EnvMode {
+export function getEnvMode(fallback: EnvMode = envMode.production): EnvMode {
   // Overwrite Convex env mode
   if (typeof process !== "undefined" && process.env?.ENV_MODE) {
     return process.env.ENV_MODE as EnvMode
@@ -14,5 +14,5 @@ export function getEnvMode(): EnvMode {
     return import.meta.env.MODE as EnvMode
   }
   // Fallback to production for safety
-  return envMode.production
+  return fallback
 }

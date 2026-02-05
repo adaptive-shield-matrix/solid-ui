@@ -4,4 +4,5 @@ export const envMode = {
   development: "development",
   production: "production",
   test: "test",
+  missing: "missing",
 } as const
